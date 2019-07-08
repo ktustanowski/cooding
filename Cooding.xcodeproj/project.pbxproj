@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9A51E67122D3BA1200A27ACF /* Core.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9AF9590C22C8E17D0055B204 /* Core.framework */; };
 		9AF958BD22C8DCD10055B204 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AF958BC22C8DCD10055B204 /* AppDelegate.swift */; };
 		9AF958BF22C8DCD10055B204 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AF958BE22C8DCD10055B204 /* ViewController.swift */; };
 		9AF958C222C8DCD10055B204 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9AF958C022C8DCD10055B204 /* Main.storyboard */; };
@@ -24,6 +25,20 @@
 			remoteGlobalIDString = 9AF958B822C8DCD10055B204;
 			remoteInfo = Cooding;
 		};
+		9AF9590B22C8E17D0055B204 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9AF9590622C8E17C0055B204 /* Core.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 9AF958EC22C8E17C0055B204;
+			remoteInfo = Core;
+		};
+		9AF9590D22C8E17D0055B204 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9AF9590622C8E17C0055B204 /* Core.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 9AF958F522C8E17C0055B204;
+			remoteInfo = CoreTests;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +53,8 @@
 		9AF958D022C8DCD30055B204 /* CoodingTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CoodingTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9AF958D422C8DCD30055B204 /* CoodingTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoodingTests.swift; sourceTree = "<group>"; };
 		9AF958D622C8DCD30055B204 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9AF9590622C8E17C0055B204 /* Core.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Core.xcodeproj; path = Core/Core.xcodeproj; sourceTree = "<group>"; };
+		9AF9591722C8E4FD0055B204 /* Playground.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = Playground.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -45,6 +62,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9A51E67122D3BA1200A27ACF /* Core.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -58,12 +76,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		9A51E67022D3BA1200A27ACF /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		9AF958B022C8DCD10055B204 = {
 			isa = PBXGroup;
 			children = (
+				9AF9591722C8E4FD0055B204 /* Playground.playground */,
+				9AF9590622C8E17C0055B204 /* Core.xcodeproj */,
 				9AF958BB22C8DCD10055B204 /* Cooding */,
 				9AF958D322C8DCD30055B204 /* CoodingTests */,
 				9AF958BA22C8DCD10055B204 /* Products */,
+				9A51E67022D3BA1200A27ACF /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -97,6 +125,15 @@
 				9AF958D622C8DCD30055B204 /* Info.plist */,
 			);
 			path = CoodingTests;
+			sourceTree = "<group>";
+		};
+		9AF9590722C8E17C0055B204 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				9AF9590C22C8E17D0055B204 /* Core.framework */,
+				9AF9590E22C8E17D0055B204 /* CoreTests.xctest */,
+			);
+			name = Products;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -167,6 +204,12 @@
 			mainGroup = 9AF958B022C8DCD10055B204;
 			productRefGroup = 9AF958BA22C8DCD10055B204 /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 9AF9590722C8E17C0055B204 /* Products */;
+					ProjectRef = 9AF9590622C8E17C0055B204 /* Core.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				9AF958B822C8DCD10055B204 /* Cooding */,
@@ -174,6 +217,23 @@
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		9AF9590C22C8E17D0055B204 /* Core.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = Core.framework;
+			remoteRef = 9AF9590B22C8E17D0055B204 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		9AF9590E22C8E17D0055B204 /* CoreTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = CoreTests.xctest;
+			remoteRef = 9AF9590D22C8E17D0055B204 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		9AF958B722C8DCD10055B204 /* Resources */ = {
@@ -365,6 +425,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = Cooding/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -382,6 +446,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = Cooding/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
