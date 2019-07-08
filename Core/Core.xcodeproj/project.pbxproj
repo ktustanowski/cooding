@@ -70,7 +70,6 @@
 		9A51E65422D2004000A27ACF /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				9A51E66F22D3B6AF00A27ACF /* PlaygroundCompatibility */,
 				9A51E66122D2020700A27ACF /* RxBlocking.framework */,
 				9A51E65F22D2020600A27ACF /* RxCocoa.framework */,
 				9A51E66222D2020700A27ACF /* RxRelay.framework */,
@@ -78,13 +77,6 @@
 				9A51E66322D2020700A27ACF /* RxTest.framework */,
 			);
 			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		9A51E66F22D3B6AF00A27ACF /* PlaygroundCompatibility */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = PlaygroundCompatibility;
 			sourceTree = "<group>";
 		};
 		9AF958E222C8E17C0055B204 = {
