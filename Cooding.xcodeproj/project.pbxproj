@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		9A51E67122D3BA1200A27ACF /* Core.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9AF9590C22C8E17D0055B204 /* Core.framework */; };
+		9A51E67922E768C500A27ACF /* SnapshotTesting.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A51E67822E768C500A27ACF /* SnapshotTesting.framework */; };
+		9A51E68522E76AFE00A27ACF /* CookingViewControllerSnapshotTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A51E68422E76AFE00A27ACF /* CookingViewControllerSnapshotTests.swift */; };
+		9A705D0A22E7A351003AA381 /* StepStub.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A705D0922E7A351003AA381 /* StepStub.swift */; };
 		9AF958BD22C8DCD10055B204 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AF958BC22C8DCD10055B204 /* AppDelegate.swift */; };
 		9AF958C222C8DCD10055B204 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9AF958C022C8DCD10055B204 /* Main.storyboard */; };
 		9AF958C522C8DCD10055B204 /* Cooding.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 9AF958C322C8DCD10055B204 /* Cooding.xcdatamodeld */; };
@@ -41,6 +44,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		9A51E67822E768C500A27ACF /* SnapshotTesting.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SnapshotTesting.framework; path = Carthage/Build/iOS/SnapshotTesting.framework; sourceTree = "<group>"; };
+		9A51E68422E76AFE00A27ACF /* CookingViewControllerSnapshotTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CookingViewControllerSnapshotTests.swift; sourceTree = "<group>"; };
+		9A705D0922E7A351003AA381 /* StepStub.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StepStub.swift; sourceTree = "<group>"; };
 		9AF958B922C8DCD10055B204 /* Cooding.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Cooding.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9AF958BC22C8DCD10055B204 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9AF958C122C8DCD10055B204 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -68,6 +74,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9A51E67922E768C500A27ACF /* SnapshotTesting.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -77,8 +84,32 @@
 		9A51E67022D3BA1200A27ACF /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				9A51E67822E768C500A27ACF /* SnapshotTesting.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		9A51E68022E76ABC00A27ACF /* New Group */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "New Group";
+			sourceTree = "<group>";
+		};
+		9A51E68322E76AFE00A27ACF /* Screens */ = {
+			isa = PBXGroup;
+			children = (
+				9A51E68422E76AFE00A27ACF /* CookingViewControllerSnapshotTests.swift */,
+			);
+			path = Screens;
+			sourceTree = "<group>";
+		};
+		9A705D0622E7A33E003AA381 /* Mocks & Stubs */ = {
+			isa = PBXGroup;
+			children = (
+				9A705D0922E7A351003AA381 /* StepStub.swift */,
+			);
+			path = "Mocks & Stubs";
 			sourceTree = "<group>";
 		};
 		9AF958B022C8DCD10055B204 = {
@@ -118,8 +149,11 @@
 		9AF958D322C8DCD30055B204 /* CoodingTests */ = {
 			isa = PBXGroup;
 			children = (
+				9A705D0622E7A33E003AA381 /* Mocks & Stubs */,
+				9A51E68322E76AFE00A27ACF /* Screens */,
 				9AF958D422C8DCD30055B204 /* CoodingTests.swift */,
 				9AF958D622C8DCD30055B204 /* Info.plist */,
+				9A51E68022E76ABC00A27ACF /* New Group */,
 			);
 			path = CoodingTests;
 			sourceTree = "<group>";
@@ -161,6 +195,7 @@
 				9AF958CC22C8DCD30055B204 /* Sources */,
 				9AF958CD22C8DCD30055B204 /* Frameworks */,
 				9AF958CE22C8DCD30055B204 /* Resources */,
+				9A51E67C22E7697600A27ACF /* Carthage Copy Frameworks */,
 			);
 			buildRules = (
 			);
@@ -272,6 +307,26 @@
 			shellPath = /bin/sh;
 			shellScript = "if which swiftlint >/dev/null; then\nswiftlint\nelse\necho \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
 		};
+		9A51E67C22E7697600A27ACF /* Carthage Copy Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/Carthage/Build/iOS/SnapshotTesting.framework",
+			);
+			name = "Carthage Copy Frameworks";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/SnapshotTesting.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "/usr/local/bin/carthage copy-frameworks\n";
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -289,6 +344,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				9AF958D522C8DCD30055B204 /* CoodingTests.swift in Sources */,
+				9A51E68522E76AFE00A27ACF /* CookingViewControllerSnapshotTests.swift in Sources */,
+				9A705D0A22E7A351003AA381 /* StepStub.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -486,6 +543,10 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = CoodingTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -506,6 +567,10 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = CoodingTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

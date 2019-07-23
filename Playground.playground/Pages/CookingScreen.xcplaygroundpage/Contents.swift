@@ -56,7 +56,8 @@ import RxRelay
 //subject.onNext("Test")
 //subject.subscribe(onNext:{ print($0) }).disposed(by: bag)
 
-var cookingVC = CookingViewController()
+var cookingViewController = CookingViewController()
+var navigationController = UINavigationController(rootViewController: cookingViewController)
 
-//PlaygroundPage.current.needsIndefiniteExecution = true
-PlaygroundPage.current.liveView = cookingVC.view
+PlaygroundPage.current.liveView = navigationController.view
+PlaygroundPage.current.needsIndefiniteExecution = true
