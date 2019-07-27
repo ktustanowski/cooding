@@ -5,7 +5,6 @@ import RxSwift
 import RxRelay
 
 
-
 //let bag = DisposeBag()
 //
 //enum FetchWeatherError: Error {

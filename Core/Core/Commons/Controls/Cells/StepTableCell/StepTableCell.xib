@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="134" id="INz-cb-uOk" customClass="StepTableCell" customModule="Core" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="481" height="134"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="INz-cb-uOk" id="J6e-YX-PIr">
+                <rect key="frame" x="0.0" y="0.0" width="481" height="133.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="cP5-zX-iWy">
+                        <rect key="frame" x="20" y="10" width="441" height="113.5"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" spacing="11" translatesAutoresizingMaskIntoConstraints="NO" id="cLV-Fg-gdi">
+                                <rect key="frame" x="0.0" y="0.0" width="441" height="56.5"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" placeholderIntrinsicWidth="340.5" placeholderIntrinsicHeight="41" text="Think about cookin'" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Aru-Wl-pS9">
+                                        <rect key="frame" x="0.0" y="0.0" width="313.5" height="56.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <stackView opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="1000" axis="vertical" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="A9h-ya-R7J">
+                                        <rect key="frame" x="324.5" y="0.0" width="116.5" height="56.5"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalCompressionResistancePriority="1000" text="10:10:35" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ozV-NN-Vcx">
+                                                <rect key="frame" x="0.0" y="0.0" width="116.5" height="36"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalCompressionResistancePriority="1000" text="21:22" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="n67-UV-tsb">
+                                                <rect key="frame" x="0.0" y="36" width="116.5" height="20.5"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                            </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" placeholderIntrinsicWidth="441" placeholderIntrinsicHeight="52" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="5vW-hr-HZd">
+                                <rect key="frame" x="0.0" y="56.5" width="441" height="52"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" placeholderIntrinsicWidth="147" placeholderIntrinsicHeight="151.5" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="faW-Sx-PvJ">
+                                        <rect key="frame" x="0.0" y="0.0" width="220.5" height="52"/>
+                                        <state key="normal" title="Start"/>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zN9-qd-Xbt">
+                                        <rect key="frame" x="220.5" y="0.0" width="220.5" height="52"/>
+                                        <state key="normal" title="Done"/>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Pwa-Ov-Afg" customClass="ProgressView" customModule="Core" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="108.5" width="441" height="5"/>
+                                <color key="backgroundColor" red="0.16154552359945917" green="1" blue="0.14138963820490691" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="5" id="Ujc-CR-RZz"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                    </stackView>
+                </subviews>
+                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                <constraints>
+                    <constraint firstAttribute="trailing" secondItem="cP5-zX-iWy" secondAttribute="trailing" constant="20" id="Cro-Ok-jxh"/>
+                    <constraint firstItem="cP5-zX-iWy" firstAttribute="leading" secondItem="J6e-YX-PIr" secondAttribute="leading" constant="20" id="O64-K1-Lvx"/>
+                    <constraint firstItem="cP5-zX-iWy" firstAttribute="top" secondItem="J6e-YX-PIr" secondAttribute="top" constant="10" id="kBB-9h-bD5"/>
+                    <constraint firstAttribute="bottom" secondItem="cP5-zX-iWy" secondAttribute="bottom" constant="10" id="tsF-qp-beW"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="counterLabel" destination="ozV-NN-Vcx" id="6sw-QL-052"/>
+                <outlet property="descriptionLabel" destination="Aru-Wl-pS9" id="mCz-NV-Rmi"/>
+                <outlet property="doneButton" destination="zN9-qd-Xbt" id="XtN-6s-gUm"/>
+                <outlet property="endLabel" destination="n67-UV-tsb" id="iQ2-Cu-RI2"/>
+                <outlet property="progressView" destination="Pwa-Ov-Afg" id="OUz-4t-76G"/>
+                <outlet property="timerButton" destination="faW-Sx-PvJ" id="Nbt-Az-sCT"/>
+            </connections>
+            <point key="canvasLocation" x="-363.04347826086962" y="130.58035714285714"/>
+        </tableViewCell>
+    </objects>
+</document>

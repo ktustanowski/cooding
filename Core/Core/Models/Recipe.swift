@@ -42,6 +42,16 @@ public struct Step {
     public let dependencies: [Dependency]?
     public let ingredients: [Ingredient]?
     public let duration: TimeInterval?
+    
+    public init(description: String,
+                dependencies: [Dependency]? = nil,
+                ingredients: [Ingredient]? = nil,
+                duration: TimeInterval? = nil) {
+        self.description = description
+        self.dependencies = dependencies
+        self.ingredients = ingredients
+        self.duration = duration
+    }
 }
 
 public struct Dependency {

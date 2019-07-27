@@ -15,5 +15,5 @@ extension Step {
                     dependencies: [],
                     ingredients: [],
                     duration: nil)
-    }
+    }    
 }

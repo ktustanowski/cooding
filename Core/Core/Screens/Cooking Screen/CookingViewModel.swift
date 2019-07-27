@@ -10,7 +10,7 @@ import Foundation
 import RxSwift
 import RxRelay
 
-public protocol CookingViewModelProtocol {
+public protocol CookingViewModelProtocol: CookingViewModelProtocolInputs, CookingViewModelProtocolOutputs {
     var input: CookingViewModelProtocolInputs { get }
     var output: CookingViewModelProtocolOutputs { get }
 }
@@ -20,17 +20,18 @@ public protocol CookingViewModelProtocolInputs {
 }
 
 public protocol CookingViewModelProtocolOutputs {
-    var steps: BehaviorRelay<[StepCellViewModelProtocol]> { get }
+    var steps: Observable<[StepCellViewModelProtocol]> { get }
 }
 
-class CookingViewModel: CookingViewModelProtocol, CookingViewModelProtocolInputs, CookingViewModelProtocolOutputs {
+class CookingViewModel: CookingViewModelProtocol {
     var input: CookingViewModelProtocolInputs { return self }
     var output: CookingViewModelProtocolOutputs { return self }
     
     // MARK: Outputs
-    var steps = BehaviorRelay<[StepCellViewModelProtocol]>(value: [])
+    private let stepsRelay = BehaviorRelay<[StepCellViewModelProtocol]>(value: [])
+    var steps: Observable<[StepCellViewModelProtocol]> { return stepsRelay.asObservable() }
     
-    init(algorithm: Algorithm) {
-        steps.accept(algorithm.steps.map { StepCellViewModel(step: $0) })
+    init(algorithm: Algorithm) {        
+        stepsRelay.accept(algorithm.steps.map { StepCellViewModel(step: $0) })
     }
 }

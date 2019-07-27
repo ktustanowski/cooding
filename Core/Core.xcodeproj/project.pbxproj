@@ -7,14 +7,19 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9A1611B622EA5CED00FA053F /* UIView+Nib.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A1611B522EA5CED00FA053F /* UIView+Nib.swift */; };
 		9A3CD01022E7887100A329EC /* Recipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A3CD00F22E7887100A329EC /* Recipe.swift */; };
+		9A507CB122EA2A6100D1C8F9 /* StepTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A507CB022EA2A6100D1C8F9 /* StepTableCell.swift */; };
+		9A507CB422EA2A9A00D1C8F9 /* StepTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9A507CB322EA2A9A00D1C8F9 /* StepTableCell.xib */; };
+		9A507CB822EA2E6B00D1C8F9 /* XibMakeable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A507CB722EA2E6B00D1C8F9 /* XibMakeable.swift */; };
 		9A51E66422D2020700A27ACF /* RxCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A51E65F22D2020600A27ACF /* RxCocoa.framework */; };
 		9A51E66522D2020700A27ACF /* RxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A51E66022D2020700A27ACF /* RxSwift.framework */; };
 		9A51E66622D2020700A27ACF /* RxBlocking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A51E66122D2020700A27ACF /* RxBlocking.framework */; };
 		9A51E66722D2020700A27ACF /* RxRelay.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A51E66222D2020700A27ACF /* RxRelay.framework */; };
 		9A51E67722D677B300A27ACF /* Cartfile in Resources */ = {isa = PBXBuildFile; fileRef = 9A51E67622D677B300A27ACF /* Cartfile */; };
 		9A705D0D22E7AAB9003AA381 /* CookingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A705D0C22E7AAB9003AA381 /* CookingViewModel.swift */; };
-		9A705D0F22E7AB25003AA381 /* StepCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A705D0E22E7AB25003AA381 /* StepCellViewModel.swift */; };
+		9A976E2922EC505E00204894 /* StepTableCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A976E2822EC505E00204894 /* StepTableCellViewModel.swift */; };
+		9A976E2E22EC70F800204894 /* ProrgessView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A976E2D22EC70F800204894 /* ProrgessView.swift */; };
 		9AF958F622C8E17C0055B204 /* Core.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9AF958EC22C8E17C0055B204 /* Core.framework */; };
 		9AF958FB22C8E17C0055B204 /* CoreTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AF958FA22C8E17C0055B204 /* CoreTests.swift */; };
 		9AF958FD22C8E17C0055B204 /* Core.h in Headers */ = {isa = PBXBuildFile; fileRef = 9AF958EF22C8E17C0055B204 /* Core.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -33,7 +38,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		9A1611B522EA5CED00FA053F /* UIView+Nib.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Nib.swift"; sourceTree = "<group>"; };
 		9A3CD00F22E7887100A329EC /* Recipe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Recipe.swift; sourceTree = "<group>"; };
+		9A507CB022EA2A6100D1C8F9 /* StepTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StepTableCell.swift; sourceTree = "<group>"; };
+		9A507CB322EA2A9A00D1C8F9 /* StepTableCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = StepTableCell.xib; sourceTree = "<group>"; };
+		9A507CB722EA2E6B00D1C8F9 /* XibMakeable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XibMakeable.swift; sourceTree = "<group>"; };
 		9A51E65F22D2020600A27ACF /* RxCocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxCocoa.framework; path = Carthage/Build/iOS/RxCocoa.framework; sourceTree = "<group>"; };
 		9A51E66022D2020700A27ACF /* RxSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxSwift.framework; path = Carthage/Build/iOS/RxSwift.framework; sourceTree = "<group>"; };
 		9A51E66122D2020700A27ACF /* RxBlocking.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxBlocking.framework; path = Carthage/Build/iOS/RxBlocking.framework; sourceTree = "<group>"; };
@@ -41,7 +50,8 @@
 		9A51E66322D2020700A27ACF /* RxTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxTest.framework; path = Carthage/Build/iOS/RxTest.framework; sourceTree = "<group>"; };
 		9A51E67622D677B300A27ACF /* Cartfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Cartfile; sourceTree = "<group>"; };
 		9A705D0C22E7AAB9003AA381 /* CookingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CookingViewModel.swift; sourceTree = "<group>"; };
-		9A705D0E22E7AB25003AA381 /* StepCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StepCellViewModel.swift; sourceTree = "<group>"; };
+		9A976E2822EC505E00204894 /* StepTableCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StepTableCellViewModel.swift; sourceTree = "<group>"; };
+		9A976E2D22EC70F800204894 /* ProrgessView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProrgessView.swift; sourceTree = "<group>"; };
 		9AF958EC22C8E17C0055B204 /* Core.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Core.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9AF958EF22C8E17C0055B204 /* Core.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Core.h; sourceTree = "<group>"; };
 		9AF958F022C8E17C0055B204 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -75,6 +85,51 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		9A1611B722EA5CFE00FA053F /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				9A507CB722EA2E6B00D1C8F9 /* XibMakeable.swift */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
+		9A507CAE22EA2A3D00D1C8F9 /* Commons */ = {
+			isa = PBXGroup;
+			children = (
+				9A1611B722EA5CFE00FA053F /* Utilities */,
+				9A507CB622EA2E5900D1C8F9 /* Extensions */,
+				9A507CAF22EA2A4700D1C8F9 /* Controls */,
+			);
+			path = Commons;
+			sourceTree = "<group>";
+		};
+		9A507CAF22EA2A4700D1C8F9 /* Controls */ = {
+			isa = PBXGroup;
+			children = (
+				9A976E2C22EC70CA00204894 /* Views */,
+				9A976E2B22EC70BE00204894 /* Cells */,
+			);
+			path = Controls;
+			sourceTree = "<group>";
+		};
+		9A507CB222EA2A7A00D1C8F9 /* StepTableCell */ = {
+			isa = PBXGroup;
+			children = (
+				9A507CB022EA2A6100D1C8F9 /* StepTableCell.swift */,
+				9A976E2822EC505E00204894 /* StepTableCellViewModel.swift */,
+				9A507CB322EA2A9A00D1C8F9 /* StepTableCell.xib */,
+			);
+			path = StepTableCell;
+			sourceTree = "<group>";
+		};
+		9A507CB622EA2E5900D1C8F9 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				9A1611B522EA5CED00FA053F /* UIView+Nib.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		9A51E65422D2004000A27ACF /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -100,9 +155,24 @@
 			children = (
 				9AF9591222C8E1C90055B204 /* CookingViewController.swift */,
 				9A705D0C22E7AAB9003AA381 /* CookingViewModel.swift */,
-				9A705D0E22E7AB25003AA381 /* StepCellViewModel.swift */,
 			);
 			path = "Cooking Screen";
+			sourceTree = "<group>";
+		};
+		9A976E2B22EC70BE00204894 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				9A507CB222EA2A7A00D1C8F9 /* StepTableCell */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		9A976E2C22EC70CA00204894 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				9A976E2D22EC70F800204894 /* ProrgessView.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 		9AF958E222C8E17C0055B204 = {
@@ -128,10 +198,10 @@
 		9AF958EE22C8E17C0055B204 /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				9A507CAE22EA2A3D00D1C8F9 /* Commons */,
 				9A51E68622E7883A00A27ACF /* Models */,
 				9AF9591422C8E2100055B204 /* Flows */,
 				9AF9590F22C8E1950055B204 /* Screens */,
-				9AF9591022C8E1B10055B204 /* Common */,
 				9AF958EF22C8E17C0055B204 /* Core.h */,
 				9AF958F022C8E17C0055B204 /* Info.plist */,
 			);
@@ -153,21 +223,6 @@
 				9A705D0B22E7AA98003AA381 /* Cooking Screen */,
 			);
 			path = Screens;
-			sourceTree = "<group>";
-		};
-		9AF9591022C8E1B10055B204 /* Common */ = {
-			isa = PBXGroup;
-			children = (
-				9AF9591122C8E1B90055B204 /* UI */,
-			);
-			path = Common;
-			sourceTree = "<group>";
-		};
-		9AF9591122C8E1B90055B204 /* UI */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = UI;
 			sourceTree = "<group>";
 		};
 		9AF9591422C8E2100055B204 /* Flows */ = {
@@ -272,6 +327,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9A507CB422EA2A9A00D1C8F9 /* StepTableCell.xib in Resources */,
 				9A51E67722D677B300A27ACF /* Cartfile in Resources */,
 				9AF9591622C8E22E0055B204 /* Cooking.storyboard in Resources */,
 			);
@@ -340,10 +396,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9A976E2922EC505E00204894 /* StepTableCellViewModel.swift in Sources */,
 				9AF9591322C8E1C90055B204 /* CookingViewController.swift in Sources */,
 				9A3CD01022E7887100A329EC /* Recipe.swift in Sources */,
-				9A705D0F22E7AB25003AA381 /* StepCellViewModel.swift in Sources */,
+				9A1611B622EA5CED00FA053F /* UIView+Nib.swift in Sources */,
+				9A507CB822EA2E6B00D1C8F9 /* XibMakeable.swift in Sources */,
+				9A976E2E22EC70F800204894 /* ProrgessView.swift in Sources */,
 				9A705D0D22E7AAB9003AA381 /* CookingViewModel.swift in Sources */,
+				9A507CB122EA2A6100D1C8F9 /* StepTableCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -501,6 +561,9 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
+					"$(PROJECT_DIR)/Carthage/Build/watchOS",
+					"$(PROJECT_DIR)/Carthage/Build/Mac",
+					"$(PROJECT_DIR)/Carthage/Build/tvOS",
 				);
 				INFOPLIST_FILE = Core/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
@@ -531,6 +594,9 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
+					"$(PROJECT_DIR)/Carthage/Build/watchOS",
+					"$(PROJECT_DIR)/Carthage/Build/Mac",
+					"$(PROJECT_DIR)/Carthage/Build/tvOS",
 				);
 				INFOPLIST_FILE = Core/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
