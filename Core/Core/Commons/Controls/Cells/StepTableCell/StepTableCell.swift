@@ -32,7 +32,7 @@ public protocol StepCellViewModelProtocolOutputs {
 
 public class StepTableCell: UITableViewCell {
     private(set) var disposeBag = DisposeBag()
-    public var viewModel: StepCellViewModel! {
+    public var viewModel: StepCellViewModelProtocol! {
         didSet {
             bindViewModel()
         }
@@ -43,36 +43,42 @@ public class StepTableCell: UITableViewCell {
     @IBOutlet weak var endLabel: UILabel!
     @IBOutlet weak var timerButton: UIButton!
     @IBOutlet weak var doneButton: UIButton!
-    @IBOutlet weak var progressView: UIView!
+    @IBOutlet weak var durationControlsContainer: UIView!
     
     public override func awakeFromNib() {
         selectionStyle = .none
+        clear()
     }
     
     public override func prepareForReuse() {
         super.prepareForReuse()
-        
         disposeBag = DisposeBag()
+        descriptionLabel.text = nil
+        counterLabel.text = nil
+        endLabel.text = nil
+        timerButton.setTitle(nil, for: .normal)
+        clear()
     }
 }
 
 private extension StepTableCell {
+    func clear() {
+        descriptionLabel.text = nil
+        counterLabel.text = nil
+        endLabel.text = nil
+        timerButton.setTitle(nil, for: .normal)
+    }
+    
     func bindViewModel() {
-        let areControlsHidden = viewModel.output.isDurationAvailable.map { !$0 }
-        
+        let areControlsHidden = Observable.combineLatest(viewModel.output.isDurationAvailable,
+                                                         viewModel.output.isDone)
+            .map { $0 == false || $1 == true}
         disposeBag.insert(
             areControlsHidden
-                .bind(to: counterLabel.rx.isHidden),
-            areControlsHidden
-                .bind(to: endLabel.rx.isHidden),
-            areControlsHidden
-                .bind(to: timerButton.rx.isHidden),
-            areControlsHidden
-                .bind(to: progressView.rx.isHidden),
+                .bind(to: durationControlsContainer.rx.isHidden),
             viewModel.output.isDone
                 .bind(to: doneButton.rx.isHidden)
         )
-        
         disposeBag.insert (
             viewModel.output.title.bind(to: descriptionLabel.rx.text),
             viewModel.output.duration

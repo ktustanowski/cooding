@@ -20,6 +20,9 @@
 		9A705D0D22E7AAB9003AA381 /* CookingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A705D0C22E7AAB9003AA381 /* CookingViewModel.swift */; };
 		9A976E2922EC505E00204894 /* StepTableCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A976E2822EC505E00204894 /* StepTableCellViewModel.swift */; };
 		9A976E2E22EC70F800204894 /* ProrgessView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A976E2D22EC70F800204894 /* ProrgessView.swift */; };
+		9AF3509622ED97B700D42922 /* TimeInterval+Formatting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AF3509522ED97B700D42922 /* TimeInterval+Formatting.swift */; };
+		9AF3509822ED97D500D42922 /* TimeInterval+Convenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AF3509722ED97D500D42922 /* TimeInterval+Convenience.swift */; };
+		9AF3509A22ED97FD00D42922 /* Date+Formatting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AF3509922ED97FD00D42922 /* Date+Formatting.swift */; };
 		9AF958F622C8E17C0055B204 /* Core.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9AF958EC22C8E17C0055B204 /* Core.framework */; };
 		9AF958FB22C8E17C0055B204 /* CoreTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AF958FA22C8E17C0055B204 /* CoreTests.swift */; };
 		9AF958FD22C8E17C0055B204 /* Core.h in Headers */ = {isa = PBXBuildFile; fileRef = 9AF958EF22C8E17C0055B204 /* Core.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -52,6 +55,9 @@
 		9A705D0C22E7AAB9003AA381 /* CookingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CookingViewModel.swift; sourceTree = "<group>"; };
 		9A976E2822EC505E00204894 /* StepTableCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StepTableCellViewModel.swift; sourceTree = "<group>"; };
 		9A976E2D22EC70F800204894 /* ProrgessView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProrgessView.swift; sourceTree = "<group>"; };
+		9AF3509522ED97B700D42922 /* TimeInterval+Formatting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "TimeInterval+Formatting.swift"; path = "Core/Commons/Utilities/TimeInterval+Formatting.swift"; sourceTree = SOURCE_ROOT; };
+		9AF3509722ED97D500D42922 /* TimeInterval+Convenience.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TimeInterval+Convenience.swift"; sourceTree = "<group>"; };
+		9AF3509922ED97FD00D42922 /* Date+Formatting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Formatting.swift"; sourceTree = "<group>"; };
 		9AF958EC22C8E17C0055B204 /* Core.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Core.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9AF958EF22C8E17C0055B204 /* Core.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Core.h; sourceTree = "<group>"; };
 		9AF958F022C8E17C0055B204 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -126,6 +132,9 @@
 			isa = PBXGroup;
 			children = (
 				9A1611B522EA5CED00FA053F /* UIView+Nib.swift */,
+				9AF3509522ED97B700D42922 /* TimeInterval+Formatting.swift */,
+				9AF3509722ED97D500D42922 /* TimeInterval+Convenience.swift */,
+				9AF3509922ED97FD00D42922 /* Date+Formatting.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -396,9 +405,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9AF3509A22ED97FD00D42922 /* Date+Formatting.swift in Sources */,
 				9A976E2922EC505E00204894 /* StepTableCellViewModel.swift in Sources */,
 				9AF9591322C8E1C90055B204 /* CookingViewController.swift in Sources */,
+				9AF3509822ED97D500D42922 /* TimeInterval+Convenience.swift in Sources */,
 				9A3CD01022E7887100A329EC /* Recipe.swift in Sources */,
+				9AF3509622ED97B700D42922 /* TimeInterval+Formatting.swift in Sources */,
 				9A1611B622EA5CED00FA053F /* UIView+Nib.swift in Sources */,
 				9A507CB822EA2E6B00D1C8F9 /* XibMakeable.swift in Sources */,
 				9A976E2E22EC70F800204894 /* ProrgessView.swift in Sources */,

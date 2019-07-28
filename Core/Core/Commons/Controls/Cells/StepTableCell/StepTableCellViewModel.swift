@@ -30,51 +30,17 @@ public final class StepCellViewModel: StepCellViewModelProtocol, StepCellViewMod
     }
     
     // MARK: - Outputs
-    public var title: Observable<String> {
-        return .just(step.description)
-    }
-    
-    public lazy var duration: Observable<String> = {
-        return currentDuration?
-            .observeOn(MainScheduler.instance)
-            .compactMap { $0?.shortTime }
-            .map { "\($0)" }
-            .asObservable() ?? .empty()
-    }()
-    
-    public lazy var endTime: Observable<String> = {
-        return currentDuration?
-            .observeOn(MainScheduler.instance)
-            .compactMap { $0?.endTime }
-            .map { "\($0)" }
-            .asObservable() ?? .empty()
-    }()
-    
-    public var isDurationAvailable: Observable<Bool> {
-        return .just(step.duration != nil)
-    }
-    
-    public lazy var didTapDone: Observable<Void> = {
-        return didTapDoneRelay
-            .observeOn(MainScheduler.instance)
-            .asObservable()
-    }()
-    
-    public lazy var isDone: Observable<Bool> = {
-        return isDoneRelay
-            .observeOn(MainScheduler.instance)
-            .asObservable()
-    }()
-    
-    public lazy var isCountdown: Observable<Bool> = {
-        return isCountdownRelay
-            .observeOn(MainScheduler.instance)
-            .asObservable()
-    }()
+    public let title: Observable<String>
+    public let duration: Observable<String>
+    public let endTime: Observable<String>
+    public let isDurationAvailable: Observable<Bool>
+    public let didTapDone: Observable<Void>
+    public let isDone: Observable<Bool>
+    public let isCountdown: Observable<Bool>
     
     // MARK: Implementation
     private let disposeBag = DisposeBag()
-    private let step: Step
+    let step: Step //TODO: Make private
     private let isCountdownRelay = BehaviorRelay<Bool>(value: false)
     private let isDoneRelay = BehaviorRelay<Bool>(value: false)
     private let didTapDoneRelay = PublishRelay<Void>()
@@ -93,9 +59,35 @@ public final class StepCellViewModel: StepCellViewModelProtocol, StepCellViewMod
         //TODO: Make sure didTapDoneSubject.dispose() on deinit is not needed
         self.step = step
         currentDuration = BehaviorRelay<TimeInterval?>(value: step.duration)
+        title = .just(step.description)
+        isDurationAvailable = .just(step.duration != nil)
         
-        currentDuration?
-            .filter { $0 == 0 }
+        duration = currentDuration?
+            .observeOn(MainScheduler.instance)
+            .compactMap { $0?.shortTime }
+            .map { "\($0)" }
+            .asObservable() ?? .empty()
+        
+        endTime = currentDuration?
+            .observeOn(MainScheduler.instance)
+            .compactMap { $0?.endTime }
+            .map { "\($0)" }
+            .asObservable() ?? .empty()
+        
+        didTapDone = didTapDoneRelay
+            .observeOn(MainScheduler.instance)
+            .asObservable()
+        
+        isDone = isDoneRelay
+            .observeOn(MainScheduler.instance)
+            .asObservable()
+        
+        isCountdown = isCountdownRelay
+            .observeOn(MainScheduler.instance)
+            .asObservable()
+
+        let durationReachedZero = currentDuration?.filter { $0 == 0 }
+        durationReachedZero?
             .subscribe(onNext: { [weak self] _ in
                 self?.timerDisposable?.dispose()
             })
@@ -124,40 +116,5 @@ private extension StepCellViewModel {
                 guard let duration = self?.currentDuration?.value else { return }
                 self?.currentDuration?.accept(duration - 1)
         }
-    }
-}
-
-//TODO: MOVE
-extension TimeInterval {
-    var shortTime: String? {
-        let formatter = DateComponentsFormatter()
-        formatter.allowedUnits = self < .hours(1) ? [.minute, .second] : [.hour, .minute, .second]
-        formatter.unitsStyle = .positional
-        formatter.zeroFormattingBehavior = .pad
-        
-        return formatter.string(from: self)
-    }
-    
-    var endTime: String? {
-        return Date(timeIntervalSinceNow: self).time
-    }
-}
-
-extension TimeInterval {
-    static func minutes(_ minutes: TimeInterval) -> TimeInterval {
-        return 60.0 * minutes
-    }
-    
-    static func hours(_ hours: TimeInterval) -> TimeInterval {
-        return .minutes(60) * hours
-    }
-}
-
-extension Date {
-    var time: String? {
-        let formatter = DateFormatter()
-        formatter.dateFormat = "HH:mm"
-        
-        return formatter.string(from: self)
     }
 }

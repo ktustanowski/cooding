@@ -28,13 +28,12 @@ private extension CookingViewController {
             .rx
             .items(cellIdentifier: StepTableCell.nibName)) { [weak self] _, viewModel, cell in
                 guard let stepCell = cell as? StepTableCell, let strongSelf = self else { return }
-                stepCell.viewModel = viewModel as? StepCellViewModel
+                stepCell.viewModel = viewModel
                 
                 viewModel.output.didTapDone
                     .subscribe(onNext: { _ in
-                        guard let indexPath = strongSelf.tableView.indexPath(for: stepCell) else { return }
-                        strongSelf.tableView.reloadRows(at: [indexPath], with: .fade)
-                }).disposed(by: stepCell.disposeBag)
+                        strongSelf.tableView.reloadData()
+                    }).disposed(by: stepCell.disposeBag)
             }
             .disposed(by: disposeBag)
     }
@@ -48,7 +47,7 @@ struct RecipeFactory {
     static func pancakes() -> [Step] {
         return [Step(description: "Prepare blender",
                      dependencies: [Dependency(name: "blender")],
-                     ingredients: nil),
+                     ingredients: nil, duration: 20.0),
                 Step(description: "Add 1.25 glass of buttermilk to the blender",
                      dependencies: [Dependency(name: "Blender")],
                      ingredients: [Ingredient(name: "glass off buttermilk", quantity: 1.25)]),
@@ -60,7 +59,7 @@ struct RecipeFactory {
                      ingredients: [Ingredient(name: "heaping teaspoon of baking powder", quantity: 1.0)]),
                 Step(description: "Add 1 teaspoon of baking soda to the blender",
                      dependencies: [Dependency(name: "blender")],
-                     ingredients: [Ingredient(name: "1 teaspoon of baking soda", quantity: 1.0)]),
+                     ingredients: [Ingredient(name: "1 teaspoon of baking soda", quantity: 1.0)], duration: 100.0),
                 Step(description: "Add 1 pinch of salt to the blender",
                      dependencies: [Dependency(name: "blender")],
                      ingredients: [Ingredient(name: "pinch of salt", quantity: 1.0)]),
@@ -69,6 +68,18 @@ struct RecipeFactory {
                 Step(description: "Preheat the frying pan",
                      dependencies: [Dependency(name: "frying pan")]),
                 Step(description: "Fry pancakes on both sides in a frying pan over medium heat",
+                     dependencies: [Dependency(name: "frying pan")], duration: 256.0),
+                Step(description: "#Add 1 teaspoon of baking soda to the blender",
+                     dependencies: [Dependency(name: "blender")],
+                     ingredients: [Ingredient(name: "1 teaspoon of baking soda", quantity: 1.0)], duration: 100.0),
+                Step(description: "#Add 1 pinch of salt to the blender",
+                     dependencies: [Dependency(name: "blender")],
+                     ingredients: [Ingredient(name: "pinch of salt", quantity: 1.0)]),
+                Step(description: "#Blend everything in a blender to a smooth mass with the consistency of thick cream",
+                     dependencies: [Dependency(name: "blender")]),
+                Step(description: "#Preheat the frying pan",
+                     dependencies: [Dependency(name: "frying pan")]),
+                Step(description: "#Fry pancakes on both sides in a frying pan over medium heat",
                      dependencies: [Dependency(name: "frying pan")], duration: 256.0)]
     }
 }

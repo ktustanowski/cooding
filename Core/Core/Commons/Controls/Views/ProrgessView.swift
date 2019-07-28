@@ -35,11 +35,11 @@ private extension ProgressView {
     func setupIndicatorView() {
         translatesAutoresizingMaskIntoConstraints = false
         addSubview(progressIndicatorView)
-//        NSLayoutConstraint.activate([
-//            progressIndicatorView.trailingAnchor.constraint(equalTo: self.trailingAnchor),
-//            progressIndicatorView.topAnchor.constraint(equalTo: self.topAnchor),
-//            progressIndicatorView.bottomAnchor.constraint(equalTo: self.bottomAnchor),
-//            progressIndicatorView.leadingAnchor.constraint(equalTo: self.leadingAnchor)
-//        ])
+        NSLayoutConstraint.activate([
+            progressIndicatorView.trailingAnchor.constraint(equalTo: self.trailingAnchor),
+            progressIndicatorView.topAnchor.constraint(equalTo: self.topAnchor),
+            progressIndicatorView.bottomAnchor.constraint(equalTo: self.bottomAnchor),
+            progressIndicatorView.leadingAnchor.constraint(equalTo: self.leadingAnchor)
+        ])
     }
 }
