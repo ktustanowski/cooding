@@ -10,26 +10,6 @@ import UIKit
 import RxRelay
 import RxSwift
 
-public protocol StepCellViewModelProtocol {
-    var input: StepCellViewModelProtocolInputs { get }
-    var output: StepCellViewModelProtocolOutputs { get }
-}
-
-public protocol StepCellViewModelProtocolInputs {
-    func timerButtonTapped()
-    func doneButtonTapped()
-}
-
-public protocol StepCellViewModelProtocolOutputs {
-    var title: Observable<String> { get }
-    var duration: Observable<String> { get }
-    var endTime: Observable<String> { get }
-    var isDurationAvailable: Observable<Bool> { get }
-    var didTapDone: Observable<Void> { get }
-    var isDone: Observable<Bool> { get }
-    var isCountdown: Observable<Bool> { get }
-}
-
 public class StepTableCell: UITableViewCell {
     private(set) var disposeBag = DisposeBag()
     public var viewModel: StepCellViewModelProtocol! {

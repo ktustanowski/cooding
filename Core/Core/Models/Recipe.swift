@@ -15,18 +15,7 @@ public enum Difficulty: String {
     case impossible
 }
 
-public struct RawAlgorithm {
-    public let raw: String
-}
-
-public extension RawAlgorithm {
-    var parsed: Algorithm {
-        // TODOKT: implement passing parsed algorithm!
-        return Algorithm(ingredients: [], steps: [], dependencies: [])
-    }
-}
-
-public struct Algorithm {
+public struct Algorithm: Equatable {
     public let ingredients: [Ingredient]
     public let steps: [Step]
     public let dependencies: [Dependency]
@@ -38,7 +27,7 @@ public struct Algorithm {
     }
 }
 
-public struct Ingredient {
+public struct Ingredient: Equatable, Hashable {
     public let name: String
     public let quantity: Double
     
@@ -48,7 +37,13 @@ public struct Ingredient {
     }
 }
 
-public struct Step {
+extension Ingredient {
+    var formatted: String {
+        return "\(quantity) \(name)"
+    }
+}
+
+public struct Step: Equatable, Hashable {
     public let description: String
     public let dependencies: [Dependency]?
     public let ingredients: [Ingredient]?
@@ -65,7 +60,7 @@ public struct Step {
     }
 }
 
-public struct Dependency {
+public struct Dependency: Equatable, Hashable {
     public let name: String
     
     public init(name: String) {
@@ -73,7 +68,7 @@ public struct Dependency {
     }
 }
 
-public struct Recipe {
+public struct Recipe: Equatable {
     /// URL to author site
     public let author: URL
     /// URL to recipe in repository
@@ -83,7 +78,7 @@ public struct Recipe {
     /// Images of a recipe, cooking process etc.
     public let images: [URL]
     /// The unparsed recipe
-    public let algorithm: RawAlgorithm
+    public let rawAlgorithm: String
     /// How long does it take from start to finish
     public let time: TimeInterval
     /// How many people can eat the meal
