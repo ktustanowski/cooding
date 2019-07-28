@@ -67,7 +67,7 @@
                                     </mask>
                                 </variation>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" placeholderIntrinsicWidth="37" placeholderIntrinsicHeight="30" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VtB-jA-Dhk">
+                            <button opaque="NO" contentMode="scaleToFill" placeholderIntrinsicWidth="37" placeholderIntrinsicHeight="30" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VtB-jA-Dhk">
                                 <rect key="frame" x="0.0" y="111" width="441" height="46.5"/>
                                 <state key="normal" title="Done"/>
                             </button>

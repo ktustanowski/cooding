@@ -40,7 +40,7 @@ public final class StepCellViewModel: StepCellViewModelProtocol, StepCellViewMod
     
     // MARK: Implementation
     private let disposeBag = DisposeBag()
-    let step: Step //TODO: Make private
+    private let step: Step
     private let isCountdownRelay = BehaviorRelay<Bool>(value: false)
     private let isDoneRelay = BehaviorRelay<Bool>(value: false)
     private let didTapDoneRelay = PublishRelay<Void>()

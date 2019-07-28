@@ -11,6 +11,11 @@
 		9A51E67922E768C500A27ACF /* SnapshotTesting.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A51E67822E768C500A27ACF /* SnapshotTesting.framework */; };
 		9A51E68522E76AFE00A27ACF /* CookingViewControllerSnapshotTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A51E68422E76AFE00A27ACF /* CookingViewControllerSnapshotTests.swift */; };
 		9A705D0A22E7A351003AA381 /* StepStub.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A705D0922E7A351003AA381 /* StepStub.swift */; };
+		9AF3509C22ED9FB700D42922 /* RecipeFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AF3509B22ED9FB700D42922 /* RecipeFactory.swift */; };
+		9AF350A322EDA07300D42922 /* XCTest+SnapshotTesting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AF350A122EDA07300D42922 /* XCTest+SnapshotTesting.swift */; };
+		9AF350A422EDA07300D42922 /* UIButton+SimulateTap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AF350A222EDA07300D42922 /* UIButton+SimulateTap.swift */; };
+		9AF350A722EDA1B400D42922 /* StepTableCellSnapshotTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AF350A622EDA1B400D42922 /* StepTableCellSnapshotTests.swift */; };
+		9AF350A922EDA49800D42922 /* String+TestData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AF350A822EDA49800D42922 /* String+TestData.swift */; };
 		9AF958BD22C8DCD10055B204 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AF958BC22C8DCD10055B204 /* AppDelegate.swift */; };
 		9AF958C222C8DCD10055B204 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9AF958C022C8DCD10055B204 /* Main.storyboard */; };
 		9AF958C522C8DCD10055B204 /* Cooding.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 9AF958C322C8DCD10055B204 /* Cooding.xcdatamodeld */; };
@@ -47,6 +52,11 @@
 		9A51E67822E768C500A27ACF /* SnapshotTesting.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SnapshotTesting.framework; path = Carthage/Build/iOS/SnapshotTesting.framework; sourceTree = "<group>"; };
 		9A51E68422E76AFE00A27ACF /* CookingViewControllerSnapshotTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CookingViewControllerSnapshotTests.swift; sourceTree = "<group>"; };
 		9A705D0922E7A351003AA381 /* StepStub.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StepStub.swift; sourceTree = "<group>"; };
+		9AF3509B22ED9FB700D42922 /* RecipeFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeFactory.swift; sourceTree = "<group>"; };
+		9AF350A122EDA07300D42922 /* XCTest+SnapshotTesting.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "XCTest+SnapshotTesting.swift"; sourceTree = "<group>"; };
+		9AF350A222EDA07300D42922 /* UIButton+SimulateTap.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIButton+SimulateTap.swift"; sourceTree = "<group>"; };
+		9AF350A622EDA1B400D42922 /* StepTableCellSnapshotTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StepTableCellSnapshotTests.swift; sourceTree = "<group>"; };
+		9AF350A822EDA49800D42922 /* String+TestData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+TestData.swift"; sourceTree = "<group>"; };
 		9AF958B922C8DCD10055B204 /* Cooding.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Cooding.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9AF958BC22C8DCD10055B204 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9AF958C122C8DCD10055B204 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -89,13 +99,6 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		9A51E68022E76ABC00A27ACF /* New Group */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = "New Group";
-			sourceTree = "<group>";
-		};
 		9A51E68322E76AFE00A27ACF /* Screens */ = {
 			isa = PBXGroup;
 			children = (
@@ -108,8 +111,27 @@
 			isa = PBXGroup;
 			children = (
 				9A705D0922E7A351003AA381 /* StepStub.swift */,
+				9AF3509B22ED9FB700D42922 /* RecipeFactory.swift */,
 			);
 			path = "Mocks & Stubs";
+			sourceTree = "<group>";
+		};
+		9AF350A022EDA07300D42922 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				9AF350A122EDA07300D42922 /* XCTest+SnapshotTesting.swift */,
+				9AF350A222EDA07300D42922 /* UIButton+SimulateTap.swift */,
+				9AF350A822EDA49800D42922 /* String+TestData.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		9AF350A522EDA19F00D42922 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				9AF350A622EDA1B400D42922 /* StepTableCellSnapshotTests.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 		9AF958B022C8DCD10055B204 = {
@@ -149,11 +171,12 @@
 		9AF958D322C8DCD30055B204 /* CoodingTests */ = {
 			isa = PBXGroup;
 			children = (
+				9AF350A022EDA07300D42922 /* Extensions */,
 				9A705D0622E7A33E003AA381 /* Mocks & Stubs */,
+				9AF350A522EDA19F00D42922 /* Views */,
 				9A51E68322E76AFE00A27ACF /* Screens */,
 				9AF958D422C8DCD30055B204 /* CoodingTests.swift */,
 				9AF958D622C8DCD30055B204 /* Info.plist */,
-				9A51E68022E76ABC00A27ACF /* New Group */,
 			);
 			path = CoodingTests;
 			sourceTree = "<group>";
@@ -345,7 +368,12 @@
 			files = (
 				9AF958D522C8DCD30055B204 /* CoodingTests.swift in Sources */,
 				9A51E68522E76AFE00A27ACF /* CookingViewControllerSnapshotTests.swift in Sources */,
+				9AF3509C22ED9FB700D42922 /* RecipeFactory.swift in Sources */,
+				9AF350A322EDA07300D42922 /* XCTest+SnapshotTesting.swift in Sources */,
+				9AF350A922EDA49800D42922 /* String+TestData.swift in Sources */,
+				9AF350A722EDA1B400D42922 /* StepTableCellSnapshotTests.swift in Sources */,
 				9A705D0A22E7A351003AA381 /* StepStub.swift in Sources */,
+				9AF350A422EDA07300D42922 /* UIButton+SimulateTap.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

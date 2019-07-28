@@ -73,12 +73,14 @@ private extension StepTableCell {
         let areControlsHidden = Observable.combineLatest(viewModel.output.isDurationAvailable,
                                                          viewModel.output.isDone)
             .map { $0 == false || $1 == true}
+        
         disposeBag.insert(
             areControlsHidden
                 .bind(to: durationControlsContainer.rx.isHidden),
             viewModel.output.isDone
                 .bind(to: doneButton.rx.isHidden)
         )
+        
         disposeBag.insert (
             viewModel.output.title.bind(to: descriptionLabel.rx.text),
             viewModel.output.duration
