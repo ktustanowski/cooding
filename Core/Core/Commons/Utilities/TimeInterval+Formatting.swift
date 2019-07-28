@@ -8,7 +8,7 @@
 
 import Foundation
 
-extension TimeInterval {
+public extension TimeInterval {
     var shortTime: String? {
         let formatter = DateComponentsFormatter()
         formatter.allowedUnits = self < .hours(1) ? [.minute, .second] : [.hour, .minute, .second]

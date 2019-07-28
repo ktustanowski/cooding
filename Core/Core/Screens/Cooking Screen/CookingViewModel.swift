@@ -23,15 +23,15 @@ public protocol CookingViewModelProtocolOutputs {
     var steps: Observable<[StepCellViewModelProtocol]> { get }
 }
 
-class CookingViewModel: CookingViewModelProtocol {
-    var input: CookingViewModelProtocolInputs { return self }
-    var output: CookingViewModelProtocolOutputs { return self }
+public class CookingViewModel: CookingViewModelProtocol {
+    public var input: CookingViewModelProtocolInputs { return self }
+    public var output: CookingViewModelProtocolOutputs { return self }
     
     // MARK: Outputs
     private let stepsRelay = BehaviorRelay<[StepCellViewModelProtocol]>(value: [])
-    var steps: Observable<[StepCellViewModelProtocol]> { return stepsRelay.asObservable() }
+    public var steps: Observable<[StepCellViewModelProtocol]> { return stepsRelay.asObservable() }
     
-    init(algorithm: Algorithm) {        
+    public init(algorithm: Algorithm) {
         stepsRelay.accept(algorithm.steps.map { StepCellViewModel(step: $0) })
     }
 }

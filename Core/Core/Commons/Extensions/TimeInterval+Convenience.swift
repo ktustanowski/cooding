@@ -8,7 +8,7 @@
 
 import Foundation
 
-extension TimeInterval {
+public extension TimeInterval {
     static func minutes(_ minutes: TimeInterval) -> TimeInterval {
         return 60.0 * minutes
     }

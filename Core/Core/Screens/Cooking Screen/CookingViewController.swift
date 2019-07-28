@@ -13,7 +13,7 @@ import RxCocoa
 public class CookingViewController: UITableViewController {
     private let disposeBag = DisposeBag()
     //TODOKT: Change to real view model
-    var viewModel: CookingViewModelProtocol! = CookingViewModel(algorithm: Algorithm(ingredients: [], steps: RecipeFactory.pancakes(), dependencies: []))
+    public var viewModel: CookingViewModelProtocol! = CookingViewModel(algorithm: Algorithm(ingredients: [], steps: RecipeFactory.pancakes(), dependencies: []))
     
     public override func viewDidLoad() {
         super.viewDidLoad()
@@ -53,7 +53,7 @@ struct RecipeFactory {
                      ingredients: [Ingredient(name: "glass off buttermilk", quantity: 1.25)]),
                 Step(description: "Add 0.25 glass of powdered sugar to the blender",
                      dependencies: [Dependency(name: "blender")],
-                     ingredients: [Ingredient(name: "szklanki cukru", quantity: 0.25)]),
+                     ingredients: [Ingredient(name: "glass of powdered sugar", quantity: 0.25)]),
                 Step(description: "Add 1 heaping teaspoon of baking powder to the blender",
                      dependencies: [Dependency(name: "Blender")],
                      ingredients: [Ingredient(name: "heaping teaspoon of baking powder", quantity: 1.0)]),

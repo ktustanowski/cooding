@@ -4,58 +4,44 @@ import Core
 import RxSwift
 import RxRelay
 
+extension String {
+    static var loremIpsumMedium: String = """
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+    """
+    
+    static var loremIpsumLong: String = """
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+    """
+}
 
-//let bag = DisposeBag()
-//
-//enum FetchWeatherError: Error {
-//    case unknown
-//    case undecodable
-//}
-//let getWeather = Observable<String>.create { observer in
-//    let url = URL(string: "https://samples.openweathermap.org/data/2.5/weather?q=London,uk&appid=b6907d289e10d714a6e88b30761fae22")!
-//    let session = URLSession.shared
-//    let task = session.dataTask(with: url) { data, response, error in
-//        guard let data = data else {
-//            observer.onError(FetchWeatherError.unknown)
-//            return
-//        }
-//
-//        guard let decodedString = String(data: data, encoding: .utf8) else {
-//            observer.onError(FetchWeatherError.undecodable)
-//            return
-//        }
-//
-//        observer.onNext(decodedString)
-//    }
-//
-//    task.resume()
-//    return Disposables.create()
-//}
-//
-//getWeather.subscribe(onNext: { print($0) },
-//                     onError: { print($0) })
-//    .disposed(by: bag)
-
-//let variable = BehaviorRelay<String>(value: "1st value")
-//variable.accept("2nd value")
-//
-//print(variable.value)
-
-//variable.asObservable()
-//    .subscribe(accept { print($0) })
-//    .disposed(by: bag)
-
-//let behaviorSubject = BehaviorSubject<String>(value: "1st value")
-//behaviorSubject
-//    .subscribe(onNext: { print($0) })
-//    .disposed(by: bag)
-//behaviorSubject.onNext("2nd value")
-//
-//let subject = PublishSubject<String>()
-//subject.onNext("Test")
-//subject.subscribe(onNext:{ print($0) }).disposed(by: bag)
+let steps = [Step(description: "Prepare blender",
+                  dependencies: [Dependency(name: "blender")],
+                  ingredients: nil),
+             Step(description: .loremIpsumMedium,
+                  dependencies: [Dependency(name: "blender")],
+                  ingredients: nil, duration: 60 * 59),
+             Step(description: "Add 1 heaping teaspoon of baking powder to the blender",
+                  dependencies: [Dependency(name: "Blender")],
+                  ingredients: [Ingredient(name: "heaping teaspoon of baking powder", quantity: 1.0)]),
+             Step(description: "Add 1.25 glass of buttermilk to the blender",
+                  dependencies: [Dependency(name: "Blender")],
+                  ingredients: [Ingredient(name: "glass off buttermilk", quantity: 1.25)]),
+             Step(description: "Add 0.25 glass of powdered sugar to the blender",
+                  dependencies: [Dependency(name: "blender")],
+                  ingredients: [Ingredient(name: "powdered sugar", quantity: 0.25)]),
+             Step(description: "Add 1 heaping teaspoon of baking powder to the blender",
+                  dependencies: [Dependency(name: "Blender")],
+                  ingredients: [Ingredient(name: "heaping teaspoon of baking powder", quantity: 1.0)]),
+             Step(description: .loremIpsumLong,
+                  dependencies: [Dependency(name: "Blender")],
+                  ingredients: [Ingredient(name: "heaping teaspoon of baking powder", quantity: 1.0)],
+                  duration: 60 * 60 * 5),
+]
 
 var cookingViewController = CookingViewController()
+cookingViewController.viewModel = CookingViewModel(algorithm: Algorithm(ingredients: [],
+                                                                        steps: steps,
+                                                                        dependencies: []))
 var navigationController = UINavigationController(rootViewController: cookingViewController)
 
 PlaygroundPage.current.liveView = navigationController.view

@@ -30,11 +30,22 @@ public struct Algorithm {
     public let ingredients: [Ingredient]
     public let steps: [Step]
     public let dependencies: [Dependency]
+    
+    public init(ingredients: [Ingredient], steps: [Step], dependencies: [Dependency]) {
+        self.ingredients = ingredients
+        self.steps = steps
+        self.dependencies = dependencies
+    }
 }
 
 public struct Ingredient {
     public let name: String
     public let quantity: Double
+    
+    public init(name: String, quantity: Double) {
+        self.name = name
+        self.quantity = quantity
+    }
 }
 
 public struct Step {
@@ -56,6 +67,10 @@ public struct Step {
 
 public struct Dependency {
     public let name: String
+    
+    public init(name: String) {
+        self.name = name
+    }
 }
 
 public struct Recipe {
