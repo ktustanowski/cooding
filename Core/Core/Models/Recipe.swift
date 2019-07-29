@@ -8,7 +8,7 @@
 
 import Foundation
 
-public enum Difficulty: String {
+public enum Difficulty: String, Codable {
     case easy
     case medium
     case hard
@@ -68,21 +68,33 @@ public struct Dependency: Equatable, Hashable {
     }
 }
 
-public struct Recipe: Equatable {
+
+public struct ShortRecipe: Codable, Equatable {
+    /// Recipe name
+    public var name: String
+    /// URL to recipe
+    public let source: URL
+    /// Images of a recipe, cooking process etc.
+    public let image: URL
+}
+
+public struct Recipe: Codable, Equatable {
+    /// Recipe name
+    public var name: String
+    /// URL to author site
+    public let authorName: String
     /// URL to author site
     public let author: URL
-    /// URL to recipe in repository
-    public let source: URL
     /// URL to original recipe - if available
-    public let original: URL?
+    public let originalSource: URL?
     /// Images of a recipe, cooking process etc.
     public let images: [URL]
     /// The unparsed recipe
     public let rawAlgorithm: String
     /// How long does it take from start to finish
-    public let time: TimeInterval
+    public let time: TimeInterval?
     /// How many people can eat the meal
-    public let people: Int
+    public let people: Int?
     /// How hard is to cook thie recipe
     public let difficulty: Difficulty
     /// Fill when this is a traditional meal of some country

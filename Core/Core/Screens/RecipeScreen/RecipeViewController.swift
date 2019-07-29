@@ -32,11 +32,11 @@ public final class RecipeViewController: UITableViewController {
         cell.selectionStyle = .none
         return cell })
     
-    public var viewModel: RecipeViewModelProtocol! = RecipeViewModel(recipe: Recipe(author: URL(string: "http://gmail.com")!,
-                                                                                       source: URL(string: "http://apple.com")!,
-                                                                                       original: nil,
-                                                                                       images: [],
-                                                                                       rawAlgorithm: """
+    public var viewModel: RecipeViewModelProtocol! = RecipeViewModel(recipe: Recipe(authorName: "Luke Skywalker",
+                                                                                    author: URL(string: "http://gmail.com")!,
+                                                                                    originalSource: URL(string: "http://apple.com")!,
+                                                                                    images: [],
+                                                                                    rawAlgorithm: """
 Prepare {blender}
 Add [1.25 glass of buttermilk] to the {blender}
 Add [0.25 glass of powdered sugar] to the {blender}
@@ -47,11 +47,11 @@ Blend everything in a {blender} to a smooth mass with the consistency of thick c
 Preheat the {frying pan}
 Fry pancakes on both sides in a {frying pan} over medium heat <72.0>
 """,
-                                                                                       time: .minutes(15),
-                                                                                       people: 2,
-                                                                                       difficulty: .easy,
-                                                                                       country: nil))
-
+                                                                                    time: .minutes(15),
+                                                                                    people: 2,
+                                                                                    difficulty: .easy,
+                                                                                    country: nil))
+    
     public override func viewDidLoad() {
         super.viewDidLoad()
         tableView.register(BasicTableCell.self, forCellReuseIdentifier: BasicTableCell.nibName)

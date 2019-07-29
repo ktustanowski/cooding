@@ -5,5 +5,7 @@
         <page name='CookingScreen'/>
         <page name='StepTableCell'/>
         <page name='ProgressView'/>
+        <page name='RecipeScreen'/>
+        <page name='RecipeParser'/>
     </pages>
 </playground>

@@ -4,6 +4,7 @@ import Core
 import RxSwift
 import RxRelay
 
+//swiftlint:disable line_length
 extension String {
     static var loremIpsumMedium: String = """
     Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
@@ -13,6 +14,7 @@ extension String {
     Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
     """
 }
+//swiftlint:enable line_length
 
 let steps = [Step(description: "Prepare blender",
                   dependencies: [Dependency(name: "blender")],
@@ -35,7 +37,7 @@ let steps = [Step(description: "Prepare blender",
              Step(description: .loremIpsumLong,
                   dependencies: [Dependency(name: "Blender")],
                   ingredients: [Ingredient(name: "heaping teaspoon of baking powder", quantity: 1.0)],
-                  duration: 60 * 60 * 5),
+                  duration: 60 * 60 * 5)
 ]
 
 var cookingViewController = CookingViewController()
