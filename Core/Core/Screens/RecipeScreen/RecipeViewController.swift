@@ -32,7 +32,8 @@ public final class RecipeViewController: UITableViewController {
         cell.selectionStyle = .none
         return cell })
     
-    public var viewModel: RecipeViewModelProtocol! = RecipeViewModel(recipe: Recipe(authorName: "Luke Skywalker",
+    public var viewModel: RecipeViewModelProtocol! = RecipeViewModel(recipe: Recipe(name: "Pancakes",
+                                                                                    authorName: "Luke Skywalker",
                                                                                     author: URL(string: "http://gmail.com")!,
                                                                                     originalSource: URL(string: "http://apple.com")!,
                                                                                     images: [],

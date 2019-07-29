@@ -8,6 +8,8 @@
 
 import Foundation
 
+
+//TODO: Move models to separate files
 public enum Difficulty: String, Codable {
     case easy
     case medium
@@ -68,6 +70,10 @@ public struct Dependency: Equatable, Hashable {
     }
 }
 
+public struct RecipeList: Codable, Equatable {
+    /// Recipe list
+    var recipes: [ShortRecipe]
+}
 
 public struct ShortRecipe: Codable, Equatable {
     /// Recipe name
