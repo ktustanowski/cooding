@@ -15,6 +15,18 @@ public enum Difficulty: String, Codable {
     case medium
     case hard
     case impossible
+    
+    enum Key: CodingKey {
+        case rawValue
+    }
+    
+    public init(from decoder: Decoder) throws {
+        let container = try decoder.singleValueContainer()
+        let rawValue = try container.decode(String.self)
+        
+        guard let difficulty = Difficulty(rawValue: rawValue) else { throw DownloadError.corruptedData }
+        self = difficulty
+    }
 }
 
 public struct Algorithm: Equatable {
@@ -72,12 +84,12 @@ public struct Dependency: Equatable, Hashable {
 
 public struct RecipeList: Codable, Equatable {
     /// Recipe list
-    var recipes: [ShortRecipe]
+    public let recipes: [ShortRecipe]
 }
 
 public struct ShortRecipe: Codable, Equatable {
     /// Recipe name
-    public var name: String
+    public let name: String
     /// URL to recipe
     public let source: URL
     /// Images of a recipe, cooking process etc.
@@ -94,7 +106,7 @@ public struct Recipe: Codable, Equatable {
     /// URL to original recipe - if available
     public let originalSource: URL?
     /// Images of a recipe, cooking process etc.
-    public let images: [URL]
+    public let images: [URL]?
     /// The unparsed recipe
     public let rawAlgorithm: String
     /// How long does it take from start to finish

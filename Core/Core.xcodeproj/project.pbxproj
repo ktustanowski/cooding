@@ -22,6 +22,7 @@
 		9A976E2E22EC70F800204894 /* ProrgessView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A976E2D22EC70F800204894 /* ProrgessView.swift */; };
 		9AC269B922EE54E60080CA7E /* AlgorithmParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AC269B822EE54E60080CA7E /* AlgorithmParser.swift */; };
 		9AC269BB22EE554B0080CA7E /* String+Trimm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AC269BA22EE554B0080CA7E /* String+Trimm.swift */; };
+		9AC269C022EF805A0080CA7E /* Downloader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AC269BF22EF805A0080CA7E /* Downloader.swift */; };
 		9AD3227F22EE0823002F9C6B /* RawAlgorithmTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AD3227E22EE0823002F9C6B /* RawAlgorithmTests.swift */; };
 		9ADB3E5B22EDAD1500035D2A /* RecipeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ADB3E5A22EDAD1500035D2A /* RecipeViewController.swift */; };
 		9ADB3E5D22EDAD2200035D2A /* RecipeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ADB3E5C22EDAD2200035D2A /* RecipeViewModel.swift */; };
@@ -62,6 +63,7 @@
 		9A976E2D22EC70F800204894 /* ProrgessView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProrgessView.swift; sourceTree = "<group>"; };
 		9AC269B822EE54E60080CA7E /* AlgorithmParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlgorithmParser.swift; sourceTree = "<group>"; };
 		9AC269BA22EE554B0080CA7E /* String+Trimm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Trimm.swift"; sourceTree = "<group>"; };
+		9AC269BF22EF805A0080CA7E /* Downloader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Downloader.swift; sourceTree = "<group>"; };
 		9AD3227E22EE0823002F9C6B /* RawAlgorithmTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RawAlgorithmTests.swift; sourceTree = "<group>"; };
 		9ADB3E5A22EDAD1500035D2A /* RecipeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeViewController.swift; sourceTree = "<group>"; };
 		9ADB3E5C22EDAD2200035D2A /* RecipeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeViewModel.swift; sourceTree = "<group>"; };
@@ -106,6 +108,7 @@
 			isa = PBXGroup;
 			children = (
 				9A507CB722EA2E6B00D1C8F9 /* XibMakeable.swift */,
+				9AC269BF22EF805A0080CA7E /* Downloader.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -443,6 +446,7 @@
 				9A507CB822EA2E6B00D1C8F9 /* XibMakeable.swift in Sources */,
 				9AC269BB22EE554B0080CA7E /* String+Trimm.swift in Sources */,
 				9ADB3E5B22EDAD1500035D2A /* RecipeViewController.swift in Sources */,
+				9AC269C022EF805A0080CA7E /* Downloader.swift in Sources */,
 				9A976E2E22EC70F800204894 /* ProrgessView.swift in Sources */,
 				9A705D0D22E7AAB9003AA381 /* CookingViewModel.swift in Sources */,
 				9A507CB122EA2A6100D1C8F9 /* StepTableCell.swift in Sources */,

@@ -9,10 +9,10 @@ import RxSwift
 let disposeBag = DisposeBag()
 let downloader = Downloader()
 
-let recipeListURL = URL(string: "https://raw.githubusercontent.com/ktustanowski/cooding/master/Recipes/recipes_list.json")!
-(downloader.download(url: recipeListURL) as? Observable<RecipeList>)?
-    .subscribe(onNext: { list in
-        print(list)
+let pancakesRecipeURL = URL(string: "https://raw.githubusercontent.com/ktustanowski/recipes/master/pancakes.json")!
+(downloader.download(url: pancakesRecipeURL) as? Observable<Recipe>)?
+    .subscribe(onNext: { recipe in
+        print(recipe)
     },
                onError: { error in
                 print(error)
