@@ -26,3 +26,5 @@ class RecipeViewControllerSnapshotTests: XCTestCase {
         }
     }
 }
+
+extension

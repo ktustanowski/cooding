@@ -23,7 +23,7 @@ public protocol CookingViewModelProtocolOutputs {
     var steps: Observable<[StepCellViewModelProtocol]> { get }
 }
 
-public class CookingViewModel: CookingViewModelProtocol {
+public final class CookingViewModel: CookingViewModelProtocol {
     public var input: CookingViewModelProtocolInputs { return self }
     public var output: CookingViewModelProtocolOutputs { return self }
     

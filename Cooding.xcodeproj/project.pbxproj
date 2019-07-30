@@ -53,7 +53,7 @@
 		9A51E67822E768C500A27ACF /* SnapshotTesting.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SnapshotTesting.framework; path = Carthage/Build/iOS/SnapshotTesting.framework; sourceTree = "<group>"; };
 		9A51E68422E76AFE00A27ACF /* CookingViewControllerSnapshotTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CookingViewControllerSnapshotTests.swift; sourceTree = "<group>"; };
 		9A705D0922E7A351003AA381 /* StepStub.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StepStub.swift; sourceTree = "<group>"; };
-		9AC269BC22EF5F880080CA7E /* APIPlayground.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = APIPlayground.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		9AC269BC22EF5F880080CA7E /* Operations.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = Operations.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		9AD3228022EE0887002F9C6B /* RecipeViewControllerSnapshotTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecipeViewControllerSnapshotTests.swift; sourceTree = "<group>"; };
 		9AF3509B22ED9FB700D42922 /* RecipeFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeFactory.swift; sourceTree = "<group>"; };
 		9AF350A122EDA07300D42922 /* XCTest+SnapshotTesting.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "XCTest+SnapshotTesting.swift"; sourceTree = "<group>"; };
@@ -71,7 +71,7 @@
 		9AF958D422C8DCD30055B204 /* CoodingTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoodingTests.swift; sourceTree = "<group>"; };
 		9AF958D622C8DCD30055B204 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9AF9590622C8E17C0055B204 /* Core.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Core.xcodeproj; path = Core/Core.xcodeproj; sourceTree = "<group>"; };
-		9AF9591722C8E4FD0055B204 /* Playground.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = Playground.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		9AF9591722C8E4FD0055B204 /* Visuals.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = Visuals.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -141,8 +141,8 @@
 		9AF958B022C8DCD10055B204 = {
 			isa = PBXGroup;
 			children = (
-				9AC269BC22EF5F880080CA7E /* APIPlayground.playground */,
-				9AF9591722C8E4FD0055B204 /* Playground.playground */,
+				9AC269BC22EF5F880080CA7E /* Operations.playground */,
+				9AF9591722C8E4FD0055B204 /* Visuals.playground */,
 				9AF9590622C8E17C0055B204 /* Core.xcodeproj */,
 				9AF958BB22C8DCD10055B204 /* Cooding */,
 				9AF958D322C8DCD30055B204 /* CoodingTests */,

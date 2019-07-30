@@ -40,7 +40,7 @@ public protocol RecipeViewModelProtocolOutputs {
     var sections: Observable<[RecipeSectionModel]> { get }
 }
 
-public class RecipeViewModel: RecipeViewModelProtocol {
+public final class RecipeViewModel: RecipeViewModelProtocol {
     private let parser: AlgorithmParsable
     
     public var input: RecipeViewModelProtocolInputs { return self }
@@ -51,9 +51,10 @@ public class RecipeViewModel: RecipeViewModelProtocol {
     public let sections: Observable<[RecipeSectionModel]>
     
     public init(recipe: Recipe, algorithmParser: AlgorithmParsable = AlgorithmParser()) {
+        //TODO: Update implementation to load from web
         self.parser = algorithmParser
         let algorithm = parser.parse(string: recipe.rawAlgorithm)
-        
+
         let ingredientsSectionContent = RecipeSectionModel(model: .ingredients,
                                                           items: algorithm.ingredients
                                                             .map { RecipeItem.ingredient(viewModel: BasicCellViewModel(title: $0.formatted))})
@@ -68,9 +69,11 @@ public class RecipeViewModel: RecipeViewModelProtocol {
         sections = .just([ingredientsSectionContent,
                           dependenciesSectionContent,
                           stepsSectionContent])
+//        sections = .just([])
     }
 }
 
+// TODO: Refactor to regular VM
 public class BasicCellViewModel {
     public var title: String
     

@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Progress Indicator View Controller-->
+        <scene sceneID="qVh-XH-BhW">
+            <objects>
+                <viewController storyboardIdentifier="ProgressIndicatorViewController" id="xel-c1-gcA" customClass="ProgressIndicatorViewController" customModule="Core" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="gzS-tK-Tbe">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ELU-eF-9gz">
+                                <rect key="frame" x="142" y="388" width="130" height="130"/>
+                                <subviews>
+                                    <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="c2Q-ez-u1Y">
+                                        <rect key="frame" x="46.5" y="46.5" width="37" height="37"/>
+                                    </activityIndicatorView>
+                                </subviews>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="c2Q-ez-u1Y" firstAttribute="centerX" secondItem="ELU-eF-9gz" secondAttribute="centerX" id="3Nd-Th-OHz"/>
+                                    <constraint firstAttribute="width" constant="130" id="6Fn-JY-bFx"/>
+                                    <constraint firstAttribute="height" constant="130" id="ibB-Wm-GB5"/>
+                                    <constraint firstItem="c2Q-ez-u1Y" firstAttribute="centerY" secondItem="ELU-eF-9gz" secondAttribute="centerY" id="nLn-QQ-c4R"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="ELU-eF-9gz" firstAttribute="centerY" secondItem="jtF-Az-MPN" secondAttribute="centerY" id="k0d-YI-PMC"/>
+                            <constraint firstItem="ELU-eF-9gz" firstAttribute="centerX" secondItem="jtF-Az-MPN" secondAttribute="centerX" id="p7e-Lr-gqF"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="jtF-Az-MPN"/>
+                    </view>
+                    <connections>
+                        <outlet property="progressBackgroundView" destination="ELU-eF-9gz" id="jcK-k2-3c1"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="RZt-6s-cvd" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="54" y="117"/>
+        </scene>
+    </scenes>
+</document>

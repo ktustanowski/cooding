@@ -32,26 +32,7 @@ public final class RecipeViewController: UITableViewController {
         cell.selectionStyle = .none
         return cell })
     
-    public var viewModel: RecipeViewModelProtocol! = RecipeViewModel(recipe: Recipe(name: "Pancakes",
-                                                                                    authorName: "Luke Skywalker",
-                                                                                    author: URL(string: "http://gmail.com")!,
-                                                                                    originalSource: URL(string: "http://apple.com")!,
-                                                                                    images: [],
-                                                                                    rawAlgorithm: """
-Prepare {blender}
-Add [1.25 glass of buttermilk] to the {blender}
-Add [0.25 glass of powdered sugar] to the {blender}
-Add [1.0 heaping teaspoon of baking powder] to the {blender}
-Add [1.0 teaspoon of baking soda] to the {blender}
-Add [1.0 pinch of salt] to the {blender}
-Blend everything in a {blender} to a smooth mass with the consistency of thick cream
-Preheat the {frying pan}
-Fry pancakes on both sides in a {frying pan} over medium heat <72.0>
-""",
-                                                                                    time: .minutes(15),
-                                                                                    people: 2,
-                                                                                    difficulty: .easy,
-                                                                                    country: nil))
+    public var viewModel: RecipeViewModelProtocol!
     
     public override func viewDidLoad() {
         super.viewDidLoad()

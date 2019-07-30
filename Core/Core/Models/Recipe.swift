@@ -85,6 +85,10 @@ public struct Dependency: Equatable, Hashable {
 public struct RecipeList: Codable, Equatable {
     /// Recipe list
     public let recipes: [ShortRecipe]
+    
+    public init(recipes: [ShortRecipe]) {
+        self.recipes = recipes
+    }
 }
 
 public struct ShortRecipe: Codable, Equatable {
@@ -94,6 +98,12 @@ public struct ShortRecipe: Codable, Equatable {
     public let source: URL
     /// Images of a recipe, cooking process etc.
     public let image: URL
+    
+    public init(name: String, source: URL, image: URL) {
+        self.name = name
+        self.source = source
+        self.image = image
+    }
 }
 
 public struct Recipe: Codable, Equatable {
