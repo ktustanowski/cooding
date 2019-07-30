@@ -3,10 +3,11 @@
     <pages>
         <page name='CookingScreen'/>
         <page name='RecipeScreen'/>
-        <page name='AllRecipiesScreen'/>
+        <page name='RecipeListScreen'/>
         <page name='RecipeListViewController'/>
         <page name='StepTableCell'/>
         <page name='ProgressView'/>
         <page name='ProgressIndicatorViewController'/>
+        <page name='NoDataViewController'/>
     </pages>
 </playground>

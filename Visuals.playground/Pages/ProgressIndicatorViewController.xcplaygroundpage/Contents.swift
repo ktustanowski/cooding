@@ -6,7 +6,7 @@ import RxSwift
 import RxRelay
 
 var viewController = ProgressIndicatorViewController.make()
-viewController.view.layoutIfNeeded()
+viewController.loadViewIfNeeded()
 
 PlaygroundPage.current.liveView = viewController.view
 PlaygroundPage.current.needsIndefiniteExecution = true

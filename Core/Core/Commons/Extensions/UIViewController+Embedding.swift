@@ -33,7 +33,7 @@ public extension UIViewController {
         }
     }
     
-    func isEmbedded(_ comparator: (UIViewController) -> Bool) -> Bool {
+    func isEmbedded(_ comparator: (UIViewController?) -> Bool) -> Bool {
         return children.filter(comparator).isEmpty == false
     }
 }

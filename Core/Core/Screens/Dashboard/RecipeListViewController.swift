@@ -11,7 +11,7 @@ import RxSwift
 import RxCocoa
 
 public final class RecipeListViewController: UITableViewController {
-    private let disposeBag = DisposeBag()
+    public let disposeBag = DisposeBag()
     public var viewModel: RecipeListViewModelProtocol!
     
     public override func viewDidLoad() {

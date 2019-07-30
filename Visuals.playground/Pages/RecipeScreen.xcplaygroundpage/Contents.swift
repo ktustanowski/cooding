@@ -9,7 +9,6 @@ import RxRelay
 var recipeViewController = RecipeViewController()
 var navigationController = UINavigationController(rootViewController: recipeViewController)
 
-
 //let liveView = playgroundControllers(child: recipeViewController)
 PlaygroundPage.current.liveView = navigationController.view
 PlaygroundPage.current.needsIndefiniteExecution = true

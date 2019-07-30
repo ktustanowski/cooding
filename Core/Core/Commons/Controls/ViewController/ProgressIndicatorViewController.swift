@@ -14,7 +14,7 @@ public final class ProgressIndicatorViewController: UIViewController {
     override public func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         
-        progressBackgroundView.roundCorners(radius: progressBackgroundView.frame.size.height / 2)
+        progressBackgroundView.roundCorners(radius: 10) //TODO: Make a constant or sth
     }
 }
 

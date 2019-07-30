@@ -8,14 +8,18 @@
 
 import UIKit
 import CoreData
+import Core
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-
+    private var flowController: MainFlowController?
+    
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+        
+        startMainFlow()
+        
         return true
     }
 
@@ -86,5 +90,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 fatalError("Unresolved error \(nserror), \(nserror.userInfo)")
             }
         }
+    }
+}
+
+private extension AppDelegate {
+    func startMainFlow() {
+        let navigationController = UINavigationController()
+        window = UIWindow()
+        window?.rootViewController = navigationController
+        window?.makeKeyAndVisible()
+        flowController = MainFlowController(presenter: navigationController)
+        flowController?.start()
     }
 }

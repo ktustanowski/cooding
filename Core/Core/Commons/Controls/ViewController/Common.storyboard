@@ -49,5 +49,62 @@
             </objects>
             <point key="canvasLocation" x="54" y="117"/>
         </scene>
+        <!--No Data View Controller-->
+        <scene sceneID="yh8-NW-Kyv">
+            <objects>
+                <viewController storyboardIdentifier="NoDataViewController" id="J1H-2R-bdG" customClass="NoDataViewController" customModule="Core" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="aR0-Qw-GMp">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="rL0-Lk-eUe">
+                                <rect key="frame" x="96" y="416" width="222.5" height="74.5"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Uh oh" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="v0Z-ob-BIL">
+                                        <rect key="frame" x="0.0" y="0.0" width="222.5" height="33.5"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="28"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Couldn't load the data. Sorry." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DyR-pa-SSw">
+                                        <rect key="frame" x="0.0" y="33.5" width="222.5" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tap to retry" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7ll-I8-eVN">
+                                        <rect key="frame" x="0.0" y="54" width="222.5" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JPQ-ZW-4T7">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="JPQ-ZW-4T7" secondAttribute="bottom" id="1EU-RJ-sqZ"/>
+                            <constraint firstItem="rL0-Lk-eUe" firstAttribute="centerX" secondItem="AUb-b2-LnH" secondAttribute="centerX" id="4YS-kJ-hRS"/>
+                            <constraint firstItem="JPQ-ZW-4T7" firstAttribute="top" secondItem="aR0-Qw-GMp" secondAttribute="top" id="8g2-3N-y9r"/>
+                            <constraint firstItem="JPQ-ZW-4T7" firstAttribute="trailing" secondItem="AUb-b2-LnH" secondAttribute="trailing" id="Aoz-LE-ghJ"/>
+                            <constraint firstItem="JPQ-ZW-4T7" firstAttribute="leading" secondItem="AUb-b2-LnH" secondAttribute="leading" id="AzL-Xq-rNn"/>
+                            <constraint firstItem="rL0-Lk-eUe" firstAttribute="centerY" secondItem="AUb-b2-LnH" secondAttribute="centerY" id="EGL-B9-heM"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="AUb-b2-LnH"/>
+                    </view>
+                    <connections>
+                        <outlet property="messageLabel" destination="DyR-pa-SSw" id="N1x-wq-0N0"/>
+                        <outlet property="retryButton" destination="JPQ-ZW-4T7" id="iqG-pb-ZHd"/>
+                        <outlet property="retryLabel" destination="7ll-I8-eVN" id="7ED-g5-nq8"/>
+                        <outlet property="titleLabel" destination="v0Z-ob-BIL" id="rQ4-BK-WCb"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="pzR-me-Ddv" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="844.92753623188412" y="116.51785714285714"/>
+        </scene>
     </scenes>
 </document>

@@ -50,35 +50,47 @@ private extension StepTableCell {
     }
     
     func bindViewModel() {
-        let areControlsHidden = Observable.combineLatest(viewModel.output.isDurationAvailable,
-                                                         viewModel.output.isDone)
+        let areControlsHidden = Observable
+            .combineLatest(viewModel.output.isDurationAvailable,
+                           viewModel.output.isDone)
             .map { $0 == false || $1 == true}
+            .observeOn(MainScheduler.instance)
         
         disposeBag.insert(
             areControlsHidden
                 .bind(to: durationControlsContainer.rx.isHidden),
             viewModel.output.isDone
+                .observeOn(MainScheduler.instance)
                 .bind(to: doneButton.rx.isHidden)
         )
         
         disposeBag.insert (
-            viewModel.output.title.bind(to: descriptionLabel.rx.text),
+            viewModel.output.title
+                .observeOn(MainScheduler.instance)
+                .bind(to: descriptionLabel.rx.text),
             viewModel.output.duration
+                .observeOn(MainScheduler.instance)
                 .bind(to: counterLabel.rx.text),
             viewModel.output.endTime
+                .observeOn(MainScheduler.instance)
                 .bind(to: endLabel.rx.text)
         )
         
         disposeBag.insert (
             viewModel.output.isCountdown
+                .observeOn(MainScheduler.instance)
                 .map { $0 ? "Pause" : "Start" } //TODO: Translations
                 .bind(to: timerButton.rx.title(for: .normal)),
-            timerButton.rx.controlEvent(.touchUpInside).subscribe(onNext: { [weak self] _ in
-                self?.viewModel.input.timerButtonTapped()
-            }),
-            doneButton.rx.controlEvent(.touchUpInside).subscribe(onNext: { [weak self] _ in
-                self?.viewModel.input.doneButtonTapped()
-            })
+            timerButton.rx.controlEvent(.touchUpInside)
+                .observeOn(MainScheduler.instance)
+                .subscribe(onNext: { [weak self] _ in
+                    self?.viewModel.input.timerButtonTapped()
+                }),
+            doneButton.rx.controlEvent(.touchUpInside)
+                .observeOn(MainScheduler.instance)
+                .subscribe(onNext: { [weak self] _ in
+                    self?.viewModel.input.doneButtonTapped()
+                })
         )
     }
 }

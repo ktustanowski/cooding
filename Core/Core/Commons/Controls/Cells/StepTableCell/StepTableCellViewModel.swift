@@ -83,27 +83,22 @@ public final class StepCellViewModel: StepCellViewModelProtocol, StepCellViewMod
         isDurationAvailable = .just(step.duration != nil)
         
         duration = currentDuration?
-            .observeOn(MainScheduler.instance)
             .compactMap { $0?.shortTime }
             .map { "\($0)" }
             .asObservable() ?? .empty()
         
         endTime = currentDuration?
-            .observeOn(MainScheduler.instance)
             .compactMap { $0?.endTime }
             .map { "\($0)" }
             .asObservable() ?? .empty()
         
         didTapDone = didTapDoneRelay
-            .observeOn(MainScheduler.instance)
             .asObservable()
         
         isDone = isDoneRelay
-            .observeOn(MainScheduler.instance)
             .asObservable()
         
         isCountdown = isCountdownRelay
-            .observeOn(MainScheduler.instance)
             .asObservable()
 
         let durationReachedZero = currentDuration?.filter { $0 == 0 }
