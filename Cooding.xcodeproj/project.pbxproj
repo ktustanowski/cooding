@@ -24,6 +24,12 @@
 		9AF958CA22C8DCD30055B204 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9AF958C822C8DCD30055B204 /* LaunchScreen.storyboard */; };
 		9AF958D522C8DCD30055B204 /* CoodingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AF958D422C8DCD30055B204 /* CoodingTests.swift */; };
 		9AF996D722F2167A00E9413C /* Core.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 9AF9590C22C8E17D0055B204 /* Core.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		9AF996FC22F2188A00E9413C /* RxRelay.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 9AF996F622F2188800E9413C /* RxRelay.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		9AF996FD22F2188A00E9413C /* RxSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 9AF996F722F2188800E9413C /* RxSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		9AF996FE22F2188A00E9413C /* Differentiator.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 9AF996F822F2188900E9413C /* Differentiator.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		9AF996FF22F2188A00E9413C /* RxBlocking.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 9AF996F922F2188900E9413C /* RxBlocking.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		9AF9970022F2188A00E9413C /* RxCocoa.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 9AF996FA22F2188900E9413C /* RxCocoa.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		9AF9970122F2188A00E9413C /* RxDataSources.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 9AF996FB22F2188900E9413C /* RxDataSources.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,6 +64,12 @@
 			dstSubfolderSpec = 10;
 			files = (
 				9AF996D722F2167A00E9413C /* Core.framework in Embed Frameworks */,
+				9AF996FC22F2188A00E9413C /* RxRelay.framework in Embed Frameworks */,
+				9AF996FD22F2188A00E9413C /* RxSwift.framework in Embed Frameworks */,
+				9AF996FE22F2188A00E9413C /* Differentiator.framework in Embed Frameworks */,
+				9AF996FF22F2188A00E9413C /* RxBlocking.framework in Embed Frameworks */,
+				9AF9970022F2188A00E9413C /* RxCocoa.framework in Embed Frameworks */,
+				9AF9970122F2188A00E9413C /* RxDataSources.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -87,6 +99,12 @@
 		9AF958D622C8DCD30055B204 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9AF9590622C8E17C0055B204 /* Core.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Core.xcodeproj; path = Core/Core.xcodeproj; sourceTree = "<group>"; };
 		9AF9591722C8E4FD0055B204 /* Visuals.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = Visuals.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		9AF996F622F2188800E9413C /* RxRelay.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxRelay.framework; path = Core/Carthage/Build/iOS/RxRelay.framework; sourceTree = "<group>"; };
+		9AF996F722F2188800E9413C /* RxSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxSwift.framework; path = Core/Carthage/Build/iOS/RxSwift.framework; sourceTree = "<group>"; };
+		9AF996F822F2188900E9413C /* Differentiator.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Differentiator.framework; path = Core/Carthage/Build/iOS/Differentiator.framework; sourceTree = "<group>"; };
+		9AF996F922F2188900E9413C /* RxBlocking.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxBlocking.framework; path = Core/Carthage/Build/iOS/RxBlocking.framework; sourceTree = "<group>"; };
+		9AF996FA22F2188900E9413C /* RxCocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxCocoa.framework; path = Core/Carthage/Build/iOS/RxCocoa.framework; sourceTree = "<group>"; };
+		9AF996FB22F2188900E9413C /* RxDataSources.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxDataSources.framework; path = Core/Carthage/Build/iOS/RxDataSources.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -156,6 +174,12 @@
 		9AF958B022C8DCD10055B204 = {
 			isa = PBXGroup;
 			children = (
+				9AF996F822F2188900E9413C /* Differentiator.framework */,
+				9AF996F922F2188900E9413C /* RxBlocking.framework */,
+				9AF996FA22F2188900E9413C /* RxCocoa.framework */,
+				9AF996FB22F2188900E9413C /* RxDataSources.framework */,
+				9AF996F622F2188800E9413C /* RxRelay.framework */,
+				9AF996F722F2188800E9413C /* RxSwift.framework */,
 				9AC269BC22EF5F880080CA7E /* Operations.playground */,
 				9AF9591722C8E4FD0055B204 /* Visuals.playground */,
 				9AF9590622C8E17C0055B204 /* Core.xcodeproj */,

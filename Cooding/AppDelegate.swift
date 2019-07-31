@@ -97,6 +97,9 @@ private extension AppDelegate {
     func startMainFlow() {
         let navigationController = UINavigationController()
         window = UIWindow()
+        //TODO: Fix this! Shape on push from right.
+        // https://github.com/jessesquires/JSQMessagesViewController/issues/528
+        window?.backgroundColor = .red
         window?.rootViewController = navigationController
         window?.makeKeyAndVisible()
         flowController = MainFlowController(presenter: navigationController)

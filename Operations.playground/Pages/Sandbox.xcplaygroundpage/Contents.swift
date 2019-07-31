@@ -29,8 +29,6 @@ addRelay.subscribe { print($0) }.disposed(by: bag)
 relay.asObservable().bind(to: addRelay).disposed(by: bag)
 relay.accept("3")
 
-
-
 relay.accept("1")
 addRelay.accept("2")
 
@@ -43,7 +41,6 @@ let observable = Observable<String>.create { observer -> Disposable in
 
 observable.debug("OBFS")
     .bind(to: relay)
-
 
 //PlaygroundPage.current.needsIndefiniteExecution = true
 

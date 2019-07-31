@@ -39,6 +39,10 @@ public final class RecipeViewController: UITableViewController {
         tableView.register(BasicTableCell.self, forCellReuseIdentifier: BasicTableCell.nibName)
         bindViewModel()
     }
+    
+    deinit {
+        print("deinitied")
+    }
 }
 
 private extension RecipeViewController {

@@ -27,13 +27,14 @@ private extension CookingViewController {
         viewModel.output.steps.bind(to: tableView
             .rx
             .items(cellIdentifier: StepTableCell.nibName)) { [weak self] _, viewModel, cell in
-                guard let stepCell = cell as? StepTableCell, let strongSelf = self else { return }
+                guard let stepCell = cell as? StepTableCell else { return }
                 stepCell.viewModel = viewModel
-                
+
                 viewModel.output.didTapDone
                     .subscribe(onNext: { _ in
-                        // TODO: maybe refactor to use animated DS or just switch to reload a cell or sth
-                        strongSelf.tableView.reloadData()
+                        guard let indexPathToRemove = self?.tableView.indexPath(for: stepCell) else { return }
+                        self?.viewModel.input.finished(at: indexPathToRemove)
+                        
                     }).disposed(by: stepCell.disposeBag)
             }
             .disposed(by: disposeBag)

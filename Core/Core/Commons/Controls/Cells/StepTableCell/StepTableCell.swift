@@ -50,21 +50,10 @@ private extension StepTableCell {
     }
     
     func bindViewModel() {
-        let areControlsHidden = Observable
-            .combineLatest(viewModel.output.isDurationAvailable,
-                           viewModel.output.isDone)
-            .map { $0 == false || $1 == true}
-            .observeOn(MainScheduler.instance)
-        
-        disposeBag.insert(
-            areControlsHidden
-                .bind(to: durationControlsContainer.rx.isHidden),
-            viewModel.output.isDone
-                .observeOn(MainScheduler.instance)
-                .bind(to: doneButton.rx.isHidden)
-        )
-        
         disposeBag.insert (
+            viewModel.output.isDurationAvailable
+                .map { !$0 }
+                .bind(to: durationControlsContainer.rx.isHidden),
             viewModel.output.title
                 .observeOn(MainScheduler.instance)
                 .bind(to: descriptionLabel.rx.text),

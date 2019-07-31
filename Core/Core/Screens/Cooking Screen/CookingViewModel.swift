@@ -16,7 +16,7 @@ public protocol CookingViewModelProtocol: CookingViewModelProtocolInputs, Cookin
 }
 
 public protocol CookingViewModelProtocolInputs {
-    
+    func finished(at indexPath: IndexPath)
 }
 
 public protocol CookingViewModelProtocolOutputs {
@@ -26,6 +26,13 @@ public protocol CookingViewModelProtocolOutputs {
 public final class CookingViewModel: CookingViewModelProtocol {
     public var input: CookingViewModelProtocolInputs { return self }
     public var output: CookingViewModelProtocolOutputs { return self }
+    
+    // MARK: Inputs
+    public func finished(at indexPath: IndexPath) {
+        var steps = stepsRelay.value
+        steps.remove(at: indexPath.row)
+        stepsRelay.accept(steps)
+    }
     
     // MARK: Outputs
     private let stepsRelay = BehaviorRelay<[StepCellViewModelProtocol]>(value: [])
