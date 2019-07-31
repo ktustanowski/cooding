@@ -10,9 +10,6 @@ import Foundation
 import RxSwift
 import RxRelay
 
-let disposeBag = DisposeBag()
-let downloader = Downloader()
-
 public protocol RecipeListContainerViewModelProtocol: RecipeListContainerViewModelProtocolInputs, RecipeListContainerViewModelProtocolOutputs {
     var input: RecipeListContainerViewModelProtocolInputs { get }
     var output: RecipeListContainerViewModelProtocolOutputs { get }
@@ -69,7 +66,7 @@ public final class RecipeListContainerViewModel: RecipeListContainerViewModelPro
         self.downloader = downloader
         recipeURLRelay.accept(recipeURL)
     
-        //TODOKT: After first time this whole chain is disposed
+        //TODOKT: when there is an error - whole chain is disposed - try to prevent that
         let viewDidLoad = viewDidLoadRelay.asObservable().debug("view_did")
         let gotURL = recipeURLRelay.asObservable().debug("recipe_relay")
             .compactMap { $0 }
@@ -80,11 +77,17 @@ public final class RecipeListContainerViewModel: RecipeListContainerViewModelPro
                            reloadRelay.asObservable().debug("reload_obs"))
             .map { $0.0 }.debug("should_load")
         
-        recipeListViewModel = shouldLoadRecipes.asObservable()
-            .flatMap { url -> Observable<RecipeList> in
+        recipeListViewModel = shouldLoadRecipes
+            .flatMap { url -> Observable<RecipeList?> in
                 return downloader.download(url: url)
             }
+            .compactMap { $0}
             .map { RecipeListViewModel(recipeList: $0) }
+            .catchError({ error -> Observable<RecipeListViewModelProtocol?> in
+                print(error)
+                return .just(nil)
+            })
+            .compactMap { $0 }
         
         isLoading = downloader.isLoading.asObservable()
     }

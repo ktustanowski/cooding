@@ -15,10 +15,6 @@ public final class RecipeListContainerViewController: UIViewController {
                                                                                               downloader: Downloader())
     public var disposeBag = DisposeBag()
     
-    private var content: RecipeListViewController?
-    private var progressIndicator: ProgressIndicatorViewController?
-    private var errorIndicator: NoDataViewController?
-    
     @IBOutlet weak var contentContainer: UIView!
     @IBOutlet weak var bottomBar: UIView!
     
@@ -57,7 +53,6 @@ private extension RecipeListContainerViewController {
         let progressIndicator = ProgressIndicatorViewController.make()
         
         embed(progressIndicator, in: contentContainer)
-        self.progressIndicator = progressIndicator
     }
     
     func embedErrorIndicator() {
@@ -77,7 +72,6 @@ private extension RecipeListContainerViewController {
             .disposed(by: errorIndicator.disposeBag)
         
         embed(errorIndicator, in: contentContainer)
-        self.errorIndicator = errorIndicator
     }
     
     func embedContent(viewModel: RecipeListViewModelProtocol) {
@@ -94,7 +88,6 @@ private extension RecipeListContainerViewController {
             }).disposed(by: content.disposeBag)
         
         embed(content, in: contentContainer)
-        self.content = content
     }
 }
 

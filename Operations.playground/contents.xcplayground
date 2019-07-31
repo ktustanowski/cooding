@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <playground version='6.0' target-platform='ios'>
     <pages>
+        <page name='Sandbox'/>
         <page name='GetRecipeList'/>
         <page name='GetRecipe'/>
+        <page name='RecipeParser'/>
     </pages>
 </playground>

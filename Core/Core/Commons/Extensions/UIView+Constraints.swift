@@ -11,10 +11,9 @@ import UIKit
 public extension UIView {
     func fillInSuperview() {
         translatesAutoresizingMaskIntoConstraints = false
-        let viewsDict = ["view": self]
-        self.superview?.addConstraints(NSLayoutConstraint
-            .constraints(withVisualFormat: "V:|-0-[view]-0-|", options: [], metrics: nil, views: viewsDict))
-        self.superview?.addConstraints(NSLayoutConstraint
-            .constraints(withVisualFormat: "H:|-0-[view]-0-|", options: [], metrics: nil, views: viewsDict))
+        superview?.topAnchor.constraint(equalTo: topAnchor).isActive = true
+        superview?.bottomAnchor.constraint(equalTo: bottomAnchor).isActive = true
+        superview?.leadingAnchor.constraint(equalTo: leadingAnchor).isActive = true
+        superview?.trailingAnchor.constraint(equalTo: trailingAnchor).isActive = true
     }
 }

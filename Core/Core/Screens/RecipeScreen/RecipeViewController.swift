@@ -11,7 +11,7 @@ import RxSwift
 import RxDataSources
 
 public final class RecipeViewController: UITableViewController {
-    private let disposeBag = DisposeBag()
+    public let disposeBag = DisposeBag()
     private var dataSource = RxTableViewSectionedReloadDataSource<RecipeSectionModel>(configureCell: { _, tableView, indexPath, item in
         
         guard let cell = tableView.dequeueReusableCell(withIdentifier: BasicTableCell.nibName, for: indexPath) as? BasicTableCell

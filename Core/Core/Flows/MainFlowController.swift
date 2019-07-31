@@ -11,6 +11,8 @@ import RxSwift
 
 public protocol ScreenMakeable {
     func makeDashboardScreen() -> DashboardTabBarController
+    func makeRecipeScreen(shortRecipe: ShortRecipe) -> RecipeContainerViewController
+    func makeCookingScreen(algorithm: Algorithm) -> CookingViewController
 }
 
 public struct ScreenMaker: ScreenMakeable {
@@ -20,6 +22,20 @@ public struct ScreenMaker: ScreenMakeable {
         return dashboardScreen
     }
     
+    public func makeRecipeScreen(shortRecipe: ShortRecipe) -> RecipeContainerViewController {
+        let recipeScreen = RecipeContainerViewController()
+        recipeScreen.viewModel = RecipeContainerViewModel(shortRecipe: shortRecipe)
+        
+        return recipeScreen
+    }
+
+    public func makeCookingScreen(algorithm: Algorithm) -> CookingViewController {
+        let recipeScreen = CookingViewController()
+        recipeScreen.viewModel = CookingViewModel(algorithm: algorithm)
+        
+        return recipeScreen
+    }
+
     public init() {}
 }
 
@@ -29,8 +45,11 @@ public final class MainFlowController {
     private let disposeBag = DisposeBag()
     
     public func start() {
-        presentDashboard(didSelectRecipe: { [weak self] recipe in
-            self?.presentRecipeDetails(recipe: recipe)
+        presentDashboard(didSelectRecipe: { [weak self] shortRecipe in
+            self?.presentRecipeDetails(shortRecipe: shortRecipe,
+                                       didTapStartCooking: { [weak self] algorithm in
+                                            self?.presentCookingScreen(algorithm: algorithm)
+                                        })
         })
     }
     
@@ -41,10 +60,11 @@ public final class MainFlowController {
 }
 
 private extension MainFlowController {
-    func presentDashboard(didSelectRecipe: @escaping ((ShortRecipe) -> Void)){
+    func presentDashboard(didSelectRecipe: @escaping ((ShortRecipe) -> Void)) {
         let dashboardScreen = provider.makeDashboardScreen()
         
         dashboardScreen.viewModel.didSelectRecipe
+            .observeOn(MainScheduler.instance)
             .subscribe(onNext: { recipe in
                 didSelectRecipe(recipe)
             })
@@ -53,7 +73,22 @@ private extension MainFlowController {
         presenter.pushViewController(dashboardScreen, animated: false)
     }
     
-    func presentRecipeDetails(recipe: ShortRecipe) {
-        print(recipe) //TODO: Present recipe screen here
+    func presentRecipeDetails(shortRecipe: ShortRecipe, didTapStartCooking: @escaping ((Algorithm) -> Void)) {
+        let recipeScreen = provider.makeRecipeScreen(shortRecipe: shortRecipe)
+        
+        recipeScreen.viewModel.output.didTapStartCooking
+            .observeOn(MainScheduler.instance)
+            .subscribe(onNext: { algorithm in
+                didTapStartCooking(algorithm)
+            })
+            .disposed(by: recipeScreen.disposeBag)
+        
+        presenter.pushViewController(recipeScreen, animated: true)
+    }
+    
+    func presentCookingScreen(algorithm: Algorithm) {
+        let cookingScreen = provider.makeCookingScreen(algorithm: algorithm)
+        
+        presenter.pushViewController(cookingScreen, animated: true)
     }
 }

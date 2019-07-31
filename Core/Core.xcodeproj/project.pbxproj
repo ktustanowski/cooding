@@ -20,10 +20,6 @@
 		9A507CB122EA2A6100D1C8F9 /* StepTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A507CB022EA2A6100D1C8F9 /* StepTableCell.swift */; };
 		9A507CB422EA2A9A00D1C8F9 /* StepTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9A507CB322EA2A9A00D1C8F9 /* StepTableCell.xib */; };
 		9A507CB822EA2E6B00D1C8F9 /* XibMakeable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A507CB722EA2E6B00D1C8F9 /* XibMakeable.swift */; };
-		9A51E66422D2020700A27ACF /* RxCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A51E65F22D2020600A27ACF /* RxCocoa.framework */; };
-		9A51E66522D2020700A27ACF /* RxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A51E66022D2020700A27ACF /* RxSwift.framework */; };
-		9A51E66622D2020700A27ACF /* RxBlocking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A51E66122D2020700A27ACF /* RxBlocking.framework */; };
-		9A51E66722D2020700A27ACF /* RxRelay.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A51E66222D2020700A27ACF /* RxRelay.framework */; };
 		9A51E67722D677B300A27ACF /* Cartfile in Resources */ = {isa = PBXBuildFile; fileRef = 9A51E67622D677B300A27ACF /* Cartfile */; };
 		9A705D0D22E7AAB9003AA381 /* CookingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A705D0C22E7AAB9003AA381 /* CookingViewModel.swift */; };
 		9A976E2922EC505E00204894 /* StepTableCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A976E2822EC505E00204894 /* StepTableCellViewModel.swift */; };
@@ -43,7 +39,6 @@
 		9AD3227F22EE0823002F9C6B /* RawAlgorithmTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AD3227E22EE0823002F9C6B /* RawAlgorithmTests.swift */; };
 		9ADB3E5B22EDAD1500035D2A /* RecipeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ADB3E5A22EDAD1500035D2A /* RecipeViewController.swift */; };
 		9ADB3E5D22EDAD2200035D2A /* RecipeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ADB3E5C22EDAD2200035D2A /* RecipeViewModel.swift */; };
-		9ADB3E6022EDB78000035D2A /* RxDataSources.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9ADB3E5F22EDB78000035D2A /* RxDataSources.framework */; };
 		9AF3509622ED97B700D42922 /* TimeInterval+Formatting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AF3509522ED97B700D42922 /* TimeInterval+Formatting.swift */; };
 		9AF3509822ED97D500D42922 /* TimeInterval+Convenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AF3509722ED97D500D42922 /* TimeInterval+Convenience.swift */; };
 		9AF3509A22ED97FD00D42922 /* Date+Formatting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AF3509922ED97FD00D42922 /* Date+Formatting.swift */; };
@@ -51,6 +46,14 @@
 		9AF958FD22C8E17C0055B204 /* Core.h in Headers */ = {isa = PBXBuildFile; fileRef = 9AF958EF22C8E17C0055B204 /* Core.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		9AF9591322C8E1C90055B204 /* CookingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AF9591222C8E1C90055B204 /* CookingViewController.swift */; };
 		9AF9591622C8E22E0055B204 /* Cooking.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9AF9591522C8E22E0055B204 /* Cooking.storyboard */; };
+		9AF996CE22F1F6BA00E9413C /* RecipeContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AF996CD22F1F6BA00E9413C /* RecipeContainerViewController.swift */; };
+		9AF996D222F2006F00E9413C /* RecipeContainerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AF996D122F2006F00E9413C /* RecipeContainerViewModel.swift */; };
+		9AF996F022F2182500E9413C /* RxDataSources.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9AF996EA22F2182500E9413C /* RxDataSources.framework */; };
+		9AF996F122F2182500E9413C /* Differentiator.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9AF996EB22F2182500E9413C /* Differentiator.framework */; };
+		9AF996F222F2182500E9413C /* RxCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9AF996EC22F2182500E9413C /* RxCocoa.framework */; };
+		9AF996F322F2182500E9413C /* RxRelay.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9AF996ED22F2182500E9413C /* RxRelay.framework */; };
+		9AF996F422F2182500E9413C /* RxBlocking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9AF996EE22F2182500E9413C /* RxBlocking.framework */; };
+		9AF996F522F2182500E9413C /* RxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9AF996EF22F2182500E9413C /* RxSwift.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -77,10 +80,6 @@
 		9A507CB022EA2A6100D1C8F9 /* StepTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StepTableCell.swift; sourceTree = "<group>"; };
 		9A507CB322EA2A9A00D1C8F9 /* StepTableCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = StepTableCell.xib; sourceTree = "<group>"; };
 		9A507CB722EA2E6B00D1C8F9 /* XibMakeable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XibMakeable.swift; sourceTree = "<group>"; };
-		9A51E65F22D2020600A27ACF /* RxCocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxCocoa.framework; path = Carthage/Build/iOS/RxCocoa.framework; sourceTree = "<group>"; };
-		9A51E66022D2020700A27ACF /* RxSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxSwift.framework; path = Carthage/Build/iOS/RxSwift.framework; sourceTree = "<group>"; };
-		9A51E66122D2020700A27ACF /* RxBlocking.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxBlocking.framework; path = Carthage/Build/iOS/RxBlocking.framework; sourceTree = "<group>"; };
-		9A51E66222D2020700A27ACF /* RxRelay.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxRelay.framework; path = Carthage/Build/iOS/RxRelay.framework; sourceTree = "<group>"; };
 		9A51E66322D2020700A27ACF /* RxTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxTest.framework; path = Carthage/Build/iOS/RxTest.framework; sourceTree = "<group>"; };
 		9A51E67622D677B300A27ACF /* Cartfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Cartfile; sourceTree = "<group>"; };
 		9A705D0C22E7AAB9003AA381 /* CookingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CookingViewModel.swift; sourceTree = "<group>"; };
@@ -101,7 +100,6 @@
 		9AD3227E22EE0823002F9C6B /* RawAlgorithmTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RawAlgorithmTests.swift; sourceTree = "<group>"; };
 		9ADB3E5A22EDAD1500035D2A /* RecipeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeViewController.swift; sourceTree = "<group>"; };
 		9ADB3E5C22EDAD2200035D2A /* RecipeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeViewModel.swift; sourceTree = "<group>"; };
-		9ADB3E5F22EDB78000035D2A /* RxDataSources.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxDataSources.framework; path = Carthage/Build/iOS/RxDataSources.framework; sourceTree = "<group>"; };
 		9AF3509522ED97B700D42922 /* TimeInterval+Formatting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "TimeInterval+Formatting.swift"; path = "Core/Commons/Utilities/TimeInterval+Formatting.swift"; sourceTree = SOURCE_ROOT; };
 		9AF3509722ED97D500D42922 /* TimeInterval+Convenience.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TimeInterval+Convenience.swift"; sourceTree = "<group>"; };
 		9AF3509922ED97FD00D42922 /* Date+Formatting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Formatting.swift"; sourceTree = "<group>"; };
@@ -112,6 +110,14 @@
 		9AF958FC22C8E17C0055B204 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9AF9591222C8E1C90055B204 /* CookingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CookingViewController.swift; sourceTree = "<group>"; };
 		9AF9591522C8E22E0055B204 /* Cooking.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Cooking.storyboard; sourceTree = "<group>"; };
+		9AF996CD22F1F6BA00E9413C /* RecipeContainerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeContainerViewController.swift; sourceTree = "<group>"; };
+		9AF996D122F2006F00E9413C /* RecipeContainerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeContainerViewModel.swift; sourceTree = "<group>"; };
+		9AF996EA22F2182500E9413C /* RxDataSources.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxDataSources.framework; path = Carthage/Build/iOS/RxDataSources.framework; sourceTree = "<group>"; };
+		9AF996EB22F2182500E9413C /* Differentiator.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Differentiator.framework; path = Carthage/Build/iOS/Differentiator.framework; sourceTree = "<group>"; };
+		9AF996EC22F2182500E9413C /* RxCocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxCocoa.framework; path = Carthage/Build/iOS/RxCocoa.framework; sourceTree = "<group>"; };
+		9AF996ED22F2182500E9413C /* RxRelay.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxRelay.framework; path = Carthage/Build/iOS/RxRelay.framework; sourceTree = "<group>"; };
+		9AF996EE22F2182500E9413C /* RxBlocking.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxBlocking.framework; path = Carthage/Build/iOS/RxBlocking.framework; sourceTree = "<group>"; };
+		9AF996EF22F2182500E9413C /* RxSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxSwift.framework; path = Carthage/Build/iOS/RxSwift.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -119,11 +125,12 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9A51E66722D2020700A27ACF /* RxRelay.framework in Frameworks */,
-				9A51E66522D2020700A27ACF /* RxSwift.framework in Frameworks */,
-				9ADB3E6022EDB78000035D2A /* RxDataSources.framework in Frameworks */,
-				9A51E66422D2020700A27ACF /* RxCocoa.framework in Frameworks */,
-				9A51E66622D2020700A27ACF /* RxBlocking.framework in Frameworks */,
+				9AF996F022F2182500E9413C /* RxDataSources.framework in Frameworks */,
+				9AF996F122F2182500E9413C /* Differentiator.framework in Frameworks */,
+				9AF996F222F2182500E9413C /* RxCocoa.framework in Frameworks */,
+				9AF996F322F2182500E9413C /* RxRelay.framework in Frameworks */,
+				9AF996F422F2182500E9413C /* RxBlocking.framework in Frameworks */,
+				9AF996F522F2182500E9413C /* RxSwift.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -196,11 +203,12 @@
 		9A51E65422D2004000A27ACF /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				9ADB3E5F22EDB78000035D2A /* RxDataSources.framework */,
-				9A51E66122D2020700A27ACF /* RxBlocking.framework */,
-				9A51E65F22D2020600A27ACF /* RxCocoa.framework */,
-				9A51E66222D2020700A27ACF /* RxRelay.framework */,
-				9A51E66022D2020700A27ACF /* RxSwift.framework */,
+				9AF996EB22F2182500E9413C /* Differentiator.framework */,
+				9AF996EE22F2182500E9413C /* RxBlocking.framework */,
+				9AF996EC22F2182500E9413C /* RxCocoa.framework */,
+				9AF996EA22F2182500E9413C /* RxDataSources.framework */,
+				9AF996ED22F2182500E9413C /* RxRelay.framework */,
+				9AF996EF22F2182500E9413C /* RxSwift.framework */,
 				9A51E66322D2020700A27ACF /* RxTest.framework */,
 			);
 			name = Frameworks;
@@ -268,6 +276,8 @@
 		9ADB3E5922EDACFB00035D2A /* RecipeScreen */ = {
 			isa = PBXGroup;
 			children = (
+				9AF996CD22F1F6BA00E9413C /* RecipeContainerViewController.swift */,
+				9AF996D122F2006F00E9413C /* RecipeContainerViewModel.swift */,
 				9ADB3E5A22EDAD1500035D2A /* RecipeViewController.swift */,
 				9ADB3E5C22EDAD2200035D2A /* RecipeViewModel.swift */,
 			);
@@ -529,12 +539,14 @@
 				9AC269D822EF95FD0080CA7E /* RecipeListViewModel.swift in Sources */,
 				9A705D0D22E7AAB9003AA381 /* CookingViewModel.swift in Sources */,
 				9A507CB122EA2A6100D1C8F9 /* StepTableCell.swift in Sources */,
+				9AF996CE22F1F6BA00E9413C /* RecipeContainerViewController.swift in Sources */,
 				9AC269B922EE54E60080CA7E /* AlgorithmParser.swift in Sources */,
 				9A0985BC22F0A9F900A47127 /* UIView+RoundCorners.swift in Sources */,
 				9ADB3E5D22EDAD2200035D2A /* RecipeViewModel.swift in Sources */,
 				9A0985C922F0E14A00A47127 /* MainFlowController.swift in Sources */,
 				9A0985C022F0AFD700A47127 /* NoDataViewController.swift in Sources */,
 				9AC269C422EF89650080CA7E /* DashboardTabBarController.swift in Sources */,
+				9AF996D222F2006F00E9413C /* RecipeContainerViewModel.swift in Sources */,
 				9AC269CD22EF8C530080CA7E /* RecipeListContainerViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -684,9 +696,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = "";
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
@@ -699,6 +712,7 @@
 				);
 				INFOPLIST_FILE = Core/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -720,6 +734,7 @@
 				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = "";
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
@@ -732,6 +747,7 @@
 				);
 				INFOPLIST_FILE = Core/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
