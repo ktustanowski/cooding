@@ -17,13 +17,11 @@ public final class RecipeContainerViewController: UIViewController {
     public override func viewDidLoad() {
         super.viewDidLoad()
     
+        setupNavigationBar()
         view.backgroundColor = .orange //TODO: Maybe add some functional styling or sth?
         setupContainer()
         bindViewModel()
         viewModel.input.viewDidLoad()
-        //TODO: Clean this up later
-        let cookingButton = UIBarButtonItem(barButtonSystemItem: .action, target: self, action: #selector(cookingButtonTapped))
-        navigationItem.rightBarButtonItem = cookingButton
     }
     
     public override func viewWillAppear(_ animated: Bool) {
@@ -33,6 +31,16 @@ public final class RecipeContainerViewController: UIViewController {
 }
 
 private extension RecipeContainerViewController {
+    func setupNavigationBar() {
+        replaceBackButtonWithBackArrow()
+        
+        onDismiss?
+            .subscribe(onNext: { [weak self] _ in
+                self?.viewModel.input.dismiss()
+            })
+            .disposed(by: disposeBag)
+    }
+    
     @objc
     func cookingButtonTapped() {
         viewModel.input.startCookingTapped()
@@ -99,6 +107,11 @@ private extension RecipeContainerViewController {
         
         let content = RecipeViewController()
         content.viewModel = viewModel
+        
+        content.viewModel.output.didTapStartCooking.subscribe { [weak self] _ in
+            self?.viewModel.input.startCookingTapped()
+        }
+        .disposed(by: content.disposeBag)
         
         embed(content, in: contentContainer)
     }

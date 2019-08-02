@@ -82,12 +82,23 @@ private extension MainFlowController {
             })
             .disposed(by: recipeScreen.disposeBag)
         
+        recipeScreen.viewModel.output.didDismiss
+            .subscribe { [weak self] _ in
+                _ = self?.presenter.popViewController(animated: true)
+            }
+            .disposed(by: recipeScreen.disposeBag)
+        
         presenter.pushViewController(recipeScreen, animated: true)
     }
     
     func presentCookingScreen(algorithm: Algorithm) {
         let cookingScreen = provider.makeCookingScreen(algorithm: algorithm)
-        
+        cookingScreen.viewModel.output.didDismiss
+            .subscribe { [weak self] _ in
+                _ = self?.presenter.popViewController(animated: true)
+            }
+            .disposed(by: cookingScreen.disposeBag)
+
         presenter.pushViewController(cookingScreen, animated: true)
     }
 }

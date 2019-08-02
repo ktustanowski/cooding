@@ -21,7 +21,9 @@ public protocol DashboardViewModelProtocolInputs {
 
 public protocol DashboardViewModelProtocolOutputs {
     var allRecipiesViewModel: RecipeListContainerViewModelProtocol { get }
+    var myRecipiesViewModel: RecipeListContainerViewModelProtocol { get }
     var allRecipiesButtonTitle: String { get }
+    var myRecipiesButtonTitle: String { get }
     var didSelectRecipe: Observable<ShortRecipe> { get }
 }
 
@@ -40,6 +42,10 @@ public final class DashboardViewModel: DashboardViewModelProtocol {
     // MARK : Output
     public var allRecipiesViewModel: RecipeListContainerViewModelProtocol
     public var allRecipiesButtonTitle: String
+    
+    public var myRecipiesViewModel: RecipeListContainerViewModelProtocol
+    public var myRecipiesButtonTitle: String
+    
     public var didSelectRecipe: Observable<ShortRecipe> {
         return didSelectRecipeRelay.asObservable()
     }
@@ -48,6 +54,9 @@ public final class DashboardViewModel: DashboardViewModelProtocol {
     
     public init() {
         allRecipiesViewModel = RecipeListContainerViewModel(recipeURL: allRecipiesURL)
-        allRecipiesButtonTitle = "All"
+        allRecipiesButtonTitle = "All" // TODO: Translations
+
+        myRecipiesViewModel = RecipeListContainerViewModel(recipeURL: nil)
+        myRecipiesButtonTitle = "My" // TODO: Translations
     }
 }

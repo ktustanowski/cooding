@@ -11,7 +11,7 @@ import RxSwift
 import RxCocoa
 
 public final class CookingViewController: UITableViewController {
-    private let disposeBag = DisposeBag()
+    public let disposeBag = DisposeBag()
     public var viewModel: CookingViewModelProtocol!
     
     public override func viewDidLoad() {
@@ -27,6 +27,17 @@ private extension CookingViewController {
         tableView.register(StepTableCell.nib, forCellReuseIdentifier: StepTableCell.nibName)
         tableView.separatorStyle = .none
         tableView.backgroundColor = .orange
+        setupNavigationBar()
+    }
+
+    func setupNavigationBar() {
+        replaceBackButtonWithBackArrow()
+        
+        onDismiss?
+            .subscribe(onNext: { [weak self] _ in
+                self?.viewModel.input.dismiss()
+            })
+            .disposed(by: disposeBag)
     }
 
     func bindViewModel() {

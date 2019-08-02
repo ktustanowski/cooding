@@ -19,12 +19,14 @@ public protocol RecipeContainerViewModelProtocolInputs {
     func viewDidLoad()
     func reload()
     func startCookingTapped()
+    func dismiss()
 }
 
 public protocol RecipeContainerViewModelProtocolOutputs {
     var recipeViewModel: Observable<RecipeViewModelProtocol?> { get }
     var isLoading: Observable<Bool> { get }
     var didTapStartCooking: Observable<Algorithm> { get }
+    var didDismiss: Observable<Void> { get }
 }
 
 public final class RecipeContainerViewModel: RecipeContainerViewModelProtocol {
@@ -47,16 +49,24 @@ public final class RecipeContainerViewModel: RecipeContainerViewModelProtocol {
         didTapStartCookingRelay.accept(algorithm)
     }
     
+    public func dismiss() {
+        didDismissRelay.accept(())
+    }
+
     // MARK: Outputs
     public let recipeViewModel: Observable<RecipeViewModelProtocol?>
     public var didTapStartCooking: Observable<Algorithm> {
         return didTapStartCookingRelay.asObservable()
     }
     public let isLoading: Observable<Bool>
+    public var didDismiss: Observable<Void> {
+        return didDismissRelay.asObservable()
+    }
     
     private let viewDidLoadRelay = PublishRelay<Void>()
     private let reloadRelay = BehaviorRelay<Void>(value: ())
     private let didTapStartCookingRelay = PublishRelay<Algorithm>()
+    private let didDismissRelay = PublishRelay<Void>()
     
     private let parser: AlgorithmParsable
     private let shortRecipe: ShortRecipe

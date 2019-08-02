@@ -16,9 +16,12 @@
 		9A0985CB22F0E24E00A47127 /* ScreenPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A0985CA22F0E24E00A47127 /* ScreenPresenter.swift */; };
 		9A0985CD22F0E70F00A47127 /* DashboardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A0985CC22F0E70F00A47127 /* DashboardViewModel.swift */; };
 		9A1611B622EA5CED00FA053F /* UIView+Nib.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A1611B522EA5CED00FA053F /* UIView+Nib.swift */; };
+		9A34484722F4F76400AC7DC1 /* UIViewController+Navigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A34484622F4F76400AC7DC1 /* UIViewController+Navigation.swift */; };
 		9A3CD01022E7887100A329EC /* Recipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A3CD00F22E7887100A329EC /* Recipe.swift */; };
 		9A488FCE22F3A79300AC308F /* ListTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9A488FCD22F3A79300AC308F /* ListTableCell.xib */; };
 		9A488FD122F4DB6D00AC308F /* ButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A488FD022F4DB6D00AC308F /* ButtonView.swift */; };
+		9A488FD422F4E60D00AC308F /* ButtonTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A488FD322F4E60D00AC308F /* ButtonTableCell.swift */; };
+		9A488FD622F4E61C00AC308F /* ButtonTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9A488FD522F4E61C00AC308F /* ButtonTableCell.xib */; };
 		9A507CB122EA2A6100D1C8F9 /* StepTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A507CB022EA2A6100D1C8F9 /* StepTableCell.swift */; };
 		9A507CB422EA2A9A00D1C8F9 /* StepTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9A507CB322EA2A9A00D1C8F9 /* StepTableCell.xib */; };
 		9A507CB822EA2E6B00D1C8F9 /* XibMakeable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A507CB722EA2E6B00D1C8F9 /* XibMakeable.swift */; };
@@ -26,7 +29,6 @@
 		9A705D0D22E7AAB9003AA381 /* CookingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A705D0C22E7AAB9003AA381 /* CookingViewModel.swift */; };
 		9A82904022F3A1BD00820061 /* ListTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A82903F22F3A1BD00820061 /* ListTableCell.swift */; };
 		9A976E2922EC505E00204894 /* StepTableCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A976E2822EC505E00204894 /* StepTableCellViewModel.swift */; };
-		9A976E2E22EC70F800204894 /* ProrgessView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A976E2D22EC70F800204894 /* ProrgessView.swift */; };
 		9AC269B922EE54E60080CA7E /* AlgorithmParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AC269B822EE54E60080CA7E /* AlgorithmParser.swift */; };
 		9AC269BB22EE554B0080CA7E /* String+Trimm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AC269BA22EE554B0080CA7E /* String+Trimm.swift */; };
 		9AC269C022EF805A0080CA7E /* Downloader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AC269BF22EF805A0080CA7E /* Downloader.swift */; };
@@ -81,9 +83,12 @@
 		9A0985CA22F0E24E00A47127 /* ScreenPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenPresenter.swift; sourceTree = "<group>"; };
 		9A0985CC22F0E70F00A47127 /* DashboardViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardViewModel.swift; sourceTree = "<group>"; };
 		9A1611B522EA5CED00FA053F /* UIView+Nib.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Nib.swift"; sourceTree = "<group>"; };
+		9A34484622F4F76400AC7DC1 /* UIViewController+Navigation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Navigation.swift"; sourceTree = "<group>"; };
 		9A3CD00F22E7887100A329EC /* Recipe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Recipe.swift; sourceTree = "<group>"; };
 		9A488FCD22F3A79300AC308F /* ListTableCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ListTableCell.xib; sourceTree = "<group>"; };
 		9A488FD022F4DB6D00AC308F /* ButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonView.swift; sourceTree = "<group>"; };
+		9A488FD322F4E60D00AC308F /* ButtonTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonTableCell.swift; sourceTree = "<group>"; };
+		9A488FD522F4E61C00AC308F /* ButtonTableCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ButtonTableCell.xib; sourceTree = "<group>"; };
 		9A507CB022EA2A6100D1C8F9 /* StepTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StepTableCell.swift; sourceTree = "<group>"; };
 		9A507CB322EA2A9A00D1C8F9 /* StepTableCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = StepTableCell.xib; sourceTree = "<group>"; };
 		9A507CB722EA2E6B00D1C8F9 /* XibMakeable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XibMakeable.swift; sourceTree = "<group>"; };
@@ -92,7 +97,6 @@
 		9A705D0C22E7AAB9003AA381 /* CookingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CookingViewModel.swift; sourceTree = "<group>"; };
 		9A82903F22F3A1BD00820061 /* ListTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListTableCell.swift; sourceTree = "<group>"; };
 		9A976E2822EC505E00204894 /* StepTableCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StepTableCellViewModel.swift; sourceTree = "<group>"; };
-		9A976E2D22EC70F800204894 /* ProrgessView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProrgessView.swift; sourceTree = "<group>"; };
 		9AC269B822EE54E60080CA7E /* AlgorithmParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlgorithmParser.swift; sourceTree = "<group>"; };
 		9AC269BA22EE554B0080CA7E /* String+Trimm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Trimm.swift"; sourceTree = "<group>"; };
 		9AC269BF22EF805A0080CA7E /* Downloader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Downloader.swift; sourceTree = "<group>"; };
@@ -173,6 +177,15 @@
 			path = ButtonView;
 			sourceTree = "<group>";
 		};
+		9A488FD222F4E5F800AC308F /* ButtonTableCell */ = {
+			isa = PBXGroup;
+			children = (
+				9A488FD322F4E60D00AC308F /* ButtonTableCell.swift */,
+				9A488FD522F4E61C00AC308F /* ButtonTableCell.xib */,
+			);
+			path = ButtonTableCell;
+			sourceTree = "<group>";
+		};
 		9A507CAE22EA2A3D00D1C8F9 /* Commons */ = {
 			isa = PBXGroup;
 			children = (
@@ -214,6 +227,7 @@
 				9AC269D122EF8DCD0080CA7E /* UIViewController+Embedding.swift */,
 				9AC269D322EF8DED0080CA7E /* UIView+Constraints.swift */,
 				9A0985BB22F0A9F900A47127 /* UIView+RoundCorners.swift */,
+				9A34484622F4F76400AC7DC1 /* UIViewController+Navigation.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -262,6 +276,7 @@
 		9A976E2B22EC70BE00204894 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
+				9A488FD222F4E5F800AC308F /* ButtonTableCell */,
 				9AF9970222F2361600E9413C /* FullImageCell */,
 				9A507CB222EA2A7A00D1C8F9 /* StepTableCell */,
 				9A82904122F3A69B00820061 /* ListTableCell */,
@@ -272,7 +287,6 @@
 		9A976E2C22EC70CA00204894 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				9A976E2D22EC70F800204894 /* ProrgessView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -479,6 +493,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9A488FD622F4E61C00AC308F /* ButtonTableCell.xib in Resources */,
 				9A507CB422EA2A9A00D1C8F9 /* StepTableCell.xib in Resources */,
 				9A488FCE22F3A79300AC308F /* ListTableCell.xib in Resources */,
 				9A51E67722D677B300A27ACF /* Cartfile in Resources */,
@@ -576,10 +591,11 @@
 				9AC269D222EF8DCD0080CA7E /* UIViewController+Embedding.swift in Sources */,
 				9AC269C922EF89C40080CA7E /* StoryboardMakeable.swift in Sources */,
 				9AC269D422EF8DED0080CA7E /* UIView+Constraints.swift in Sources */,
+				9A34484722F4F76400AC7DC1 /* UIViewController+Navigation.swift in Sources */,
 				9AC269CB22EF8BDC0080CA7E /* ProgressIndicatorViewController.swift in Sources */,
-				9A976E2E22EC70F800204894 /* ProrgessView.swift in Sources */,
 				9AC269D822EF95FD0080CA7E /* RecipeListViewModel.swift in Sources */,
 				9A705D0D22E7AAB9003AA381 /* CookingViewModel.swift in Sources */,
+				9A488FD422F4E60D00AC308F /* ButtonTableCell.swift in Sources */,
 				9A507CB122EA2A6100D1C8F9 /* StepTableCell.swift in Sources */,
 				9AF9970422F2362000E9413C /* FullImageTableCell.swift in Sources */,
 				9A488FD122F4DB6D00AC308F /* ButtonView.swift in Sources */,

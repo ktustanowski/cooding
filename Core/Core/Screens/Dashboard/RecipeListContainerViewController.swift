@@ -11,8 +11,7 @@ import RxSwift
 import RxCocoa
 
 public final class RecipeListContainerViewController: UIViewController {
-    public var viewModel: RecipeListContainerViewModelProtocol = RecipeListContainerViewModel(recipeURL: URL(string: "https://raw.githubusercontent.com/ktustanowski/cooding/master/Recipes/recipes_list.json")!,
-                                                                                              downloader: Downloader())
+    public var viewModel: RecipeListContainerViewModelProtocol!
     public var disposeBag = DisposeBag()
     
     @IBOutlet weak var contentContainer: UIView!
@@ -23,6 +22,7 @@ public final class RecipeListContainerViewController: UIViewController {
         
         bindViewModel()
         viewModel.input.viewDidLoad()
+        contentContainer.backgroundColor = .orange
     }
 }
 

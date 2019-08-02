@@ -17,10 +17,12 @@ public protocol CookingViewModelProtocol: CookingViewModelProtocolInputs, Cookin
 
 public protocol CookingViewModelProtocolInputs {
     func finished(at indexPath: IndexPath)
+    func dismiss()
 }
 
 public protocol CookingViewModelProtocolOutputs {
     var steps: Observable<[StepCellViewModelProtocol]> { get }
+    var didDismiss: Observable<Void> { get }
 }
 
 public final class CookingViewModel: CookingViewModelProtocol {
@@ -34,9 +36,19 @@ public final class CookingViewModel: CookingViewModelProtocol {
         stepsRelay.accept(steps)
     }
     
+    public func dismiss() {
+        didDismissRelay.accept(())
+    }
+    
+    public var didDismiss: Observable<Void> {
+        return didDismissRelay.asObservable()
+    }
+
     // MARK: Outputs
     private let stepsRelay = BehaviorRelay<[StepCellViewModelProtocol]>(value: [])
     public var steps: Observable<[StepCellViewModelProtocol]> { return stepsRelay.asObservable() }
+    
+    private let didDismissRelay = PublishRelay<Void>()
     
     public init(algorithm: Algorithm) {
         stepsRelay.accept(algorithm.steps.map { StepCellViewModel(step: $0) })

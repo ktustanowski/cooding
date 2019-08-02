@@ -23,13 +23,25 @@ public final class DashboardTabBarController: UITabBarController {
 private extension DashboardTabBarController {
     func setup() {
         hidesBottomBarWhenPushed = true
-        viewControllers = [makeAllRecipes()]
+        viewControllers = [makeAllRecipes(),
+                           makeMyRecipes()]
     }
     
     func makeAllRecipes() -> UIViewController {
+        return makeRecipeViewController(viewModel: viewModel.output.allRecipiesViewModel,
+                                        buttonTitle: viewModel.output.allRecipiesButtonTitle)
+    }
+    
+    func makeMyRecipes() -> UIViewController {
+        return makeRecipeViewController(viewModel: viewModel.output.myRecipiesViewModel,
+                                        buttonTitle: viewModel.output.myRecipiesButtonTitle)
+    }
+    
+    func makeRecipeViewController(viewModel: RecipeListContainerViewModelProtocol,
+                                  buttonTitle: String) -> RecipeListContainerViewController {
         let viewController = RecipeListContainerViewController.make()
-        viewController.viewModel = viewModel.output.allRecipiesViewModel
-
+        viewController.viewModel = viewModel
+        
         viewController.viewModel.output.didSelectRecipe
             .observeOn(MainScheduler.instance)
             .subscribe(onNext: { [weak self] recipe in
@@ -37,10 +49,10 @@ private extension DashboardTabBarController {
             })
             .disposed(by: viewController.disposeBag)
         
-        viewController.tabBarItem = UITabBarItem(title: viewModel.output.allRecipiesButtonTitle, //TODO: Translations
-            image: nil,
-            selectedImage: nil)
-
+        viewController.tabBarItem = UITabBarItem(title: buttonTitle,
+                                                 image: nil,
+                                                 selectedImage: nil)
+        
         return viewController
     }
 }

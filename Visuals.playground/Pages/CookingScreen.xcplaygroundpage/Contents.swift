@@ -21,7 +21,7 @@ let steps = [Step(description: "Prepare blender",
                   ingredients: nil),
              Step(description: .loremIpsumMedium,
                   dependencies: [Dependency(name: "blender")],
-                  ingredients: nil, duration: 60 * 59),
+                  ingredients: nil, duration: 15),
              Step(description: "Add 1 heaping teaspoon of baking powder to the blender",
                   dependencies: [Dependency(name: "Blender")],
                   ingredients: [Ingredient(name: "heaping teaspoon of baking powder", quantity: 1.0)]),
@@ -37,7 +37,7 @@ let steps = [Step(description: "Prepare blender",
              Step(description: .loremIpsumLong,
                   dependencies: [Dependency(name: "Blender")],
                   ingredients: [Ingredient(name: "heaping teaspoon of baking powder", quantity: 1.0)],
-                  duration: 60 * 60 * 5)
+                  duration: 60)
 ]
 
 var cookingViewController = CookingViewController()
@@ -47,4 +47,7 @@ cookingViewController.viewModel = CookingViewModel(algorithm: Algorithm(ingredie
 var navigationController = UINavigationController(rootViewController: cookingViewController)
 
 PlaygroundPage.current.liveView = navigationController.view
+
+navigationController.view.frame = CGRect(x: 0, y: 0, width: 320, height: 480)
+
 PlaygroundPage.current.needsIndefiniteExecution = true
