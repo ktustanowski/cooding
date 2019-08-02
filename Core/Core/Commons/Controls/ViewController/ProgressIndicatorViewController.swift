@@ -11,9 +11,10 @@ import UIKit
 public final class ProgressIndicatorViewController: UIViewController {
     @IBOutlet private weak var progressBackgroundView: UIView!
     
-    override public func viewDidLayoutSubviews() {
-        super.viewDidLayoutSubviews()
+    public override func viewDidLoad() {
+        super.viewDidLoad()
         
+        view.backgroundColor = .orange
         progressBackgroundView.roundCorners(radius: 10) //TODO: Make a constant or sth
     }
 }

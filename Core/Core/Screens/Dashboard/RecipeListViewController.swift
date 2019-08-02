@@ -17,18 +17,31 @@ public final class RecipeListViewController: UITableViewController {
     public override func viewDidLoad() {
         super.viewDidLoad()
         
-        tableView.register(BasicTableCell.self, forCellReuseIdentifier: BasicTableCell.nibName)
+        setupUI()
         bindViewModel()
+    }
+    
+    public override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.setNavigationBarHidden(true, animated: true)
     }
 }
 
 extension RecipeListViewController {
+    func setupUI() {
+        tableView.delaysContentTouches = false
+        tableView.register(FullImageTableCell.nib, forCellReuseIdentifier: FullImageTableCell.nibName)
+        tableView.separatorStyle = .none
+        tableView.backgroundColor = .orange
+    }
+    
     func bindViewModel() {
         viewModel.output.recipies.bind(to: tableView
             .rx
-            .items(cellIdentifier: BasicTableCell.nibName)) { _, viewModel, cell in
-                guard let cell = cell as? BasicTableCell else { return }
+            .items(cellIdentifier: FullImageTableCell.nibName)) { [weak self] _, viewModel, cell in
+                guard let cell = cell as? FullImageTableCell else { return }
                 cell.viewModel = viewModel
+                cell.contentView.backgroundColor = self?.tableView.backgroundColor
             }
             .disposed(by: disposeBag)
         

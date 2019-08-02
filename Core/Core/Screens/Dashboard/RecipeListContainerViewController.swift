@@ -31,9 +31,11 @@ private extension RecipeListContainerViewController {
         viewModel.output.recipeListViewModel
             .observeOn(MainScheduler.instance)
             .subscribe(onNext: { [weak self] viewModel in
-                self?.embedContent(viewModel: viewModel)
-            }, onError: { [weak self] _ in
-                self?.embedErrorIndicator()
+                if let viewModel = viewModel {
+                    self?.embedContent(viewModel: viewModel)
+                } else {
+                    self?.embedErrorIndicator()
+                }
             })
             .disposed(by: disposeBag)
         

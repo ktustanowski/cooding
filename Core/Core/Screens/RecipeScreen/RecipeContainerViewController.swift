@@ -17,12 +17,18 @@ public final class RecipeContainerViewController: UIViewController {
     public override func viewDidLoad() {
         super.viewDidLoad()
     
+        view.backgroundColor = .orange //TODO: Maybe add some functional styling or sth?
         setupContainer()
         bindViewModel()
         viewModel.input.viewDidLoad()
         //TODO: Clean this up later
         let cookingButton = UIBarButtonItem(barButtonSystemItem: .action, target: self, action: #selector(cookingButtonTapped))
         navigationItem.rightBarButtonItem = cookingButton
+    }
+    
+    public override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.setNavigationBarHidden(false, animated: true)        
     }
 }
 
@@ -41,9 +47,11 @@ private extension RecipeContainerViewController {
         viewModel.output.recipeViewModel
             .observeOn(MainScheduler.instance)
             .subscribe(onNext: { [weak self] viewModel in
-                self?.embedContent(viewModel: viewModel)
-                }, onError: { [weak self] _ in
+                if let viewModel = viewModel {
+                    self?.embedContent(viewModel: viewModel)
+                } else {
                     self?.embedErrorIndicator()
+                }
             })
             .disposed(by: disposeBag)
         
@@ -69,10 +77,11 @@ private extension RecipeContainerViewController {
         guard isEmbedded({ $0 is NoDataViewController }) == false else { return }
         removeAllEmbedded()
         
+        //TODO: Make this shared extension on VC observable or just a code block - better a code maybe
         let errorIndicator = NoDataViewController.make()
         errorIndicator.viewModel = NoDataViewModel(title: "Uh oh!", //TODO: Translations
             message: "I couldn't load recipe. Sorry about that...", //TODO: Translations
-            isRetryAvailable: true)
+            isRetryAvailable: true) //TODO: use static functions with extension to make this shorter like .cantLoadRecipe
         
         errorIndicator.viewModel.output.didTapRetry
             .observeOn(MainScheduler.instance)

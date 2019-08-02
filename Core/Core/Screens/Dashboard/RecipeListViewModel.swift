@@ -20,7 +20,7 @@ public protocol RecipeListViewModelProtocolInputs {
 }
 
 public protocol RecipeListViewModelProtocolOutputs {
-    var recipies: Observable<[BasicCellViewModel]> { get }
+    var recipies: Observable<[FullImageCellViewModel]> { get }
     var didSelectRecipe: Observable<ShortRecipe> { get }
 }
 
@@ -35,7 +35,7 @@ public final class RecipeListViewModel: RecipeListViewModelProtocol {
     }
     
     // MARK: Outputs
-    public var recipies: Observable<[BasicCellViewModel]>
+    public var recipies: Observable<[FullImageCellViewModel]>
     public var didSelectRecipe: Observable<ShortRecipe> {
         return didSelectRecipeRelay.asObservable()
     }
@@ -46,6 +46,7 @@ public final class RecipeListViewModel: RecipeListViewModelProtocol {
     public init(recipeList: RecipeList) {
         self.recipeList = recipeList
         recipies = .just(recipeList.recipes
-            .map { BasicCellViewModel(title: $0.name) })
+            .map { FullImageCellViewModel(title: $0.name,
+                                          imageURL: $0.image) })
     }
 }

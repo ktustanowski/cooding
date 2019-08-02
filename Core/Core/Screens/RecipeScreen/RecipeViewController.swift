@@ -12,59 +12,41 @@ import RxDataSources
 
 public final class RecipeViewController: UITableViewController {
     public let disposeBag = DisposeBag()
-    private var dataSource = RxTableViewSectionedReloadDataSource<RecipeSectionModel>(configureCell: { _, tableView, indexPath, item in
-        
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: BasicTableCell.nibName, for: indexPath) as? BasicTableCell
-            else { fatalError("No compatibile cell found!") }
-
-        switch item {
-        case .info(let viewModel):
-            cell.viewModel = viewModel
-        case .ingredient(let viewModel):
-            cell.viewModel = viewModel
-        case .dependency(let viewModel):
-            cell.viewModel = viewModel
-        case .step(let viewModel):
-            cell.viewModel = viewModel
-        }
-        
-        cell.textLabel?.numberOfLines = 0
-        cell.selectionStyle = .none
-        return cell })
     
     public var viewModel: RecipeViewModelProtocol!
     
     public override func viewDidLoad() {
         super.viewDidLoad()
-        tableView.register(BasicTableCell.self, forCellReuseIdentifier: BasicTableCell.nibName)
+        
+        setupUI()
         bindViewModel()
-    }
-    
-    deinit {
-        print("deinitied")
-    }
+    }    
 }
 
 private extension RecipeViewController {
+    func setupUI() {
+        tableView.register(ListTableCell.nib, forCellReuseIdentifier: ListTableCell.nibName)
+        tableView.separatorStyle = .none
+        tableView.delaysContentTouches = false
+        tableView.backgroundColor = .orange //TODO: Make some theme or sth - colors shared across the app
+    }
+
     func bindViewModel() {
-        tableView.rx.setDelegate(self).disposed(by: disposeBag)
-        viewModel.output.sections
-            .bind(to: tableView.rx.items(dataSource: dataSource))
+        viewModel.output.items.bind(to: tableView
+            .rx
+            .items(cellIdentifier: ListTableCell.nibName)) { [weak self] _, viewModel, cell in
+                guard let cell = cell as? ListTableCell else { return }
+                cell.viewModel = viewModel
+                cell.contentView.backgroundColor = self?.tableView.backgroundColor
+            }
+            .disposed(by: disposeBag)
+        
+        tableView.rx.itemSelected
+            .subscribe { event in
+                guard let indexPath = event.element else { return }
+                print(indexPath)
+            }
             .disposed(by: disposeBag)
     }
 }
 
-extension RecipeViewController {
-    public override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        switch RecipeSection.AllCases()[section] {
-        case .info:
-            return "INFO"
-        case .ingredients:
-            return "INGREDIENTES"
-        case .dependencies:
-            return "INGREDIENTES"
-        case .steps:
-            return "STEPS"
-        }
-    }
-}

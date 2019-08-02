@@ -23,7 +23,7 @@ public protocol RecipeListContainerViewModelProtocolInputs {
 }
 
 public protocol RecipeListContainerViewModelProtocolOutputs {
-    var recipeListViewModel: Observable<RecipeListViewModelProtocol> { get }
+    var recipeListViewModel: Observable<RecipeListViewModelProtocol?> { get }
     var isLoading: Observable<Bool> { get }
     var didSelectRecipe: Observable<ShortRecipe> { get }
 }
@@ -51,7 +51,7 @@ public final class RecipeListContainerViewModel: RecipeListContainerViewModelPro
     }
 
     // MARK: Outputs
-    public let recipeListViewModel: Observable<RecipeListViewModelProtocol>
+    public let recipeListViewModel: Observable<RecipeListViewModelProtocol?>
     public let isLoading: Observable<Bool>
 
     private let recipeURLRelay = BehaviorRelay<URL?>(value: nil)
@@ -66,33 +66,26 @@ public final class RecipeListContainerViewModel: RecipeListContainerViewModelPro
         self.downloader = downloader
         recipeURLRelay.accept(recipeURL)
     
-        //TODOKT: when there is an error - whole chain is disposed - try to prevent that
-        let viewDidLoad = viewDidLoadRelay.asObservable().debug("view_did")
-        let gotURL = recipeURLRelay.asObservable().debug("recipe_relay")
+        let viewDidLoad = viewDidLoadRelay.asObservable()
+        let gotURL = recipeURLRelay.asObservable()
             .compactMap { $0 }
         
         let shouldLoadRecipes = Observable
             .combineLatest(gotURL,
                            viewDidLoad,
-                           reloadRelay.asObservable().debug("reload_obs"))
-            .map { $0.0 }.debug("should_load")
+                           reloadRelay.asObservable())
+            .map { url, _, _ in url }
         
         recipeListViewModel = shouldLoadRecipes
             .flatMap { url -> Observable<RecipeList?> in
                 return downloader.download(url: url)
+                    .catchErrorJustReturn(nil)
             }
-            .compactMap { $0}
-            .map { RecipeListViewModel(recipeList: $0) }
-            .catchError({ error -> Observable<RecipeListViewModelProtocol?> in
-                print(error)
-                return .just(nil)
-            })
-            .compactMap { $0 }
+            .map { recipe in
+                guard let recipe = recipe else { return nil }
+                return RecipeListViewModel(recipeList: recipe)
+            }
         
         isLoading = downloader.isLoading.asObservable()
-    }
-    
-    deinit {
-        print("deinitied")
     }
 }

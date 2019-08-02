@@ -16,14 +16,19 @@ public final class CookingViewController: UITableViewController {
     
     public override func viewDidLoad() {
         super.viewDidLoad()
+        
+        setupUI()
         bindViewModel()
     }
 }
 
 private extension CookingViewController {
-    func bindViewModel() {
+    func setupUI() {
         tableView.register(StepTableCell.nib, forCellReuseIdentifier: StepTableCell.nibName)
-        
+        tableView.separatorStyle = .none
+    }
+
+    func bindViewModel() {        
         viewModel.output.steps.bind(to: tableView
             .rx
             .items(cellIdentifier: StepTableCell.nibName)) { [weak self] _, viewModel, cell in

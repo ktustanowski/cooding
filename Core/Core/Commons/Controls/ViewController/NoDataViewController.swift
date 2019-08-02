@@ -23,6 +23,7 @@ public final class NoDataViewController: UIViewController {
         super.viewDidLoad()
         
         bindViewModel()
+        view.backgroundColor = .orange
     }
 }
 

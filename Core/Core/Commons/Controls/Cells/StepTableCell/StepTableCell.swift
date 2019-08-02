@@ -26,6 +26,8 @@ public class StepTableCell: UITableViewCell {
     @IBOutlet weak var durationControlsContainer: UIView!
     
     public override func awakeFromNib() {
+        super.awakeFromNib()
+        
         selectionStyle = .none
         clear()
     }

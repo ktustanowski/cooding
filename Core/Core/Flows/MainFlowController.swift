@@ -75,7 +75,6 @@ private extension MainFlowController {
     
     func presentRecipeDetails(shortRecipe: ShortRecipe, didTapStartCooking: @escaping ((Algorithm) -> Void)) {
         let recipeScreen = provider.makeRecipeScreen(shortRecipe: shortRecipe)
-        
         recipeScreen.viewModel.output.didTapStartCooking
             .observeOn(MainScheduler.instance)
             .subscribe(onNext: { algorithm in

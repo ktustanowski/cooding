@@ -22,7 +22,7 @@ public protocol RecipeContainerViewModelProtocolInputs {
 }
 
 public protocol RecipeContainerViewModelProtocolOutputs {
-    var recipeViewModel: Observable<RecipeViewModelProtocol> { get }
+    var recipeViewModel: Observable<RecipeViewModelProtocol?> { get }
     var isLoading: Observable<Bool> { get }
     var didTapStartCooking: Observable<Algorithm> { get }
 }
@@ -48,7 +48,7 @@ public final class RecipeContainerViewModel: RecipeContainerViewModelProtocol {
     }
     
     // MARK: Outputs
-    public let recipeViewModel: Observable<RecipeViewModelProtocol>
+    public let recipeViewModel: Observable<RecipeViewModelProtocol?>
     public var didTapStartCooking: Observable<Algorithm> {
         return didTapStartCookingRelay.asObservable()
     }
@@ -77,12 +77,13 @@ public final class RecipeContainerViewModel: RecipeContainerViewModelProtocol {
                            reloadRelay.asObservable().debug("reload_obs"))
         
         let loadRecipe = shouldLoadRecipes
-            .flatMap { _ -> Observable<Recipe> in
+            .flatMap { _ -> Observable<Recipe?> in
                 return downloader.download(url: shortRecipe.source)
+                    .catchErrorJustReturn(nil)
             }
-            .compactMap { $0}
         
         let parseRawAlgorithm = loadRecipe
+            .compactMap { $0 }
             .map { recipe in
                 return parser.parse(string: recipe.rawAlgorithm)
             }
@@ -92,7 +93,10 @@ public final class RecipeContainerViewModel: RecipeContainerViewModelProtocol {
             .disposed(by: disposeBag)
         
         recipeViewModel = loadRecipe
-            .map { RecipeViewModel(recipe: $0) }
+            .map { recipe in
+                guard let recipe = recipe else { return nil }
+                return RecipeViewModel(recipe: recipe)
+            }
         
         isLoading = downloader.isLoading.asObservable()
     }
