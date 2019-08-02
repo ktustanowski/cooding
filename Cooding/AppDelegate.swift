@@ -99,8 +99,9 @@ private extension AppDelegate {
         window = UIWindow()
         //TODO: Fix this! Shape on push from right.
         // https://github.com/jessesquires/JSQMessagesViewController/issues/528
-        window?.backgroundColor = .red
+        window?.backgroundColor = .orange
         window?.rootViewController = navigationController
+        navigationController.setNavigationBarHidden(true, animated: false)
         window?.makeKeyAndVisible()
         flowController = MainFlowController(presenter: navigationController)
         flowController?.start()

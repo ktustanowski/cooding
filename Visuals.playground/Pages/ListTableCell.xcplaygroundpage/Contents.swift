@@ -1,7 +1,16 @@
 //: [Previous](@previous)
 
 import Foundation
+import PlaygroundSupport
+import Core
 
-var str = "Hello, playground"
+/*:
+ Simple Cell
+ */
+var cell = ListTableCell.make()
+cell.viewModel = ListCellViewModel(title: "Title text",
+                                   description: "Description text")
+
+PlaygroundPage.current.liveView = cell
 
 //: [Next](@next)
