@@ -9,11 +9,11 @@
 import UIKit
 
 public extension UIView {
-    func fillInSuperview() {
+    func fillInSuperview(margins: UIEdgeInsets = .zero) {
         translatesAutoresizingMaskIntoConstraints = false
-        superview?.topAnchor.constraint(equalTo: topAnchor).isActive = true
-        superview?.bottomAnchor.constraint(equalTo: bottomAnchor).isActive = true
-        superview?.leadingAnchor.constraint(equalTo: leadingAnchor).isActive = true
-        superview?.trailingAnchor.constraint(equalTo: trailingAnchor).isActive = true
+        superview?.topAnchor.constraint(equalTo: topAnchor, constant: margins.top).isActive = true
+        superview?.bottomAnchor.constraint(equalTo: bottomAnchor, constant: margins.bottom).isActive = true
+        superview?.leadingAnchor.constraint(equalTo: leadingAnchor, constant: margins.left).isActive = true
+        superview?.trailingAnchor.constraint(equalTo: trailingAnchor, constant: margins.right).isActive = true
     }
 }

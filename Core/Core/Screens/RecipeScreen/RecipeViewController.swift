@@ -17,7 +17,6 @@ public final class RecipeViewController: UITableViewController {
     
     public override func viewDidLoad() {
         super.viewDidLoad()
-        
         setupUI()
         bindViewModel()
     }    
@@ -32,6 +31,14 @@ private extension RecipeViewController {
     }
 
     func bindViewModel() {
+        let xxx = ButtonView(frame: CGRect(x: 0, y: 0, width: view.bounds.size.width, height: 100))
+        xxx.roundCorners(radius: 10)
+        xxx.backgroundColor = .green
+        xxx.button.setTitle("Start Cooking",
+                                    for: .normal)
+
+        tableView.tableFooterView = xxx
+        
         viewModel.output.items.bind(to: tableView
             .rx
             .items(cellIdentifier: ListTableCell.nibName)) { [weak self] _, viewModel, cell in
@@ -49,4 +56,3 @@ private extension RecipeViewController {
             .disposed(by: disposeBag)
     }
 }
-

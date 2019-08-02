@@ -24,12 +24,13 @@ public class StepTableCell: UITableViewCell {
     @IBOutlet weak var timerButton: UIButton!
     @IBOutlet weak var doneButton: UIButton!
     @IBOutlet weak var durationControlsContainer: UIView!
+    @IBOutlet weak var containerView: UIView!
     
     public override func awakeFromNib() {
         super.awakeFromNib()
         
         selectionStyle = .none
-        clear()
+        containerView.roundCorners(radius: 10) //TODO: Make a constant or sth
     }
     
     public override func prepareForReuse() {
@@ -39,7 +40,6 @@ public class StepTableCell: UITableViewCell {
         counterLabel.text = nil
         endLabel.text = nil
         timerButton.setTitle(nil, for: .normal)
-        clear()
     }
 }
 

@@ -18,71 +18,90 @@
                 <rect key="frame" x="0.0" y="0.0" width="481" height="177.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="VVd-dG-0v1">
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RZQ-Gu-uZk">
                         <rect key="frame" x="20" y="10" width="441" height="157.5"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" verticalCompressionResistancePriority="1000" placeholderIntrinsicWidth="441" placeholderIntrinsicHeight="41" text="Think about cookin'" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ew1-bZ-pSY">
-                                <rect key="frame" x="0.0" y="0.0" width="441" height="41"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <view contentMode="scaleToFill" placeholderIntrinsicWidth="441" placeholderIntrinsicHeight="70" translatesAutoresizingMaskIntoConstraints="NO" id="zXB-H3-akD">
-                                <rect key="frame" x="0.0" y="41" width="441" height="70"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="VVd-dG-0v1">
+                                <rect key="frame" x="10" y="10" width="421" height="137.5"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalCompressionResistancePriority="1000" text="10:10:35" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lOC-fc-bzl">
-                                        <rect key="frame" x="162.5" y="0.0" width="116.5" height="70"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="30"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalCompressionResistancePriority="1000" text="21:22" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tdi-rA-x4o">
-                                        <rect key="frame" x="399" y="25" width="42" height="20.5"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" verticalCompressionResistancePriority="1000" placeholderIntrinsicWidth="441" placeholderIntrinsicHeight="41" text="Think about cookin'" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ew1-bZ-pSY">
+                                        <rect key="frame" x="0.0" y="0.0" width="421" height="41"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
+                                        <color key="textColor" white="0.5" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Bfr-Iz-CdN">
-                                        <rect key="frame" x="0.0" y="20" width="152.5" height="30"/>
-                                        <state key="normal" title="Start"/>
+                                    <view contentMode="scaleToFill" placeholderIntrinsicWidth="441" placeholderIntrinsicHeight="70" translatesAutoresizingMaskIntoConstraints="NO" id="zXB-H3-akD">
+                                        <rect key="frame" x="0.0" y="41" width="421" height="66.5"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalCompressionResistancePriority="1000" text="10:10:35" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lOC-fc-bzl">
+                                                <rect key="frame" x="152.5" y="0.0" width="116.5" height="66.5"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                                <color key="textColor" white="0.5" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalCompressionResistancePriority="1000" text="21:22" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tdi-rA-x4o">
+                                                <rect key="frame" x="379" y="23" width="42" height="20.5"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <color key="textColor" white="0.5" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Bfr-Iz-CdN">
+                                                <rect key="frame" x="0.0" y="16" width="142.5" height="35"/>
+                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="19"/>
+                                                <state key="normal" title="Start">
+                                                    <color key="titleColor" red="1" green="0.57637232540000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                </state>
+                                            </button>
+                                        </subviews>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstItem="Bfr-Iz-CdN" firstAttribute="centerY" secondItem="zXB-H3-akD" secondAttribute="centerY" id="1Hc-co-Ttl"/>
+                                            <constraint firstAttribute="height" priority="1" id="2ws-32-2ol"/>
+                                            <constraint firstItem="lOC-fc-bzl" firstAttribute="leading" secondItem="Bfr-Iz-CdN" secondAttribute="trailing" constant="10" id="CYy-9v-7Gj"/>
+                                            <constraint firstItem="Bfr-Iz-CdN" firstAttribute="leading" secondItem="zXB-H3-akD" secondAttribute="leading" id="KPg-mM-hKi"/>
+                                            <constraint firstAttribute="trailing" secondItem="tdi-rA-x4o" secondAttribute="trailing" id="OOy-Xu-Cu7"/>
+                                            <constraint firstAttribute="bottom" secondItem="lOC-fc-bzl" secondAttribute="bottom" id="ZPg-Fh-5ng"/>
+                                            <constraint firstItem="lOC-fc-bzl" firstAttribute="centerX" secondItem="zXB-H3-akD" secondAttribute="centerX" id="b3r-gg-AWH"/>
+                                            <constraint firstItem="lOC-fc-bzl" firstAttribute="top" secondItem="zXB-H3-akD" secondAttribute="top" id="bb5-5a-alc"/>
+                                            <constraint firstAttribute="height" constant="70" id="mhr-UD-vhf"/>
+                                            <constraint firstItem="tdi-rA-x4o" firstAttribute="centerY" secondItem="zXB-H3-akD" secondAttribute="centerY" id="utv-FN-f9S"/>
+                                        </constraints>
+                                        <variation key="default">
+                                            <mask key="constraints">
+                                                <exclude reference="2ws-32-2ol"/>
+                                                <exclude reference="mhr-UD-vhf"/>
+                                            </mask>
+                                        </variation>
+                                    </view>
+                                    <button opaque="NO" contentMode="scaleToFill" placeholderIntrinsicWidth="37" placeholderIntrinsicHeight="30" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VtB-jA-Dhk">
+                                        <rect key="frame" x="0.0" y="107.5" width="421" height="30"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="19"/>
+                                        <state key="normal" title="Done">
+                                            <color key="titleColor" red="1" green="0.57637232540000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
                                     </button>
                                 </subviews>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <constraints>
-                                    <constraint firstItem="Bfr-Iz-CdN" firstAttribute="centerY" secondItem="zXB-H3-akD" secondAttribute="centerY" id="1Hc-co-Ttl"/>
-                                    <constraint firstAttribute="height" priority="1" id="2ws-32-2ol"/>
-                                    <constraint firstItem="lOC-fc-bzl" firstAttribute="leading" secondItem="Bfr-Iz-CdN" secondAttribute="trailing" constant="10" id="CYy-9v-7Gj"/>
-                                    <constraint firstItem="Bfr-Iz-CdN" firstAttribute="leading" secondItem="zXB-H3-akD" secondAttribute="leading" id="KPg-mM-hKi"/>
-                                    <constraint firstAttribute="trailing" secondItem="tdi-rA-x4o" secondAttribute="trailing" id="OOy-Xu-Cu7"/>
-                                    <constraint firstAttribute="bottom" secondItem="lOC-fc-bzl" secondAttribute="bottom" id="ZPg-Fh-5ng"/>
-                                    <constraint firstItem="lOC-fc-bzl" firstAttribute="centerX" secondItem="zXB-H3-akD" secondAttribute="centerX" id="b3r-gg-AWH"/>
-                                    <constraint firstItem="lOC-fc-bzl" firstAttribute="top" secondItem="zXB-H3-akD" secondAttribute="top" id="bb5-5a-alc"/>
-                                    <constraint firstAttribute="height" constant="70" id="mhr-UD-vhf"/>
-                                    <constraint firstItem="tdi-rA-x4o" firstAttribute="centerY" secondItem="zXB-H3-akD" secondAttribute="centerY" id="utv-FN-f9S"/>
-                                </constraints>
-                                <variation key="default">
-                                    <mask key="constraints">
-                                        <exclude reference="2ws-32-2ol"/>
-                                        <exclude reference="mhr-UD-vhf"/>
-                                    </mask>
-                                </variation>
-                            </view>
-                            <button opaque="NO" contentMode="scaleToFill" placeholderIntrinsicWidth="37" placeholderIntrinsicHeight="30" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VtB-jA-Dhk">
-                                <rect key="frame" x="0.0" y="111" width="441" height="46.5"/>
-                                <state key="normal" title="Done"/>
-                            </button>
+                            </stackView>
                         </subviews>
-                    </stackView>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="VVd-dG-0v1" firstAttribute="top" secondItem="RZQ-Gu-uZk" secondAttribute="top" constant="10" id="8hb-rQ-r5r"/>
+                            <constraint firstItem="VVd-dG-0v1" firstAttribute="leading" secondItem="RZQ-Gu-uZk" secondAttribute="leading" constant="10" id="NQW-co-7mf"/>
+                            <constraint firstAttribute="trailing" secondItem="VVd-dG-0v1" secondAttribute="trailing" constant="10" id="f0e-ba-ifR"/>
+                            <constraint firstAttribute="bottom" secondItem="VVd-dG-0v1" secondAttribute="bottom" constant="10" id="wTG-oH-mk3"/>
+                        </constraints>
+                    </view>
                 </subviews>
                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 <constraints>
-                    <constraint firstItem="VVd-dG-0v1" firstAttribute="top" secondItem="DYe-rC-5zT" secondAttribute="top" constant="10" id="8QS-GX-E8g"/>
-                    <constraint firstAttribute="bottom" secondItem="VVd-dG-0v1" secondAttribute="bottom" constant="10" id="HXj-3h-lm6"/>
-                    <constraint firstItem="VVd-dG-0v1" firstAttribute="leading" secondItem="DYe-rC-5zT" secondAttribute="leading" constant="20" id="jJq-v2-lba"/>
-                    <constraint firstAttribute="trailing" secondItem="VVd-dG-0v1" secondAttribute="trailing" constant="20" id="ukZ-xe-Bhv"/>
+                    <constraint firstAttribute="trailing" secondItem="RZQ-Gu-uZk" secondAttribute="trailing" constant="20" id="Lio-bk-dzI"/>
+                    <constraint firstItem="RZQ-Gu-uZk" firstAttribute="top" secondItem="DYe-rC-5zT" secondAttribute="top" constant="10" id="Oor-m9-kr4"/>
+                    <constraint firstAttribute="bottom" secondItem="RZQ-Gu-uZk" secondAttribute="bottom" constant="10" id="dMn-bf-xJx"/>
+                    <constraint firstItem="RZQ-Gu-uZk" firstAttribute="leading" secondItem="DYe-rC-5zT" secondAttribute="leading" constant="20" id="w2e-id-LZu"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>
+                <outlet property="containerView" destination="RZQ-Gu-uZk" id="N0O-Lz-wvw"/>
                 <outlet property="counterLabel" destination="lOC-fc-bzl" id="X6Y-yd-TUo"/>
                 <outlet property="descriptionLabel" destination="Ew1-bZ-pSY" id="Dtk-29-Mlv"/>
                 <outlet property="doneButton" destination="VtB-jA-Dhk" id="Vmf-8o-iKb"/>
