@@ -11,7 +11,6 @@ var viewController = RecipeListContainerViewController.make()
 viewController.viewModel = RecipeListContainerViewModel(recipeListURL: allRecipiesURL, downloader: Downloader())
 viewController.loadViewIfNeeded()
 
-
 PlaygroundPage.current.liveView = viewController.view
 PlaygroundPage.current.needsIndefiniteExecution = true
 

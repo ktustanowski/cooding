@@ -10,6 +10,8 @@ import Foundation
 import RxSwift
 
 public final class RecipeContainerViewController: UIViewController {
+    private var theme: Theme = DefaultTheme()
+
     public var viewModel: RecipeContainerViewModelProtocol!
     private let contentContainer = UIView(frame: .zero)
     public let disposeBag = DisposeBag()
@@ -21,7 +23,7 @@ public final class RecipeContainerViewController: UIViewController {
         view.backgroundColor = .orange //TODO: Maybe add some functional styling or sth?
         setupContainer()
         bindViewModel()
-        viewModel.input.viewDidLoad()        
+        viewModel.input.viewDidLoad()
     }
     
     public override func viewWillAppear(_ animated: Bool) {
@@ -33,7 +35,7 @@ public final class RecipeContainerViewController: UIViewController {
 private extension RecipeContainerViewController {
     func setupNavigationBar() {
         title = viewModel.output.title
-        replaceBackButtonWithBackArrow()
+        replaceBackButtonWithBackArrow(theme: theme)
         
         onDismiss?
             .subscribe(onNext: { [weak self] _ in
@@ -78,6 +80,7 @@ private extension RecipeContainerViewController {
         removeAllEmbedded()
         
         let progressIndicator = ProgressIndicatorViewController.make()
+        progressIndicator.apply(theme: theme)
         
         embed(progressIndicator, in: contentContainer)
     }
@@ -88,6 +91,8 @@ private extension RecipeContainerViewController {
         
         //TODO: Make this shared extension on VC observable or just a code block - better a code maybe
         let errorIndicator = NoDataViewController.make()
+        errorIndicator.apply(theme: theme)
+        
         errorIndicator.viewModel = NoDataViewModel(title: "Uh oh!", //TODO: Translations
             message: "I couldn't load recipe. Sorry about that...", //TODO: Translations
             isRetryAvailable: true) //TODO: use static functions with extension to make this shorter like .cantLoadRecipe
@@ -108,6 +113,7 @@ private extension RecipeContainerViewController {
         
         let content = RecipeViewController()
         content.viewModel = viewModel
+        content.apply(theme: theme)
         
         content.viewModel.output.didTapStartCooking.subscribe { [weak self] _ in
             self?.viewModel.input.startCookingTapped()
@@ -115,5 +121,12 @@ private extension RecipeContainerViewController {
         .disposed(by: content.disposeBag)
         
         embed(content, in: contentContainer)
+    }
+}
+
+extension RecipeContainerViewController: Themable {
+    public func apply(theme: Theme) {
+        self.theme = theme
+        view.backgroundColor = theme.primary
     }
 }

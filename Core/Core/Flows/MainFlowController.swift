@@ -66,6 +66,7 @@ public final class MainFlowController {
 private extension MainFlowController {
     func presentDashboard(didSelectRecipe: @escaping ((ShortRecipe) -> Void)) {
         let dashboardScreen = provider.makeDashboardScreen()
+        dashboardScreen.apply(theme: DefaultTheme())
         
         dashboardScreen.viewModel.didSelectRecipe
             .observeOn(MainScheduler.instance)
@@ -79,6 +80,8 @@ private extension MainFlowController {
     
     func presentRecipeDetails(shortRecipe: ShortRecipe, didTapStartCooking: @escaping ((Algorithm) -> Void)) {
         let recipeScreen = provider.makeRecipeScreen(shortRecipe: shortRecipe)
+        recipeScreen.apply(theme: DefaultTheme())
+        
         recipeScreen.viewModel.output.didTapStartCooking
             .observeOn(MainScheduler.instance)
             .subscribe(onNext: { algorithm in
@@ -97,6 +100,8 @@ private extension MainFlowController {
     
     func presentCookingScreen(algorithm: Algorithm) {
         let cookingScreen = provider.makeCookingScreen(algorithm: algorithm)
+        cookingScreen.apply(theme: DefaultTheme())
+        
         cookingScreen.viewModel.output.didDismiss
             .subscribe { [weak self] _ in
                 self?.idle.enable()

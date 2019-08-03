@@ -27,17 +27,12 @@ public class ButtonTableCell: UITableViewCell {
         super.prepareForReuse()
         disposeBag = DisposeBag()
         button.setTitle(nil, for: .normal)
-    }
-    
-    public override func awakeFromNib() {
-        super.awakeFromNib()
         
-        selectionStyle = .none
         button.rx
             .controlEvent(.touchDown)
             .subscribe(onNext: { [weak self] in
-                    self?.shrink(down: true)
-                })
+                self?.shrink(down: true)
+            })
             .disposed(by: disposeBag)
         
         button.rx
@@ -46,7 +41,21 @@ public class ButtonTableCell: UITableViewCell {
                 self?.shrink(down: false)
             })
             .disposed(by: disposeBag)
+    }
+    
+    public override func awakeFromNib() {
+        super.awakeFromNib()
         
-        button.roundCorners(radius: 10) //TODO: Make a constant or sth
+        selectionStyle = .none
+        button.roundCorners(radius: Constants.ui.cornerRadius)
+    }
+}
+
+extension ButtonTableCell: Themable {
+    public func apply(theme: Theme) {
+        button.backgroundColor = theme.action
+        button.setTitleColor(theme.secondary, for: .normal)
+        backgroundColor = theme.primary
+        contentView.backgroundColor = theme.primary
     }
 }

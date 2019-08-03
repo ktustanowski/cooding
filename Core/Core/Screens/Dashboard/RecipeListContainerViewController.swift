@@ -11,6 +11,7 @@ import RxSwift
 import RxCocoa
 
 public final class RecipeListContainerViewController: UIViewController {
+    private var theme: Theme = DefaultTheme()
     public var viewModel: RecipeListContainerViewModelProtocol!
     public var disposeBag = DisposeBag()
     
@@ -61,6 +62,8 @@ private extension RecipeListContainerViewController {
         removeAllEmbedded()
 
         let progressIndicator = ProgressIndicatorViewController.make()
+        progressIndicator.apply(theme: theme)
+        progressIndicator.view.alpha = 0.0
         
         embed(progressIndicator, in: contentContainer)
     }
@@ -73,7 +76,8 @@ private extension RecipeListContainerViewController {
         errorIndicator.viewModel = NoDataViewModel(title: "Uh oh!", //TODO: Translations
                                                    message: "I couldn't load recipies. Sorry about that...", //TODO: Translations
                                                    isRetryAvailable: true)
-        
+        errorIndicator.apply(theme: theme)
+
         Observable.combineLatest(errorIndicator.viewModel.output.didTapRetry,
                                  viewModel.output.hasRecipeListURL)
             .observeOn(MainScheduler.instance)
@@ -101,6 +105,7 @@ private extension RecipeListContainerViewController {
 
         let content = RecipeListViewController()
         content.viewModel = viewModel
+        content.apply(theme: theme)
         
         content.viewModel.output.didSelectRecipe
             .observeOn(MainScheduler.instance)
@@ -115,7 +120,7 @@ private extension RecipeListContainerViewController {
         let alert = UIAlertController(title: "Hello there!", //TODO: Translations
                                       message: "Please input your own recipe list repository URL", //TODO: Translations
                                       preferredStyle: .alert) //TODO: Translations
-        
+        alert.view.tintColor = theme.action
         let action = UIAlertAction(title: "Done", style: .default) { _ in //TODO: Translations
             let urlString = alert.textFields?.first?.text ?? ""
             onInput(URL(string: urlString))
@@ -131,6 +136,13 @@ private extension RecipeListContainerViewController {
         alert.addAction(dismiss)
         
         present(alert, animated: true, completion: nil)
+    }
+}
+
+extension RecipeListContainerViewController: Themable {
+    public func apply(theme: Theme) {
+        self.theme = theme
+        view.backgroundColor = theme.primary
     }
 }
 

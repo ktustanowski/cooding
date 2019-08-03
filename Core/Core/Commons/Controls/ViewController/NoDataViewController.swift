@@ -23,7 +23,6 @@ public final class NoDataViewController: UIViewController {
         super.viewDidLoad()
         
         bindViewModel()
-        view.backgroundColor = .orange
     }
 }
 
@@ -58,4 +57,13 @@ private extension NoDataViewController {
 extension NoDataViewController: StoryboardMakeable {
     public typealias StoryboardMakeableType = NoDataViewController
     public static var storyboardName = "Common"
+}
+
+extension NoDataViewController: Themable {
+    public func apply(theme: Theme) {
+        view.backgroundColor = theme.primary
+        titleLabel.textColor = theme.secondary
+        messageLabel.textColor = theme.secondary
+        retryLabel.textColor = theme.secondary
+    }
 }

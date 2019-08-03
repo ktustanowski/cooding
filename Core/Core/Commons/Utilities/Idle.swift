@@ -15,11 +15,11 @@ public protocol IdleConfigurable {
 
 public struct Idle: IdleConfigurable {
     public func enable() {
-        UIApplication.shared.isIdleTimerDisabled = true
+        UIApplication.shared.isIdleTimerDisabled = false
     }
     
     public func disable() {
-        UIApplication.shared.isIdleTimerDisabled = false
+        UIApplication.shared.isIdleTimerDisabled = true
     }
     
     public init() {}

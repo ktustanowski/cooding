@@ -11,10 +11,12 @@ import UIKit
 public struct ListCellViewModel {
     public let title: String
     public let description: String
+    public let shrinksOnTouch: Bool
     
-    public init(title: String, description: String) {
+    public init(title: String, description: String, shrinksOnTouch: Bool = false) {
         self.title = title
         self.description = description
+        self.shrinksOnTouch = shrinksOnTouch
     }
 }
 
@@ -34,7 +36,7 @@ public class ListTableCell: UITableViewCell {
         super.awakeFromNib()
         
         selectionStyle = .none
-        containerView.roundCorners(radius: 10) //TODO: Make a constant or sth
+        containerView.roundCorners(radius: Constants.ui.cornerRadius)
     }
     
     public override func prepareForReuse() {
@@ -45,7 +47,18 @@ public class ListTableCell: UITableViewCell {
     }
         
     public override func setHighlighted(_ highlighted: Bool, animated: Bool) {
+        guard viewModel.shrinksOnTouch else { return }
         shrink(down: highlighted)
+    }
+}
+
+extension ListTableCell: Themable {
+    public func apply(theme: Theme) {
+        containerView.backgroundColor = theme.secondary
+        titleLabel.textColor = theme.headerText
+        descriptionLabel.textColor = theme.bodyText
+        backgroundColor = theme.primary
+        contentView.backgroundColor = theme.primary
     }
 }
 

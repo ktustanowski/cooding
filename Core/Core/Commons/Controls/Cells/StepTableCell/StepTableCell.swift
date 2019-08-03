@@ -11,6 +11,7 @@ import RxRelay
 import RxSwift
 
 public class StepTableCell: UITableViewCell {
+    private var theme: Theme!
     private(set) var disposeBag = DisposeBag()
     public var viewModel: StepCellViewModelProtocol! {
         didSet {
@@ -30,7 +31,7 @@ public class StepTableCell: UITableViewCell {
         super.awakeFromNib()
         
         selectionStyle = .none
-        containerView.roundCorners(radius: 10) //TODO: Make a constant or sth
+        containerView.roundCorners(radius: Constants.ui.cornerRadius)
     }
     
     public override func prepareForReuse() {
@@ -121,13 +122,27 @@ private extension StepTableCell {
         doneButton.setTitle(nil, for: .normal)
         doneButton.setImage(UIImage(named: "tick"), for: .normal)
         doneButton.isUserInteractionEnabled = false
-        doneButton.tintColor = .gray
+        doneButton.tintColor = theme.positive
     }
     
     func showDoneButton() {
         doneButton.setTitle("Done", for: .normal) //TODO: Translate
         doneButton.setImage(nil, for: .normal)
-        doneButton.tintColor = .orange
+        doneButton.tintColor = theme.action
+    }
+}
+
+extension StepTableCell: Themable {
+    public func apply(theme: Theme) {
+        self.theme = theme
+        doneButton.setTitleColor(theme.action, for: .normal)
+        containerView.backgroundColor = theme.secondary
+        descriptionLabel.textColor = theme.bodyText
+        counterLabel.textColor = theme.bodyText
+        endLabel.textColor = theme.bodyText
+        timerButton.setTitleColor(theme.action, for: .normal)
+        backgroundColor = theme.primary
+        contentView.backgroundColor = theme.secondary
     }
 }
 

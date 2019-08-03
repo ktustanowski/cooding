@@ -11,37 +11,44 @@ import RxSwift
 import RxDataSources
 
 public final class RecipeViewController: UITableViewController {
+    private var theme: Theme = DefaultTheme()
     public let disposeBag = DisposeBag()
     public var viewModel: RecipeViewModelProtocol!
 
     //swiftlint:disable:next line_length
     private lazy var dataSource: RxTableViewSectionedReloadDataSource<SectionModel<String, RecipeCellType>> = RxTableViewSectionedReloadDataSource(configureCell: { [weak self] _, tableView, indexPath, cellType in
+        guard let theme = self?.theme else { fatalError("No theme available!") }
         
         switch cellType {
         case .listCell(let viewModel):
             guard let cell = tableView.dequeueReusableCell(withIdentifier: ListTableCell.nibName, for: indexPath) as? ListTableCell
                 else { fatalError("No suitable cell found!") }
+
             cell.viewModel = viewModel
-            cell.contentView.backgroundColor = tableView.backgroundColor
+            cell.apply(theme: theme)
+
             return cell
         case .buttonCell(let viewModel):
             guard let cell = tableView.dequeueReusableCell(withIdentifier: ButtonTableCell.nibName, for: indexPath) as? ButtonTableCell
                 else { fatalError("No suitable cell found!") }
+
             cell.viewModel = viewModel
-            
+            cell.apply(theme: theme)
+
             cell.button.rx.controlEvent(.touchUpInside)
                 .subscribe { [weak self] _ in
                     self?.viewModel.input.startCookingTapped()
                 }
                 .disposed(by: cell.disposeBag)
-            
-            cell.contentView.backgroundColor = tableView.backgroundColor
+
             return cell
         case .imageCell(let viewModel):
             guard let cell = tableView.dequeueReusableCell(withIdentifier: FullImageTableCell.nibName, for: indexPath) as? FullImageTableCell
                 else { fatalError("No suitable cell found!") }
+
             cell.viewModel = viewModel
-            cell.contentView.backgroundColor = tableView.backgroundColor
+            cell.apply(theme: theme)
+
             return cell
         }})
     
@@ -60,7 +67,6 @@ private extension RecipeViewController {
         
         tableView.separatorStyle = .none
         tableView.delaysContentTouches = false
-        tableView.backgroundColor = .orange //TODO: Make some theme or sth - colors shared across the app
     }
 
     func bindViewModel() {
@@ -75,5 +81,14 @@ private extension RecipeViewController {
                 print(indexPath)
             }
             .disposed(by: disposeBag)
+    }
+}
+
+extension RecipeViewController: Themable {
+    public func apply(theme: Theme) {
+        self.theme = theme
+        navigationController?.navigationBar.tintColor = theme.action
+        view.backgroundColor = theme.primary
+        tableView.backgroundColor = theme.primary
     }
 }

@@ -10,7 +10,7 @@ import UIKit
 import RxSwift
 
 public final class DashboardTabBarController: UITabBarController {
-    //TODO: Investigate why view did load was called immediatelly after creation - and this vm needed to be moved inside
+    private var theme: Theme = DefaultTheme()
     var viewModel: DashboardViewModelProtocol! = DashboardViewModel()
     public var disposeBag = DisposeBag()
     
@@ -41,6 +41,7 @@ private extension DashboardTabBarController {
                                   buttonTitle: String) -> RecipeListContainerViewController {
         let viewController = RecipeListContainerViewController.make()
         viewController.viewModel = viewModel
+        viewController.apply(theme: theme)
         
         viewController.viewModel.output.didSelectRecipe
             .observeOn(MainScheduler.instance)
@@ -50,9 +51,15 @@ private extension DashboardTabBarController {
             .disposed(by: viewController.disposeBag)
         
         viewController.tabBarItem = UITabBarItem(title: buttonTitle,
-                                                 image: nil,
+                                                 image: UIImage(named: "dish"),
                                                  selectedImage: nil)
-        
         return viewController
+    }
+}
+
+extension DashboardTabBarController: Themable {
+    public func apply(theme: Theme) {
+        self.theme = theme
+        tabBar.tintColor = theme.action
     }
 }

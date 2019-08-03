@@ -14,12 +14,18 @@ public final class ProgressIndicatorViewController: UIViewController {
     public override func viewDidLoad() {
         super.viewDidLoad()
         
-        view.backgroundColor = .orange
-        progressBackgroundView.roundCorners(radius: 10) //TODO: Make a constant or sth
+        progressBackgroundView.roundCorners(radius: Constants.ui.cornerRadius)
     }
 }
 
 extension ProgressIndicatorViewController: StoryboardMakeable {
     public typealias StoryboardMakeableType = ProgressIndicatorViewController
     public static var storyboardName = "Common"
+}
+
+extension ProgressIndicatorViewController: Themable {
+    public func apply(theme: Theme) {
+        view.backgroundColor = theme.primary
+        progressBackgroundView.backgroundColor = theme.auxiliary
+    }
 }

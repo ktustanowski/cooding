@@ -43,7 +43,7 @@ public class FullImageTableCell: UITableViewCell {
         super.awakeFromNib()
         
         selectionStyle = .none
-        containerView.roundCorners(radius: 10) //TODO: Make a constant or sth
+        containerView.roundCorners(radius: Constants.ui.cornerRadius)
     }
     
     public override func prepareForReuse() {
@@ -56,7 +56,16 @@ public class FullImageTableCell: UITableViewCell {
     }
     
     public override func setHighlighted(_ highlighted: Bool, animated: Bool) {
+        guard viewModel.shrinksOnTouch else { return }
         shrink(down: highlighted)
+    }
+}
+
+extension FullImageTableCell: Themable {
+    public func apply(theme: Theme) {
+        titleContainer.backgroundColor = theme.secondary
+        titleLabel.textColor = theme.headerText
+        backgroundColor = theme.primary
     }
 }
 

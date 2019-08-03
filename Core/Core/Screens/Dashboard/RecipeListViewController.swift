@@ -11,6 +11,7 @@ import RxSwift
 import RxCocoa
 
 public final class RecipeListViewController: UITableViewController {
+    private var theme: Theme = DefaultTheme()
     public let disposeBag = DisposeBag()
     public var viewModel: RecipeListViewModelProtocol!
     
@@ -32,18 +33,16 @@ extension RecipeListViewController {
         tableView.delaysContentTouches = false
         tableView.register(FullImageTableCell.nib, forCellReuseIdentifier: FullImageTableCell.nibName)
         tableView.separatorStyle = .none
-        tableView.backgroundColor = UIColor(hex: "#F19143FF")//UIColor(hex: "#B4DFE5FF")//UIColor(hex: "#FF773DFF")
-        print(UIColor(hex: "#F4976CFF"))
     }
     
     func bindViewModel() {
         viewModel.output.recipies.bind(to: tableView
             .rx
             .items(cellIdentifier: FullImageTableCell.nibName)) { [weak self] _, viewModel, cell in
-                guard let cell = cell as? FullImageTableCell else { return }
+                guard let cell = cell as? FullImageTableCell,
+                    let theme = self?.theme else { return }
+                cell.apply(theme: theme)
                 cell.viewModel = viewModel
-                cell.titleLabel.textColor = UIColor(hex: "#F55536FF")//UIColor(hex: "#B4DFE5FF")
-                cell.contentView.backgroundColor = self?.tableView.backgroundColor
             }
             .disposed(by: disposeBag)
         
@@ -53,5 +52,13 @@ extension RecipeListViewController {
                 self?.viewModel.input.itemSelected(indexPath: indexPath)
             }
             .disposed(by: disposeBag)
+    }
+}
+
+extension RecipeListViewController: Themable {
+    public func apply(theme: Theme) {
+        self.theme = theme
+        view.backgroundColor = theme.primary
+        tableView.backgroundColor = theme.primary
     }
 }

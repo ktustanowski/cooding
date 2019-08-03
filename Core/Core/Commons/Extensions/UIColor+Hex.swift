@@ -9,6 +9,7 @@
 import Foundation
 
 //swiftlint:disable identifier_name
+/// https://www.hackingwithswift.com/example-code/uicolor/how-to-convert-a-hex-color-to-a-uicolor
 public extension UIColor {
     convenience init?(hex: String) {
         let r, g, b, a: CGFloat
