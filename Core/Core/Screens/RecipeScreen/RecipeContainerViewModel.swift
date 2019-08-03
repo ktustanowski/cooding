@@ -92,7 +92,7 @@ public final class RecipeContainerViewModel: RecipeContainerViewModelProtocol {
         
         let loadRecipe = shouldLoadRecipes
             .flatMap { _ -> Observable<Recipe?> in
-                return downloader.download(url: shortRecipe.source)
+                return downloader.download(url: shortRecipe.sourceURL)
                     .catchErrorJustReturn(nil)
             }
         

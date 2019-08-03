@@ -46,6 +46,14 @@ private extension RecipeListContainerViewController {
                 self?.embedLoadingIndicator()
             }
             .disposed(by: disposeBag)
+        
+        viewModel.output.hasRecipeListURL
+            .observeOn(MainScheduler.instance)
+            .filter { $0 == false }
+            .subscribe { [weak self] _ in
+                self?.askForRecipeListURL()
+            }
+            .disposed(by: disposeBag)
     }
     
     func embedLoadingIndicator() {
@@ -66,14 +74,25 @@ private extension RecipeListContainerViewController {
                                                    message: "I couldn't load recipies. Sorry about that...", //TODO: Translations
                                                    isRetryAvailable: true)
         
-        errorIndicator.viewModel.output.didTapRetry
+        Observable.combineLatest(errorIndicator.viewModel.output.didTapRetry,
+                                 viewModel.output.hasRecipeListURL)
             .observeOn(MainScheduler.instance)
-            .subscribe(onNext: { [weak self] _ in
-                self?.viewModel.reload()
+            .subscribe(onNext: { [weak self] _, hasRecipeListURL in
+                if hasRecipeListURL {
+                    self?.viewModel.reload()
+                } else {
+                    self?.askForRecipeListURL()
+                }
             })
             .disposed(by: errorIndicator.disposeBag)
         
         embed(errorIndicator, in: contentContainer)
+    }
+    
+    func askForRecipeListURL() {
+        presentEnterRecipeURLAlert(onInput: { [weak self] url in
+            self?.viewModel.input.recipeList(url: url)
+        })
     }
     
     func embedContent(viewModel: RecipeListViewModelProtocol) {
@@ -90,6 +109,28 @@ private extension RecipeListContainerViewController {
             }).disposed(by: content.disposeBag)
         
         embed(content, in: contentContainer)
+    }
+    
+    func presentEnterRecipeURLAlert(onInput: @escaping ((URL?) -> Void)) {
+        let alert = UIAlertController(title: "Hello there!", //TODO: Translations
+                                      message: "Please input your own recipe list repository URL", //TODO: Translations
+                                      preferredStyle: .alert) //TODO: Translations
+        
+        let action = UIAlertAction(title: "Done", style: .default) { _ in //TODO: Translations
+            let urlString = alert.textFields?.first?.text ?? ""
+            onInput(URL(string: urlString))
+        }
+        
+        alert.addTextField { textField in
+            textField.placeholder = "Your recipe repository URL" //TODO: Translations
+        }
+        
+        let dismiss = UIAlertAction(title: "Close", style: .cancel, handler: nil) //TODO: Translations
+        
+        alert.addAction(action)
+        alert.addAction(dismiss)
+        
+        present(alert, animated: true, completion: nil)
     }
 }
 

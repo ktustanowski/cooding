@@ -8,7 +8,6 @@
 
 import Foundation
 
-
 //TODO: Move models to separate files
 public enum Difficulty: String, Codable {
     case easy
@@ -95,14 +94,14 @@ public struct ShortRecipe: Codable, Equatable {
     /// Recipe name
     public let name: String
     /// URL to recipe
-    public let source: URL //TODO: add URL
+    public let sourceURL: URL //TODO: add URL
     /// Images of a recipe, cooking process etc.
-    public let image: URL //TODO: add URL
+    public let imageURL: URL //TODO: add URL
     
-    public init(name: String, source: URL, image: URL) {
+    public init(name: String, sourceURL: URL, imageURL: URL) {
         self.name = name
-        self.source = source
-        self.image = image
+        self.sourceURL = sourceURL
+        self.imageURL = imageURL
     }
 }
 
@@ -112,11 +111,11 @@ public struct Recipe: Codable, Equatable {
     /// URL to author site
     public let authorName: String
     /// URL to author site
-    public let author: URL //TODO: add URL
+    public let authorURL: URL //TODO: add URL
     /// URL to original recipe - if available
-    public let originalSource: URL? //TODO: add URL
+    public let originalSourceURL: URL? //TODO: add URL
     /// Images of a recipe, cooking process etc.
-    public let images: [URL]? //TODO: add URL
+    public let imagesURL: [URL]? //TODO: add URL
     /// The unparsed recipe
     public let rawAlgorithm: String
     /// How long does it take from start to finish

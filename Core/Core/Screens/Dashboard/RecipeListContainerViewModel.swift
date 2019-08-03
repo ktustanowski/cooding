@@ -17,7 +17,7 @@ public protocol RecipeListContainerViewModelProtocol: RecipeListContainerViewMod
 
 public protocol RecipeListContainerViewModelProtocolInputs {
     func viewDidLoad()
-    func recipe(url: URL)
+    func recipeList(url: URL?)
     func reload()
     func selected(recipe: ShortRecipe)
 }
@@ -26,6 +26,7 @@ public protocol RecipeListContainerViewModelProtocolOutputs {
     var recipeListViewModel: Observable<RecipeListViewModelProtocol?> { get }
     var isLoading: Observable<Bool> { get }
     var didSelectRecipe: Observable<ShortRecipe> { get }
+    var hasRecipeListURL: Observable<Bool> { get }
 }
 
 public final class RecipeListContainerViewModel: RecipeListContainerViewModelProtocol {
@@ -38,8 +39,8 @@ public final class RecipeListContainerViewModel: RecipeListContainerViewModelPro
         viewDidLoadRelay.accept(())
     }
     
-    public func recipe(url: URL) {
-        recipeURLRelay.accept(url)
+    public func recipeList(url: URL?) {
+        recipeListURLRelay.accept(url)
     }
     
     public func reload() {
@@ -54,21 +55,24 @@ public final class RecipeListContainerViewModel: RecipeListContainerViewModelPro
     public let recipeListViewModel: Observable<RecipeListViewModelProtocol?>
     public let isLoading: Observable<Bool>
 
-    private let recipeURLRelay = BehaviorRelay<URL?>(value: nil)
+    private let recipeListURLRelay = BehaviorRelay<URL?>(value: nil)
     private let viewDidLoadRelay = PublishRelay<Void>()
     private let reloadRelay = BehaviorRelay<Void>(value: ())
     private let didSelectRecipeRelay = PublishRelay<ShortRecipe>()
     public var didSelectRecipe: Observable<ShortRecipe> {
         return didSelectRecipeRelay.asObservable()
     }
-
-    public init(recipeURL: URL?, downloader: DownloaderProtocol = Downloader()) {
+    public var hasRecipeListURL: Observable<Bool> {
+        return recipeListURLRelay
+            .map { $0 != nil }
+            .asObservable()
+    }
+    public init(recipeListURL: URL?, downloader: DownloaderProtocol = Downloader()) {
         self.downloader = downloader
-        recipeURLRelay.accept(recipeURL)
+        recipeListURLRelay.accept(recipeListURL)
     
         let viewDidLoad = viewDidLoadRelay.asObservable()
-        let gotURL = recipeURLRelay.asObservable()
-            .compactMap { $0 }
+        let gotURL = recipeListURLRelay.asObservable()
         
         let shouldLoadRecipes = Observable
             .combineLatest(gotURL,
@@ -78,6 +82,10 @@ public final class RecipeListContainerViewModel: RecipeListContainerViewModelPro
         
         recipeListViewModel = shouldLoadRecipes
             .flatMap { url -> Observable<RecipeList?> in
+                guard let url = url else {
+                    return .just(nil)
+                }
+                
                 return downloader.download(url: url)
                     .catchErrorJustReturn(nil)
             }

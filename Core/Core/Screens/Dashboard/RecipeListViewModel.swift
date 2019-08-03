@@ -47,6 +47,6 @@ public final class RecipeListViewModel: RecipeListViewModelProtocol {
         self.recipeList = recipeList
         recipies = .just(recipeList.recipes
             .map { FullImageCellViewModel(title: $0.name,
-                                          imageURL: $0.image) })
+                                          imageURL: $0.imageURL) })
     }
 }

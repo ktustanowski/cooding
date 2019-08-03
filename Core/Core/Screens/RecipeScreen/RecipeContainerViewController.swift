@@ -21,7 +21,7 @@ public final class RecipeContainerViewController: UIViewController {
         view.backgroundColor = .orange //TODO: Maybe add some functional styling or sth?
         setupContainer()
         bindViewModel()
-        viewModel.input.viewDidLoad()
+        viewModel.input.viewDidLoad()        
     }
     
     public override func viewWillAppear(_ animated: Bool) {

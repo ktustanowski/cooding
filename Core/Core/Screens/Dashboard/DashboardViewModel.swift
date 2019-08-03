@@ -53,10 +53,10 @@ public final class DashboardViewModel: DashboardViewModelProtocol {
     private var didSelectRecipeRelay = PublishRelay<ShortRecipe>()
     
     public init() {
-        allRecipiesViewModel = RecipeListContainerViewModel(recipeURL: allRecipiesURL)
+        allRecipiesViewModel = RecipeListContainerViewModel(recipeListURL: allRecipiesURL)
         allRecipiesButtonTitle = "All" // TODO: Translations
 
-        myRecipiesViewModel = RecipeListContainerViewModel(recipeURL: nil)
+        myRecipiesViewModel = RecipeListContainerViewModel(recipeListURL: nil)
         myRecipiesButtonTitle = "My" // TODO: Translations
     }
 }

@@ -8,6 +8,10 @@
 
 import Foundation
 
-protocol ThemeChangable {
+protocol Themable {
+    func apply(theme: Theme)
+}
+
+struct Theme {
     
 }

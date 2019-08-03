@@ -70,7 +70,7 @@ public final class RecipeViewModel: RecipeViewModelProtocol {
         }
         
         let imageCell = RecipeCellType.imageCell(FullImageCellViewModel(title: nil,
-                                                                        imageURL: recipe.images?.first))
+                                                                        imageURL: recipe.imagesURL?.first))
         let ingredientsCell = RecipeCellType.listCell(ListCellViewModel(title: "\(algorithm.ingredients.count) Ingredients", //TODO: Translations
                                                                         description: ingredients))
         let dependenciesCell = RecipeCellType.listCell(ListCellViewModel(title: "\(algorithm.dependencies.count) Dependencies", //TODO: Translations
