@@ -17,6 +17,10 @@
 		9A0985CD22F0E70F00A47127 /* DashboardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A0985CC22F0E70F00A47127 /* DashboardViewModel.swift */; };
 		9A1611B622EA5CED00FA053F /* UIView+Nib.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A1611B522EA5CED00FA053F /* UIView+Nib.swift */; };
 		9A34484722F4F76400AC7DC1 /* UIViewController+Navigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A34484622F4F76400AC7DC1 /* UIViewController+Navigation.swift */; };
+		9A34484B22F575D200AC7DC1 /* Idle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A34484A22F575D200AC7DC1 /* Idle.swift */; };
+		9A34484D22F57B3A00AC7DC1 /* UIView+Shrink.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A34484C22F57B3A00AC7DC1 /* UIView+Shrink.swift */; };
+		9A34484F22F57F3E00AC7DC1 /* Kingfisher.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A34484E22F57F3E00AC7DC1 /* Kingfisher.framework */; };
+		9A34485522F5887300AC7DC1 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A34485422F5887300AC7DC1 /* Theme.swift */; };
 		9A3CD01022E7887100A329EC /* Recipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A3CD00F22E7887100A329EC /* Recipe.swift */; };
 		9A488FCE22F3A79300AC308F /* ListTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9A488FCD22F3A79300AC308F /* ListTableCell.xib */; };
 		9A488FD122F4DB6D00AC308F /* ButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A488FD022F4DB6D00AC308F /* ButtonView.swift */; };
@@ -84,6 +88,10 @@
 		9A0985CC22F0E70F00A47127 /* DashboardViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardViewModel.swift; sourceTree = "<group>"; };
 		9A1611B522EA5CED00FA053F /* UIView+Nib.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Nib.swift"; sourceTree = "<group>"; };
 		9A34484622F4F76400AC7DC1 /* UIViewController+Navigation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Navigation.swift"; sourceTree = "<group>"; };
+		9A34484A22F575D200AC7DC1 /* Idle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Idle.swift; sourceTree = "<group>"; };
+		9A34484C22F57B3A00AC7DC1 /* UIView+Shrink.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Shrink.swift"; sourceTree = "<group>"; };
+		9A34484E22F57F3E00AC7DC1 /* Kingfisher.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Kingfisher.framework; path = Carthage/Build/iOS/Kingfisher.framework; sourceTree = "<group>"; };
+		9A34485422F5887300AC7DC1 /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
 		9A3CD00F22E7887100A329EC /* Recipe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Recipe.swift; sourceTree = "<group>"; };
 		9A488FCD22F3A79300AC308F /* ListTableCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ListTableCell.xib; sourceTree = "<group>"; };
 		9A488FD022F4DB6D00AC308F /* ButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonView.swift; sourceTree = "<group>"; };
@@ -139,6 +147,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9A34484F22F57F3E00AC7DC1 /* Kingfisher.framework in Frameworks */,
 				9AF996F022F2182500E9413C /* RxDataSources.framework in Frameworks */,
 				9AF996F122F2182500E9413C /* Differentiator.framework in Frameworks */,
 				9AF996F222F2182500E9413C /* RxCocoa.framework in Frameworks */,
@@ -165,6 +174,9 @@
 				9A507CB722EA2E6B00D1C8F9 /* XibMakeable.swift */,
 				9AC269BF22EF805A0080CA7E /* Downloader.swift */,
 				9AC269C822EF89C40080CA7E /* StoryboardMakeable.swift */,
+				9A34484A22F575D200AC7DC1 /* Idle.swift */,
+				9A34484C22F57B3A00AC7DC1 /* UIView+Shrink.swift */,
+				9A34485422F5887300AC7DC1 /* Theme.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -235,6 +247,7 @@
 		9A51E65422D2004000A27ACF /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				9A34484E22F57F3E00AC7DC1 /* Kingfisher.framework */,
 				9AF996EB22F2182500E9413C /* Differentiator.framework */,
 				9AF996EE22F2182500E9413C /* RxBlocking.framework */,
 				9AF996EC22F2182500E9413C /* RxCocoa.framework */,
@@ -528,6 +541,7 @@
 				"$(SRCROOT)/Carthage/Build/iOS/RxSwift.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/RxDataSources.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/Differentiator.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/Kingfisher.framework",
 			);
 			name = "Carthage Copy Frameworks";
 			outputFileListPaths = (
@@ -539,6 +553,7 @@
 				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/RxSwift.framework",
 				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/RxDataSources.framework",
 				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/Differentiator.framework",
+				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/Kingfisher.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -576,6 +591,7 @@
 				9A976E2922EC505E00204894 /* StepTableCellViewModel.swift in Sources */,
 				9AC269C622EF89790080CA7E /* RecipeListViewController.swift in Sources */,
 				9A0985C222F0B02D00A47127 /* NoDataViewModel.swift in Sources */,
+				9A34484B22F575D200AC7DC1 /* Idle.swift in Sources */,
 				9AF9591322C8E1C90055B204 /* CookingViewController.swift in Sources */,
 				9AF3509822ED97D500D42922 /* TimeInterval+Convenience.swift in Sources */,
 				9A3CD01022E7887100A329EC /* Recipe.swift in Sources */,
@@ -587,6 +603,7 @@
 				9AC269BB22EE554B0080CA7E /* String+Trimm.swift in Sources */,
 				9A0985CD22F0E70F00A47127 /* DashboardViewModel.swift in Sources */,
 				9ADB3E5B22EDAD1500035D2A /* RecipeViewController.swift in Sources */,
+				9A34485522F5887300AC7DC1 /* Theme.swift in Sources */,
 				9AC269C022EF805A0080CA7E /* Downloader.swift in Sources */,
 				9AC269D222EF8DCD0080CA7E /* UIViewController+Embedding.swift in Sources */,
 				9AC269C922EF89C40080CA7E /* StoryboardMakeable.swift in Sources */,
@@ -607,6 +624,7 @@
 				9A0985C022F0AFD700A47127 /* NoDataViewController.swift in Sources */,
 				9AC269C422EF89650080CA7E /* DashboardTabBarController.swift in Sources */,
 				9AF996D222F2006F00E9413C /* RecipeContainerViewModel.swift in Sources */,
+				9A34484D22F57B3A00AC7DC1 /* UIView+Shrink.swift in Sources */,
 				9AC269CD22EF8C530080CA7E /* RecipeListContainerViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

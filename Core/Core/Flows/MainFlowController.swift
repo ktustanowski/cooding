@@ -40,6 +40,7 @@ public struct ScreenMaker: ScreenMakeable {
 }
 
 public final class MainFlowController {
+    private let idle: IdleConfigurable
     private let presenter: ScreenPresenter
     private let provider: ScreenMakeable
     private let disposeBag = DisposeBag()
@@ -53,7 +54,10 @@ public final class MainFlowController {
         })
     }
     
-    public init(presenter: ScreenPresenter, provider: ScreenMakeable = ScreenMaker()) {
+    public init(presenter: ScreenPresenter,
+                provider: ScreenMakeable = ScreenMaker(),
+                idle: IdleConfigurable = Idle()) {
+        self.idle = idle
         self.presenter = presenter
         self.provider = provider
     }
@@ -95,10 +99,12 @@ private extension MainFlowController {
         let cookingScreen = provider.makeCookingScreen(algorithm: algorithm)
         cookingScreen.viewModel.output.didDismiss
             .subscribe { [weak self] _ in
+                self?.idle.enable()
                 _ = self?.presenter.popViewController(animated: true)
             }
             .disposed(by: cookingScreen.disposeBag)
 
+        idle.disable()
         presenter.pushViewController(cookingScreen, animated: true)
     }
 }

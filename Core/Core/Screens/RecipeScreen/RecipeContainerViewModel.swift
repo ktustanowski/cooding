@@ -23,6 +23,7 @@ public protocol RecipeContainerViewModelProtocolInputs {
 }
 
 public protocol RecipeContainerViewModelProtocolOutputs {
+    var title: String { get }
     var recipeViewModel: Observable<RecipeViewModelProtocol?> { get }
     var isLoading: Observable<Bool> { get }
     var didTapStartCooking: Observable<Algorithm> { get }
@@ -54,6 +55,9 @@ public final class RecipeContainerViewModel: RecipeContainerViewModelProtocol {
     }
 
     // MARK: Outputs
+    public var title: String {
+        return shortRecipe.name
+    }
     public let recipeViewModel: Observable<RecipeViewModelProtocol?>
     public var didTapStartCooking: Observable<Algorithm> {
         return didTapStartCookingRelay.asObservable()

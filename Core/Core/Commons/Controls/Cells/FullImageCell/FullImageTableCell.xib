@@ -53,6 +53,7 @@
                             <constraint firstAttribute="trailing" secondItem="naS-08-IIY" secondAttribute="trailing" id="T9I-ge-rd0"/>
                             <constraint firstAttribute="bottom" secondItem="naS-08-IIY" secondAttribute="bottom" id="UZH-iD-wUG"/>
                             <constraint firstAttribute="height" constant="200" id="VME-UA-0Qs"/>
+                            <constraint firstItem="Zsl-8S-rNn" firstAttribute="top" secondItem="eDO-hZ-iNv" secondAttribute="top" constant="157" id="q9C-mK-5OU"/>
                             <constraint firstItem="naS-08-IIY" firstAttribute="top" secondItem="eDO-hZ-iNv" secondAttribute="top" id="qDj-lV-C9F"/>
                             <constraint firstItem="Zsl-8S-rNn" firstAttribute="leading" secondItem="eDO-hZ-iNv" secondAttribute="leading" id="t8L-FB-HA5"/>
                             <constraint firstAttribute="bottom" secondItem="Zsl-8S-rNn" secondAttribute="bottom" id="x95-nD-VhI"/>
@@ -69,6 +70,7 @@
             <connections>
                 <outlet property="containerView" destination="eDO-hZ-iNv" id="IBp-WL-qOr"/>
                 <outlet property="fullImageView" destination="naS-08-IIY" id="FtF-ab-yBR"/>
+                <outlet property="titleContainer" destination="Zsl-8S-rNn" id="cTb-Ca-dTn"/>
                 <outlet property="titleLabel" destination="Yj8-nd-Q7F" id="OSr-eE-ITf"/>
             </connections>
             <point key="canvasLocation" x="263.768115942029" y="254.79910714285714"/>

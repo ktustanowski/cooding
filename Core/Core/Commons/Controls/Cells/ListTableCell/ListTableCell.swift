@@ -43,21 +43,9 @@ public class ListTableCell: UITableViewCell {
         titleLabel.text = nil
         descriptionLabel.text = nil
     }
-    
-    
-    //TODO: refactor and make configurable
+        
     public override func setHighlighted(_ highlighted: Bool, animated: Bool) {
         shrink(down: highlighted)
-    }
-    
-    func shrink(down: Bool) {
-        UIView.animate(withDuration: 0.2, delay: 0.0, options: [.allowUserInteraction], animations: {
-            if down {
-                self.transform = CGAffineTransform(scaleX: 0.95, y: 0.95)
-            } else {
-                self.transform = .identity
-            }
-        }, completion: nil)
     }
 }
 

@@ -12,6 +12,7 @@ import RxRelay
 import RxDataSources
 
 public enum RecipeCellType {
+    case imageCell(FullImageCellViewModel)
     case listCell(ListCellViewModel)
     case buttonCell(ButtonCellViewModel)
 }
@@ -68,12 +69,21 @@ public final class RecipeViewModel: RecipeViewModelProtocol {
                 return stepsList + "• \(step.description)\n"
         }
         
-        items = .just([SectionModel(model: "MainSection", items: [RecipeCellType.listCell(ListCellViewModel(title: "\(algorithm.ingredients.count) Ingredients", //TODO: Translations
-            description: ingredients)),
-                                                                         RecipeCellType.listCell(ListCellViewModel(title: "\(algorithm.dependencies.count) Dependencies", //TODO: Translations
-                                                                            description: dependencies)),
-                                                                         RecipeCellType.listCell(ListCellViewModel(title: "\(algorithm.steps.count) Steps", //TODO: Translations
-                                                                            description: steps)),
-                                                                         RecipeCellType.buttonCell(ButtonCellViewModel(title: "Start Cooking"))])]) //TODO: Translations)
+        let imageCell = RecipeCellType.imageCell(FullImageCellViewModel(title: nil,
+                                                                        imageURL: recipe.images?.first))
+        let ingredientsCell = RecipeCellType.listCell(ListCellViewModel(title: "\(algorithm.ingredients.count) Ingredients", //TODO: Translations
+                                                                        description: ingredients))
+        let dependenciesCell = RecipeCellType.listCell(ListCellViewModel(title: "\(algorithm.dependencies.count) Dependencies", //TODO: Translations
+                                                                         description: dependencies))
+        let stepsCell = RecipeCellType.listCell(ListCellViewModel(title: "\(algorithm.steps.count) Steps", //TODO: Translations
+                                                                  description: steps))
+        let startCookingCell = RecipeCellType.buttonCell(ButtonCellViewModel(title: "Start Cooking")) //TODO: Translations
+        
+        items = .just([SectionModel(model: "MainSection", items: [imageCell,
+                                                                  ingredientsCell,
+                                                                  dependenciesCell,
+                                                                  stepsCell,
+                                                                  startCookingCell])])
+        
     }
 }

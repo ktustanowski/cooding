@@ -32,6 +32,7 @@ public final class RecipeContainerViewController: UIViewController {
 
 private extension RecipeContainerViewController {
     func setupNavigationBar() {
+        title = viewModel.output.title
         replaceBackButtonWithBackArrow()
         
         onDismiss?

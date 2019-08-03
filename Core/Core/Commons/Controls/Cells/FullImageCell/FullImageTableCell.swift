@@ -7,14 +7,19 @@
 //
 
 import UIKit
+import Kingfisher
 
 public struct FullImageCellViewModel {
-    public let title: String
+    public let title: String?
     public let imageURL: URL?
+    public let shrinksOnTouch: Bool
     
-    public init(title: String, imageURL: URL?) {
+    public init(title: String?,
+                imageURL: URL?,
+                shrinksOnTouch: Bool = false) {
         self.title = title
         self.imageURL = imageURL
+        self.shrinksOnTouch = shrinksOnTouch
     }
 }
 
@@ -22,13 +27,17 @@ public class FullImageTableCell: UITableViewCell {
     public var viewModel: FullImageCellViewModel! {
         didSet {
             titleLabel.text = viewModel.title
-            // TODO: Add image loading here
+            titleContainer.isHidden = viewModel.title == nil
+            fullImageView.kf.setImage(with: viewModel.imageURL,
+                                      options: [.scaleFactor(UIScreen.main.scale),
+                                                .transition(.fade(1))])
         }
     }
     
     @IBOutlet private(set) weak var fullImageView: UIImageView!
     @IBOutlet private(set) weak var titleLabel: UILabel!
     @IBOutlet private weak var containerView: UIView!
+    @IBOutlet weak var titleContainer: UIView!
     
     public override func awakeFromNib() {
         super.awakeFromNib()
@@ -42,21 +51,12 @@ public class FullImageTableCell: UITableViewCell {
         
         titleLabel.text = nil
         fullImageView.image = nil
+        titleContainer.isHidden = false
+        fullImageView.kf.cancelDownloadTask()
     }
     
-    //TODO: refactor and make configurable
     public override func setHighlighted(_ highlighted: Bool, animated: Bool) {
         shrink(down: highlighted)
-    }
-    
-    func shrink(down: Bool) {
-        UIView.animate(withDuration: 0.2, delay: 0.0, options: [.allowUserInteraction], animations: {
-            if down {
-                self.transform = CGAffineTransform(scaleX: 0.95, y: 0.95)
-            } else {
-                self.transform = .identity
-            }
-        }, completion: nil)
     }
 }
 

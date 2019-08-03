@@ -16,7 +16,6 @@ public final class CookingViewController: UITableViewController {
     
     public override func viewDidLoad() {
         super.viewDidLoad()
-        
         setupUI()
         bindViewModel()
     }
@@ -24,6 +23,7 @@ public final class CookingViewController: UITableViewController {
 
 private extension CookingViewController {
     func setupUI() {
+        title = "Cooking steps" //TODO: Translation
         tableView.register(StepTableCell.nib, forCellReuseIdentifier: StepTableCell.nibName)
         tableView.separatorStyle = .none
         tableView.backgroundColor = .orange
@@ -52,7 +52,8 @@ private extension CookingViewController {
                         guard let indexPathToRemove = self?.tableView.indexPath(for: stepCell) else { return }
                         self?.viewModel.input.finished(at: indexPathToRemove)
                         
-                    }).disposed(by: stepCell.disposeBag)
+                    })
+                    .disposed(by: stepCell.disposeBag)
             }
             .disposed(by: disposeBag)
     }
