@@ -28,6 +28,7 @@ public protocol StepCellViewModelProtocolOutputs {
     var didTapDone: Observable<Void> { get }
     var isDone: Observable<Bool> { get }
     var isCountdown: Observable<Bool> { get }
+    var currentDuration: Observable<TimeInterval?> { get }
 }
 
 public final class StepCellViewModel: StepCellViewModelProtocol, StepCellViewModelProtocolInputs, StepCellViewModelProtocolOutputs {
@@ -46,6 +47,7 @@ public final class StepCellViewModel: StepCellViewModelProtocol, StepCellViewMod
     
     public func doneButtonTapped() {
         isDoneRelay.accept(true)
+        currentDurationRelay?.accept(0)
         didTapDoneRelay.accept(())
     }
     
@@ -57,6 +59,9 @@ public final class StepCellViewModel: StepCellViewModelProtocol, StepCellViewMod
     public let didTapDone: Observable<Void>
     public let isDone: Observable<Bool>
     public let isCountdown: Observable<Bool>
+    public var currentDuration: Observable<TimeInterval?> {
+        return currentDurationRelay?.asObservable() ?? .just(nil)
+    }
     
     // MARK: Implementation
     private let disposeBag = DisposeBag()
@@ -64,7 +69,7 @@ public final class StepCellViewModel: StepCellViewModelProtocol, StepCellViewMod
     private let isCountdownRelay = BehaviorRelay<Bool>(value: false)
     private let isDoneRelay = BehaviorRelay<Bool>(value: false)
     private let didTapDoneRelay = PublishRelay<Void>()
-    private let currentDuration: BehaviorRelay<TimeInterval?>?
+    private let currentDurationRelay: BehaviorRelay<TimeInterval?>?
 
     private var timerDisposable: Disposable? {
         willSet {
@@ -78,16 +83,16 @@ public final class StepCellViewModel: StepCellViewModelProtocol, StepCellViewMod
     public init(step: Step) {
         //TODO: Make sure didTapDoneSubject.dispose() on deinit is not needed
         self.step = step
-        currentDuration = BehaviorRelay<TimeInterval?>(value: step.duration)
+        currentDurationRelay = BehaviorRelay<TimeInterval?>(value: step.duration)
         title = .just(step.description)
         isDurationAvailable = .just(step.duration != nil)
         
-        duration = currentDuration?
+        duration = currentDurationRelay?
             .compactMap { $0?.shortTime }
             .map { "\($0)" }
             .asObservable() ?? .empty()
         
-        endTime = currentDuration?
+        endTime = currentDurationRelay?
             .compactMap { $0?.endTime }
             .map { "\($0)" }
             .asObservable() ?? .empty()
@@ -101,7 +106,7 @@ public final class StepCellViewModel: StepCellViewModelProtocol, StepCellViewMod
         isCountdown = isCountdownRelay
             .asObservable()
 
-        let durationReachedZero = currentDuration?.filter { $0 == 0 }
+        let durationReachedZero = currentDurationRelay?.filter { $0 == 0 }
         durationReachedZero?
             .subscribe(onNext: { [weak self] _ in
                 self?.timerDisposable?.dispose()
@@ -128,8 +133,8 @@ private extension StepCellViewModel {
     func startCountdown() {
         timerDisposable = Observable<Int>.timer(1.0, period: 1.0, scheduler: MainScheduler.instance)
             .subscribe { [weak self] _ in
-                guard let duration = self?.currentDuration?.value else { return }
-                self?.currentDuration?.accept(duration - 1)
+                guard let duration = self?.currentDurationRelay?.value else { return }
+                self?.currentDurationRelay?.accept(duration - 1)
         }
     }
 }

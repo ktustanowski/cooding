@@ -109,7 +109,7 @@
                 <outlet property="endLabel" destination="tdi-rA-x4o" id="X56-sH-Ra3"/>
                 <outlet property="timerButton" destination="Bfr-Iz-CdN" id="5TJ-lD-mCd"/>
             </connections>
-            <point key="canvasLocation" x="-215.21739130434784" y="42.1875"/>
+            <point key="canvasLocation" x="-411" y="-140"/>
         </tableViewCell>
     </objects>
 </document>

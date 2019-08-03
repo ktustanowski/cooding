@@ -52,37 +52,70 @@ private extension StepTableCell {
     }
     
     func bindViewModel() {
-        disposeBag.insert (
-            viewModel.output.isDurationAvailable
-                .map { !$0 }
-                .bind(to: durationControlsContainer.rx.isHidden),
-            viewModel.output.title
-                .observeOn(MainScheduler.instance)
-                .bind(to: descriptionLabel.rx.text),
-            viewModel.output.duration
-                .observeOn(MainScheduler.instance)
-                .bind(to: counterLabel.rx.text),
-            viewModel.output.endTime
-                .observeOn(MainScheduler.instance)
-                .bind(to: endLabel.rx.text)
-        )
+        viewModel.output.isDurationAvailable
+            .observeOn(MainScheduler.instance)
+            .map { !$0 }
+            .bind(to: durationControlsContainer.rx.isHidden)
+            .disposed(by: disposeBag)
         
-        disposeBag.insert (
-            viewModel.output.isCountdown
-                .observeOn(MainScheduler.instance)
-                .map { $0 ? "Pause" : "Start" } //TODO: Translations
-                .bind(to: timerButton.rx.title(for: .normal)),
-            timerButton.rx.controlEvent(.touchUpInside)
-                .observeOn(MainScheduler.instance)
-                .subscribe(onNext: { [weak self] _ in
-                    self?.viewModel.input.timerButtonTapped()
-                }),
-            doneButton.rx.controlEvent(.touchUpInside)
-                .observeOn(MainScheduler.instance)
-                .subscribe(onNext: { [weak self] _ in
-                    self?.viewModel.input.doneButtonTapped()
-                })
-        )
+        viewModel.output.title
+            .observeOn(MainScheduler.instance)
+            .bind(to: descriptionLabel.rx.text)
+            .disposed(by: disposeBag)
+        
+        viewModel.output.duration
+            .observeOn(MainScheduler.instance)
+            .bind(to: counterLabel.rx.text)
+            .disposed(by: disposeBag)
+        
+        viewModel.output.endTime
+            .observeOn(MainScheduler.instance)
+            .bind(to: endLabel.rx.text)
+            .disposed(by: disposeBag)
+        
+        viewModel.output.isCountdown
+            .observeOn(MainScheduler.instance)
+            .map { $0 ? "Pause" : "Start" } //TODO: Translations
+            .bind(to: timerButton.rx.title(for: .normal))
+            .disposed(by: disposeBag)
+        
+        timerButton.rx.controlEvent(.touchUpInside)
+            .observeOn(MainScheduler.instance)
+            .subscribe(onNext: { [weak self] _ in
+                self?.viewModel.input.timerButtonTapped()
+            })
+            .disposed(by: disposeBag)
+        
+        viewModel.output.currentDuration
+            .observeOn(MainScheduler.instance)
+            .map { $0 == 0 }
+            .bind(to: timerButton.rx.isHidden)
+            .disposed(by: disposeBag)
+        
+        doneButton.rx.controlEvent(.touchUpInside)
+            .observeOn(MainScheduler.instance)
+            .subscribe(onNext: { [weak self] _ in
+                self?.viewModel.input.doneButtonTapped()
+            })
+            .disposed(by: disposeBag)
+        
+        viewModel.output.isDone
+            .filter { $0 == true }
+            .subscribe { [weak self] _ in
+//                self?.doneButton.setTitle("DoneDSS", for: .normal) //TODO: Translate
+//                self?.doneButton.setTitle(nil, for: .normal)
+                self?.doneButton.setImage(UIImage(named: "backArrow"), for: .normal)
+//                self?.doneButton.isEnabled = false
+            }
+            .disposed(by: disposeBag)
+        
+        viewModel.output.isDone
+            .filter { $0 == false }
+            .subscribe { [weak self] _ in
+//                self?.doneButton.setTitle("DoneSSS", for: .normal) //TODO: Translate
+                self?.doneButton.setImage(nil, for: .normal)
+            }
+            .disposed(by: disposeBag)
     }
 }
 
