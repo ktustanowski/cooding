@@ -32,7 +32,8 @@ extension RecipeListViewController {
         tableView.delaysContentTouches = false
         tableView.register(FullImageTableCell.nib, forCellReuseIdentifier: FullImageTableCell.nibName)
         tableView.separatorStyle = .none
-        tableView.backgroundColor = .orange
+        tableView.backgroundColor = UIColor(hex: "#F19143FF")//UIColor(hex: "#B4DFE5FF")//UIColor(hex: "#FF773DFF")
+        print(UIColor(hex: "#F4976CFF"))
     }
     
     func bindViewModel() {
@@ -41,6 +42,7 @@ extension RecipeListViewController {
             .items(cellIdentifier: FullImageTableCell.nibName)) { [weak self] _, viewModel, cell in
                 guard let cell = cell as? FullImageTableCell else { return }
                 cell.viewModel = viewModel
+                cell.titleLabel.textColor = UIColor(hex: "#F55536FF")//UIColor(hex: "#B4DFE5FF")
                 cell.contentView.backgroundColor = self?.tableView.backgroundColor
             }
             .disposed(by: disposeBag)

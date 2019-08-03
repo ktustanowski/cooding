@@ -13,5 +13,6 @@ protocol Themable {
 }
 
 struct Theme {
-    
+    let primary: UIColor
+    let secondary: UIColor
 }

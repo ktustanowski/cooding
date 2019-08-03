@@ -22,6 +22,7 @@
 		9A34484F22F57F3E00AC7DC1 /* Kingfisher.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A34484E22F57F3E00AC7DC1 /* Kingfisher.framework */; };
 		9A34485522F5887300AC7DC1 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A34485422F5887300AC7DC1 /* Theme.swift */; };
 		9A34485722F5BAA500AC7DC1 /* KeyValueStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A34485622F5BAA500AC7DC1 /* KeyValueStore.swift */; };
+		9A34485A22F5CA2200AC7DC1 /* UIColor+Hex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A34485922F5CA2200AC7DC1 /* UIColor+Hex.swift */; };
 		9A3CD01022E7887100A329EC /* Recipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A3CD00F22E7887100A329EC /* Recipe.swift */; };
 		9A488FCE22F3A79300AC308F /* ListTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9A488FCD22F3A79300AC308F /* ListTableCell.xib */; };
 		9A488FD122F4DB6D00AC308F /* ButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A488FD022F4DB6D00AC308F /* ButtonView.swift */; };
@@ -94,6 +95,7 @@
 		9A34484E22F57F3E00AC7DC1 /* Kingfisher.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Kingfisher.framework; path = Carthage/Build/iOS/Kingfisher.framework; sourceTree = "<group>"; };
 		9A34485422F5887300AC7DC1 /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
 		9A34485622F5BAA500AC7DC1 /* KeyValueStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyValueStore.swift; sourceTree = "<group>"; };
+		9A34485922F5CA2200AC7DC1 /* UIColor+Hex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Hex.swift"; sourceTree = "<group>"; };
 		9A3CD00F22E7887100A329EC /* Recipe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Recipe.swift; sourceTree = "<group>"; };
 		9A488FCD22F3A79300AC308F /* ListTableCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ListTableCell.xib; sourceTree = "<group>"; };
 		9A488FD022F4DB6D00AC308F /* ButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonView.swift; sourceTree = "<group>"; };
@@ -243,6 +245,7 @@
 				9AC269D322EF8DED0080CA7E /* UIView+Constraints.swift */,
 				9A0985BB22F0A9F900A47127 /* UIView+RoundCorners.swift */,
 				9A34484622F4F76400AC7DC1 /* UIViewController+Navigation.swift */,
+				9A34485922F5CA2200AC7DC1 /* UIColor+Hex.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -610,6 +613,7 @@
 				9AC269C022EF805A0080CA7E /* Downloader.swift in Sources */,
 				9AC269D222EF8DCD0080CA7E /* UIViewController+Embedding.swift in Sources */,
 				9AC269C922EF89C40080CA7E /* StoryboardMakeable.swift in Sources */,
+				9A34485A22F5CA2200AC7DC1 /* UIColor+Hex.swift in Sources */,
 				9AC269D422EF8DED0080CA7E /* UIView+Constraints.swift in Sources */,
 				9A34484722F4F76400AC7DC1 /* UIViewController+Navigation.swift in Sources */,
 				9A34485722F5BAA500AC7DC1 /* KeyValueStore.swift in Sources */,

@@ -30,6 +30,7 @@ public protocol RecipeListContainerViewModelProtocolOutputs {
 }
 
 public final class RecipeListContainerViewModel: RecipeListContainerViewModelProtocol {
+    private let storage: KeyValueStore
     private let downloader: DownloaderProtocol
     public var input: RecipeListContainerViewModelProtocolInputs { return self }
     public var output: RecipeListContainerViewModelProtocolOutputs { return self }
@@ -41,6 +42,9 @@ public final class RecipeListContainerViewModel: RecipeListContainerViewModelPro
     
     public func recipeList(url: URL?) {
         recipeListURLRelay.accept(url)
+        
+        guard let url = url else { return }
+        storage.recipeListURL = url
     }
     
     public func reload() {
@@ -67,8 +71,11 @@ public final class RecipeListContainerViewModel: RecipeListContainerViewModelPro
             .map { $0 != nil }
             .asObservable()
     }
-    public init(recipeListURL: URL?, downloader: DownloaderProtocol = Downloader()) {
+    public init(recipeListURL: URL?,
+                downloader: DownloaderProtocol = Downloader(),
+                storage: KeyValueStore = UserDefaults.standard) {
         self.downloader = downloader
+        self.storage = storage
         recipeListURLRelay.accept(recipeListURL)
     
         let viewDidLoad = viewDidLoadRelay.asObservable()

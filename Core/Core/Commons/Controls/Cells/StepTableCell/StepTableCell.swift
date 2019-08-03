@@ -40,6 +40,7 @@ public class StepTableCell: UITableViewCell {
         counterLabel.text = nil
         endLabel.text = nil
         timerButton.setTitle(nil, for: .normal)
+        doneButton.isUserInteractionEnabled = true
     }
 }
 
@@ -100,22 +101,33 @@ private extension StepTableCell {
             .disposed(by: disposeBag)
         
         viewModel.output.isDone
+            .observeOn(MainScheduler.instance)
             .filter { $0 == true }
             .subscribe { [weak self] _ in
-//                self?.doneButton.setTitle("DoneDSS", for: .normal) //TODO: Translate
-//                self?.doneButton.setTitle(nil, for: .normal)
-                self?.doneButton.setImage(UIImage(named: "backArrow"), for: .normal)
-//                self?.doneButton.isEnabled = false
+                self?.showTick()
             }
             .disposed(by: disposeBag)
         
         viewModel.output.isDone
+            .observeOn(MainScheduler.instance)
             .filter { $0 == false }
             .subscribe { [weak self] _ in
-//                self?.doneButton.setTitle("DoneSSS", for: .normal) //TODO: Translate
-                self?.doneButton.setImage(nil, for: .normal)
+                self?.showDoneButton()
             }
             .disposed(by: disposeBag)
+    }
+    
+    func showTick() {
+        doneButton.setTitle(nil, for: .normal)
+        doneButton.setImage(UIImage(named: "tick"), for: .normal)
+        doneButton.isUserInteractionEnabled = false
+        doneButton.tintColor = .gray
+    }
+    
+    func showDoneButton() {
+        doneButton.setTitle("Done", for: .normal) //TODO: Translate
+        doneButton.setImage(nil, for: .normal)
+        doneButton.tintColor = .orange
     }
 }
 

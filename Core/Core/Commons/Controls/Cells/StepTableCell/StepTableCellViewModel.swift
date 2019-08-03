@@ -32,6 +32,7 @@ public protocol StepCellViewModelProtocolOutputs {
 }
 
 public final class StepCellViewModel: StepCellViewModelProtocol, StepCellViewModelProtocolInputs, StepCellViewModelProtocolOutputs {
+    private var lastDate: Date?
     public var input: StepCellViewModelProtocolInputs { return self }
     public var output: StepCellViewModelProtocolOutputs { return self }
     
@@ -129,12 +130,18 @@ private extension StepCellViewModel {
         timerDisposable = nil
     }
     
-    /// TODO: This will only work with regular app flow, not with app backgrounded, and the foregrounded etc.
     func startCountdown() {
-        timerDisposable = Observable<Int>.timer(1.0, period: 1.0, scheduler: MainScheduler.instance)
+        lastDate = Date()
+        timerDisposable = Observable<Int>.timer(0.0, period: 1.0, scheduler: MainScheduler.instance)
             .subscribe { [weak self] _ in
-                guard let duration = self?.currentDurationRelay?.value else { return }
-                self?.currentDurationRelay?.accept(duration - 1)
+                guard let duration = self?.currentDurationRelay?.value,
+                    let lastDate = self?.lastDate else { return }
+                let now = Date()
+                let deltaTime = now.timeIntervalSince(lastDate)
+                let currentDuration = max(duration - deltaTime, 0)
+                self?.currentDurationRelay?.accept(currentDuration)
+                
+                self?.lastDate = now
         }
     }
 }

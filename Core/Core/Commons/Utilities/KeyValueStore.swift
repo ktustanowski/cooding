@@ -8,7 +8,7 @@
 
 import Foundation
 
-public protocol KeyValueStore {
+public protocol KeyValueStore: AnyObject {
     func set<T>(value: T?, for key: String)
     func value<T>(for key: String) -> T?
     func removeValue(for key: String)
@@ -25,5 +25,20 @@ extension UserDefaults: KeyValueStore {
     
     public func removeValue(for key: String) {
         removeObject(forKey: key)
+    }
+}
+
+// MARK: Recipe List URL
+
+public extension KeyValueStore {
+    var recipeListURL: URL? {
+        get {
+            guard let urlString: String = value(for: "recipe_list_url_key") else { return nil }
+            return URL(string: urlString)
+        }
+        
+        set {
+            set(value: newValue?.absoluteString, for: "recipe_list_url_key")
+        }
     }
 }

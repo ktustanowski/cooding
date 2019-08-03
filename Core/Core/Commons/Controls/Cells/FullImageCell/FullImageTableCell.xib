@@ -14,7 +14,7 @@
         <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="211" id="bl3-23-RQd" customClass="FullImageTableCell" customModule="Core" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="414" height="211"/>
             <autoresizingMask key="autoresizingMask"/>
-            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="bl3-23-RQd" id="8CD-Fo-iP6">
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="bl3-23-RQd" id="8CD-Fo-iP6">
                 <rect key="frame" x="0.0" y="0.0" width="414" height="210.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
@@ -52,7 +52,6 @@
                             <constraint firstAttribute="trailing" secondItem="Zsl-8S-rNn" secondAttribute="trailing" id="RwB-5x-0wi"/>
                             <constraint firstAttribute="trailing" secondItem="naS-08-IIY" secondAttribute="trailing" id="T9I-ge-rd0"/>
                             <constraint firstAttribute="bottom" secondItem="naS-08-IIY" secondAttribute="bottom" id="UZH-iD-wUG"/>
-                            <constraint firstAttribute="height" constant="200" id="VME-UA-0Qs"/>
                             <constraint firstItem="Zsl-8S-rNn" firstAttribute="top" secondItem="eDO-hZ-iNv" secondAttribute="top" constant="157" id="q9C-mK-5OU"/>
                             <constraint firstItem="naS-08-IIY" firstAttribute="top" secondItem="eDO-hZ-iNv" secondAttribute="top" id="qDj-lV-C9F"/>
                             <constraint firstItem="Zsl-8S-rNn" firstAttribute="leading" secondItem="eDO-hZ-iNv" secondAttribute="leading" id="t8L-FB-HA5"/>
