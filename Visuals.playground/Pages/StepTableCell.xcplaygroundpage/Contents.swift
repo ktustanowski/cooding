@@ -7,7 +7,7 @@ import Core
 let think = "Think about starting cooking 🤔"
 let thinkSomeMore = "Think about starting cooking for some time ⏱ 🤔"
 let longThinkSomeMore = "Think about starting cooking for some time ⏱ 🤔 and then start over and then think about starting cooking"
-let tenMinutes: TimeInterval = 60 * 10
+let tenSeconds: TimeInterval = 10
 let threeHours: TimeInterval = 60 * 60 * 3
 
 /*:
@@ -20,7 +20,7 @@ simpleCell.viewModel = StepCellViewModel(step: Step(description: think))
  */
 var simpleShortDurationCell = StepTableCell.make()
 simpleShortDurationCell.viewModel = StepCellViewModel(step: Step(description: thinkSomeMore,
-                                                      duration: tenMinutes))
+                                                      duration: tenSeconds))
 simpleShortDurationCell.frame.origin.y = simpleCell.top + 10
 /*:
  Simple Long Duration Cell

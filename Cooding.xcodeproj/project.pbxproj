@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9A34485322F57F5B00AC7DC1 /* Kingfisher.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 9A34485022F57F5A00AC7DC1 /* Kingfisher.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		9A51E67122D3BA1200A27ACF /* Core.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9AF9590C22C8E17D0055B204 /* Core.framework */; };
 		9A51E67922E768C500A27ACF /* SnapshotTesting.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A51E67822E768C500A27ACF /* SnapshotTesting.framework */; };
 		9A51E68522E76AFE00A27ACF /* CookingViewControllerSnapshotTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A51E68422E76AFE00A27ACF /* CookingViewControllerSnapshotTests.swift */; };
@@ -63,6 +64,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				9A34485322F57F5B00AC7DC1 /* Kingfisher.framework in Embed Frameworks */,
 				9AF996D722F2167A00E9413C /* Core.framework in Embed Frameworks */,
 				9AF996FC22F2188A00E9413C /* RxRelay.framework in Embed Frameworks */,
 				9AF996FD22F2188A00E9413C /* RxSwift.framework in Embed Frameworks */,
@@ -77,6 +79,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		9A34485022F57F5A00AC7DC1 /* Kingfisher.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Kingfisher.framework; path = Core/Carthage/Build/iOS/Kingfisher.framework; sourceTree = "<group>"; };
 		9A51E67822E768C500A27ACF /* SnapshotTesting.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SnapshotTesting.framework; path = Carthage/Build/iOS/SnapshotTesting.framework; sourceTree = "<group>"; };
 		9A51E68422E76AFE00A27ACF /* CookingViewControllerSnapshotTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CookingViewControllerSnapshotTests.swift; sourceTree = "<group>"; };
 		9A705D0922E7A351003AA381 /* StepStub.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StepStub.swift; sourceTree = "<group>"; };
@@ -174,6 +177,7 @@
 		9AF958B022C8DCD10055B204 = {
 			isa = PBXGroup;
 			children = (
+				9A34485022F57F5A00AC7DC1 /* Kingfisher.framework */,
 				9AF996F822F2188900E9413C /* Differentiator.framework */,
 				9AF996F922F2188900E9413C /* RxBlocking.framework */,
 				9AF996FA22F2188900E9413C /* RxCocoa.framework */,

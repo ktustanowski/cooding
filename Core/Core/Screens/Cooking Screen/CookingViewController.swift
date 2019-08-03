@@ -49,9 +49,8 @@ private extension CookingViewController {
                 cell.contentView.backgroundColor = self?.tableView.backgroundColor
                 viewModel.output.didTapDone
                     .subscribe(onNext: { _ in
-                        guard let indexPathToRemove = self?.tableView.indexPath(for: stepCell) else { return }
-                        self?.viewModel.input.finished(at: indexPathToRemove)
-                        
+//                        guard let indexPathToRemove = self?.tableView.indexPath(for: stepCell) else { return }
+//                        self?.viewModel.input.finished(at: indexPathToRemove)
                     })
                     .disposed(by: stepCell.disposeBag)
             }
