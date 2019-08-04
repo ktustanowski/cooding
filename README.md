@@ -30,18 +30,45 @@ If you want to know more and to try it out please check `MakeRecipe` playground 
 Wait? A json? Let me explain.
 
 ## Add the recipe to the repository
-Since cooking is similar to coding a bit. We are using algorithms etc. I thought that it would be nice to have recipies in repositories. 
+Since cooking is similar to coding a bit. We are using algorithms etc. I thought that it would be nice to have recipies in repositories. Like code:
+- this is example top-level file that holds all recipies in the repository. I don't force any file naming conventions. You just have to have a properly structured json file and provide URL to it in the application in **My** tab. When you do it application will load your recipies.
+https://github.com/ktustanowski/cooding/blob/master/Recipes/recipes_list.json
+```
+{
+    "recipes": [ 
+        {
+            "name": "Pancakes",
+            "sourceURL": "https://raw.githubusercontent.com/ktustanowski/recipes/master/pancakes.json",
+            "imageURL": "https://cdn.pixabay.com/photo/2016/10/27/22/07/pancake-1776646_1280.jpg"
+        }
+    ]
+}
+```
+- this is example of a recipe. Exactly this can be easily created using MakeRecipie playground.
+https://raw.githubusercontent.com/ktustanowski/recipes/master/pancakes.json
+```
+{
+    "name": "Pancakes",
+    "authorName": "Kamil Tustanowski",
+    "authorURL": "https://www.linkedin.com/in/kamil-tustanowski-41498555",
+    "imagesURL": ["https://cdn.pixabay.com/photo/2016/10/27/22/07/pancake-1776646_1280.jpg"],
+    "rawAlgorithm": ":: version 0.1\nPrepare {blender}\nAdd [1.25 glass of buttermilk] to the {blender}\nAdd [0.25 glass of powdered sugar] to the {blender}\nAdd [1.0 heaping teaspoon of baking powder] to the {blender}\nAdd [1.0 teaspoon of baking soda] to the {blender}\nAdd [1.0 pinch of salt] to the {blender}\nBlend everything in a {blender} to a smooth mass with the consistency of thick cream\nPreheat the {frying pan}\nFry pancakes on both sides in a {frying pan} over medium heat",
+    "time": 1800,
+    "people": 3,
+    "difficulty": "easy"
+}
+```
+When you have this is place you are ready to do some actual cooking.
+Please consider sharing your recipie with everyone by creating a PR with name, source URL and image URL of your recipie to the recipe list. Only this is needed and the actual recipe should remain in your repository so if you change anything it will be already up to date.
 
+# Work in progress
+I decided that since I have this idea I can also check out some cool solutions and technologies I wanted to dive deeper but never had time to do so. So there you have it - alpha of my cooking-process-centric application. A lot of stuff is missing, not everything is great - yet. But I will work on the matter and one of the things I will start with is more unit test coverage. I just wanted to ship this asap. So I can use it. I decided that on launch playgrounds & snapshot tests are good enough. Since I'm only mocking internet connection and using real view models during snapshot testing, pretty big part of the application is already tested by this tests. But nonetheless unit tests are coming. 
+The overall polish, animations etc. is also coming.
 
-I decided that since I have this idea I can also check out some cool solutions and technologies I wanted to dive deeper but never had time to do so. So there you have it - alpha of my cooking-process-centric application. A lot of stuff is missing, not everything is great - yet. But I will work on the matter and one of the things I will start with is more unit test coverage. I just wanted to ship this asap. So I can use it. I decided that on launch playgrounds & snapshot tests are good enough. Since I'm only mocking internet connection and using real view models during snapshot testing, pretty big part of the application is already tested by this tests. But nonetheless unit tests are coming.
-
-# Setup
-Go to the cooding folder and do:
+# Project setup
+After cloning the project go to the cooding folder and do:
 ```
 carthage bootstrap --platform iOS
 cd Core
 carthage bootstrap --platform iOS
 ```
-
-Check the MakeRecipe playground to create your own recipies.
-
