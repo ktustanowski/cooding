@@ -31,7 +31,6 @@ private extension RecipeListContainerViewController {
         viewModel.output.recipeListViewModel
             .observeOn(MainScheduler.instance)
             .subscribe(onNext: { [weak self] viewModel in
-                guard let strongSelf = self else { return }
                 if let viewModel = viewModel {
                     self?.embedContent(viewModel: viewModel)
                 } else {
