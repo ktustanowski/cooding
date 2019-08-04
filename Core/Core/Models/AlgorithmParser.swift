@@ -66,8 +66,8 @@ public struct AlgorithmParser: AlgorithmParsable {
                         self.constants.dependencyEnd])
             
             return Step(description: trimmedDescription,
-                        dependencies: dependencies.isEmpty ? nil : dependencies,
-                        ingredients: ingredients.isEmpty ? nil : ingredients,
+                        dependencies: dependencies.isEmpty ? nil : dependencies.sorted(by: { $0.name < $1.name }),
+                        ingredients: ingredients.isEmpty ? nil : ingredients.sorted(by: { $0.name < $1.name }),
                         duration: Double(durationString.trimm([self.constants.durationStart,
                                                                self.constants.durationEnd])))
             }
@@ -99,7 +99,7 @@ private extension AlgorithmParser {
             let results = regex.matches(in: text,
                                         range: NSRange(text.startIndex..., in: text))
             return results.map {
-                String(text[Range($0.range, in: text)!]) //TODO: Do sth about this unwrap
+                String(text[Range($0.range, in: text)!])
             }
         } catch let error {
             print("invalid regex: \(error.localizedDescription)")
@@ -107,19 +107,3 @@ private extension AlgorithmParser {
         }
     }
 }
-
-// TODO: repalce /\ or remove \/?
-//extension String {
-//    func matchingStrings(regex: String) -> [[String]] {
-//        guard let regex = try? NSRegularExpression(pattern: regex, options: []) else { return [] }
-//        let nsString = self as NSString
-//        let results  = regex.matches(in: self, options: [], range: NSMakeRange(0, nsString.length))
-//        return results.map { result in
-//            (0..<result.numberOfRanges).map {
-//                result.range(at: $0).location != NSNotFound
-//                    ? nsString.substring(with: result.range(at: $0))
-//                    : ""
-//            }
-//        }
-//    }
-//}

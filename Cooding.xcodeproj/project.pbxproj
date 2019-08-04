@@ -40,7 +40,6 @@
 		9AF958C522C8DCD10055B204 /* Cooding.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 9AF958C322C8DCD10055B204 /* Cooding.xcdatamodeld */; };
 		9AF958C722C8DCD30055B204 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9AF958C622C8DCD30055B204 /* Assets.xcassets */; };
 		9AF958CA22C8DCD30055B204 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9AF958C822C8DCD30055B204 /* LaunchScreen.storyboard */; };
-		9AF958D522C8DCD30055B204 /* CoodingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AF958D422C8DCD30055B204 /* CoodingTests.swift */; };
 		9AF996D722F2167A00E9413C /* Core.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 9AF9590C22C8E17D0055B204 /* Core.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		9AF996FC22F2188A00E9413C /* RxRelay.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 9AF996F622F2188800E9413C /* RxRelay.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		9AF996FD22F2188A00E9413C /* RxSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 9AF996F722F2188800E9413C /* RxSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -125,7 +124,6 @@
 		9AF958C922C8DCD30055B204 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		9AF958CB22C8DCD30055B204 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9AF958D022C8DCD30055B204 /* CoodingTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CoodingTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		9AF958D422C8DCD30055B204 /* CoodingTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoodingTests.swift; sourceTree = "<group>"; };
 		9AF958D622C8DCD30055B204 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9AF9590622C8E17C0055B204 /* Core.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Core.xcodeproj; path = Core/Core.xcodeproj; sourceTree = "<group>"; };
 		9AF9591722C8E4FD0055B204 /* Visuals.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = Visuals.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
@@ -182,6 +180,22 @@
 				9A6FCFAA22F6FFB0009BDCCC /* ProgressIndicatorViewControllerSnapshotTests.swift */,
 			);
 			path = Screens;
+			sourceTree = "<group>";
+		};
+		9A6FCFB622F71660009BDCCC /* Unit Tests */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "Unit Tests";
+			sourceTree = "<group>";
+		};
+		9A6FCFB922F71672009BDCCC /* Snapshot Tests */ = {
+			isa = PBXGroup;
+			children = (
+				9AF350A522EDA19F00D42922 /* Views */,
+				9A51E68322E76AFE00A27ACF /* Screens */,
+			);
+			path = "Snapshot Tests";
 			sourceTree = "<group>";
 		};
 		9A705D0622E7A33E003AA381 /* Mocks & Stubs */ = {
@@ -263,11 +277,10 @@
 		9AF958D322C8DCD30055B204 /* CoodingTests */ = {
 			isa = PBXGroup;
 			children = (
+				9A6FCFB922F71672009BDCCC /* Snapshot Tests */,
+				9A6FCFB622F71660009BDCCC /* Unit Tests */,
 				9AF350A022EDA07300D42922 /* Extensions */,
 				9A705D0622E7A33E003AA381 /* Mocks & Stubs */,
-				9AF350A522EDA19F00D42922 /* Views */,
-				9A51E68322E76AFE00A27ACF /* Screens */,
-				9AF958D422C8DCD30055B204 /* CoodingTests.swift */,
 				9AF958D622C8DCD30055B204 /* Info.plist */,
 			);
 			path = CoodingTests;
@@ -459,7 +472,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9AF958D522C8DCD30055B204 /* CoodingTests.swift in Sources */,
 				9A6FCFAB22F6FFB0009BDCCC /* ProgressIndicatorViewControllerSnapshotTests.swift in Sources */,
 				9A6FCF9A22F6E532009BDCCC /* EphemeralKeyValueStore.swift in Sources */,
 				9A51E68522E76AFE00A27ACF /* CookingViewControllerSnapshotTests.swift in Sources */,

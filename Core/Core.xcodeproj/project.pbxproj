@@ -54,7 +54,7 @@
 		9AC269D622EF8EC60080CA7E /* Dashboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9AC269D522EF8EC60080CA7E /* Dashboard.storyboard */; };
 		9AC269D822EF95FD0080CA7E /* RecipeListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AC269D722EF95FC0080CA7E /* RecipeListViewModel.swift */; };
 		9AD19D5622F636F300DDFA6F /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AD19D5522F636F300DDFA6F /* Constants.swift */; };
-		9AD3227F22EE0823002F9C6B /* RawAlgorithmTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AD3227E22EE0823002F9C6B /* RawAlgorithmTests.swift */; };
+		9AD3227F22EE0823002F9C6B /* AlgorithmParserTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AD3227E22EE0823002F9C6B /* AlgorithmParserTests.swift */; };
 		9ADB3E5B22EDAD1500035D2A /* RecipeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ADB3E5A22EDAD1500035D2A /* RecipeViewController.swift */; };
 		9ADB3E5D22EDAD2200035D2A /* RecipeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ADB3E5C22EDAD2200035D2A /* RecipeViewModel.swift */; };
 		9AF3509622ED97B700D42922 /* TimeInterval+Formatting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AF3509522ED97B700D42922 /* TimeInterval+Formatting.swift */; };
@@ -135,7 +135,7 @@
 		9AC269D522EF8EC60080CA7E /* Dashboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Dashboard.storyboard; sourceTree = "<group>"; };
 		9AC269D722EF95FC0080CA7E /* RecipeListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeListViewModel.swift; sourceTree = "<group>"; };
 		9AD19D5522F636F300DDFA6F /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
-		9AD3227E22EE0823002F9C6B /* RawAlgorithmTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RawAlgorithmTests.swift; sourceTree = "<group>"; };
+		9AD3227E22EE0823002F9C6B /* AlgorithmParserTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlgorithmParserTests.swift; sourceTree = "<group>"; };
 		9ADB3E5A22EDAD1500035D2A /* RecipeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeViewController.swift; sourceTree = "<group>"; };
 		9ADB3E5C22EDAD2200035D2A /* RecipeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeViewModel.swift; sourceTree = "<group>"; };
 		9AF3509522ED97B700D42922 /* TimeInterval+Formatting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "TimeInterval+Formatting.swift"; path = "Core/Commons/Utilities/TimeInterval+Formatting.swift"; sourceTree = SOURCE_ROOT; };
@@ -404,7 +404,7 @@
 			isa = PBXGroup;
 			children = (
 				9AF958FC22C8E17C0055B204 /* Info.plist */,
-				9AD3227E22EE0823002F9C6B /* RawAlgorithmTests.swift */,
+				9AD3227E22EE0823002F9C6B /* AlgorithmParserTests.swift */,
 			);
 			path = CoreTests;
 			sourceTree = "<group>";
@@ -669,7 +669,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9AD3227F22EE0823002F9C6B /* RawAlgorithmTests.swift in Sources */,
+				9AD3227F22EE0823002F9C6B /* AlgorithmParserTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
