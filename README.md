@@ -19,10 +19,19 @@ I love to cook but this whole process is so annoying due to this limitations. I 
 ## Make your own recipe
 I created simple format of creating recipies. In fact it's very similar to the the regular way of writing recipies. There is only a small twist that makes things interesting.
 Let's consider the `Pour milk into the pot` example. What could make this more self-contained? Quantity. So let's add it:
-`Pour 2 glasses of milk into the pot`. It's better - I know how much milk I need to pour. But this is not how the regular recipies work unfortunatelly. So I need to create my own recipies from scratch based on the exisiting ones - just to make it more convenient. But then I have to track the ingredients etc. so, long story short, I turn this step into:
-`Pour [2 glasses of milk] into the {pot}` [] marks ingredient needed to make the meal, {} marks dependencies like pot, frying pan, blender etc. (there is also <> marker which marks that this step should take some time i.e. boiling eggs). So basically this is natural language with some markers. Downside is that it's more work - someone has to write steps for the recipe. The twist is that only this is needed because ingredients and dependencies lists will be generated automatically from the recipe. If you change something the change will be reflected automatically. 
+`Pour 2 glasses of milk into the pot`. It's better - I know how much milk I need to pour. But this is not how the regular recipies work unfortunatelly. So I need to create my own from scratch based on the exisiting ones - just to make it more convenient. But then I have to track the ingredients etc. Long story short, I turn this step into:
+`Pour [2 glasses of milk] into the {pot}` 
+[] marks ingredient needed to make the meal, 
+{} marks dependencies like pot, frying pan, blender etc. 
+(there is also <> marker which marks that this step should take some time i.e. boiling eggs). 
+Basically this is natural language with some markers. Downside is that it's more work - someone has to write steps for the recipe. The twist is that only this is needed because ingredients and dependencies lists will be generated automatically from the recipe. If you change something the change will be reflected automatically. 
 Note: ingredients are only something needed to be acquired before cooking. So if during course of action you get yolk from the egg which is needed later you don't mark it as ingredient. Only egg is marked.
-If you want to know more and to try it out please check `MakeRecipe` playground in the cooding repository.
+If you want to know more and to try it out please check `MakeRecipe` playground in the cooding repository. It's configured in a way to show parsed recipe data in the console but also in the application (live view feature). So it's wysiwyg and in the end you get a json ready to be used. 
+Wait? A json? Let me explain.
+
+## Add the recipe to the repository
+Since cooking is similar to coding a bit. We are using algorithms etc. I thought that it would be nice to have recipies in repositories. 
+
 
 I decided that since I have this idea I can also check out some cool solutions and technologies I wanted to dive deeper but never had time to do so. So there you have it - alpha of my cooking-process-centric application. A lot of stuff is missing, not everything is great - yet. But I will work on the matter and one of the things I will start with is more unit test coverage. I just wanted to ship this asap. So I can use it. I decided that on launch playgrounds & snapshot tests are good enough. Since I'm only mocking internet connection and using real view models during snapshot testing, pretty big part of the application is already tested by this tests. But nonetheless unit tests are coming.
 
