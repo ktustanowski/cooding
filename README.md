@@ -22,9 +22,9 @@ I created simple format of creating recipies. In fact it's very similar to the t
 Let's consider the `Pour milk into the pot` example. What could make this more self-contained? Quantity. So let's add it:
 `Pour 2 glasses of milk into the pot`. It's better - I know how much milk I need to pour. But this is not how the regular recipies work unfortunatelly. So I need to create my own from scratch based on the exisiting ones - just to make it more convenient. But then I have to track the ingredients etc. Long story short, I turn this step into:
 `Pour [2 glasses of milk] into the {pot}` 
-[] marks ingredient needed to make the meal, 
-{} marks dependencies like pot, frying pan, blender etc. 
-(there is also <> marker which marks that this step should take some time i.e. boiling eggs). 
+`[]` marks ingredient needed to make the meal, 
+`{}` marks dependencies like pot, frying pan, blender etc. 
+(there is also `<>` marker which marks that this step should take some time i.e. boiling eggs). 
 Basically this is natural language with some markers. Downside is that it's more work - someone has to write steps for the recipe. The twist is that only this is needed because ingredients and dependencies lists will be generated automatically from the recipe. If you change something the change will be reflected automatically. 
 Note: ingredients are only something needed to be acquired before cooking. So if during course of action you get yolk from the egg which is needed later you don't mark it as ingredient. Only egg is marked.
 If you want to know more and to try it out please check `MakeRecipe` playground in the cooding repository. It's configured in a way to show parsed recipe data in the console but also in the application (live view feature).
