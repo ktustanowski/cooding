@@ -24,10 +24,6 @@ public final class RecipeContainerViewController: UIViewController {
         bindViewModel()
         viewModel.input.viewDidLoad()
     }
-        
-    deinit {
-        print("deinited")
-    }
 }
 
 private extension RecipeContainerViewController {

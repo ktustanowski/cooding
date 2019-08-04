@@ -110,9 +110,9 @@ private extension MainFlowController {
             .disposed(by: recipeScreen.disposeBag)
         
         recipeScreen.viewModel.output.didDismiss
-            .subscribe { [weak self] _ in
+            .subscribe { [weak self, weak recipeScreen] _ in
                 _ = self?.presenter.popViewController(animated: true)
-                recipeScreen.navigationController?.setNavigationBarHidden(true, animated: true)
+                recipeScreen?.navigationController?.setNavigationBarHidden(true, animated: true)
             }
             .disposed(by: recipeScreen.disposeBag)
         

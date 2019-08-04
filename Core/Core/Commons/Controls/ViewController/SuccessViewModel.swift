@@ -46,8 +46,4 @@ public final class SuccessViewModel: SuccessViewModelProtocol {
             dismissRelay.accept(())
         })
     }
-    
-    deinit {
-        dismissTimer?.invalidate()
-    }
 }

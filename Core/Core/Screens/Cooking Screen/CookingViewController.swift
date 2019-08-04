@@ -20,10 +20,6 @@ public final class CookingViewController: UITableViewController {
         setupUI()
         bindViewModel()
     }
-    
-    deinit {
-        print("Deinited Cooking Screen")
-    }
 }
 
 private extension CookingViewController {

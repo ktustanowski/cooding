@@ -16,10 +16,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
     private var flowController: MainFlowController?
     
+    private var vc: RecipeContainerViewController?
+    
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         guard !inTests() else { return true }
         
-        startMainFlow()        
+        startMainFlow()
+//        vc = RecipeContainerViewController()
+//        vc?.viewModel = RecipeContainerViewModel(shortRecipe: ShortRecipe(name: "Title", sourceURL: URL(string: "https://raw.githubusercontent.com/ktustanowski/recipes/master/pancakes-debug.json")!, imageURL: URL(string: "https://cdn.pixabay.com/photo/2016/10/27/22/07/pancake-1776646_1280.jpg")!))
+//        vc?.loadViewIfNeeded()
+//
+//        Timer.scheduledTimer(withTimeInterval: 1.0, repeats: false) { _ in
+//            self.vc = nil
+//        }
+        
         return true
     }
 

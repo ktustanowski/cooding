@@ -57,10 +57,6 @@ public final class RecipeViewController: UITableViewController {
         setupUI()
         bindViewModel()
     }
-    
-    deinit {
-        print("deinitied")
-    }
 }
 
 private extension RecipeViewController {

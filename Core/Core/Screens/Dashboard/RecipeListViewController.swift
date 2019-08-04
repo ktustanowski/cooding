@@ -21,10 +21,6 @@ public final class RecipeListViewController: UITableViewController {
         setupUI()
         bindViewModel()
     }
-    
-    deinit {
-        print("deinitied")
-    }
 }
 
 extension RecipeListViewController {
