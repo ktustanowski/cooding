@@ -12,5 +12,6 @@
         <page name='StepTableCell'/>
         <page name='ListTableCell'/>
         <page name='FullImageCell'/>
+        <page name='ButtonTableCell'/>
     </pages>
 </playground>

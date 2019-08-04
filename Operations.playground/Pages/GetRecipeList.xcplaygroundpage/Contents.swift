@@ -19,6 +19,4 @@ let recipeListURL = URL(string: "https://raw.githubusercontent.com/ktustanowski/
     })
     .disposed(by: disposeBag)
 
-PlaygroundPage.current.needsIndefiniteExecution = true
-
 //: [Next](@next)

@@ -14,6 +14,9 @@ imageAndTextCell.apply(theme: DefaultTheme())
 imageAndTextCell.viewModel = FullImageCellViewModel(title: "Title Text",
                                         imageURL: imageURL)
 
+/*:
+ Image only
+ */
 var imageCell = FullImageTableCell.make()
 imageCell.apply(theme: DefaultTheme())
 imageCell.viewModel = FullImageCellViewModel(title: nil,

@@ -18,7 +18,7 @@ public protocol ScreenMakeable {
 
 public struct ScreenMaker: ScreenMakeable {
     public func makeDashboardScreen() -> DashboardTabBarController {
-        let dashboardScreen = DashboardTabBarController()
+        let dashboardScreen = DashboardTabBarController(viewModel: DashboardViewModel())
         dashboardScreen.loadViewIfNeeded()
 
         return dashboardScreen

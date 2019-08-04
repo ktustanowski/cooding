@@ -11,7 +11,7 @@ import RxSwift
 import RxRelay
 
 public protocol DownloaderProtocol {
-    var isLoading: PublishRelay<Bool> { get }
+    var isLoading: Observable<Bool> { get }
     func download<T: Codable>(url: URL) -> Observable<T>
 }
 
@@ -23,7 +23,10 @@ public enum DownloadError: Error {
 
 public class Downloader: DownloaderProtocol {
     /// Emmits true when starts to load and false when loading did end
-    public var isLoading = PublishRelay<Bool>()
+    public var isLoading: Observable<Bool> {
+        return isLoadingRelay.asObservable()
+    }
+    public var isLoadingRelay = PublishRelay<Bool>()
     
     public func download<T: Codable>(url: URL) -> Observable<T> {
         return Observable<T>.create({ [weak self] observer in
@@ -31,7 +34,7 @@ public class Downloader: DownloaderProtocol {
             config.requestCachePolicy = .reloadIgnoringLocalCacheData
             config.urlCache = nil //TODO: Check whether URL cache doesn't break github integration and waiting times
             let dataTask = URLSession(configuration: config).dataTask(with: url) { data, _, error in
-                self?.isLoading.accept(false)
+                self?.isLoadingRelay.accept(false)
                 guard let data = data else {
                     observer.onError(DownloadError.noData)
                     return
@@ -47,10 +50,10 @@ public class Downloader: DownloaderProtocol {
             }
             
             dataTask.resume()
-            self?.isLoading.accept(true)
+            self?.isLoadingRelay.accept(true)
 
             return Disposables.create {
-                self?.isLoading.accept(false)
+                self?.isLoadingRelay.accept(false)
                 dataTask.cancel()
             }
         })

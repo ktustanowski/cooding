@@ -18,7 +18,10 @@ public extension TimeInterval {
         return formatter.string(from: self)
     }
     
+    /// TODO: Update implementation with i.e. date provider which then will be
+    /// mockable
+    /// Warning! Mocked for tests purposes
     var endTime: String? {
-        return Date(timeIntervalSinceNow: self).time
+        return !inTests() ? Date(timeIntervalSinceNow: self).time : "11:48"
     }
 }

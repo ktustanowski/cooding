@@ -11,6 +11,10 @@ import RxSwift
 
 public struct ButtonCellViewModel {
     public let title: String
+    
+    public init(title: String) {
+        self.title = title
+    }
 }
 
 public class ButtonTableCell: UITableViewCell {
@@ -58,4 +62,8 @@ extension ButtonTableCell: Themable {
         backgroundColor = theme.primary
         contentView.backgroundColor = theme.primary
     }
+}
+
+extension ButtonTableCell: XibMakeable {
+    public typealias XibMakeableType = ButtonTableCell
 }

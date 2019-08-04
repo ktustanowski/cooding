@@ -28,6 +28,8 @@ public class FullImageTableCell: UITableViewCell {
         didSet {
             titleLabel.text = viewModel.title
             titleContainer.isHidden = viewModel.title == nil
+            
+            guard !inTests() else { return }
             fullImageView.kf.setImage(with: viewModel.imageURL,
                                       options: [.scaleFactor(UIScreen.main.scale),
                                                 .transition(.fade(1))])

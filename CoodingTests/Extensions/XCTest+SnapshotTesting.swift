@@ -3,18 +3,23 @@ import SnapshotTesting
 
 extension XCTestCase {
     /// In test file names saved to disk:
-    /// 1 - iPhoneSe
-    /// 2 - iPhone 8
-    /// 3 - iPhone8Plus
-    /// 4 - iPhone X
-    /// 5 - iPhone Xs Max
+    /// 1 - iPhone SE
+    /// 2 - iPhone SE in landscape
+    /// 3 - iPhone 8
+    /// 4 - iPhone8Plus
+    /// 5 - iPhone X
+    /// 6 - iPhone XS Max
+    /// 7 - iPad Mini
+    /// 8 - iPad Mini in landscape
     var defaultDevices: [ViewImageConfig] {
         return [ViewImageConfig.iPhoneSe,
+                ViewImageConfig.iPhoneSe(.landscape),
                 ViewImageConfig.iPhone8,
                 ViewImageConfig.iPhone8Plus,
                 ViewImageConfig.iPhoneX,
                 ViewImageConfig.iPhoneXsMax,
-                ViewImageConfig.iPadMini(.portrait)]
+                ViewImageConfig.iPadMini(.portrait),
+                ViewImageConfig.iPadMini(.landscape)]
     }
 
     /// Snapshots by default just get an image of a view of a view controller. Use this function if you need

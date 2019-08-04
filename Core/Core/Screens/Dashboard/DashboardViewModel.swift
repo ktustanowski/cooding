@@ -52,11 +52,14 @@ public final class DashboardViewModel: DashboardViewModelProtocol {
     
     private var didSelectRecipeRelay = PublishRelay<ShortRecipe>()
     
-    public init(storage: KeyValueStore = UserDefaults.standard) {
-        allRecipiesViewModel = RecipeListContainerViewModel(recipeListURL: allRecipiesURL)
+    public init(storage: KeyValueStore = UserDefaults.standard,
+                downloader: DownloaderProtocol = Downloader()) {
+        allRecipiesViewModel = RecipeListContainerViewModel(recipeListURL: allRecipiesURL,
+                                                            downloader: downloader)
         allRecipiesButtonTitle = "All" // TODO: Translations
 
-        myRecipiesViewModel = RecipeListContainerViewModel(recipeListURL: storage.recipeListURL)
+        myRecipiesViewModel = RecipeListContainerViewModel(recipeListURL: storage.recipeListURL,
+                                                           downloader: downloader)
         myRecipiesButtonTitle = "My" // TODO: Translations
     }
 }

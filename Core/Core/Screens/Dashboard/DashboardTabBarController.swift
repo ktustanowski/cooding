@@ -11,8 +11,17 @@ import RxSwift
 
 public final class DashboardTabBarController: UITabBarController {
     private var theme: Theme = DefaultTheme()
-    public var viewModel: DashboardViewModelProtocol! = DashboardViewModel()
+    public var viewModel: DashboardViewModelProtocol!
     public var disposeBag = DisposeBag()
+    
+    public init(nibName nibNameOrNil: String? = nil, bundle nibBundleOrNil: Bundle? = nil, viewModel: DashboardViewModelProtocol = DashboardViewModel()) {
+        self.viewModel = viewModel
+        super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
+    }
+    
+    public required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+    }
     
     public override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,6 +32,7 @@ public final class DashboardTabBarController: UITabBarController {
 private extension DashboardTabBarController {
     func setup() {
         hidesBottomBarWhenPushed = true
+        
         viewControllers = [makeAllRecipes(),
                            makeMyRecipes()]
     }

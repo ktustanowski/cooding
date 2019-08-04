@@ -11,6 +11,23 @@
 		9A51E67122D3BA1200A27ACF /* Core.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9AF9590C22C8E17D0055B204 /* Core.framework */; };
 		9A51E67922E768C500A27ACF /* SnapshotTesting.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A51E67822E768C500A27ACF /* SnapshotTesting.framework */; };
 		9A51E68522E76AFE00A27ACF /* CookingViewControllerSnapshotTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A51E68422E76AFE00A27ACF /* CookingViewControllerSnapshotTests.swift */; };
+		9A6FCF9322F6DA7F009BDCCC /* DashboardViewControllerSnapshotTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A6FCF9222F6DA7F009BDCCC /* DashboardViewControllerSnapshotTests.swift */; };
+		9A6FCF9722F6DAA1009BDCCC /* DownloaderMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A6FCF9622F6DAA1009BDCCC /* DownloaderMock.swift */; };
+		9A6FCF9A22F6E532009BDCCC /* EphemeralKeyValueStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A6FCF9922F6E532009BDCCC /* EphemeralKeyValueStore.swift */; };
+		9A6FCF9B22F6E686009BDCCC /* RxBlocking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9AF996F922F2188900E9413C /* RxBlocking.framework */; };
+		9A6FCF9C22F6E686009BDCCC /* RxCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9AF996FA22F2188900E9413C /* RxCocoa.framework */; };
+		9A6FCF9D22F6E686009BDCCC /* RxDataSources.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9AF996FB22F2188900E9413C /* RxDataSources.framework */; };
+		9A6FCF9E22F6E686009BDCCC /* RxRelay.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9AF996F622F2188800E9413C /* RxRelay.framework */; };
+		9A6FCF9F22F6E686009BDCCC /* RxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9AF996F722F2188800E9413C /* RxSwift.framework */; };
+		9A6FCFA022F6E73F009BDCCC /* Kingfisher.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A34485022F57F5A00AC7DC1 /* Kingfisher.framework */; };
+		9A6FCFA122F6E73F009BDCCC /* Differentiator.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9AF996F822F2188900E9413C /* Differentiator.framework */; };
+		9A6FCFA322F6E84B009BDCCC /* RecipeStubs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A6FCFA222F6E84B009BDCCC /* RecipeStubs.swift */; };
+		9A6FCFA722F6F2D0009BDCCC /* RecipeListStub.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A6FCFA622F6F2D0009BDCCC /* RecipeListStub.swift */; };
+		9A6FCFA922F6FE99009BDCCC /* SuccessViewControllerSnapshotTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A6FCFA822F6FE99009BDCCC /* SuccessViewControllerSnapshotTests.swift */; };
+		9A6FCFAB22F6FFB0009BDCCC /* ProgressIndicatorViewControllerSnapshotTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A6FCFAA22F6FFB0009BDCCC /* ProgressIndicatorViewControllerSnapshotTests.swift */; };
+		9A6FCFAD22F70057009BDCCC /* ListTableCellSnapshotTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A6FCFAC22F70057009BDCCC /* ListTableCellSnapshotTests.swift */; };
+		9A6FCFAF22F70233009BDCCC /* FullImageTableCellSnapshotTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A6FCFAE22F70233009BDCCC /* FullImageTableCellSnapshotTests.swift */; };
+		9A6FCFB122F70480009BDCCC /* ButtonTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A6FCFB022F70480009BDCCC /* ButtonTableCell.swift */; };
 		9A705D0A22E7A351003AA381 /* StepStub.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A705D0922E7A351003AA381 /* StepStub.swift */; };
 		9AD3228122EE0887002F9C6B /* RecipeViewControllerSnapshotTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AD3228022EE0887002F9C6B /* RecipeViewControllerSnapshotTests.swift */; };
 		9AF3509C22ED9FB700D42922 /* RecipeFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AF3509B22ED9FB700D42922 /* RecipeFactory.swift */; };
@@ -82,6 +99,16 @@
 		9A34485022F57F5A00AC7DC1 /* Kingfisher.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Kingfisher.framework; path = Core/Carthage/Build/iOS/Kingfisher.framework; sourceTree = "<group>"; };
 		9A51E67822E768C500A27ACF /* SnapshotTesting.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SnapshotTesting.framework; path = Carthage/Build/iOS/SnapshotTesting.framework; sourceTree = "<group>"; };
 		9A51E68422E76AFE00A27ACF /* CookingViewControllerSnapshotTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CookingViewControllerSnapshotTests.swift; sourceTree = "<group>"; };
+		9A6FCF9222F6DA7F009BDCCC /* DashboardViewControllerSnapshotTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardViewControllerSnapshotTests.swift; sourceTree = "<group>"; };
+		9A6FCF9622F6DAA1009BDCCC /* DownloaderMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloaderMock.swift; sourceTree = "<group>"; };
+		9A6FCF9922F6E532009BDCCC /* EphemeralKeyValueStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EphemeralKeyValueStore.swift; sourceTree = "<group>"; };
+		9A6FCFA222F6E84B009BDCCC /* RecipeStubs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeStubs.swift; sourceTree = "<group>"; };
+		9A6FCFA622F6F2D0009BDCCC /* RecipeListStub.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeListStub.swift; sourceTree = "<group>"; };
+		9A6FCFA822F6FE99009BDCCC /* SuccessViewControllerSnapshotTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuccessViewControllerSnapshotTests.swift; sourceTree = "<group>"; };
+		9A6FCFAA22F6FFB0009BDCCC /* ProgressIndicatorViewControllerSnapshotTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressIndicatorViewControllerSnapshotTests.swift; sourceTree = "<group>"; };
+		9A6FCFAC22F70057009BDCCC /* ListTableCellSnapshotTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListTableCellSnapshotTests.swift; sourceTree = "<group>"; };
+		9A6FCFAE22F70233009BDCCC /* FullImageTableCellSnapshotTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullImageTableCellSnapshotTests.swift; sourceTree = "<group>"; };
+		9A6FCFB022F70480009BDCCC /* ButtonTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonTableCell.swift; sourceTree = "<group>"; };
 		9A705D0922E7A351003AA381 /* StepStub.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StepStub.swift; sourceTree = "<group>"; };
 		9AC269BC22EF5F880080CA7E /* Operations.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = Operations.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		9AD3228022EE0887002F9C6B /* RecipeViewControllerSnapshotTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecipeViewControllerSnapshotTests.swift; sourceTree = "<group>"; };
@@ -124,6 +151,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				9A51E67922E768C500A27ACF /* SnapshotTesting.framework in Frameworks */,
+				9A6FCF9B22F6E686009BDCCC /* RxBlocking.framework in Frameworks */,
+				9A6FCF9C22F6E686009BDCCC /* RxCocoa.framework in Frameworks */,
+				9A6FCF9D22F6E686009BDCCC /* RxDataSources.framework in Frameworks */,
+				9A6FCF9E22F6E686009BDCCC /* RxRelay.framework in Frameworks */,
+				9A6FCF9F22F6E686009BDCCC /* RxSwift.framework in Frameworks */,
+				9A6FCFA022F6E73F009BDCCC /* Kingfisher.framework in Frameworks */,
+				9A6FCFA122F6E73F009BDCCC /* Differentiator.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -143,6 +177,9 @@
 			children = (
 				9AD3228022EE0887002F9C6B /* RecipeViewControllerSnapshotTests.swift */,
 				9A51E68422E76AFE00A27ACF /* CookingViewControllerSnapshotTests.swift */,
+				9A6FCF9222F6DA7F009BDCCC /* DashboardViewControllerSnapshotTests.swift */,
+				9A6FCFA822F6FE99009BDCCC /* SuccessViewControllerSnapshotTests.swift */,
+				9A6FCFAA22F6FFB0009BDCCC /* ProgressIndicatorViewControllerSnapshotTests.swift */,
 			);
 			path = Screens;
 			sourceTree = "<group>";
@@ -152,6 +189,9 @@
 			children = (
 				9A705D0922E7A351003AA381 /* StepStub.swift */,
 				9AF3509B22ED9FB700D42922 /* RecipeFactory.swift */,
+				9A6FCF9922F6E532009BDCCC /* EphemeralKeyValueStore.swift */,
+				9A6FCFA222F6E84B009BDCCC /* RecipeStubs.swift */,
+				9A6FCFA622F6F2D0009BDCCC /* RecipeListStub.swift */,
 			);
 			path = "Mocks & Stubs";
 			sourceTree = "<group>";
@@ -162,6 +202,7 @@
 				9AF350A122EDA07300D42922 /* XCTest+SnapshotTesting.swift */,
 				9AF350A222EDA07300D42922 /* UIButton+SimulateTap.swift */,
 				9AF350A822EDA49800D42922 /* String+TestData.swift */,
+				9A6FCF9622F6DAA1009BDCCC /* DownloaderMock.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -170,6 +211,9 @@
 			isa = PBXGroup;
 			children = (
 				9AF350A622EDA1B400D42922 /* StepTableCellSnapshotTests.swift */,
+				9A6FCFAC22F70057009BDCCC /* ListTableCellSnapshotTests.swift */,
+				9A6FCFAE22F70233009BDCCC /* FullImageTableCellSnapshotTests.swift */,
+				9A6FCFB022F70480009BDCCC /* ButtonTableCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -177,13 +221,6 @@
 		9AF958B022C8DCD10055B204 = {
 			isa = PBXGroup;
 			children = (
-				9A34485022F57F5A00AC7DC1 /* Kingfisher.framework */,
-				9AF996F822F2188900E9413C /* Differentiator.framework */,
-				9AF996F922F2188900E9413C /* RxBlocking.framework */,
-				9AF996FA22F2188900E9413C /* RxCocoa.framework */,
-				9AF996FB22F2188900E9413C /* RxDataSources.framework */,
-				9AF996F622F2188800E9413C /* RxRelay.framework */,
-				9AF996F722F2188800E9413C /* RxSwift.framework */,
 				9AC269BC22EF5F880080CA7E /* Operations.playground */,
 				9AF9591722C8E4FD0055B204 /* Visuals.playground */,
 				9AF9590622C8E17C0055B204 /* Core.xcodeproj */,
@@ -191,6 +228,13 @@
 				9AF958D322C8DCD30055B204 /* CoodingTests */,
 				9AF958BA22C8DCD10055B204 /* Products */,
 				9A51E67022D3BA1200A27ACF /* Frameworks */,
+				9A34485022F57F5A00AC7DC1 /* Kingfisher.framework */,
+				9AF996F822F2188900E9413C /* Differentiator.framework */,
+				9AF996F922F2188900E9413C /* RxBlocking.framework */,
+				9AF996FA22F2188900E9413C /* RxCocoa.framework */,
+				9AF996FB22F2188900E9413C /* RxDataSources.framework */,
+				9AF996F622F2188800E9413C /* RxRelay.framework */,
+				9AF996F722F2188800E9413C /* RxSwift.framework */,
 			);
 			sourceTree = "<group>";
 		};
@@ -416,13 +460,23 @@
 			buildActionMask = 2147483647;
 			files = (
 				9AF958D522C8DCD30055B204 /* CoodingTests.swift in Sources */,
+				9A6FCFAB22F6FFB0009BDCCC /* ProgressIndicatorViewControllerSnapshotTests.swift in Sources */,
+				9A6FCF9A22F6E532009BDCCC /* EphemeralKeyValueStore.swift in Sources */,
 				9A51E68522E76AFE00A27ACF /* CookingViewControllerSnapshotTests.swift in Sources */,
 				9AD3228122EE0887002F9C6B /* RecipeViewControllerSnapshotTests.swift in Sources */,
+				9A6FCFAF22F70233009BDCCC /* FullImageTableCellSnapshotTests.swift in Sources */,
 				9AF3509C22ED9FB700D42922 /* RecipeFactory.swift in Sources */,
 				9AF350A322EDA07300D42922 /* XCTest+SnapshotTesting.swift in Sources */,
+				9A6FCF9322F6DA7F009BDCCC /* DashboardViewControllerSnapshotTests.swift in Sources */,
+				9A6FCFA722F6F2D0009BDCCC /* RecipeListStub.swift in Sources */,
+				9A6FCFA322F6E84B009BDCCC /* RecipeStubs.swift in Sources */,
 				9AF350A922EDA49800D42922 /* String+TestData.swift in Sources */,
+				9A6FCFAD22F70057009BDCCC /* ListTableCellSnapshotTests.swift in Sources */,
+				9A6FCFB122F70480009BDCCC /* ButtonTableCell.swift in Sources */,
+				9A6FCFA922F6FE99009BDCCC /* SuccessViewControllerSnapshotTests.swift in Sources */,
 				9AF350A722EDA1B400D42922 /* StepTableCellSnapshotTests.swift in Sources */,
 				9A705D0A22E7A351003AA381 /* StepStub.swift in Sources */,
+				9A6FCF9722F6DAA1009BDCCC /* DownloaderMock.swift in Sources */,
 				9AF350A422EDA07300D42922 /* UIButton+SimulateTap.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -628,6 +682,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
+					"$(PROJECT_DIR)/Core/Carthage/Build/iOS",
 				);
 				INFOPLIST_FILE = CoodingTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -652,6 +707,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
+					"$(PROJECT_DIR)/Core/Carthage/Build/iOS",
 				);
 				INFOPLIST_FILE = CoodingTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (

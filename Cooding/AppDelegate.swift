@@ -17,9 +17,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     private var flowController: MainFlowController?
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+        guard !inTests() else { return true }
         
-        startMainFlow()
-        
+        startMainFlow()        
         return true
     }
 
