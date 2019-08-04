@@ -109,16 +109,16 @@ public struct Recipe: Codable, Equatable {
     /// Recipe name
     public var name: String
     /// URL to author site
-    public let authorName: String
+    public let authorName: String?
     /// URL to author site
-    public let authorURL: URL
+    public let authorURL: URL?
     /// URL to original recipe - if available
     public let originalSourceURL: URL?
-    /// Images of a recipe, cooking process etc.
+    /// Images of a recipe, cooking process etc. - for now only first is used
     public let imagesURL: [URL]?
     /// The unparsed recipe
     public let rawAlgorithm: String
-    /// How long does it take from start to finish
+    /// How long does it take from start to finish - in seconds
     public let time: TimeInterval?
     /// How many people can eat the meal
     public let people: Int?
@@ -126,4 +126,72 @@ public struct Recipe: Codable, Equatable {
     public let difficulty: Difficulty
     /// Fill when this is a traditional meal of some country
     public let country: String?
+    
+    public var repositoryJSON: String {
+        var output = "{\n"
+
+        output += "\"name\": \"\(name)\",\n"
+
+        if let authorName = authorName {
+            output += "\"authorName\": \"\(authorName)\",\n"
+        }
+
+        if let authorURL = authorURL {
+            output += "\"authorURL\": \"\(authorURL.absoluteString)\",\n"
+        }
+
+        if let originalSourceURL = originalSourceURL {
+            output += "\"originalSourceURL\": \"\(originalSourceURL.absoluteString)\",\n"
+        }
+
+        if let imageURL = imagesURL?.first {
+            output += "\"imagesURL\": [\"\(imageURL.absoluteString)\"],\n"
+        }
+
+        let rawSteps = rawAlgorithm.components(separatedBy: "\n")
+        let rawAlgorithmUpdated = rawSteps.joined(separator: "\\n")
+
+        print(rawAlgorithmUpdated)
+        output += "\"rawAlgorithm\": \"\(rawAlgorithmUpdated)\",\n"
+
+        if let time = time {
+            output += "\"time\": \(time),\n"
+        }
+
+        if let people = people {
+            output += "\"people\": \(people),\n"
+        }
+
+        if let country = country {
+            output += "\"country\": \"\(country)\",\n"
+        }
+
+        output += "\"difficulty\": \"\(difficulty.rawValue)\"\n"
+
+        output += "}"
+        
+        return output
+    }
+    
+    public init(name: String,
+                authorName: String?,
+                authorURL: URL?,
+                originalSourceURL: URL?,
+                imagesURL: [URL]?,
+                rawAlgorithm: String,
+                time: TimeInterval?,
+                people: Int?,
+                difficulty: Difficulty,
+                country: String?) {
+        self.name = name
+        self.authorName = authorName
+        self.authorURL = authorURL
+        self.originalSourceURL = originalSourceURL
+        self.imagesURL = imagesURL
+        self.rawAlgorithm = rawAlgorithm
+        self.time = time
+        self.people = people
+        self.difficulty = difficulty
+        self.country = country
+    }
 }

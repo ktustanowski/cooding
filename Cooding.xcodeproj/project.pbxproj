@@ -108,6 +108,7 @@
 		9A6FCFAC22F70057009BDCCC /* ListTableCellSnapshotTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListTableCellSnapshotTests.swift; sourceTree = "<group>"; };
 		9A6FCFAE22F70233009BDCCC /* FullImageTableCellSnapshotTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullImageTableCellSnapshotTests.swift; sourceTree = "<group>"; };
 		9A6FCFB022F70480009BDCCC /* ButtonTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonTableCell.swift; sourceTree = "<group>"; };
+		9A6FCFBC22F71FD0009BDCCC /* MakeRecipe.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = MakeRecipe.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		9A705D0922E7A351003AA381 /* StepStub.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StepStub.swift; sourceTree = "<group>"; };
 		9AC269BC22EF5F880080CA7E /* Operations.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = Operations.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		9AD3228022EE0887002F9C6B /* RecipeViewControllerSnapshotTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecipeViewControllerSnapshotTests.swift; sourceTree = "<group>"; };
@@ -235,6 +236,7 @@
 		9AF958B022C8DCD10055B204 = {
 			isa = PBXGroup;
 			children = (
+				9A6FCFBC22F71FD0009BDCCC /* MakeRecipe.playground */,
 				9AC269BC22EF5F880080CA7E /* Operations.playground */,
 				9AF9591722C8E4FD0055B204 /* Visuals.playground */,
 				9AF9590622C8E17C0055B204 /* Core.xcodeproj */,
