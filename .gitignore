@@ -5,9 +5,8 @@
 # Carthage
 #
 # Add this line if you want to avoid checking in source code from Carthage dependencies.
-# Carthage/Checkouts
-
-Carthage/Build
+*/Carthage/Checkouts
+*/Carthage/Build
 
 ### fastlane ###
 # fastlane - A streamlined workflow tool for Cocoa deployment
@@ -80,7 +79,7 @@ playground.xcworkspace
 
 # Carthage
 # Add this line if you want to avoid checking in source code from Carthage dependencies.
-# Carthage/Checkouts
+Carthage/Checkouts
 
 
 # Accio dependency management
