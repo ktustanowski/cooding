@@ -34,12 +34,12 @@ public final class DashboardViewModel: DashboardViewModelProtocol {
     public var input: DashboardViewModelProtocolInputs { return self }
     public var output: DashboardViewModelProtocolOutputs { return self }
 
-    // MARK : Input
+    // MARK: - Input
     public func selected(recipe: ShortRecipe) {
         didSelectRecipeRelay.accept(recipe)
     }
     
-    // MARK : Output
+    // MARK: - Output
     public var allRecipiesViewModel: RecipeListContainerViewModelProtocol
     public var allRecipiesButtonTitle: String
     

@@ -22,7 +22,7 @@ public enum DownloadError: Error {
 }
 
 public class Downloader: DownloaderProtocol {
-    /// Emmits true when starts to load and false when loading did end
+    /// Emmits true when starts to load and false when loading ends
     public var isLoading: Observable<Bool> {
         return isLoadingRelay.asObservable()
     }

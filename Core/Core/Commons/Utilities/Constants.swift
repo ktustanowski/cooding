@@ -9,6 +9,7 @@
 import Foundation
 
 struct Constants {
+    //swiftlint:disable:next identifier_name
     static let ui = UIConstants.self
 }
 
