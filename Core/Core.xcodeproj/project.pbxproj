@@ -36,6 +36,7 @@
 		9A6FCF8B22F6414D009BDCCC /* UIViewControler+Embeddable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A6FCF8A22F6414D009BDCCC /* UIViewControler+Embeddable.swift */; };
 		9A6FCF8D22F6445B009BDCCC /* SuccessViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A6FCF8C22F6445B009BDCCC /* SuccessViewController.swift */; };
 		9A6FCF8F22F64467009BDCCC /* SuccessViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A6FCF8E22F64467009BDCCC /* SuccessViewModel.swift */; };
+		9A6FCF9122F6D0F5009BDCCC /* PlaygroundUtilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A6FCF9022F6D0F5009BDCCC /* PlaygroundUtilities.swift */; };
 		9A705D0D22E7AAB9003AA381 /* CookingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A705D0C22E7AAB9003AA381 /* CookingViewModel.swift */; };
 		9A82904022F3A1BD00820061 /* ListTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A82903F22F3A1BD00820061 /* ListTableCell.swift */; };
 		9A976E2922EC505E00204894 /* StepTableCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A976E2822EC505E00204894 /* StepTableCellViewModel.swift */; };
@@ -115,6 +116,7 @@
 		9A6FCF8A22F6414D009BDCCC /* UIViewControler+Embeddable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewControler+Embeddable.swift"; sourceTree = "<group>"; };
 		9A6FCF8C22F6445B009BDCCC /* SuccessViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuccessViewController.swift; sourceTree = "<group>"; };
 		9A6FCF8E22F64467009BDCCC /* SuccessViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuccessViewModel.swift; sourceTree = "<group>"; };
+		9A6FCF9022F6D0F5009BDCCC /* PlaygroundUtilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaygroundUtilities.swift; sourceTree = "<group>"; };
 		9A705D0C22E7AAB9003AA381 /* CookingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CookingViewModel.swift; sourceTree = "<group>"; };
 		9A82903F22F3A1BD00820061 /* ListTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListTableCell.swift; sourceTree = "<group>"; };
 		9A976E2822EC505E00204894 /* StepTableCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StepTableCellViewModel.swift; sourceTree = "<group>"; };
@@ -193,6 +195,7 @@
 				9A34485422F5887300AC7DC1 /* Theme.swift */,
 				9A34485622F5BAA500AC7DC1 /* KeyValueStore.swift */,
 				9AD19D5522F636F300DDFA6F /* Constants.swift */,
+				9A6FCF9022F6D0F5009BDCCC /* PlaygroundUtilities.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -628,6 +631,7 @@
 				9A0985CD22F0E70F00A47127 /* DashboardViewModel.swift in Sources */,
 				9ADB3E5B22EDAD1500035D2A /* RecipeViewController.swift in Sources */,
 				9A34485522F5887300AC7DC1 /* Theme.swift in Sources */,
+				9A6FCF9122F6D0F5009BDCCC /* PlaygroundUtilities.swift in Sources */,
 				9AC269C022EF805A0080CA7E /* Downloader.swift in Sources */,
 				9AC269D222EF8DCD0080CA7E /* UIViewController+Embedding.swift in Sources */,
 				9AC269C922EF89C40080CA7E /* StoryboardMakeable.swift in Sources */,

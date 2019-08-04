@@ -1,3 +1,5 @@
+//: [Previous](@previous)
+
 import UIKit
 import PlaygroundSupport
 import Core
@@ -40,14 +42,16 @@ let steps = [Step(description: "Prepare blender",
                   duration: 60)
 ]
 
-var cookingViewController = CookingViewController()
-cookingViewController.viewModel = CookingViewModel(algorithm: Algorithm(ingredients: [],
+var viewController = CookingViewController()
+viewController.viewModel = CookingViewModel(algorithm: Algorithm(ingredients: [],
                                                                         steps: steps,
                                                                         dependencies: []))
-var navigationController = UINavigationController(rootViewController: cookingViewController)
+viewController.apply(theme: DefaultTheme())
+var navigationController = UINavigationController(rootViewController: viewController)
 
-PlaygroundPage.current.liveView = navigationController.view
+let (parent, _) = playgroundControllers(device: .phone47inch,
+                                        child: navigationController)
 
-navigationController.view.frame = CGRect(x: 0, y: 0, width: 320, height: 480)
+PlaygroundPage.current.liveView = parent
 
-PlaygroundPage.current.needsIndefiniteExecution = true
+//: [Next](@next)

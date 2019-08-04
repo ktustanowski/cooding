@@ -6,10 +6,8 @@ import Core
 import RxSwift
 import RxRelay
 
-let allRecipiesURL = URL(string: "https://raw.githubusercontent.com/ktustanowski/cooding/master/Recipes/recipes_list.json")!
-
-var viewController = RecipeListContainerViewController.make()
-viewController.viewModel = RecipeListContainerViewModel(recipeListURL: allRecipiesURL)
+var viewController = DashboardTabBarController()
+viewController.viewModel = DashboardViewModel()
 
 let (parent, _) = playgroundControllers(device: .phone47inch,
                                         child: viewController)

@@ -11,7 +11,7 @@ import RxSwift
 
 public final class DashboardTabBarController: UITabBarController {
     private var theme: Theme = DefaultTheme()
-    var viewModel: DashboardViewModelProtocol! = DashboardViewModel()
+    public var viewModel: DashboardViewModelProtocol! = DashboardViewModel()
     public var disposeBag = DisposeBag()
     
     public override func viewDidLoad() {

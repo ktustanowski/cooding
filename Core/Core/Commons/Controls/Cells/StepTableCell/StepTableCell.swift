@@ -46,13 +46,6 @@ public class StepTableCell: UITableViewCell {
 }
 
 private extension StepTableCell {
-    func clear() {
-        descriptionLabel.text = nil
-        counterLabel.text = nil
-        endLabel.text = nil
-        timerButton.setTitle(nil, for: .normal)
-    }
-    
     func bindViewModel() {
         viewModel.output.isDurationAvailable
             .observeOn(MainScheduler.instance)

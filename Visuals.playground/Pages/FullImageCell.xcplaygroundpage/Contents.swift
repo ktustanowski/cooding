@@ -10,10 +10,12 @@ let imageURL = URL(string: "https://cdn.pixabay.com/photo/2016/10/27/22/07/panca
  Image with text
  */
 var imageAndTextCell = FullImageTableCell.make()
+imageAndTextCell.apply(theme: DefaultTheme())
 imageAndTextCell.viewModel = FullImageCellViewModel(title: "Title Text",
                                         imageURL: imageURL)
 
 var imageCell = FullImageTableCell.make()
+imageCell.apply(theme: DefaultTheme())
 imageCell.viewModel = FullImageCellViewModel(title: nil,
                                         imageURL: imageURL)
 imageCell.frame.origin.y = imageAndTextCell.top + 10

@@ -6,10 +6,11 @@ import Core
 
 var viewController = SuccessViewController.make()
 viewController.viewModel = SuccessViewModel(title: "Enjoy!", imageName: "meal")
-viewController.loadViewIfNeeded()
-viewController.apply(theme: DefaultTheme())
 
-PlaygroundPage.current.liveView = viewController.view
-PlaygroundPage.current.needsIndefiniteExecution = true
+let (parent, _) = playgroundControllers(device: .phone47inch,
+                                        child: viewController)
+
+PlaygroundPage.current.liveView = parent
+viewController.apply(theme: DefaultTheme())
 
 //: [Next](@next)

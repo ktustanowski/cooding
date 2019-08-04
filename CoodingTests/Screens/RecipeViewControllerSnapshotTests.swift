@@ -16,6 +16,7 @@ class RecipeViewControllerSnapshotTests: XCTestCase {
     override func setUp() {
         super.setUp()
         sut = RecipeViewController()
+        
     }
     
     func testInitialLook() {
@@ -27,4 +28,3 @@ class RecipeViewControllerSnapshotTests: XCTestCase {
     }
 }
 
-extension

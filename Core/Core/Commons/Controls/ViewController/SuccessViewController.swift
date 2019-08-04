@@ -33,7 +33,7 @@ extension SuccessViewController: Themable {
     public func apply(theme: Theme) {
         titleLabel.textColor = theme.secondary
         imageView.tintColor = theme.secondary
-        view.backgroundColor = theme.primaryć
+        view.backgroundColor = theme.primary
     }
 }
 

@@ -15,14 +15,18 @@ let retryAvailable = NoDataViewModel(title: "Sorry!",
 
 var viewController = NoDataViewController.make()
 viewController.viewModel = noRetry
+// Uncomment to check this screen with retry capabilities
 //viewController.viewModel = retryAvailable
-viewController.loadViewIfNeeded()
 
 let disposeBag = DisposeBag()
 viewController.viewModel.output.didTapRetry
     .subscribe(onNext: { print("Retry Tapped!") })
     .disposed(by: disposeBag)
 
-PlaygroundPage.current.liveView = viewController.view
-PlaygroundPage.current.needsIndefiniteExecution = true
+let (parent, _) = playgroundControllers(device: .phone47inch,
+                                        child: viewController)
+
+PlaygroundPage.current.liveView = parent
+viewController.apply(theme: DefaultTheme())
+
 //: [Next](@next)

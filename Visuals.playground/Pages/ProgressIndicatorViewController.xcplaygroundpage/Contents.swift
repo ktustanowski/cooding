@@ -6,9 +6,11 @@ import RxSwift
 import RxRelay
 
 var viewController = ProgressIndicatorViewController.make()
-viewController.apply(theme: DefaultTheme())
-viewController.loadViewIfNeeded()
 
-PlaygroundPage.current.liveView = viewController.view
-PlaygroundPage.current.needsIndefiniteExecution = true
+let (parent, _) = playgroundControllers(device: .phone47inch,
+                                        child: viewController)
+
+PlaygroundPage.current.liveView = parent
+viewController.apply(theme: DefaultTheme())
+
 //: [Next](@next)
