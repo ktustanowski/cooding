@@ -23,7 +23,6 @@ public final class RecipeListContainerViewController: UIViewController {
         
         bindViewModel()
         viewModel.input.viewDidLoad()
-        contentContainer.backgroundColor = .orange
     }
 }
 
@@ -32,10 +31,12 @@ private extension RecipeListContainerViewController {
         viewModel.output.recipeListViewModel
             .observeOn(MainScheduler.instance)
             .subscribe(onNext: { [weak self] viewModel in
+                guard let strongSelf = self else { return }
                 if let viewModel = viewModel {
                     self?.embedContent(viewModel: viewModel)
                 } else {
                     self?.embedErrorIndicator()
+
                 }
             })
             .disposed(by: disposeBag)
@@ -44,7 +45,9 @@ private extension RecipeListContainerViewController {
             .observeOn(MainScheduler.instance)
             .filter { $0 == true }
             .subscribe { [weak self]_ in
-                self?.embedLoadingIndicator()
+                guard let strongSelf = self else { return }
+                self?.embedLoadingIndicator(theme: strongSelf.theme,
+                                            in: strongSelf.contentContainer)
             }
             .disposed(by: disposeBag)
         
@@ -57,25 +60,12 @@ private extension RecipeListContainerViewController {
             .disposed(by: disposeBag)
     }
     
-    func embedLoadingIndicator() {
-        guard isEmbedded({ $0 is ProgressIndicatorViewController }) == false else { return }
-        removeAllEmbedded()
-
-        let progressIndicator = ProgressIndicatorViewController.make()
-        progressIndicator.apply(theme: theme)
-        progressIndicator.view.alpha = 0.0
-        
-        embed(progressIndicator, in: contentContainer)
-    }
-    
     func embedErrorIndicator() {
         guard isEmbedded({ $0 is NoDataViewController }) == false else { return }
         removeAllEmbedded()
 
         let errorIndicator = NoDataViewController.make()
-        errorIndicator.viewModel = NoDataViewModel(title: "Uh oh!", //TODO: Translations
-                                                   message: "I couldn't load recipies. Sorry about that...", //TODO: Translations
-                                                   isRetryAvailable: true)
+        errorIndicator.viewModel = .cantLoadRecipes
         errorIndicator.apply(theme: theme)
 
         Observable.combineLatest(errorIndicator.viewModel.output.didTapRetry,
@@ -143,6 +133,7 @@ extension RecipeListContainerViewController: Themable {
     public func apply(theme: Theme) {
         self.theme = theme
         view.backgroundColor = theme.primary
+        contentContainer.backgroundColor = theme.primary
     }
 }
 

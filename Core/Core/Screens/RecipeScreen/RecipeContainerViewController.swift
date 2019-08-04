@@ -20,15 +20,13 @@ public final class RecipeContainerViewController: UIViewController {
         super.viewDidLoad()
     
         setupNavigationBar()
-        view.backgroundColor = .orange //TODO: Maybe add some functional styling or sth?
         setupContainer()
         bindViewModel()
         viewModel.input.viewDidLoad()
     }
-    
-    public override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        navigationController?.setNavigationBarHidden(false, animated: true)        
+        
+    deinit {
+        print("deinited")
     }
 }
 
@@ -58,10 +56,14 @@ private extension RecipeContainerViewController {
         viewModel.output.recipeViewModel
             .observeOn(MainScheduler.instance)
             .subscribe(onNext: { [weak self] viewModel in
+                guard let strongSelf = self else { return }
                 if let viewModel = viewModel {
                     self?.embedContent(viewModel: viewModel)
                 } else {
-                    self?.embedErrorIndicator()
+                    self?.embedErrorIndicator(viewModel: .cantLoadRecipe,
+                                              theme: strongSelf.theme,
+                                              retryAction: { strongSelf.viewModel.reload() },
+                                              in: strongSelf.contentContainer)
                 }
             })
             .disposed(by: disposeBag)
@@ -69,44 +71,14 @@ private extension RecipeContainerViewController {
         viewModel.output.isLoading
             .observeOn(MainScheduler.instance)
             .filter { $0 == true }
-            .subscribe { [weak self]_ in
-                self?.embedLoadingIndicator()
+            .subscribe { [weak self] _ in
+                guard let strongSelf = self else { return }
+                self?.embedLoadingIndicator(theme: strongSelf.theme,
+                                            in: strongSelf.contentContainer)
             }
             .disposed(by: disposeBag)
     }
-    
-    func embedLoadingIndicator() {
-        guard isEmbedded({ $0 is ProgressIndicatorViewController }) == false else { return }
-        removeAllEmbedded()
         
-        let progressIndicator = ProgressIndicatorViewController.make()
-        progressIndicator.apply(theme: theme)
-        
-        embed(progressIndicator, in: contentContainer)
-    }
-    
-    func embedErrorIndicator() {
-        guard isEmbedded({ $0 is NoDataViewController }) == false else { return }
-        removeAllEmbedded()
-        
-        //TODO: Make this shared extension on VC observable or just a code block - better a code maybe
-        let errorIndicator = NoDataViewController.make()
-        errorIndicator.apply(theme: theme)
-        
-        errorIndicator.viewModel = NoDataViewModel(title: "Uh oh!", //TODO: Translations
-            message: "I couldn't load recipe. Sorry about that...", //TODO: Translations
-            isRetryAvailable: true) //TODO: use static functions with extension to make this shorter like .cantLoadRecipe
-        
-        errorIndicator.viewModel.output.didTapRetry
-            .observeOn(MainScheduler.instance)
-            .subscribe(onNext: { [weak self] _ in
-                self?.viewModel.reload()
-            })
-            .disposed(by: errorIndicator.disposeBag)
-        
-        embed(errorIndicator, in: contentContainer)
-    }
-    
     func embedContent(viewModel: RecipeViewModelProtocol) {
         guard isEmbedded({ $0 is RecipeViewController }) == false else { return }
         removeAllEmbedded()

@@ -26,7 +26,7 @@ public protocol StepCellViewModelProtocolOutputs {
     var endTime: Observable<String> { get }
     var isDurationAvailable: Observable<Bool> { get }
     var didTapDone: Observable<Void> { get }
-    var isDone: Observable<Bool> { get }
+    var isDone: BehaviorRelay<Bool> { get }
     var isCountdown: Observable<Bool> { get }
     var currentDuration: Observable<TimeInterval?> { get }
 }
@@ -47,7 +47,7 @@ public final class StepCellViewModel: StepCellViewModelProtocol, StepCellViewMod
     }
     
     public func doneButtonTapped() {
-        isDoneRelay.accept(true)
+        isDone.accept(true)
         currentDurationRelay?.accept(0)
         didTapDoneRelay.accept(())
     }
@@ -58,7 +58,7 @@ public final class StepCellViewModel: StepCellViewModelProtocol, StepCellViewMod
     public let endTime: Observable<String>
     public let isDurationAvailable: Observable<Bool>
     public let didTapDone: Observable<Void>
-    public let isDone: Observable<Bool>
+    public let isDone = BehaviorRelay<Bool>(value: false)
     public let isCountdown: Observable<Bool>
     public var currentDuration: Observable<TimeInterval?> {
         return currentDurationRelay?.asObservable() ?? .just(nil)
@@ -68,7 +68,6 @@ public final class StepCellViewModel: StepCellViewModelProtocol, StepCellViewMod
     private let disposeBag = DisposeBag()
     private let step: Step
     private let isCountdownRelay = BehaviorRelay<Bool>(value: false)
-    private let isDoneRelay = BehaviorRelay<Bool>(value: false)
     private let didTapDoneRelay = PublishRelay<Void>()
     private let currentDurationRelay: BehaviorRelay<TimeInterval?>?
 
@@ -82,7 +81,6 @@ public final class StepCellViewModel: StepCellViewModelProtocol, StepCellViewMod
     }
     
     public init(step: Step) {
-        //TODO: Make sure didTapDoneSubject.dispose() on deinit is not needed
         self.step = step
         currentDurationRelay = BehaviorRelay<TimeInterval?>(value: step.duration)
         title = .just(step.description)
@@ -99,9 +97,6 @@ public final class StepCellViewModel: StepCellViewModelProtocol, StepCellViewMod
             .asObservable() ?? .empty()
         
         didTapDone = didTapDoneRelay
-            .asObservable()
-        
-        isDone = isDoneRelay
             .asObservable()
         
         isCountdown = isCountdownRelay

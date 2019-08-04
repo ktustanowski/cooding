@@ -84,11 +84,11 @@ public final class RecipeContainerViewModel: RecipeContainerViewModelProtocol {
         self.parser = parser
         
         //TODOKT: when there is an error - whole chain is disposed - try to prevent that
-        let viewDidLoad = viewDidLoadRelay.asObservable().debug("view_did")
+        let viewDidLoad = viewDidLoadRelay.asObservable()
         
         let shouldLoadRecipes = Observable
             .combineLatest(viewDidLoad,
-                           reloadRelay.asObservable().debug("reload_obs"))
+                           reloadRelay.asObservable())
         
         let loadRecipe = shouldLoadRecipes
             .flatMap { _ -> Observable<Recipe?> in

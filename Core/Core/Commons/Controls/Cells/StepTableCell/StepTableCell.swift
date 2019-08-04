@@ -142,7 +142,7 @@ extension StepTableCell: Themable {
         endLabel.textColor = theme.bodyText
         timerButton.setTitleColor(theme.action, for: .normal)
         backgroundColor = theme.primary
-        contentView.backgroundColor = theme.secondary
+        contentView.backgroundColor = theme.primary
     }
 }
 

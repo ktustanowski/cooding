@@ -17,7 +17,7 @@ public final class RecipeViewController: UITableViewController {
 
     //swiftlint:disable:next line_length
     private lazy var dataSource: RxTableViewSectionedReloadDataSource<SectionModel<String, RecipeCellType>> = RxTableViewSectionedReloadDataSource(configureCell: { [weak self] _, tableView, indexPath, cellType in
-        guard let theme = self?.theme else { fatalError("No theme available!") }
+        guard let strongSelf = self else { fatalError("No theme available!") }
         
         switch cellType {
         case .listCell(let viewModel):
@@ -25,7 +25,7 @@ public final class RecipeViewController: UITableViewController {
                 else { fatalError("No suitable cell found!") }
 
             cell.viewModel = viewModel
-            cell.apply(theme: theme)
+            cell.apply(theme: strongSelf.theme)
 
             return cell
         case .buttonCell(let viewModel):
@@ -33,7 +33,7 @@ public final class RecipeViewController: UITableViewController {
                 else { fatalError("No suitable cell found!") }
 
             cell.viewModel = viewModel
-            cell.apply(theme: theme)
+            cell.apply(theme: strongSelf.theme)
 
             cell.button.rx.controlEvent(.touchUpInside)
                 .subscribe { [weak self] _ in
@@ -47,7 +47,7 @@ public final class RecipeViewController: UITableViewController {
                 else { fatalError("No suitable cell found!") }
 
             cell.viewModel = viewModel
-            cell.apply(theme: theme)
+            cell.apply(theme: strongSelf.theme)
 
             return cell
         }})
@@ -56,6 +56,10 @@ public final class RecipeViewController: UITableViewController {
         super.viewDidLoad()
         setupUI()
         bindViewModel()
+    }
+    
+    deinit {
+        print("deinitied")
     }
 }
 

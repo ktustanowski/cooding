@@ -20,6 +20,10 @@ public final class CookingViewController: UITableViewController {
         setupUI()
         bindViewModel()
     }
+    
+    deinit {
+        print("Deinited Cooking Screen")
+    }
 }
 
 private extension CookingViewController {
@@ -49,11 +53,10 @@ private extension CookingViewController {
                 
                 stepCell.apply(theme: theme)
                 stepCell.viewModel = viewModel
-                cell.contentView.backgroundColor = self?.tableView.backgroundColor
-                
+
                 viewModel.output.didTapDone
-                    .subscribe(onNext: { _ in
-                        
+                    .subscribe(onNext: { [weak self] _ in
+                        self?.viewModel.input.completedStep()
                     })
                     .disposed(by: stepCell.disposeBag)
             }

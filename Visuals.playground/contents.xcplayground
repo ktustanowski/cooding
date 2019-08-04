@@ -4,6 +4,7 @@
         <page name='CookingScreen'/>
         <page name='RecipeScreen'/>
         <page name='RecipeListScreen'/>
+        <page name='SuccessScreen'/>
         <page name='RecipeListViewController'/>
         <page name='ProgressIndicatorViewController'/>
         <page name='NoDataViewController'/>

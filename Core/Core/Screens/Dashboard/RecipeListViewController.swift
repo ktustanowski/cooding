@@ -22,9 +22,8 @@ public final class RecipeListViewController: UITableViewController {
         bindViewModel()
     }
     
-    public override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        navigationController?.setNavigationBarHidden(true, animated: true)
+    deinit {
+        print("deinitied")
     }
 }
 
@@ -40,9 +39,10 @@ extension RecipeListViewController {
             .rx
             .items(cellIdentifier: FullImageTableCell.nibName)) { [weak self] _, viewModel, cell in
                 guard let cell = cell as? FullImageTableCell,
-                    let theme = self?.theme else { return }
-                cell.apply(theme: theme)
+                    let strongSelf = self else { return }
+                
                 cell.viewModel = viewModel
+                cell.apply(theme: strongSelf.theme)
             }
             .disposed(by: disposeBag)
         
