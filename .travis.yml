@@ -1,0 +1,7 @@
+language: objective-c
+osx_image: xcode10.2
+install:
+  - bundle install
+script:
+  - fastlane/carthage_boostrtap.sh
+  - fastlane test
