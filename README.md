@@ -74,3 +74,5 @@ carthage bootstrap --platform iOS
 cd Core
 carthage bootstrap --platform iOS
 ```
+# Thanks
+Big thanks to Kickstarter, be sure to check out the https://github.com/kickstarter/ios-oss
