@@ -20,8 +20,8 @@ I love to cook but this whole process is so annoying due to this limitations. I 
 ## Make your own recipe
 I created simple format of creating recipies. In fact it's very similar to the the regular way of writing recipies. There is only a small twist that makes things interesting.
 Let's consider the `Pour milk into the pot` example. What could make this more self-contained? Quantity. So let's add it:
-`Pour 2 glasses of milk into the pot`. It's better - I know how much milk I need to pour. But this is not how the regular recipies work unfortunatelly. So I need to create my own from scratch based on the exisiting ones - just to make it more convenient. But then I have to track the ingredients etc. Long story short, I turn this step into:
-`Pour [2 glasses of milk] into the {pot}` 
+`Pour 2.0 glasses of milk into the pot`. It's better - I know how much milk I need to pour. But this is not how the regular recipies work unfortunatelly. So I need to create my own from scratch based on the exisiting ones - just to make it more convenient. But then I have to track the ingredients etc. Long story short, I turn this step into:
+`Pour [2.0 glasses of milk] into the {pot}` 
 `[]` marks ingredient needed to make the meal, 
 `{}` marks dependencies like pot, frying pan, blender etc. 
 (there is also `<>` marker which marks that this step should take some time i.e. boiling eggs). 
