@@ -3,5 +3,5 @@ osx_image: xcode10.2
 install:
   - bundle install
 script:
-  - "./carthage_boostrtap.sh"
+  - bash fastlane/carthage_boostrtap.sh
   - fastlane test
