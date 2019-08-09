@@ -1,5 +1,9 @@
 <WORK IN PROGRESS>
   
+<p align="center">
+  <img src="https://raw.githubusercontent.com/ktustanowski/cooding/master/Resources/app_icon.png"/>
+</p>
+
 # Cooding
 Cooking and coding has a lot more in common than you could think!
 
