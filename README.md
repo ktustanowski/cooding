@@ -74,9 +74,7 @@ The overall polish, animations etc. is also coming.
 # Project setup
 After cloning the project go to the cooding folder and do:
 ```
-carthage bootstrap --platform iOS
-cd Core
-carthage bootstrap --platform iOS
+./fastlane/carthage_bootstrap.sh
 ```
 # Thanks
 Big thanks to Kickstarter, be sure to check out the https://github.com/kickstarter/ios-oss
