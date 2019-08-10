@@ -36,7 +36,7 @@ If you want to know more and to try it out please check `MakeRecipe` playground 
 It's wysiwyg and in the end you get a json ready to be used. Wait? A json? Let me explain.
 
 ## Make your own recipe - pure text editor - no xcode needed
-If you don't want the syntax checking and wysiwyg, don't want to clone the repository. Any of this stuff. You can still use the app. Just check the exaple recipes and do the same with any text editor. As soon as you place it in github, or wherever - because it's all about urls and valid jsons. You will see your recipes in the application. You just have to paste correct url to my section of the application.
+If you don't want the syntax checking and wysiwyg, don't want to clone the repository. Any of this stuff. You can still use the app. Just check the exaple recipes and do the same with any text editor. As soon as you place it on github, or wherever - because it's all about urls and valid jsons. You will see your recipes in the application. You just have to paste correct url to my section of the application.
 
 ## Add the recipe to the repository
 Since cooking is similar to coding a bit. We are using algorithms etc. I thought that it would be nice to have recipies in repositories. Like code:
