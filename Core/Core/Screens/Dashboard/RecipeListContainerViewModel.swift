@@ -17,6 +17,7 @@ public protocol RecipeListContainerViewModelProtocol: RecipeListContainerViewMod
 
 public protocol RecipeListContainerViewModelProtocolInputs {
     func viewDidLoad()
+    func viewDidAppear()
     func recipeList(url: URL?)
     func reload()
     func selected(recipe: ShortRecipe)
@@ -27,6 +28,7 @@ public protocol RecipeListContainerViewModelProtocolOutputs {
     var isLoading: Observable<Bool> { get }
     var didSelectRecipe: Observable<ShortRecipe> { get }
     var hasRecipeListURL: Observable<Bool> { get }
+    var needsRecipesURL: Observable<Void> { get }
 }
 
 public final class RecipeListContainerViewModel: RecipeListContainerViewModelProtocol {
@@ -40,11 +42,16 @@ public final class RecipeListContainerViewModel: RecipeListContainerViewModelPro
         viewDidLoadRelay.accept(())
     }
     
+    public func viewDidAppear() {
+        viewDidAppearRelay.accept(())
+    }
+    
     public func recipeList(url: URL?) {
-        recipeListURLRelay.accept(url)
+        guard let url = url else {
+            recipeListURLRelay.accept(nil)
+            return }
         
-        guard let url = url else { return }
-        storage.recipeListURL = url
+        recipeListURLRelay.accept(url)
     }
     
     public func reload() {
@@ -58,9 +65,11 @@ public final class RecipeListContainerViewModel: RecipeListContainerViewModelPro
     // MARK: Outputs
     public let recipeListViewModel: Observable<RecipeListViewModelProtocol?>
     public let isLoading: Observable<Bool>
+    public var needsRecipesURL: Observable<Void>
 
-    private let recipeListURLRelay = BehaviorRelay<URL?>(value: nil)
+    private let recipeListURLRelay: BehaviorRelay<URL?>
     private let viewDidLoadRelay = PublishRelay<Void>()
+    private let viewDidAppearRelay = PublishRelay<Void>()
     private let reloadRelay = BehaviorRelay<Void>(value: ())
     private let didSelectRecipeRelay = PublishRelay<ShortRecipe>()
     public var didSelectRecipe: Observable<ShortRecipe> {
@@ -71,12 +80,14 @@ public final class RecipeListContainerViewModel: RecipeListContainerViewModelPro
             .map { $0 != nil }
             .asObservable()
     }
+    
     public init(recipeListURL: URL?,
                 downloader: DownloaderProtocol = Downloader(),
                 storage: KeyValueStore = UserDefaults.standard) {
         self.downloader = downloader
         self.storage = storage
-        recipeListURLRelay.accept(recipeListURL)
+        let recipeListURLRelay = BehaviorRelay<URL?>(value: recipeListURL)
+        self.recipeListURLRelay = recipeListURLRelay
     
         let viewDidLoad = viewDidLoadRelay.asObservable()
         let gotURL = recipeListURLRelay.asObservable()
@@ -86,6 +97,15 @@ public final class RecipeListContainerViewModel: RecipeListContainerViewModelPro
                            viewDidLoad,
                            reloadRelay.asObservable())
             .map { url, _, _ in url }
+        
+        needsRecipesURL = Observable
+            .combineLatest(gotURL,
+                           viewDidAppearRelay.asObservable(),
+                           reloadRelay.asObservable())
+            .filter({ input in
+                let (url, _, _) = input
+                return url == nil })
+            .map { _ in () }
         
         recipeListViewModel = shouldLoadRecipes
             .flatMap { url -> Observable<RecipeList?> in
@@ -99,8 +119,13 @@ public final class RecipeListContainerViewModel: RecipeListContainerViewModelPro
             .map { recipe in
                 guard let recipe = recipe else { return nil }
                 return RecipeListViewModel(recipeList: recipe)
-            }
+            }.do(onNext: {
+                guard $0 != nil && recipeListURL == nil && storage.recipeListURL == nil else { return }
+                storage.recipeListURL = recipeListURLRelay.value
+            })
         
-        isLoading = downloader.isLoading.asObservable()
+        isLoading = downloader.isLoading
+            .distinctUntilChanged()
+            .asObservable()
     }
 }

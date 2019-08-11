@@ -96,9 +96,9 @@ public struct ShortRecipe: Codable, Equatable {
     /// URL to recipe
     public let sourceURL: URL
     /// Images of a recipe, cooking process etc.
-    public let imageURL: URL
+    public let imageURL: URL?
     
-    public init(name: String, sourceURL: URL, imageURL: URL) {
+    public init(name: String, sourceURL: URL, imageURL: URL?) {
         self.name = name
         self.sourceURL = sourceURL
         self.imageURL = imageURL

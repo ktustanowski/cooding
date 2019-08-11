@@ -79,6 +79,8 @@ public final class RecipeViewModel: RecipeViewModelProtocol {
                                                                   description: steps))
         let startCookingCell = RecipeCellType.buttonCell(ButtonCellViewModel(title: "Start Cooking")) //TODO: Translations
         
+        //TODO: Display only cell which have content.
+        
         items = .just([SectionModel(model: "MainSection", items: [imageCell,
                                                                   ingredientsCell,
                                                                   dependenciesCell,

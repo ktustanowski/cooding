@@ -24,6 +24,12 @@ public final class RecipeListContainerViewController: UIViewController {
         bindViewModel()
         viewModel.input.viewDidLoad()
     }
+    
+    public override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        viewModel.input.viewDidAppear()
+    }
 }
 
 private extension RecipeListContainerViewController {
@@ -45,14 +51,14 @@ private extension RecipeListContainerViewController {
             .filter { $0 == true }
             .subscribe { [weak self]_ in
                 guard let strongSelf = self else { return }
+                print("EL:: \(self)")
                 self?.embedLoadingIndicator(theme: strongSelf.theme,
                                             in: strongSelf.contentContainer)
             }
             .disposed(by: disposeBag)
         
-        viewModel.output.hasRecipeListURL
+        viewModel.output.needsRecipesURL
             .observeOn(MainScheduler.instance)
-            .filter { $0 == false }
             .subscribe { [weak self] _ in
                 self?.askForRecipeListURL()
             }
