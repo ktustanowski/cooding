@@ -56,10 +56,10 @@ public final class DashboardViewModel: DashboardViewModelProtocol {
                 downloader: DownloaderProtocol = Downloader()) {
         allRecipiesViewModel = RecipeListContainerViewModel(recipeListURL: allRecipiesURL,
                                                             downloader: downloader)
-        allRecipiesButtonTitle = "All" // TODO: Translations
+        allRecipiesButtonTitle = "dasboard.all".localized
 
         myRecipiesViewModel = RecipeListContainerViewModel(recipeListURL: storage.recipeListURL,
                                                            downloader: downloader)
-        myRecipiesButtonTitle = "My" // TODO: Translations
+        myRecipiesButtonTitle = "dasboard.my".localized
     }
 }

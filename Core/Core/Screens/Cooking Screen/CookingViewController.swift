@@ -24,7 +24,7 @@ public final class CookingViewController: UITableViewController {
 
 private extension CookingViewController {
     func setupUI() {
-        title = "Cooking steps" //TODO: Translation
+        title = "cooking.screen.title".localized
         tableView.register(StepTableCell.nib, forCellReuseIdentifier: StepTableCell.nibName)
         tableView.separatorStyle = .none
         setupNavigationBar()

@@ -112,20 +112,20 @@ private extension RecipeListContainerViewController {
     }
     
     func presentEnterRecipeURLAlert(onInput: @escaping ((URL?) -> Void)) {
-        let alert = UIAlertController(title: "Hello there!", //TODO: Translations
-                                      message: "Please input your own recipe list repository URL", //TODO: Translations
-                                      preferredStyle: .alert) //TODO: Translations
+        let alert = UIAlertController(title: "recipe.list.screen.url.alert.title".localized,
+                                      message: "recipe.list.screen.url.alert.message".localized,
+                                      preferredStyle: .alert)
         alert.view.tintColor = theme.action
-        let action = UIAlertAction(title: "Done", style: .default) { _ in //TODO: Translations
+        let action = UIAlertAction(title: "done".localized, style: .default) { _ in
             let urlString = alert.textFields?.first?.text ?? ""
             onInput(URL(string: urlString))
         }
         
         alert.addTextField { textField in
-            textField.placeholder = "Your recipe repository URL" //TODO: Translations
+            textField.placeholder = "recipe.list.screen.url.alert.text.placeholder".localized
         }
         
-        let dismiss = UIAlertAction(title: "Close", style: .cancel, handler: nil) //TODO: Translations
+        let dismiss = UIAlertAction(title: "close".localized, style: .cancel, handler: nil)
         
         alert.addAction(action)
         alert.addAction(dismiss)

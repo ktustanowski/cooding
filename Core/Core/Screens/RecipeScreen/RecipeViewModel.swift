@@ -71,13 +71,13 @@ public final class RecipeViewModel: RecipeViewModelProtocol {
         
         let imageCell = RecipeCellType.imageCell(FullImageCellViewModel(title: nil,
                                                                         imageURL: recipe.imagesURL?.first))
-        let ingredientsCell = RecipeCellType.listCell(ListCellViewModel(title: "\(algorithm.ingredients.count) Ingredients", //TODO: Translations
+        let ingredientsCell = RecipeCellType.listCell(ListCellViewModel(title: "\(algorithm.ingredients.count) ingredients".localized,
                                                                         description: ingredients))
-        let dependenciesCell = RecipeCellType.listCell(ListCellViewModel(title: "\(algorithm.dependencies.count) Dependencies", //TODO: Translations
+        let dependenciesCell = RecipeCellType.listCell(ListCellViewModel(title: "\(algorithm.dependencies.count) dependencies".localized,
                                                                          description: dependencies))
-        let stepsCell = RecipeCellType.listCell(ListCellViewModel(title: "\(algorithm.steps.count) Steps", //TODO: Translations
+        let stepsCell = RecipeCellType.listCell(ListCellViewModel(title: "\(algorithm.steps.count) \("steps".localized)",
                                                                   description: steps))
-        let startCookingCell = RecipeCellType.buttonCell(ButtonCellViewModel(title: "Start Cooking")) //TODO: Translations
+        let startCookingCell = RecipeCellType.buttonCell(ButtonCellViewModel(title: "recipe.screen.action.button.title".localized))
         
         //TODO: Display only cell which have content.
         

@@ -70,7 +70,7 @@ private extension StepTableCell {
         
         viewModel.output.isCountdown
             .observeOn(MainScheduler.instance)
-            .map { $0 ? "Pause" : "Start" } //TODO: Translations
+            .map { $0 ? "step.cell.pause".localized : "step.cell.start".localized }
             .bind(to: timerButton.rx.title(for: .normal))
             .disposed(by: disposeBag)
         
@@ -119,7 +119,7 @@ private extension StepTableCell {
     }
     
     func showDoneButton() {
-        doneButton.setTitle("Done", for: .normal) //TODO: Translate
+        doneButton.setTitle("done".localized, for: .normal)
         doneButton.setImage(nil, for: .normal)
         doneButton.tintColor = theme.action
     }

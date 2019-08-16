@@ -42,7 +42,7 @@ public struct ScreenMaker: ScreenMakeable {
 
     public func makeSuccessScreen() -> SuccessViewController {
         let successScreen = SuccessViewController.make()
-        successScreen.viewModel = SuccessViewModel(title: "Enjoy!", //TODO: Translations
+        successScreen.viewModel = SuccessViewModel(title: "success.screen.enjoy".localized,
                                                    imageName: "meal")
         successScreen.loadViewIfNeeded()
         

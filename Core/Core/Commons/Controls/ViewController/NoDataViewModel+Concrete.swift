@@ -9,15 +9,15 @@
 import Foundation
 
 extension NoDataViewModel {
-    static var cantLoadRecipe: NoDataViewModel {
-        return NoDataViewModel(title: "Uh oh!", //TODO: Translations
-            message: "I couldn't load recipe. Sorry about that...", //TODO: Translations
+    static var cantLoadRecipe: NoDataViewModel {        
+        return NoDataViewModel(title: "error.title".localized,
+            message: "error.screen.didnt.load.recipe".localized,
             isRetryAvailable: true)
     }
     
     static var cantLoadRecipes: NoDataViewModel {
-        return NoDataViewModel(title: "Uh oh!", //TODO: Translations
-            message: "I couldn't load recipies. Sorry about that...", //TODO: Translations
+        return NoDataViewModel(title: "error.title".localized,
+            message: "error.screen.didnt.load.recipies".localized,
             isRetryAvailable: true)
     }
 }
