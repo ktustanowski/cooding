@@ -1,5 +1,9 @@
 <WORK IN PROGRESS>
   
+<p align="center">
+  <img src="https://raw.githubusercontent.com/ktustanowski/cooding/master/Resources/app_icon.png"/>
+</p>
+
 # Cooding
 Cooking and coding has a lot more in common than you could think!
 
@@ -30,6 +34,9 @@ Note: ingredients are only something needed to be acquired before cooking. So if
 If you want to know more and to try it out please check `MakeRecipe` playground in the cooding repository. It's configured in a way to show parsed recipe data in the console but also in the application (live view feature).
 ![Application screens](https://raw.githubusercontent.com/ktustanowski/cooding/master/Resources/making_a_recipe.png)
 It's wysiwyg and in the end you get a json ready to be used. Wait? A json? Let me explain.
+
+## Make your own recipe - pure text editor - no xcode needed
+If you don't want the syntax checking and wysiwyg, don't want to clone the repository. Any of this stuff. You can still use the app. Just check the exaple recipes and do the same with any text editor. As soon as you place it on github, or wherever - because it's all about urls and valid jsons. You will see your recipes in the application. You just have to paste correct url to my section of the application.
 
 ## Add the recipe to the repository
 Since cooking is similar to coding a bit. We are using algorithms etc. I thought that it would be nice to have recipies in repositories. Like code:
@@ -70,9 +77,7 @@ The overall polish, animations etc. is also coming.
 # Project setup
 After cloning the project go to the cooding folder and do:
 ```
-carthage bootstrap --platform iOS
-cd Core
-carthage bootstrap --platform iOS
+./fastlane/carthage_bootstrap.sh
 ```
 # Thanks
 Big thanks to Kickstarter, be sure to check out the https://github.com/kickstarter/ios-oss
