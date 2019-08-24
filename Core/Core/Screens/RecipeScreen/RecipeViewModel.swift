@@ -71,9 +71,9 @@ public final class RecipeViewModel: RecipeViewModelProtocol {
         
         let imageCell = RecipeCellType.imageCell(FullImageCellViewModel(title: nil,
                                                                         imageURL: recipe.imagesURL?.first))
-        let ingredientsCell = RecipeCellType.listCell(ListCellViewModel(title: "\(algorithm.ingredients.count) ingredients".localized,
+        let ingredientsCell = RecipeCellType.listCell(ListCellViewModel(title: "\(algorithm.ingredients.count) \("ingredients".localized)",
                                                                         description: ingredients))
-        let dependenciesCell = RecipeCellType.listCell(ListCellViewModel(title: "\(algorithm.dependencies.count) dependencies".localized,
+        let dependenciesCell = RecipeCellType.listCell(ListCellViewModel(title: "\(algorithm.dependencies.count) \("dependencies".localized)".localized,
                                                                          description: dependencies))
         let stepsCell = RecipeCellType.listCell(ListCellViewModel(title: "\(algorithm.steps.count) \("steps".localized)",
                                                                   description: steps))

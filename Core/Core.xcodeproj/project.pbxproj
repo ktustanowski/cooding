@@ -57,7 +57,6 @@
 		9AD3227F22EE0823002F9C6B /* AlgorithmParserTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AD3227E22EE0823002F9C6B /* AlgorithmParserTests.swift */; };
 		9ADB3E5B22EDAD1500035D2A /* RecipeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ADB3E5A22EDAD1500035D2A /* RecipeViewController.swift */; };
 		9ADB3E5D22EDAD2200035D2A /* RecipeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ADB3E5C22EDAD2200035D2A /* RecipeViewModel.swift */; };
-		9ADD4F7C23006AFC00771F80 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 9ADD4F7E23006AFC00771F80 /* Localizable.strings */; };
 		9ADD4F8023006C8500771F80 /* String+Localizations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ADD4F7F23006C8500771F80 /* String+Localizations.swift */; };
 		9AF3509622ED97B700D42922 /* TimeInterval+Formatting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AF3509522ED97B700D42922 /* TimeInterval+Formatting.swift */; };
 		9AF3509822ED97D500D42922 /* TimeInterval+Convenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AF3509722ED97D500D42922 /* TimeInterval+Convenience.swift */; };
@@ -139,7 +138,6 @@
 		9AD3227E22EE0823002F9C6B /* AlgorithmParserTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlgorithmParserTests.swift; sourceTree = "<group>"; };
 		9ADB3E5A22EDAD1500035D2A /* RecipeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeViewController.swift; sourceTree = "<group>"; };
 		9ADB3E5C22EDAD2200035D2A /* RecipeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeViewModel.swift; sourceTree = "<group>"; };
-		9ADD4F7D23006AFC00771F80 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		9ADD4F7F23006C8500771F80 /* String+Localizations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Localizations.swift"; sourceTree = "<group>"; };
 		9AF3509522ED97B700D42922 /* TimeInterval+Formatting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "TimeInterval+Formatting.swift"; path = "Core/Commons/Utilities/TimeInterval+Formatting.swift"; sourceTree = SOURCE_ROOT; };
 		9AF3509722ED97D500D42922 /* TimeInterval+Convenience.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TimeInterval+Convenience.swift"; sourceTree = "<group>"; };
@@ -370,18 +368,9 @@
 			path = RecipeScreen;
 			sourceTree = "<group>";
 		};
-		9ADD4F7B23006ABA00771F80 /* Localizations */ = {
-			isa = PBXGroup;
-			children = (
-				9ADD4F7E23006AFC00771F80 /* Localizable.strings */,
-			);
-			path = Localizations;
-			sourceTree = "<group>";
-		};
 		9AF958E222C8E17C0055B204 = {
 			isa = PBXGroup;
 			children = (
-				9ADD4F7B23006ABA00771F80 /* Localizations */,
 				9A51E67622D677B300A27ACF /* Cartfile */,
 				9AF958EE22C8E17C0055B204 /* Core */,
 				9AF958F922C8E17C0055B204 /* CoreTests */,
@@ -548,7 +537,6 @@
 				9A507CB422EA2A9A00D1C8F9 /* StepTableCell.xib in Resources */,
 				9A51E67722D677B300A27ACF /* Cartfile in Resources */,
 				9A0985BA22F0A83000A47127 /* Common.storyboard in Resources */,
-				9ADD4F7C23006AFC00771F80 /* Localizable.strings in Resources */,
 				9AF9970622F2362A00E9413C /* FullImageTableCell.xib in Resources */,
 				9ABF8ABF2306D009005C3C49 /* ListTableCell.xib in Resources */,
 				9AC269D622EF8EC60080CA7E /* Dashboard.storyboard in Resources */,
@@ -694,17 +682,6 @@
 			targetProxy = 9AF958F722C8E17C0055B204 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
-
-/* Begin PBXVariantGroup section */
-		9ADD4F7E23006AFC00771F80 /* Localizable.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				9ADD4F7D23006AFC00771F80 /* en */,
-			);
-			name = Localizable.strings;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		9AF958FE22C8E17C0055B204 /* Debug */ = {

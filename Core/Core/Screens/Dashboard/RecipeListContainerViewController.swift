@@ -51,7 +51,6 @@ private extension RecipeListContainerViewController {
             .filter { $0 == true }
             .subscribe { [weak self]_ in
                 guard let strongSelf = self else { return }
-                print("EL:: \(self)")
                 self?.embedLoadingIndicator(theme: strongSelf.theme,
                                             in: strongSelf.contentContainer)
             }

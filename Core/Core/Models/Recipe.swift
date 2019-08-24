@@ -151,7 +151,6 @@ public struct Recipe: Codable, Equatable {
         let rawSteps = rawAlgorithm.components(separatedBy: "\n")
         let rawAlgorithmUpdated = rawSteps.joined(separator: "\\n")
 
-        print(rawAlgorithmUpdated)
         output += "\"rawAlgorithm\": \"\(rawAlgorithmUpdated)\",\n"
 
         if let time = time {

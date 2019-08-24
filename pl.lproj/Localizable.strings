@@ -1,0 +1,41 @@
+/*
+ Localizable.strings
+ Core
+
+ Created by Kamil Tustanowski on 11/08/2019.
+ Copyright © 2019 Kamil Tustanowski. All rights reserved.
+ */
+
+// General
+"error.title" = "Uh oh!";
+"done" = "Done";
+"close" = "Close";
+"ingredients" = "Ingredients";
+"dependencies" = "Dependencies";
+"steps" = "Steps";
+
+// Dashboard Screen
+"dasboard.all" = "All";
+"dasboard.my" = "My";
+
+// Error screen
+"error.screen.didnt.load.recipe" = "I couldn't load recipe. Sorry about that...";
+"error.screen.didnt.load.recipies" = "I couldn't load recipies. Sorry about that...";
+
+// Success screen
+"success.screen.enjoy" = "Enjoy!";
+
+// Recipe list screen
+"recipe.list.screen.url.alert.title" = "Hello there!";
+"recipe.list.screen.url.alert.message" = "Please input your own recipe list repository URL";
+"recipe.list.screen.url.alert.text.placeholder" = "Your recipe repository URL";
+
+// Recipe screen
+"recipe.screen.action.button.title" = "Start Cooking";
+
+// Cooking screen
+"cooking.screen.title" = "Cooking steps";
+
+// Step Table Cell
+"step.cell.start" = "Start";
+"step.cell.pause" = "Pause";

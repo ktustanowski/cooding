@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		087BAA802306E6580023E111 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 087BAA822306E6580023E111 /* Localizable.strings */; };
 		9A34485322F57F5B00AC7DC1 /* Kingfisher.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 9A34485022F57F5A00AC7DC1 /* Kingfisher.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		9A51E67122D3BA1200A27ACF /* Core.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9AF9590C22C8E17D0055B204 /* Core.framework */; };
 		9A51E67922E768C500A27ACF /* SnapshotTesting.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A51E67822E768C500A27ACF /* SnapshotTesting.framework */; };
@@ -95,6 +96,10 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		087BAA812306E6580023E111 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		087BAA842306E8A70023E111 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		087BAA852306E8A70023E111 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		087BAA862306E8D40023E111 /* pl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = pl; path = pl.lproj/Localizable.strings; sourceTree = "<group>"; };
 		9A34485022F57F5A00AC7DC1 /* Kingfisher.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Kingfisher.framework; path = Core/Carthage/Build/iOS/Kingfisher.framework; sourceTree = "<group>"; };
 		9A51E67822E768C500A27ACF /* SnapshotTesting.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SnapshotTesting.framework; path = Carthage/Build/iOS/SnapshotTesting.framework; sourceTree = "<group>"; };
 		9A51E68422E76AFE00A27ACF /* CookingViewControllerSnapshotTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CookingViewControllerSnapshotTests.swift; sourceTree = "<group>"; };
@@ -119,10 +124,8 @@
 		9AF350A822EDA49800D42922 /* String+TestData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+TestData.swift"; sourceTree = "<group>"; };
 		9AF958B922C8DCD10055B204 /* Cooding.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Cooding.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9AF958BC22C8DCD10055B204 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		9AF958C122C8DCD10055B204 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		9AF958C422C8DCD10055B204 /* Cooding.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Cooding.xcdatamodel; sourceTree = "<group>"; };
 		9AF958C622C8DCD30055B204 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		9AF958C922C8DCD30055B204 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		9AF958CB22C8DCD30055B204 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9AF958D022C8DCD30055B204 /* CoodingTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CoodingTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9AF958D622C8DCD30055B204 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -236,6 +239,7 @@
 		9AF958B022C8DCD10055B204 = {
 			isa = PBXGroup;
 			children = (
+				087BAA822306E6580023E111 /* Localizable.strings */,
 				9A6FCFBC22F71FD0009BDCCC /* MakeRecipe.playground */,
 				9AC269BC22EF5F880080CA7E /* Operations.playground */,
 				9AF9591722C8E4FD0055B204 /* Visuals.playground */,
@@ -364,6 +368,7 @@
 			knownRegions = (
 				en,
 				Base,
+				pl,
 			);
 			mainGroup = 9AF958B022C8DCD10055B204;
 			productRefGroup = 9AF958BA22C8DCD10055B204 /* Products */;
@@ -405,6 +410,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9AF958CA22C8DCD30055B204 /* LaunchScreen.storyboard in Resources */,
+				087BAA802306E6580023E111 /* Localizable.strings in Resources */,
 				9AF958C722C8DCD30055B204 /* Assets.xcassets in Resources */,
 				9AF958C222C8DCD10055B204 /* Main.storyboard in Resources */,
 			);
@@ -506,10 +512,19 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		087BAA822306E6580023E111 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				087BAA812306E6580023E111 /* en */,
+				087BAA862306E8D40023E111 /* pl */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
 		9AF958C022C8DCD10055B204 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				9AF958C122C8DCD10055B204 /* Base */,
+				087BAA842306E8A70023E111 /* Base */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -517,7 +532,7 @@
 		9AF958C822C8DCD30055B204 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				9AF958C922C8DCD30055B204 /* Base */,
+				087BAA852306E8A70023E111 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
@@ -529,6 +544,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -576,7 +592,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -590,6 +606,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -631,7 +648,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
