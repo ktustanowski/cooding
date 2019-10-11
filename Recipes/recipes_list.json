@@ -4,6 +4,21 @@
             "name": "Pancakes",
             "sourceURL": "https://raw.githubusercontent.com/ktustanowski/recipes/master/pancakes.json",
             "imageURL": "https://cdn.pixabay.com/photo/2016/10/27/22/07/pancake-1776646_1280.jpg"
+        },
+        {
+            "name": "Pumpkin cream soup",
+            "sourceURL": "https://raw.githubusercontent.com/ktustanowski/recipes/master/pumpkin_cream_soup.json",
+            "imageURL": "https://raw.githubusercontent.com/ktustanowski/recipes/master/pumpkin_cream_soup.jpg"
+        },
+        {
+            "name": "Pancakes",
+            "sourceURL": "https://raw.githubusercontent.com/ktustanowski/recipes/master/pancakes.json",
+            "imageURL": "https://cdn.pixabay.com/photo/2016/10/27/22/07/pancake-1776646_1280.jpg"
+        },
+        {
+            "name": "Sunflower Pesto",
+            "sourceURL": "https://raw.githubusercontent.com/ktustanowski/recipes/master/sunflower_pesto.json",
+            "imageURL": "https://raw.githubusercontent.com/ktustanowski/recipes/master/sunflower_pesto.jpg"
         }
     ]
 }
