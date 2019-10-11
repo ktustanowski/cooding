@@ -30,10 +30,7 @@ public class Downloader: DownloaderProtocol {
     
     public func download<T: Codable>(url: URL) -> Observable<T> {
         return Observable<T>.create({ [weak self] observer in
-            let config = URLSessionConfiguration.default
-            config.requestCachePolicy = .reloadIgnoringLocalCacheData
-            config.urlCache = nil //TODO: Check whether URL cache doesn't break github integration and waiting times
-            let dataTask = URLSession(configuration: config).dataTask(with: url) { data, _, error in
+            let dataTask = URLSession.shared.dataTask(with: url) { data, _, error in
                 self?.isLoadingRelay.accept(false)
                 guard let data = data else {
                     observer.onError(DownloadError.noData)
