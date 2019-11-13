@@ -11,7 +11,8 @@
         <page name='NoDataViewController'/>
         <page name='StepTableCell'/>
         <page name='ListTableCell'/>
-        <page name='FullImageCell'/>
+        <page name='FullImageTableCell'/>
         <page name='ButtonTableCell'/>
+        <page name='SliderTableCell'/>
     </pages>
 </playground>
