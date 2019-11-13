@@ -14,19 +14,19 @@ import RxRelay
 public struct SliderCellViewModel {
     // MARK: Inputs
     public func sliderDidSlide(to value: Float) {
-        valueRelay.accept(value)
+        self.value.accept(value)
     }
     
     // MARK: Outputs
     public let minimum: Float
     public let maximum: Float
-    public var value: Observable<Float>
-    private var valueRelay = BehaviorRelay<Float>(value: 0)
+    /// Use sliderDidSlide(to value: Float) to change the value instead of using the relay directly
+    public let value: BehaviorRelay<Float>
     
-    public init(minimum: Float = 1, maximum: Float = 1) {
+    public init(minimum: Float = 1, maximum: Float = 1, value: Float = 1) {
         self.minimum = minimum
         self.maximum = maximum
-        value = valueRelay.asObservable()
+        self.value = BehaviorRelay<Float>(value: value)
     }
 }
 
@@ -35,7 +35,8 @@ public final class SliderTableCell: UITableViewCell {
     public var viewModel: SliderCellViewModel! {
         didSet {
             slider.minimumValue = viewModel.minimum
-            slider.maximumValue = viewModel.maximum            
+            slider.maximumValue = viewModel.maximum
+            slider.value = viewModel.value.value
             bindViewModel()
         }
     }

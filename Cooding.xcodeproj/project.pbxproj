@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		087BAA802306E6580023E111 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 087BAA822306E6580023E111 /* Localizable.strings */; };
+		9A037155237CC0DC00EB56AB /* SliderTableCellSnapshotTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A037154237CC0DC00EB56AB /* SliderTableCellSnapshotTests.swift */; };
 		9A34485322F57F5B00AC7DC1 /* Kingfisher.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 9A34485022F57F5A00AC7DC1 /* Kingfisher.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		9A51E67122D3BA1200A27ACF /* Core.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9AF9590C22C8E17D0055B204 /* Core.framework */; };
 		9A51E67922E768C500A27ACF /* SnapshotTesting.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A51E67822E768C500A27ACF /* SnapshotTesting.framework */; };
@@ -28,7 +29,7 @@
 		9A6FCFAB22F6FFB0009BDCCC /* ProgressIndicatorViewControllerSnapshotTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A6FCFAA22F6FFB0009BDCCC /* ProgressIndicatorViewControllerSnapshotTests.swift */; };
 		9A6FCFAD22F70057009BDCCC /* ListTableCellSnapshotTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A6FCFAC22F70057009BDCCC /* ListTableCellSnapshotTests.swift */; };
 		9A6FCFAF22F70233009BDCCC /* FullImageTableCellSnapshotTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A6FCFAE22F70233009BDCCC /* FullImageTableCellSnapshotTests.swift */; };
-		9A6FCFB122F70480009BDCCC /* ButtonTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A6FCFB022F70480009BDCCC /* ButtonTableCell.swift */; };
+		9A6FCFB122F70480009BDCCC /* ButtonTableCellSnapshotTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A6FCFB022F70480009BDCCC /* ButtonTableCellSnapshotTests.swift */; };
 		9A705D0A22E7A351003AA381 /* StepStub.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A705D0922E7A351003AA381 /* StepStub.swift */; };
 		9AD3228122EE0887002F9C6B /* RecipeViewControllerSnapshotTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AD3228022EE0887002F9C6B /* RecipeViewControllerSnapshotTests.swift */; };
 		9AF3509C22ED9FB700D42922 /* RecipeFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AF3509B22ED9FB700D42922 /* RecipeFactory.swift */; };
@@ -100,6 +101,7 @@
 		087BAA842306E8A70023E111 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		087BAA852306E8A70023E111 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		087BAA862306E8D40023E111 /* pl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = pl; path = pl.lproj/Localizable.strings; sourceTree = "<group>"; };
+		9A037154237CC0DC00EB56AB /* SliderTableCellSnapshotTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SliderTableCellSnapshotTests.swift; sourceTree = "<group>"; };
 		9A34485022F57F5A00AC7DC1 /* Kingfisher.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Kingfisher.framework; path = Core/Carthage/Build/iOS/Kingfisher.framework; sourceTree = "<group>"; };
 		9A51E67822E768C500A27ACF /* SnapshotTesting.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SnapshotTesting.framework; path = Carthage/Build/iOS/SnapshotTesting.framework; sourceTree = "<group>"; };
 		9A51E68422E76AFE00A27ACF /* CookingViewControllerSnapshotTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CookingViewControllerSnapshotTests.swift; sourceTree = "<group>"; };
@@ -112,7 +114,7 @@
 		9A6FCFAA22F6FFB0009BDCCC /* ProgressIndicatorViewControllerSnapshotTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressIndicatorViewControllerSnapshotTests.swift; sourceTree = "<group>"; };
 		9A6FCFAC22F70057009BDCCC /* ListTableCellSnapshotTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListTableCellSnapshotTests.swift; sourceTree = "<group>"; };
 		9A6FCFAE22F70233009BDCCC /* FullImageTableCellSnapshotTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullImageTableCellSnapshotTests.swift; sourceTree = "<group>"; };
-		9A6FCFB022F70480009BDCCC /* ButtonTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonTableCell.swift; sourceTree = "<group>"; };
+		9A6FCFB022F70480009BDCCC /* ButtonTableCellSnapshotTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonTableCellSnapshotTests.swift; sourceTree = "<group>"; };
 		9A6FCFBC22F71FD0009BDCCC /* MakeRecipe.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = MakeRecipe.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		9A705D0922E7A351003AA381 /* StepStub.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StepStub.swift; sourceTree = "<group>"; };
 		9AC269BC22EF5F880080CA7E /* Operations.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = Operations.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
@@ -231,7 +233,8 @@
 				9AF350A622EDA1B400D42922 /* StepTableCellSnapshotTests.swift */,
 				9A6FCFAC22F70057009BDCCC /* ListTableCellSnapshotTests.swift */,
 				9A6FCFAE22F70233009BDCCC /* FullImageTableCellSnapshotTests.swift */,
-				9A6FCFB022F70480009BDCCC /* ButtonTableCell.swift */,
+				9A6FCFB022F70480009BDCCC /* ButtonTableCellSnapshotTests.swift */,
+				9A037154237CC0DC00EB56AB /* SliderTableCellSnapshotTests.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -485,6 +488,7 @@
 				9A51E68522E76AFE00A27ACF /* CookingViewControllerSnapshotTests.swift in Sources */,
 				9AD3228122EE0887002F9C6B /* RecipeViewControllerSnapshotTests.swift in Sources */,
 				9A6FCFAF22F70233009BDCCC /* FullImageTableCellSnapshotTests.swift in Sources */,
+				9A037155237CC0DC00EB56AB /* SliderTableCellSnapshotTests.swift in Sources */,
 				9AF3509C22ED9FB700D42922 /* RecipeFactory.swift in Sources */,
 				9AF350A322EDA07300D42922 /* XCTest+SnapshotTesting.swift in Sources */,
 				9A6FCF9322F6DA7F009BDCCC /* DashboardViewControllerSnapshotTests.swift in Sources */,
@@ -492,7 +496,7 @@
 				9A6FCFA322F6E84B009BDCCC /* RecipeStubs.swift in Sources */,
 				9AF350A922EDA49800D42922 /* String+TestData.swift in Sources */,
 				9A6FCFAD22F70057009BDCCC /* ListTableCellSnapshotTests.swift in Sources */,
-				9A6FCFB122F70480009BDCCC /* ButtonTableCell.swift in Sources */,
+				9A6FCFB122F70480009BDCCC /* ButtonTableCellSnapshotTests.swift in Sources */,
 				9A6FCFA922F6FE99009BDCCC /* SuccessViewControllerSnapshotTests.swift in Sources */,
 				9AF350A722EDA1B400D42922 /* StepTableCellSnapshotTests.swift in Sources */,
 				9A705D0A22E7A351003AA381 /* StepStub.swift in Sources */,
