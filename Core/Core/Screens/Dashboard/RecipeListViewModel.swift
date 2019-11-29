@@ -17,23 +17,29 @@ public protocol RecipeListViewModelProtocol: RecipeListViewModelProtocolInputs, 
 
 public protocol RecipeListViewModelProtocolInputs {
     func itemSelected(indexPath: IndexPath)
+    func refreshTapped()
 }
 
 public protocol RecipeListViewModelProtocolOutputs {
     var recipies: Observable<[FullImageCellViewModel]> { get }
     var didSelectRecipe: Observable<ShortRecipe> { get }
+//    TODOKT: Seems I need to propagate this up to container - I forgot about it
 }
 
 public final class RecipeListViewModel: RecipeListViewModelProtocol {
+    public func refreshTapped() {
+        // TODOKT: Propagate this up to container view model!
+    }
+    
     public var input: RecipeListViewModelProtocolInputs { return self }
     public var output: RecipeListViewModelProtocolOutputs { return self }
     
-    // MARK: Outputs
+    // MARK: Inputs
     public func itemSelected(indexPath: IndexPath) {
         let recipe = recipeList.recipes[indexPath.row]
         didSelectRecipeRelay.accept(recipe)
     }
-    
+        
     // MARK: Outputs
     public var recipies: Observable<[FullImageCellViewModel]>
     public var didSelectRecipe: Observable<ShortRecipe> {
