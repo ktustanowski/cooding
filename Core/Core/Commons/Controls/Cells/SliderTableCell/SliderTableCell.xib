@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15400" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15404"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="gGn-k8-9Nm" customClass="SliderTableCell" customModule="Core" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="gGn-k8-9Nm" id="kyV-Yr-KJm">
+                <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="bWa-Pu-mEs">
+                        <rect key="frame" x="18" y="8" width="378" height="29"/>
+                    </slider>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="bottom" secondItem="bWa-Pu-mEs" secondAttribute="bottom" constant="8" id="Gjj-w2-ge9"/>
+                    <constraint firstAttribute="trailing" secondItem="bWa-Pu-mEs" secondAttribute="trailing" constant="20" id="OOu-IL-iVZ"/>
+                    <constraint firstItem="bWa-Pu-mEs" firstAttribute="top" secondItem="kyV-Yr-KJm" secondAttribute="top" constant="8" id="PNq-Ql-cEO"/>
+                    <constraint firstItem="bWa-Pu-mEs" firstAttribute="leading" secondItem="kyV-Yr-KJm" secondAttribute="leading" constant="20" id="j9h-i6-Ugq"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="slider" destination="bWa-Pu-mEs" id="qxq-yD-qib"/>
+            </connections>
+            <point key="canvasLocation" x="-194" y="45"/>
+        </tableViewCell>
+    </objects>
+</document>

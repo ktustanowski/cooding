@@ -24,6 +24,7 @@ public class ButtonTableCell: UITableViewCell {
     public var viewModel: ButtonCellViewModel! {
         didSet {
             button.setTitle(viewModel.title, for: .normal)
+            bindViewModel()
         }
     }
     
@@ -31,7 +32,18 @@ public class ButtonTableCell: UITableViewCell {
         super.prepareForReuse()
         disposeBag = DisposeBag()
         button.setTitle(nil, for: .normal)
+    }
+    
+    public override func awakeFromNib() {
+        super.awakeFromNib()
         
+        selectionStyle = .none
+        button.roundCorners(radius: Constants.ui.cornerRadius)
+    }
+}
+
+private extension ButtonTableCell {
+    func bindViewModel() {
         button.rx
             .controlEvent(.touchDown)
             .subscribe(onNext: { [weak self] in
@@ -45,13 +57,6 @@ public class ButtonTableCell: UITableViewCell {
                 self?.shrink(down: false)
             })
             .disposed(by: disposeBag)
-    }
-    
-    public override func awakeFromNib() {
-        super.awakeFromNib()
-        
-        selectionStyle = .none
-        button.roundCorners(radius: Constants.ui.cornerRadius)
     }
 }
 
