@@ -20,7 +20,7 @@
 
 // Error screen
 "error.screen.didnt.load.recipe" = "I couldn't load recipe. Sorry about that...";
-"error.screen.didnt.load.recipies" = "I couldn't load recipies. Sorry about that...";
+"error.screen.didnt.load.recipes" = "I couldn't load recipes. Sorry about that...";
 
 // Success screen
 "success.screen.enjoy" = "Enjoy!";

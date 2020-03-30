@@ -21,8 +21,10 @@ public protocol RecipeListViewModelProtocolInputs {
 }
 
 public protocol RecipeListViewModelProtocolOutputs {
-    var recipies: Observable<[FullImageCellViewModel]> { get }
+    var recipes: Observable<[FullImageCellViewModel]> { get }
+    
     var didSelectRecipe: Observable<ShortRecipe> { get }
+    // TODOKT: Add refresh here too
 //    TODOKT: Seems I need to propagate this up to container - I forgot about it
 }
 
@@ -41,7 +43,7 @@ public final class RecipeListViewModel: RecipeListViewModelProtocol {
     }
         
     // MARK: Outputs
-    public var recipies: Observable<[FullImageCellViewModel]>
+    public var recipes: Observable<[FullImageCellViewModel]>
     public var didSelectRecipe: Observable<ShortRecipe> {
         return didSelectRecipeRelay.asObservable()
     }
@@ -51,7 +53,7 @@ public final class RecipeListViewModel: RecipeListViewModelProtocol {
     
     public init(recipeList: RecipeList) {
         self.recipeList = recipeList
-        recipies = .just(recipeList.recipes
+        recipes = .just(recipeList.recipes
             .map { FullImageCellViewModel(title: $0.name,
                                           imageURL: $0.imageURL,
                                           shrinksOnTouch: true) })

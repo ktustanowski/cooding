@@ -17,7 +17,7 @@ extension NoDataViewModel {
     
     static var cantLoadRecipes: NoDataViewModel {
         return NoDataViewModel(title: "error.title".localized,
-            message: "error.screen.didnt.load.recipies".localized,
+            message: "error.screen.didnt.load.recipes".localized,
             isRetryAvailable: true)
     }
 }

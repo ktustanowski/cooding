@@ -37,7 +37,7 @@ private extension RecipeListViewController {
     }
     
     func bindViewModel() {
-        viewModel.output.recipies.bind(to: tableView
+        viewModel.output.recipes.bind(to: tableView
             .rx
             .items(cellIdentifier: FullImageTableCell.nibName)) { [weak self] _, viewModel, cell in
                 guard let cell = cell as? FullImageTableCell,
