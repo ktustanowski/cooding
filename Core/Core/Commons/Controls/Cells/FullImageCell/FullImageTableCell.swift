@@ -64,7 +64,7 @@ public class FullImageTableCell: UITableViewCell {
 }
 
 extension FullImageTableCell: Themable {
-    public func apply(theme: Theme) {
+    public func apply(theme: Theme = ThemeFactory.make()) {
         titleContainer.backgroundColor = theme.secondary
         titleLabel.textColor = theme.headerText
         backgroundColor = theme.primary

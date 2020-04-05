@@ -24,7 +24,7 @@ class DashboardControllerSnapshotTests: XCTestCase {
     func testInitialLook_WhenDataLoaded() {
         downloaderMock.simulateSuccess(with: RecipeList.default)
         sut = DashboardTabBarController(viewModel: DashboardViewModel(storage: dataStore, downloader: downloaderMock))
-        sut.apply(theme: DefaultTheme())
+        sut.apply(theme: LightTheme())
         
         defaultDevices.forEach { device in
             assertSnapshot(matching: sut, as: Snapshotting.image(on: device))
@@ -33,7 +33,7 @@ class DashboardControllerSnapshotTests: XCTestCase {
     
     func testInitialLook_WhenError() {
         sut = DashboardTabBarController(viewModel: DashboardViewModel(storage: dataStore, downloader: downloaderMock))
-        sut.apply(theme: DefaultTheme())
+        sut.apply(theme: LightTheme())
         
         defaultDevices.forEach { device in
             assertSnapshot(matching: sut, as: Snapshotting.image(on: device))

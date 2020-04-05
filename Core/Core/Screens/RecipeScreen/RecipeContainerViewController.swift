@@ -10,7 +10,7 @@ import Foundation
 import RxSwift
 
 public final class RecipeContainerViewController: UIViewController {
-    private var theme: Theme = DefaultTheme()
+    private var theme: Theme = ThemeFactory.make()
 
     public var viewModel: RecipeContainerViewModelProtocol!
     private let contentContainer = UIView(frame: .zero)
@@ -93,7 +93,7 @@ private extension RecipeContainerViewController {
 }
 
 extension RecipeContainerViewController: Themable {
-    public func apply(theme: Theme) {
+    public func apply(theme: Theme = ThemeFactory.make()) {
         self.theme = theme
         view.backgroundColor = theme.primary
     }

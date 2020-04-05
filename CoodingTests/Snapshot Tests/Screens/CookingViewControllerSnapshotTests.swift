@@ -21,7 +21,7 @@ class CookingViewControllerSnapshotTests: XCTestCase {
     func testInitialLook() {
         sut.viewModel = CookingViewModel(algorithm: Algorithm(ingredients: [], steps: RecipeFactory.pancakes(), dependencies: []))
         sut.loadViewIfNeeded()
-        sut.apply(theme: DefaultTheme())
+        sut.apply(theme: LightTheme())
 
         defaultDevices.forEach { device in
             assertSnapshot(matching: sut, as: Snapshotting.image(on: device))
@@ -31,7 +31,7 @@ class CookingViewControllerSnapshotTests: XCTestCase {
     func testInitialLook_VeryLongDescriptions() {
         sut.viewModel = CookingViewModel(algorithm: Algorithm(ingredients: [], steps: RecipeFactory.veryLongDescriptions(), dependencies: []))
         sut.loadViewIfNeeded()
-        sut.apply(theme: DefaultTheme())
+        sut.apply(theme: LightTheme())
         
         defaultDevices.forEach { device in
             assertSnapshot(matching: sut, as: Snapshotting.image(on: device))

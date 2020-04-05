@@ -61,9 +61,9 @@ private extension ButtonTableCell {
 }
 
 extension ButtonTableCell: Themable {
-    public func apply(theme: Theme) {
+    public func apply(theme: Theme = ThemeFactory.make()) {
         button.backgroundColor = theme.action
-        button.setTitleColor(theme.secondary, for: .normal)
+        button.setTitleColor(.white, for: .normal)
         backgroundColor = theme.primary
         contentView.backgroundColor = theme.primary
     }

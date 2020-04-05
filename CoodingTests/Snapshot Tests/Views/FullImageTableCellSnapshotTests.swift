@@ -18,7 +18,7 @@ class FullImageTableCellSnapshotTests: XCTestCase {
     override func setUp() {
         super.setUp()
         sut = FullImageTableCell.make()
-        sut.apply(theme: DefaultTheme())
+        sut.apply(theme: LightTheme())
     }
     
     func testInitialLook_WithTitle() {

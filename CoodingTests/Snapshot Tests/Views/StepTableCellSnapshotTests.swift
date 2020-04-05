@@ -16,7 +16,7 @@ class StepTableCellSnapshotTests: XCTestCase {
     override func setUp() {
         super.setUp()
         sut = StepTableCell.make()
-        sut.apply(theme: DefaultTheme())
+        sut.apply(theme: LightTheme())
     }
     
     func testShortDescriptionOnlyCell() {

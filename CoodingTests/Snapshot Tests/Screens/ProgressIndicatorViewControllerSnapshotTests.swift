@@ -18,7 +18,7 @@ class ProgressIndicatorViewControllerSnapshotTests: XCTestCase {
         super.setUp()
         sut = ProgressIndicatorViewController.make()
         sut.loadViewIfNeeded()
-        sut.apply(theme: DefaultTheme())
+        sut.apply(theme: LightTheme())
     }
     
     func testInitialLook() {

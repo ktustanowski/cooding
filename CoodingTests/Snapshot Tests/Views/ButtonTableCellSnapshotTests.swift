@@ -18,7 +18,7 @@ class ButtonTableCellSnapshotTests: XCTestCase {
     override func setUp() {
         super.setUp()
         sut = ButtonTableCell.make()
-        sut.apply(theme: DefaultTheme())
+        sut.apply(theme: LightTheme())
     }
     
     func testInitialLook_WithTitle() {

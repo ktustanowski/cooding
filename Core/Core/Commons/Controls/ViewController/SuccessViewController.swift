@@ -30,9 +30,9 @@ private extension SuccessViewController {
 }
 
 extension SuccessViewController: Themable {
-    public func apply(theme: Theme) {
-        titleLabel.textColor = theme.secondary
-        imageView.tintColor = theme.secondary
+    public func apply(theme: Theme = ThemeFactory.make()) {
+        titleLabel.textColor = .white
+        imageView.tintColor = .white
         view.backgroundColor = theme.primary
     }
 }

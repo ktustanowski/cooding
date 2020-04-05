@@ -126,7 +126,7 @@ private extension StepTableCell {
 }
 
 extension StepTableCell: Themable {
-    public func apply(theme: Theme) {
+    public func apply(theme: Theme = ThemeFactory.make()) {
         self.theme = theme
         doneButton.setTitleColor(theme.action, for: .normal)
         containerView.backgroundColor = theme.secondary

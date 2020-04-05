@@ -10,7 +10,7 @@ import UIKit
 import RxSwift
 
 extension UIViewController {
-    func replaceBackButtonWithBackArrow(theme: Theme = DefaultTheme()) {
+    func replaceBackButtonWithBackArrow(theme: Theme = ThemeFactory.make()) {
         let backArrow = UIBarButtonItem(image: UIImage(named: "backArrow"),
                                         style: .plain,
                                         target: nil,

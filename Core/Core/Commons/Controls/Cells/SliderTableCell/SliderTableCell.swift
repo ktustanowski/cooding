@@ -62,7 +62,7 @@ private extension SliderTableCell {
 }
 
 extension SliderTableCell: Themable {
-    public func apply(theme: Theme) {
+    public func apply(theme: Theme = ThemeFactory.make()) {
         slider.tintColor = theme.primary
         slider.thumbTintColor = theme.action
         slider.backgroundColor = theme.secondary

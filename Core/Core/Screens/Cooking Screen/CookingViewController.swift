@@ -11,7 +11,7 @@ import RxSwift
 import RxCocoa
 
 public final class CookingViewController: UITableViewController {
-    private var theme: Theme = DefaultTheme()
+    private var theme: Theme = ThemeFactory.make()
     public let disposeBag = DisposeBag()
     public var viewModel: CookingViewModelProtocol!
     
@@ -61,7 +61,7 @@ private extension CookingViewController {
 }
 
 extension CookingViewController: Themable {
-    public func apply(theme: Theme) {
+    public func apply(theme: Theme = ThemeFactory.make()) {
         self.theme = theme
         view.backgroundColor = theme.primary
         tableView.backgroundColor = theme.primary

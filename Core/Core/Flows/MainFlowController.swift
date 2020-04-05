@@ -74,7 +74,7 @@ public final class MainFlowController {
     public init(presenter: ScreenPresenter,
                 provider: ScreenMakeable = ScreenMaker(),
                 idle: IdleConfigurable = Idle(),
-                theme: Theme = DefaultTheme()) {
+                theme: Theme = ThemeFactory.make()) {
         self.idle = idle
         self.presenter = presenter
         self.provider = provider

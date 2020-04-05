@@ -18,7 +18,7 @@ class ListTableCellSnapshotTests: XCTestCase {
     override func setUp() {
         super.setUp()
         sut = ListTableCell.make()
-        sut.apply(theme: DefaultTheme())
+        sut.apply(theme: LightTheme())
     }
     
     func testInitialLook() {

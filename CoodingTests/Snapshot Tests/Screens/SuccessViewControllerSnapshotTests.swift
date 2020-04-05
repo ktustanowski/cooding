@@ -19,7 +19,7 @@ class SuccessViewControllerSnapshotTests: XCTestCase {
         sut.viewModel = SuccessViewModel(title: "Enjoy!",
                                          imageName: "meal")
         sut.loadViewIfNeeded()
-        sut.apply(theme: DefaultTheme())
+        sut.apply(theme: LightTheme())
     }
     
     func testInitialLook() {

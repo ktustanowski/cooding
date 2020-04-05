@@ -10,7 +10,7 @@ import UIKit
 import RxSwift
 
 public final class DashboardTabBarController: UITabBarController {
-    private var theme: Theme = DefaultTheme()
+    private var theme: Theme = ThemeFactory.make()
     public var viewModel: DashboardViewModelProtocol!
     public var disposeBag = DisposeBag()
     
@@ -68,7 +68,7 @@ private extension DashboardTabBarController {
 }
 
 extension DashboardTabBarController: Themable {
-    public func apply(theme: Theme) {
+    public func apply(theme: Theme = ThemeFactory.make()) {
         self.theme = theme
         tabBar.tintColor = theme.action
     }

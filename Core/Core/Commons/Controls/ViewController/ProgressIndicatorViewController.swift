@@ -24,7 +24,7 @@ extension ProgressIndicatorViewController: StoryboardMakeable {
 }
 
 extension ProgressIndicatorViewController: Themable {
-    public func apply(theme: Theme) {
+    public func apply(theme: Theme = ThemeFactory.make()) {
         view.backgroundColor = theme.primary
         progressBackgroundView.backgroundColor = theme.auxiliary
     }

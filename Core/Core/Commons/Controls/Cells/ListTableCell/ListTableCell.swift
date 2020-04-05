@@ -53,7 +53,7 @@ public class ListTableCell: UITableViewCell {
 }
 
 extension ListTableCell: Themable {
-    public func apply(theme: Theme) {
+    public func apply(theme: Theme = ThemeFactory.make()) {
         containerView.backgroundColor = theme.secondary
         titleLabel.textColor = theme.headerText
         descriptionLabel.textColor = theme.bodyText

@@ -11,7 +11,7 @@ import RxSwift
 import RxDataSources
 
 public final class RecipeViewController: UITableViewController {
-    private var theme: Theme = DefaultTheme()
+    private var theme: Theme = ThemeFactory.make()
     public let disposeBag = DisposeBag()
     public var viewModel: RecipeViewModelProtocol!
 
@@ -85,7 +85,7 @@ private extension RecipeViewController {
 }
 
 extension RecipeViewController: Themable {
-    public func apply(theme: Theme) {
+    public func apply(theme: Theme = ThemeFactory.make()) {
         self.theme = theme
         navigationController?.navigationBar.tintColor = theme.action
         view.backgroundColor = theme.primary

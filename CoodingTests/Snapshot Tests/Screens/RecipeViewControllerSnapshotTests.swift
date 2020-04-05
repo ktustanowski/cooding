@@ -27,7 +27,7 @@ class RecipeViewControllerSnapshotTests: XCTestCase {
     func testInitialLook_WhenDataLoaded() {
         downloaderMock.simulateSuccess(with: Recipe.pancakes)
         sut.loadViewIfNeeded()
-        sut.apply(theme: DefaultTheme())
+        sut.apply(theme: LightTheme())
         
         defaultDevices.forEach { device in
             assertSnapshot(matching: sut, as: Snapshotting.image(on: device))
@@ -36,7 +36,7 @@ class RecipeViewControllerSnapshotTests: XCTestCase {
     
     func testInitialLook_WhenLoadingFailed() {
         sut.loadViewIfNeeded()
-        sut.apply(theme: DefaultTheme())
+        sut.apply(theme: LightTheme())
         
         defaultDevices.forEach { device in
             assertSnapshot(matching: sut, as: Snapshotting.image(on: device))

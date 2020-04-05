@@ -99,7 +99,7 @@ private extension AppDelegate {
         let navigationController = UINavigationController()
         window = UIWindow()
         // https://github.com/jessesquires/JSQMessagesViewController/issues/528
-        window?.backgroundColor = DefaultTheme().primary
+        window?.backgroundColor = ThemeFactory.make().primary
         window?.rootViewController = navigationController
         navigationController.setNavigationBarHidden(true, animated: false)
         window?.makeKeyAndVisible()

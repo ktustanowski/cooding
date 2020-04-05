@@ -11,7 +11,7 @@ import RxSwift
 import RxCocoa
 
 public final class RecipeListContainerViewController: UIViewController {
-    private var theme: Theme = DefaultTheme()
+    private var theme: Theme = ThemeFactory.make()
     public var viewModel: RecipeListContainerViewModelProtocol!
     public var disposeBag = DisposeBag()
     
@@ -142,7 +142,7 @@ private extension RecipeListContainerViewController {
 }
 
 extension RecipeListContainerViewController: Themable {
-    public func apply(theme: Theme) {
+    public func apply(theme: Theme = ThemeFactory.make()) {
         self.theme = theme
         view.backgroundColor = theme.primary
         contentContainer.backgroundColor = theme.primary
