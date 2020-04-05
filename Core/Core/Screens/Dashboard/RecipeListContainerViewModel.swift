@@ -18,8 +18,9 @@ public protocol RecipeListContainerViewModelProtocol: RecipeListContainerViewMod
 public protocol RecipeListContainerViewModelProtocolInputs {
     func viewDidLoad()
     func viewDidAppear()
-    func recipeList(url: URL?)
+    func viewWillAppear()
     func reload()
+    func recipeList(url: URL?)
     func selected(recipe: ShortRecipe)
 }
 
@@ -45,7 +46,11 @@ public final class RecipeListContainerViewModel: RecipeListContainerViewModelPro
     public func viewDidAppear() {
         viewDidAppearRelay.accept(())
     }
-    
+
+    public func viewWillAppear() {
+        viewWillAppearRelay.accept(())
+    }
+
     public func recipeList(url: URL?) {
         guard let url = url else {
             recipeListURLRelay.accept(nil)
@@ -71,6 +76,7 @@ public final class RecipeListContainerViewModel: RecipeListContainerViewModelPro
     private let viewDidLoadRelay = PublishRelay<Void>()
     private let viewDidAppearRelay = PublishRelay<Void>()
     private let reloadRelay = BehaviorRelay<Void>(value: ())
+    private let viewWillAppearRelay = BehaviorRelay<Void>(value: ())
     private let didSelectRecipeRelay = PublishRelay<ShortRecipe>()
     public var didSelectRecipe: Observable<ShortRecipe> {
         return didSelectRecipeRelay.asObservable()
@@ -89,30 +95,25 @@ public final class RecipeListContainerViewModel: RecipeListContainerViewModelPro
         let recipeListURLRelay = BehaviorRelay<URL?>(value: recipeListURL)
         self.recipeListURLRelay = recipeListURLRelay
     
-        let viewDidLoad = viewDidLoadRelay.asObservable()
-        let gotURL = recipeListURLRelay.asObservable()
-        
+        let gotURL = recipeListURLRelay.asObservable().filter { $0 != nil }
+        let noURL = recipeListURLRelay.asObservable().filter { $0 == nil }
+                
+        needsRecipesURL = Observable
+            .combineLatest(noURL,
+                           viewDidAppearRelay.asObservable())
+            .map { _ in () }
+
         let shouldLoadRecipes = Observable
             .combineLatest(gotURL,
-                           viewDidLoad,
+                           viewDidLoadRelay.asObservable(),
+                           viewWillAppearRelay.asObservable(),
                            reloadRelay.asObservable())
-            .map { url, _, _ in url }
-        
-        needsRecipesURL = Observable
-            .combineLatest(gotURL,
-                           viewDidAppearRelay.asObservable(),
-                           reloadRelay.asObservable())
-            .filter({ input in
-                let (url, _, _) = input
-                return url == nil })
             .map { _ in () }
-        
+
         recipeListViewModel = shouldLoadRecipes
+            .withLatestFrom(recipeListURLRelay.asObservable())
+            .compactMap { $0 }
             .flatMap { url -> Observable<RecipeList?> in
-                guard let url = url else {
-                    return .just(nil)
-                }
-                
                 return downloader.download(url: url)
                     .catchErrorJustReturn(nil)
             }

@@ -25,6 +25,12 @@ public final class RecipeListContainerViewController: UIViewController {
         viewModel.input.viewDidLoad()
     }
     
+    public override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        viewModel.input.viewWillAppear()
+    }
+
     public override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
@@ -123,9 +129,11 @@ private extension RecipeListContainerViewController {
         alert.addTextField { textField in
             textField.placeholder = "recipe.list.screen.url.alert.text.placeholder".localized
         }
-        
-        let dismiss = UIAlertAction(title: "close".localized, style: .cancel, handler: nil)
-        
+                
+        let dismiss = UIAlertAction(title: "close".localized, style: .cancel) { _ in
+            onInput(URL(string: "no-url"))
+        }
+
         alert.addAction(action)
         alert.addAction(dismiss)
         

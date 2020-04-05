@@ -25,11 +25,6 @@ public final class RecipeListViewController: UITableViewController {
 
 private extension RecipeListViewController {
     func setupUI() {
-        refreshControl = UIRefreshControl()
-        refreshControl?.rx.controlEvent(.valueChanged)
-            .bind(onNext: { [weak self] in self?.viewModel.refreshTapped() })
-            .disposed(by: disposeBag)
-        
         tableView.refreshControl = refreshControl
         tableView.delaysContentTouches = false
         tableView.register(FullImageTableCell.nib, forCellReuseIdentifier: FullImageTableCell.nibName)
