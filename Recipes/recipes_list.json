@@ -14,11 +14,11 @@
             "name": "Sunflower Pesto",
             "sourceURL": "https://raw.githubusercontent.com/ktustanowski/recipes/master/sunflower_pesto.json",
             "imageURL": "https://raw.githubusercontent.com/ktustanowski/recipes/master/sunflower_pesto.jpg"
-        }
+        },
         {
             "name": "Tzatziki sauce",
             "sourceURL": "https://raw.githubusercontent.com/ktustanowski/recipes/master/tzatziki.json",
             "imageURL": "https://raw.githubusercontent.com/ktustanowski/recipes/master/tzatziki.jpeg"
-        },
+        }
     ]
 }
