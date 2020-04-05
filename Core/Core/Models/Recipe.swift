@@ -126,8 +126,34 @@ public struct Recipe: Codable, Equatable {
     public let difficulty: Difficulty
     /// Fill when this is a traditional meal of some country
     public let country: String?
+        
+    public init(name: String,
+                authorName: String?,
+                authorURL: URL?,
+                originalSourceURL: URL?,
+                imagesURL: [URL]?,
+                rawAlgorithm: String,
+                time: TimeInterval?,
+                people: Int?,
+                difficulty: Difficulty,
+                country: String?) {
+        self.name = name
+        self.authorName = authorName
+        self.authorURL = authorURL
+        self.originalSourceURL = originalSourceURL
+        self.imagesURL = imagesURL
+        self.rawAlgorithm = rawAlgorithm
+        self.time = time
+        self.people = people
+        self.difficulty = difficulty
+        self.country = country
+    }
+}
+
+public extension Recipe {
     
-    public var repositoryJSON: String {
+    /// Use to export recipes to a repository
+    var repositoryJSON: String {
         var output = "{\n"
 
         output += "\"name\": \"\(name)\",\n"
@@ -170,27 +196,5 @@ public struct Recipe: Codable, Equatable {
         output += "}"
         
         return output
-    }
-    
-    public init(name: String,
-                authorName: String?,
-                authorURL: URL?,
-                originalSourceURL: URL?,
-                imagesURL: [URL]?,
-                rawAlgorithm: String,
-                time: TimeInterval?,
-                people: Int?,
-                difficulty: Difficulty,
-                country: String?) {
-        self.name = name
-        self.authorName = authorName
-        self.authorURL = authorURL
-        self.originalSourceURL = originalSourceURL
-        self.imagesURL = imagesURL
-        self.rawAlgorithm = rawAlgorithm
-        self.time = time
-        self.people = people
-        self.difficulty = difficulty
-        self.country = country
     }
 }
