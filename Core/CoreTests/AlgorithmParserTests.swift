@@ -111,9 +111,9 @@ class AlgorithmParserTests: XCTestCase {
     func testParseAlgorithm() {
         //swiftlint:disable line_length
         let pancakes = """
-:: version 0.1\nPrepare {blender}\nAdd [1.25 glass of buttermilk] to the {blender}\nAdd [0.25 glass of powdered sugar] to the {blender}\nAdd [1.0 heaping teaspoon of baking powder] to the {blender}\nAdd [1.0 teaspoon of baking soda] to the {blender}\nAdd [1.0 pinch of salt] to the {blender}\nBlend everything in a {blender} to a smooth mass with the consistency of thick cream\nPreheat the {frying pan}\nFry pancakes on both sides in a {frying pan} over medium heat <900>
-"""
-        ////swiftlint:enable line_length
+        :: version 0.1\nPrepare {blender}\nAdd [1.25 glass of buttermilk] to the {blender}\nAdd [0.25 glass of powdered sugar] to the {blender}\nAdd [1.0 heaping teaspoon of baking powder] to the {blender}\nAdd [1.0 teaspoon of baking soda] to the {blender}\nAdd [1.0 pinch of salt] to the {blender}\nBlend everything in a {blender} to a smooth mass with the consistency of thick cream\nPreheat the {frying pan}\nFry pancakes on both sides in a {frying pan} over medium heat <900>
+        """
+        //swiftlint:enable line_length
 
         let algorithm = sut.parse(string: pancakes)
         
@@ -121,7 +121,9 @@ class AlgorithmParserTests: XCTestCase {
                            Ingredient(name: "glass of powdered sugar", quantity: 0.25),
                            Ingredient(name: "heaping teaspoon of baking powder", quantity: 1.0),
                            Ingredient(name: "pinch of salt", quantity: 1.0),
-                           Ingredient(name: "teaspoon of baking soda", quantity: 1.0)]
+                           Ingredient(name: "teaspoon of baking soda", quantity: 1.0),
+                           Ingredient(name: "small pot of basil leaves about 15g", quantity: 1.0),
+                           Ingredient(name: "tablespoon of grated Parmesan cheese", quantity: 1.0)]
         
         let dependencies = [Dependency(name: "blender"),
                              Dependency(name: "frying pan")]
@@ -134,12 +136,28 @@ class AlgorithmParserTests: XCTestCase {
                       Step(description: "Add 1.0 teaspoon of baking soda to the blender", dependencies: Optional([Dependency(name: "blender")]), ingredients: Optional([Ingredient(name: "teaspoon of baking soda", quantity: 1.0)]), duration: nil),
                       Step(description: "Add 1.0 pinch of salt to the blender", dependencies: Optional([Dependency(name: "blender")]), ingredients: Optional([Ingredient(name: "pinch of salt", quantity: 1.0)]), duration: nil),
                       Step(description: "Blend everything in a blender to a smooth mass with the consistency of thick cream", dependencies: Optional([Dependency(name: "blender")]), ingredients: nil, duration: nil),
-                      Step(description: "Preheat the frying pan", dependencies: Optional([Dependency(name: "frying pan")]), ingredients: nil, duration: nil),
-                      Step(description: "Fry pancakes on both sides in a frying pan over medium heat ", dependencies: Optional([Dependency(name: "frying pan")]), ingredients: nil, duration: Optional(900.0))]
+                      Step(description: "Preheat the frying pan", dependencies: Optional([Dependency(name: "frying pan")]), ingredients: nil, duration: nil)]
         //swiftlint:enable line_length
         
         XCTAssertEqual(algorithm.ingredients, ingredients)
         XCTAssertEqual(algorithm.dependencies, dependencies)
         XCTAssertEqual(algorithm.steps, steps)
     }
+    
+    func testCanParseWhenIngredientsContainsParenthesis() {
+        let oneStep = "Rinse a [1.0 small pot of basil leaves (about 15g)] thoroughly and dry them"
+
+        let algorithm = sut.parse(string: oneStep)
+            
+        XCTAssertEqual(algorithm.ingredients.last, Ingredient(name: "small pot of basil leaves about 15g", quantity: 1.0))
+    }
+    
+    func testCanParseWhenIngredientContainsGreatLetters() {
+        let oneStep = "Add [1 tablespoon of grated parmesan cheese]"
+
+        let algorithm = sut.parse(string: oneStep)
+            
+        XCTAssertEqual(algorithm.ingredients.last, Ingredient(name: "tablespoon of grated Parmesan cheese", quantity: 1.0))
+    }
+
 }
