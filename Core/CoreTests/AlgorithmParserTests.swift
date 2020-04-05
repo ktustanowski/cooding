@@ -37,7 +37,7 @@ class AlgorithmParserTests: XCTestCase {
         XCTAssertEqual(algorithm.dependencies, [])
         XCTAssertEqual(algorithm.ingredients, [])
         XCTAssertEqual(algorithm.steps.count, 1)
-        XCTAssertEqual(algorithm.steps.first, Step(description: "Do something ",
+        XCTAssertEqual(algorithm.steps.first, Step(description: "Do something",
                                                    dependencies: nil,
                                                    ingredients: nil,
                                                    duration: 72.0))
@@ -108,6 +108,23 @@ class AlgorithmParserTests: XCTestCase {
                                                    duration: nil))
     }
 
+    func testCanParseWhenIngredientsContainsParenthesis() {
+        let oneStep = "Rinse a [1.0 small pot of basil leaves (about 15g)] thoroughly and dry them"
+
+        let algorithm = sut.parse(string: oneStep)
+            
+        XCTAssertEqual(algorithm.ingredients.last, Ingredient(name: "small pot of basil leaves (about 15g)", quantity: 1.0))
+    }
+    
+    func testCanParseWhenIngredientAndDependencyContainsGreatLetters() {
+        let oneStep = "Add [1 tablespoon of grated Parmesan cheese] to {Blender}"
+
+        let algorithm = sut.parse(string: oneStep)
+            
+        XCTAssertEqual(algorithm.ingredients.last, Ingredient(name: "tablespoon of grated Parmesan cheese", quantity: 1.0))
+        XCTAssertEqual(algorithm.dependencies.last, Dependency(name: "Blender"))
+    }
+
     func testParseAlgorithm() {
         //swiftlint:disable line_length
         let pancakes = """
@@ -121,43 +138,25 @@ class AlgorithmParserTests: XCTestCase {
                            Ingredient(name: "glass of powdered sugar", quantity: 0.25),
                            Ingredient(name: "heaping teaspoon of baking powder", quantity: 1.0),
                            Ingredient(name: "pinch of salt", quantity: 1.0),
-                           Ingredient(name: "teaspoon of baking soda", quantity: 1.0),
-                           Ingredient(name: "small pot of basil leaves about 15g", quantity: 1.0),
-                           Ingredient(name: "tablespoon of grated Parmesan cheese", quantity: 1.0)]
+                           Ingredient(name: "teaspoon of baking soda", quantity: 1.0)]
         
         let dependencies = [Dependency(name: "blender"),
-                             Dependency(name: "frying pan")]
+                            Dependency(name: "frying pan")]
         
         //swiftlint:disable line_length
         let steps = [Step(description: "Prepare blender", dependencies: Optional([Dependency(name: "blender")]), ingredients: nil, duration: nil),
-                      Step(description: "Add 1.25 glass of buttermilk to the blender", dependencies: Optional([Dependency(name: "blender")]), ingredients: Optional([Ingredient(name: "glass of buttermilk", quantity: 1.25)]), duration: nil),
-                      Step(description: "Add 0.25 glass of powdered sugar to the blender", dependencies: Optional([Dependency(name: "blender")]), ingredients: Optional([Ingredient(name: "glass of powdered sugar", quantity: 0.25)]), duration: nil),
-                      Step(description: "Add 1.0 heaping teaspoon of baking powder to the blender", dependencies: Optional([Dependency(name: "blender")]), ingredients: Optional([Ingredient(name: "heaping teaspoon of baking powder", quantity: 1.0)]), duration: nil),
-                      Step(description: "Add 1.0 teaspoon of baking soda to the blender", dependencies: Optional([Dependency(name: "blender")]), ingredients: Optional([Ingredient(name: "teaspoon of baking soda", quantity: 1.0)]), duration: nil),
-                      Step(description: "Add 1.0 pinch of salt to the blender", dependencies: Optional([Dependency(name: "blender")]), ingredients: Optional([Ingredient(name: "pinch of salt", quantity: 1.0)]), duration: nil),
-                      Step(description: "Blend everything in a blender to a smooth mass with the consistency of thick cream", dependencies: Optional([Dependency(name: "blender")]), ingredients: nil, duration: nil),
-                      Step(description: "Preheat the frying pan", dependencies: Optional([Dependency(name: "frying pan")]), ingredients: nil, duration: nil)]
+                     Step(description: "Add 1.25 glass of buttermilk to the blender", dependencies: Optional([Dependency(name: "blender")]), ingredients: Optional([Ingredient(name: "glass of buttermilk", quantity: 1.25)]), duration: nil),
+                     Step(description: "Add 0.25 glass of powdered sugar to the blender", dependencies: Optional([Dependency(name: "blender")]), ingredients: Optional([Ingredient(name: "glass of powdered sugar", quantity: 0.25)]), duration: nil),
+                     Step(description: "Add 1.0 heaping teaspoon of baking powder to the blender", dependencies: Optional([Dependency(name: "blender")]), ingredients: Optional([Ingredient(name: "heaping teaspoon of baking powder", quantity: 1.0)]), duration: nil),
+                     Step(description: "Add 1.0 teaspoon of baking soda to the blender", dependencies: Optional([Dependency(name: "blender")]), ingredients: Optional([Ingredient(name: "teaspoon of baking soda", quantity: 1.0)]), duration: nil),
+                     Step(description: "Add 1.0 pinch of salt to the blender", dependencies: Optional([Dependency(name: "blender")]), ingredients: Optional([Ingredient(name: "pinch of salt", quantity: 1.0)]), duration: nil),
+                     Step(description: "Blend everything in a blender to a smooth mass with the consistency of thick cream", dependencies: Optional([Dependency(name: "blender")]), ingredients: nil, duration: nil),
+                     Step(description: "Preheat the frying pan", dependencies: Optional([Dependency(name: "frying pan")]), ingredients: nil, duration: nil),
+                     Step(description: "Fry pancakes on both sides in a frying pan over medium heat", dependencies: Optional([Dependency(name: "frying pan")]), ingredients: nil, duration: 900)]
         //swiftlint:enable line_length
         
         XCTAssertEqual(algorithm.ingredients, ingredients)
         XCTAssertEqual(algorithm.dependencies, dependencies)
         XCTAssertEqual(algorithm.steps, steps)
     }
-    
-    func testCanParseWhenIngredientsContainsParenthesis() {
-        let oneStep = "Rinse a [1.0 small pot of basil leaves (about 15g)] thoroughly and dry them"
-
-        let algorithm = sut.parse(string: oneStep)
-            
-        XCTAssertEqual(algorithm.ingredients.last, Ingredient(name: "small pot of basil leaves about 15g", quantity: 1.0))
-    }
-    
-    func testCanParseWhenIngredientContainsGreatLetters() {
-        let oneStep = "Add [1 tablespoon of grated parmesan cheese]"
-
-        let algorithm = sut.parse(string: oneStep)
-            
-        XCTAssertEqual(algorithm.ingredients.last, Ingredient(name: "tablespoon of grated Parmesan cheese", quantity: 1.0))
-    }
-
 }

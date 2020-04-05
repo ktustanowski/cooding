@@ -18,4 +18,12 @@ public extension String {
         
         return output
     }
+    
+    func trimSpaceInTheEnd() -> String {
+        return self.last == .space ? String(self.dropLast()) : self
+    }
+}
+
+public extension Character {
+    public static let space = Character(" ")
 }

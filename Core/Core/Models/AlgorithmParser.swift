@@ -13,8 +13,8 @@ public protocol AlgorithmParsing {
 }
 
 struct AlgorithmConstants {
-    let ingredientsRegex = #"\[[a-z0-9., ]+\]*"#
-    let dependenciesRegex = #"\{[a-z0-9., ]+\}*"#
+    let ingredientsRegex = #"\[[a-zA-Z0-9.,() ]+\]*"#
+    let dependenciesRegex = #"\{[a-zA-Z0-9., ]+\}*"#
     let durationRegex = #"\<[0-9.,]+\>*"#
     let ingredientStart = "["
     let ingredientEnd = "]"
@@ -64,6 +64,7 @@ public struct AlgorithmParser: AlgorithmParsing {
                         self.constants.ingredientEnd,
                         self.constants.dependencyStart,
                         self.constants.dependencyEnd])
+                .trimSpaceInTheEnd()
             
             return Step(description: trimmedDescription,
                         dependencies: dependencies.isEmpty ? nil : dependencies.sorted(by: { $0.name < $1.name }),
