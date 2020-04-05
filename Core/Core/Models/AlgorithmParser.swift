@@ -8,7 +8,7 @@
 
 import Foundation
 
-public protocol AlgorithmParsable {
+public protocol AlgorithmParsing {
     func parse(string: String) -> Algorithm
 }
 
@@ -26,7 +26,7 @@ struct AlgorithmConstants {
 }
 
 // TODO: Refactor & add unit tests
-public struct AlgorithmParser: AlgorithmParsable {
+public struct AlgorithmParser: AlgorithmParsing {
     private let constants = AlgorithmConstants()
     
     public func parse(string: String) -> Algorithm {

@@ -124,9 +124,9 @@ public final class RecipeListContainerViewModel: RecipeListContainerViewModelPro
                 guard $0 != nil && recipeListURL == nil && storage.recipeListURL == nil else { return }
                 storage.recipeListURL = recipeListURLRelay.value
             })
-        
+            .startWith(nil)
+
         isLoading = downloader.isLoading
             .distinctUntilChanged()
-            .asObservable()
     }
 }

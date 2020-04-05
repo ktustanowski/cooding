@@ -32,7 +32,7 @@ public protocol RecipeViewModelProtocolOutputs {
 }
 
 public final class RecipeViewModel: RecipeViewModelProtocol {
-    private let parser: AlgorithmParsable
+    private let parser: AlgorithmParsing
     
     public var input: RecipeViewModelProtocolInputs { return self }
     public var output: RecipeViewModelProtocolOutputs { return self }
@@ -50,7 +50,7 @@ public final class RecipeViewModel: RecipeViewModelProtocol {
     
     private let didTapStartCookingRelay = PublishRelay<Void>()
     
-    public init(recipe: Recipe, algorithmParser: AlgorithmParsable = AlgorithmParser()) {
+    public init(recipe: Recipe, algorithmParser: AlgorithmParsing = AlgorithmParser()) {
         self.parser = algorithmParser
         let algorithm = parser.parse(string: recipe.rawAlgorithm)
 

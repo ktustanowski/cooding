@@ -10,7 +10,7 @@ import XCTest
 @testable import Core
 
 class AlgorithmParserTests: XCTestCase {
-    private var sut: AlgorithmParsable!
+    private var sut: AlgorithmParsing!
     override func setUp() {
         sut = AlgorithmParser()
     }

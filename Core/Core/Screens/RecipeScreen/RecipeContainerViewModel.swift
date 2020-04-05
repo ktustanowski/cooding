@@ -72,13 +72,13 @@ public final class RecipeContainerViewModel: RecipeContainerViewModelProtocol {
     private let didTapStartCookingRelay = PublishRelay<Algorithm>()
     private let didDismissRelay = PublishRelay<Void>()
     
-    private let parser: AlgorithmParsable
+    private let parser: AlgorithmParsing
     private let shortRecipe: ShortRecipe
     private var algorithm = BehaviorRelay<Algorithm?>(value: nil)
     
     public init(shortRecipe: ShortRecipe,
                 downloader: DownloaderProtocol = Downloader(),
-                parser: AlgorithmParsable = AlgorithmParser()) {
+                parser: AlgorithmParsing = AlgorithmParser()) {
         self.shortRecipe = shortRecipe
         self.downloader = downloader
         self.parser = parser
