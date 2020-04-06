@@ -50,6 +50,22 @@ public final class RecipeViewController: UITableViewController {
             cell.apply(theme: strongSelf.theme)
 
             return cell
+        case .sliderCell(let viewModel):
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: SliderTableCell.nibName, for: indexPath) as? SliderTableCell
+                else { fatalError("No suitable cell found!") }
+
+            cell.viewModel = viewModel
+            cell.apply(theme: strongSelf.theme)
+            
+            // TODO: Make nicer
+            cell.viewModel.value
+                .map { self?.viewModel.output.titleForSliderCell(for: Int($0)) }
+                .subscribe(onNext: { [weak cell] newTitle in
+                    cell?.viewModel.setTitle(to: newTitle)
+                })
+                .disposed(by: cell.disposeBag)
+
+            return cell
         }})
     
     public override func viewDidLoad() {
@@ -64,6 +80,7 @@ private extension RecipeViewController {
         tableView.register(ListTableCell.nib, forCellReuseIdentifier: ListTableCell.nibName)
         tableView.register(ButtonTableCell.nib, forCellReuseIdentifier: ButtonTableCell.nibName)
         tableView.register(FullImageTableCell.nib, forCellReuseIdentifier: FullImageTableCell.nibName)
+        tableView.register(SliderTableCell.nib, forCellReuseIdentifier: SliderTableCell.nibName)
         
         tableView.separatorStyle = .none
         tableView.delaysContentTouches = false

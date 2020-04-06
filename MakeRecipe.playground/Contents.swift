@@ -88,7 +88,7 @@ if decodedRecipe == nil {
 let viewController = RecipeViewController()
 viewController.viewModel = RecipeViewModel(recipe: yourRecipe)
 viewController.loadViewIfNeeded()
-viewController.apply(theme: DefaultTheme())
+viewController.apply(theme: DarkTheme())
 
 var navigationController = UINavigationController(rootViewController: viewController)
 

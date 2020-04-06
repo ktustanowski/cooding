@@ -22,15 +22,20 @@ class SliderTableCellSnapshotTests: XCTestCase {
     }
     
     func testInitialLook() {
-        sut.viewModel = SliderCellViewModel(minimum: 1, maximum: 15)
+        sut.viewModel = SliderCellViewModel(minimum: 1, maximum: 10)
         
         assertSnapshot(matching: sut, as: .image)
     }
     
     func testInitialLook_WithInitialValue() {
-        sut.viewModel = SliderCellViewModel(minimum: 1, maximum: 15, value: 10)
+        sut.viewModel = SliderCellViewModel(minimum: 1, maximum: 10, value: 5)
         
         assertSnapshot(matching: sut, as: .image)
     }
 
+    func testInitialLook_WithTitle() {
+        sut.viewModel = SliderCellViewModel(title: "Slider cell title", minimum: 1, maximum: 10)
+        
+        assertSnapshot(matching: sut, as: .image)
+    }
 }

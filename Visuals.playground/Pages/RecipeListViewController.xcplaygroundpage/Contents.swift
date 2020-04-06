@@ -14,7 +14,7 @@ let bioledEggs = ShortRecipe(name: "Boiled eggs", sourceURL: URL(string: "https:
 
 let recipeList = RecipeList(recipes: [pancakes, scrambledEggs, bioledEggs])
 viewController.viewModel = RecipeListViewModel(recipeList: recipeList)
-viewController.apply(theme: DefaultTheme())
+viewController.apply(theme: DarkTheme())
 
 PlaygroundPage.current.liveView = PlaygroundPresenter.presenter(for: viewController)
 //: [Next](@next)

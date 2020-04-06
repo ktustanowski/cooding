@@ -1,5 +1,6 @@
 //: [Previous](@previous)
 
+ 
 import UIKit
 import PlaygroundSupport
 import Core
@@ -46,7 +47,7 @@ var viewController = CookingViewController()
 viewController.viewModel = CookingViewModel(algorithm: Algorithm(ingredients: [],
                                                                         steps: steps,
                                                                         dependencies: []))
-viewController.apply(theme: DefaultTheme())
+viewController.apply(theme: DarkTheme())
 var navigationController = UINavigationController(rootViewController: viewController)
 
 let (parent, _) = playgroundControllers(device: .phone47inch,

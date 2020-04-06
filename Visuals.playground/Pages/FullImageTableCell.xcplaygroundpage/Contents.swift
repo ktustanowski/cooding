@@ -10,7 +10,7 @@ let imageURL = URL(string: "https://cdn.pixabay.com/photo/2016/10/27/22/07/panca
  Image with text
  */
 var imageAndTextCell = FullImageTableCell.make()
-imageAndTextCell.apply(theme: DefaultTheme())
+imageAndTextCell.apply(theme: DarkTheme())
 imageAndTextCell.viewModel = FullImageCellViewModel(title: "Title Text",
                                         imageURL: imageURL)
 
@@ -18,7 +18,7 @@ imageAndTextCell.viewModel = FullImageCellViewModel(title: "Title Text",
  Image only
  */
 var imageCell = FullImageTableCell.make()
-imageCell.apply(theme: DefaultTheme())
+imageCell.apply(theme: DarkTheme())
 imageCell.viewModel = FullImageCellViewModel(title: nil,
                                         imageURL: imageURL)
 imageCell.frame.origin.y = imageAndTextCell.top + 10

@@ -14,13 +14,13 @@ let threeHours: TimeInterval = 60 * 60 * 3
  Simple Cell
  */
 var simpleCell = StepTableCell.make()
-simpleCell.apply(theme: DefaultTheme())
+simpleCell.apply(theme: DarkTheme())
 simpleCell.viewModel = StepCellViewModel(step: Step(description: think))
 /*:
  Simple Short Duration Cell
  */
 var simpleShortDurationCell = StepTableCell.make()
-simpleShortDurationCell.apply(theme: DefaultTheme())
+simpleShortDurationCell.apply(theme: DarkTheme())
 simpleShortDurationCell.viewModel = StepCellViewModel(step: Step(description: thinkSomeMore,
                                                       duration: tenSeconds))
 simpleShortDurationCell.frame.origin.y = simpleCell.top + 10
@@ -28,7 +28,7 @@ simpleShortDurationCell.frame.origin.y = simpleCell.top + 10
  Simple Long Duration Cell
  */
 var simpleLongDurationCell = StepTableCell.make()
-simpleLongDurationCell.apply(theme: DefaultTheme())
+simpleLongDurationCell.apply(theme: DarkTheme())
 simpleLongDurationCell.viewModel = StepCellViewModel(step: Step(description: thinkSomeMore,
                                                              duration: threeHours))
 simpleLongDurationCell.frame.origin.y = simpleShortDurationCell.top + 10
@@ -36,7 +36,7 @@ simpleLongDurationCell.frame.origin.y = simpleShortDurationCell.top + 10
  Simple Long Duration Long Text Cell
  */
 var simpleLongDurationAndTextCell = StepTableCell.make()
-simpleLongDurationAndTextCell.apply(theme: DefaultTheme())
+simpleLongDurationAndTextCell.apply(theme: DarkTheme())
 simpleLongDurationAndTextCell.viewModel = StepCellViewModel(step: Step(description: longThinkSomeMore,
                                                              duration: threeHours))
 simpleLongDurationAndTextCell.frame.origin.y = simpleLongDurationCell.top + 10

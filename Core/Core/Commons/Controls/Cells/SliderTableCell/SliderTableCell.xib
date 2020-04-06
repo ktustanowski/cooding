@@ -1,36 +1,61 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15400" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15404"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="gGn-k8-9Nm" customClass="SliderTableCell" customModule="Core" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="99" id="gGn-k8-9Nm" customClass="SliderTableCell" customModule="Core" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="603" height="99"/>
             <autoresizingMask key="autoresizingMask"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="gGn-k8-9Nm" id="kyV-Yr-KJm">
-                <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
+                <rect key="frame" x="0.0" y="0.0" width="603" height="99"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="bWa-Pu-mEs">
-                        <rect key="frame" x="18" y="8" width="378" height="29"/>
-                    </slider>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3uA-O5-tSQ">
+                        <rect key="frame" x="20" y="10" width="563" height="79"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Yd9-IL-IRQ">
+                                <rect key="frame" x="10" y="10" width="543" height="59"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" placeholderIntrinsicWidth="384" placeholderIntrinsicHeight="21" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6cs-sx-DVd">
+                                        <rect key="frame" x="0.0" y="0.0" width="543" height="21"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="19"/>
+                                        <color key="textColor" red="1" green="0.57637232540000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="bWa-Pu-mEs">
+                                        <rect key="frame" x="-2" y="21" width="547" height="39"/>
+                                    </slider>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="Yd9-IL-IRQ" firstAttribute="leading" secondItem="3uA-O5-tSQ" secondAttribute="leading" constant="10" id="H7n-9L-BQZ"/>
+                            <constraint firstItem="Yd9-IL-IRQ" firstAttribute="top" secondItem="3uA-O5-tSQ" secondAttribute="top" constant="10" id="Whh-nA-B11"/>
+                            <constraint firstAttribute="trailing" secondItem="Yd9-IL-IRQ" secondAttribute="trailing" constant="10" id="c5B-ku-xtk"/>
+                            <constraint firstAttribute="bottom" secondItem="Yd9-IL-IRQ" secondAttribute="bottom" constant="10" id="xCw-X1-4Wg"/>
+                        </constraints>
+                    </view>
                 </subviews>
                 <constraints>
-                    <constraint firstAttribute="bottom" secondItem="bWa-Pu-mEs" secondAttribute="bottom" constant="8" id="Gjj-w2-ge9"/>
-                    <constraint firstAttribute="trailing" secondItem="bWa-Pu-mEs" secondAttribute="trailing" constant="20" id="OOu-IL-iVZ"/>
-                    <constraint firstItem="bWa-Pu-mEs" firstAttribute="top" secondItem="kyV-Yr-KJm" secondAttribute="top" constant="8" id="PNq-Ql-cEO"/>
-                    <constraint firstItem="bWa-Pu-mEs" firstAttribute="leading" secondItem="kyV-Yr-KJm" secondAttribute="leading" constant="20" id="j9h-i6-Ugq"/>
+                    <constraint firstItem="3uA-O5-tSQ" firstAttribute="leading" secondItem="kyV-Yr-KJm" secondAttribute="leading" constant="20" id="5Lo-b4-IbS"/>
+                    <constraint firstAttribute="trailing" secondItem="3uA-O5-tSQ" secondAttribute="trailing" constant="20" id="9nE-jI-pzc"/>
+                    <constraint firstAttribute="bottom" secondItem="3uA-O5-tSQ" secondAttribute="bottom" constant="10" id="cND-h2-oMJ"/>
+                    <constraint firstItem="3uA-O5-tSQ" firstAttribute="top" secondItem="kyV-Yr-KJm" secondAttribute="top" constant="10" id="hsu-G6-sJZ"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>
+                <outlet property="containerView" destination="3uA-O5-tSQ" id="xWH-lI-EvC"/>
                 <outlet property="slider" destination="bWa-Pu-mEs" id="qxq-yD-qib"/>
+                <outlet property="titleLabel" destination="6cs-sx-DVd" id="jJ1-aq-fAD"/>
             </connections>
-            <point key="canvasLocation" x="-194" y="45"/>
+            <point key="canvasLocation" x="-208" y="36"/>
         </tableViewCell>
     </objects>
 </document>

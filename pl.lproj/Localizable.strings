@@ -13,6 +13,7 @@
 "ingredients" = "Ingredients";
 "dependencies" = "Dependencies";
 "steps" = "Steps";
+"portions" = "Portions";
 
 // Dashboard Screen
 "dasboard.all" = "All";

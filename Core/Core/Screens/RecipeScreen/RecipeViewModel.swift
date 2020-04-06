@@ -13,6 +13,7 @@ import RxDataSources
 
 public enum RecipeCellType {
     case imageCell(FullImageCellViewModel)
+    case sliderCell(SliderCellViewModel)
     case listCell(ListCellViewModel)
     case buttonCell(ButtonCellViewModel)
 }
@@ -23,12 +24,14 @@ public protocol RecipeViewModelProtocol: RecipeViewModelProtocolInputs, RecipeVi
 }
 
 public protocol RecipeViewModelProtocolInputs {
+    func selected(peopleCount: Int)
     func startCookingTapped()
 }
 
 public protocol RecipeViewModelProtocolOutputs {
     var items: Observable<[SectionModel<String, RecipeCellType>]> { get }
     var didTapStartCooking: Observable<Void> { get }
+    func titleForSliderCell(for value: Int) -> String
 }
 
 public final class RecipeViewModel: RecipeViewModelProtocol {
@@ -38,6 +41,10 @@ public final class RecipeViewModel: RecipeViewModelProtocol {
     public var output: RecipeViewModelProtocolOutputs { return self }
     
     // MARK: Inputs
+    public func selected(peopleCount: Int) {
+        // TODO: Update multiplier
+    }
+    
     public func startCookingTapped() {
         didTapStartCookingRelay.accept(())
     }
@@ -49,6 +56,10 @@ public final class RecipeViewModel: RecipeViewModelProtocol {
     }
     
     private let didTapStartCookingRelay = PublishRelay<Void>()
+    
+    public func titleForSliderCell(for value: Int) -> String {
+        return "\("portions".localized) - \(value)"
+    }
     
     public init(recipe: Recipe, algorithmParser: AlgorithmParsing = AlgorithmParser()) {
         self.parser = algorithmParser
@@ -71,17 +82,26 @@ public final class RecipeViewModel: RecipeViewModelProtocol {
         
         let imageCell = RecipeCellType.imageCell(FullImageCellViewModel(title: nil,
                                                                         imageURL: recipe.imagesURL?.first))
+        
+        var portions = Float(recipe.people ?? 1)
+        let sliderCell = RecipeCellType.sliderCell(SliderCellViewModel(minimum: 1,
+                                                                       maximum: Float(Constants.general.maxPortions),
+                                                                       value: portions))
+        
         let ingredientsCell = RecipeCellType.listCell(ListCellViewModel(title: "\(algorithm.ingredients.count) \("ingredients".localized)",
                                                                         description: ingredients))
+        
         let dependenciesCell = RecipeCellType.listCell(ListCellViewModel(title: "\(algorithm.dependencies.count) \("dependencies".localized)".localized,
                                                                          description: dependencies))
+        
         let stepsCell = RecipeCellType.listCell(ListCellViewModel(title: "\(algorithm.steps.count) \("steps".localized)",
                                                                   description: steps))
+        
         let startCookingCell = RecipeCellType.buttonCell(ButtonCellViewModel(title: "recipe.screen.action.button.title".localized))
         
         //TODO: Display only cell which have content.
-        
         items = .just([SectionModel(model: "MainSection", items: [imageCell,
+                                                                  sliderCell,
                                                                   ingredientsCell,
                                                                   dependenciesCell,
                                                                   stepsCell,

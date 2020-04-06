@@ -8,7 +8,7 @@ import Core
  Simple Cell
  */
 var cell = ListTableCell.make()
-cell.apply(theme: DefaultTheme())
+cell.apply(theme: DarkTheme())
 cell.viewModel = ListCellViewModel(title: "Title text",
                                    description: "Description text")
 

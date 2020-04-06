@@ -6,7 +6,7 @@ import PlaygroundSupport
 
 let cell = ButtonTableCell.make()
 cell.viewModel = ButtonCellViewModel(title: "Tap me!")
-cell.apply(theme: DefaultTheme())
+cell.apply(theme: DarkTheme())
 
 PlaygroundPage.current.liveView = cell
 
