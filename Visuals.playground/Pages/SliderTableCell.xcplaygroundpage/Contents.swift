@@ -5,10 +5,13 @@ import Core
 import PlaygroundSupport
 
 let cell = SliderTableCell.make()
-cell.viewModel = SliderCellViewModel(minimum: 1, maximum: 15)
+cell.viewModel = SliderCellViewModel(title: "Slider cell text", minimum: 1, maximum: 15)
 cell.viewModel.value.subscribe { print("Value did change to: \($0)") }
-cell.apply(theme: DarkTheme())
-cell.backgroundColor = DarkTheme().primary
+
+let theme = LightTheme()
+
+cell.apply(theme: theme)
+cell.backgroundColor = theme.primary
 
 PlaygroundPage.current.liveView = cell
 
