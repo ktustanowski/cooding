@@ -171,6 +171,13 @@
 		9A51E67022D3BA1200A27ACF /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				9A34485022F57F5A00AC7DC1 /* Kingfisher.framework */,
+				9AF996F822F2188900E9413C /* Differentiator.framework */,
+				9AF996F922F2188900E9413C /* RxBlocking.framework */,
+				9AF996FA22F2188900E9413C /* RxCocoa.framework */,
+				9AF996FB22F2188900E9413C /* RxDataSources.framework */,
+				9AF996F622F2188800E9413C /* RxRelay.framework */,
+				9AF996F722F2188800E9413C /* RxSwift.framework */,
 				9A51E67822E768C500A27ACF /* SnapshotTesting.framework */,
 			);
 			name = Frameworks;
@@ -251,13 +258,6 @@
 				9AF958D322C8DCD30055B204 /* CoodingTests */,
 				9AF958BA22C8DCD10055B204 /* Products */,
 				9A51E67022D3BA1200A27ACF /* Frameworks */,
-				9A34485022F57F5A00AC7DC1 /* Kingfisher.framework */,
-				9AF996F822F2188900E9413C /* Differentiator.framework */,
-				9AF996F922F2188900E9413C /* RxBlocking.framework */,
-				9AF996FA22F2188900E9413C /* RxCocoa.framework */,
-				9AF996FB22F2188900E9413C /* RxDataSources.framework */,
-				9AF996F622F2188800E9413C /* RxRelay.framework */,
-				9AF996F722F2188800E9413C /* RxSwift.framework */,
 			);
 			sourceTree = "<group>";
 		};
