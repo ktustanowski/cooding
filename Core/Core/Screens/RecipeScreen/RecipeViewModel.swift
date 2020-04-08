@@ -40,8 +40,12 @@ public final class RecipeViewModel: RecipeViewModelProtocol {
     public var input: RecipeViewModelProtocolInputs { return self }
     public var output: RecipeViewModelProtocolOutputs { return self }
     
+    private let quantityMultiplier: BehaviorRelay<Float>
+    
     // MARK: Inputs
     public func selected(peopleCount: Int) {
+        
+        
         // TODO: Update multiplier
     }
     
@@ -65,6 +69,8 @@ public final class RecipeViewModel: RecipeViewModelProtocol {
         self.parser = algorithmParser
         let algorithm = parser.parse(string: recipe.rawAlgorithm)
 
+        quantityMultiplier = BehaviorRelay<Float>(value: 1.0)
+        
         let ingredients = algorithm.ingredients
             .reduce("") { ingredientsList, ingredient in
                 return ingredientsList + "• \(ingredient.formatted)\n"
