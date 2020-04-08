@@ -57,14 +57,16 @@ public final class RecipeViewController: UITableViewController {
             cell.viewModel = viewModel
             cell.apply(theme: strongSelf.theme)
             
-            // TODO: Make nicer
             cell.viewModel.value
-                .map { self?.viewModel.output.titleForSliderCell(for: Int($0)) }
-                .subscribe(onNext: { [weak cell] newTitle in
-                    cell?.viewModel.setTitle(to: newTitle)
+                .subscribe(onNext: { [weak self] peopleCount in
+                    self?.viewModel.input.selected(peopleCount: Int(peopleCount))
                 })
                 .disposed(by: cell.disposeBag)
 
+            self?.viewModel.output.titleForSliderCell
+                .bind(to: cell.titleLabel.rx.text)
+                .disposed(by: cell.disposeBag)
+            
             return cell
         }})
     

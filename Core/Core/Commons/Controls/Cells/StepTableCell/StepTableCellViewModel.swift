@@ -88,13 +88,11 @@ public final class StepCellViewModel: StepCellViewModelProtocol, StepCellViewMod
         
         duration = currentDurationRelay?
             .compactMap { $0?.shortTime }
-            .map { "\($0)" }
-            .asObservable() ?? .empty()
+            .map { "\($0)" } ?? .empty()
         
         endTime = currentDurationRelay?
             .compactMap { $0?.endTime }
-            .map { "\($0)" }
-            .asObservable() ?? .empty()
+            .map { "\($0)" } ?? .empty()
         
         didTapDone = didTapDoneRelay
             .asObservable()

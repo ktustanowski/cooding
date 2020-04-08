@@ -19,6 +19,7 @@ class SliderTableCellSnapshotTests: XCTestCase {
         super.setUp()
         sut = SliderTableCell.make()
         sut.apply(theme: LightTheme())
+        sut.titleLabel.text = nil
     }
     
     func testInitialLook() {
@@ -34,7 +35,8 @@ class SliderTableCellSnapshotTests: XCTestCase {
     }
 
     func testInitialLook_WithTitle() {
-        sut.viewModel = SliderCellViewModel(title: "Slider cell title", minimum: 1, maximum: 10)
+        sut.viewModel = SliderCellViewModel(minimum: 1, maximum: 10)
+        sut.titleLabel.text = "Slider cell title"
         
         assertSnapshot(matching: sut, as: .image)
     }

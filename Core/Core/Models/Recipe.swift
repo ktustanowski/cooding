@@ -121,7 +121,7 @@ public struct Recipe: Codable, Equatable {
     /// How long does it take from start to finish - in seconds
     public let time: TimeInterval?
     /// How many people can eat the meal
-    public let people: Int?
+    public let people: Int
     /// How hard is to cook thie recipe
     public let difficulty: Difficulty
     /// Fill when this is a traditional meal of some country
@@ -134,7 +134,7 @@ public struct Recipe: Codable, Equatable {
                 imagesURL: [URL]?,
                 rawAlgorithm: String,
                 time: TimeInterval?,
-                people: Int?,
+                people: Int = 1,
                 difficulty: Difficulty,
                 country: String?) {
         self.name = name
@@ -183,9 +183,7 @@ public extension Recipe {
             output += "\"time\": \(time),\n"
         }
 
-        if let people = people {
-            output += "\"people\": \(people),\n"
-        }
+        output += "\"people\": \(people),\n"
 
         if let country = country {
             output += "\"country\": \"\(country)\",\n"

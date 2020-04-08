@@ -31,7 +31,7 @@ public protocol RecipeViewModelProtocolInputs {
 public protocol RecipeViewModelProtocolOutputs {
     var items: Observable<[SectionModel<String, RecipeCellType>]> { get }
     var didTapStartCooking: Observable<Void> { get }
-    func titleForSliderCell(for value: Int) -> String
+    var titleForSliderCell: Observable<String> { get }
 }
 
 public final class RecipeViewModel: RecipeViewModelProtocol {
@@ -39,14 +39,10 @@ public final class RecipeViewModel: RecipeViewModelProtocol {
     
     public var input: RecipeViewModelProtocolInputs { return self }
     public var output: RecipeViewModelProtocolOutputs { return self }
-    
-    private let quantityMultiplier: BehaviorRelay<Float>
-    
+        
     // MARK: Inputs
     public func selected(peopleCount: Int) {
-        
-        
-        // TODO: Update multiplier
+        self.peopleCount.accept(peopleCount)
     }
     
     public func startCookingTapped() {
@@ -55,21 +51,27 @@ public final class RecipeViewModel: RecipeViewModelProtocol {
     
     // MARK: Outputs
     public let items: Observable<[SectionModel<String, RecipeCellType>]>
+    
     public var didTapStartCooking: Observable<Void> {
         return didTapStartCookingRelay.asObservable()
     }
-    
     private let didTapStartCookingRelay = PublishRelay<Void>()
+
+    public let titleForSliderCell: Observable<String>
     
-    public func titleForSliderCell(for value: Int) -> String {
-        return "\("portions".localized) - \(value)"
-    }
-    
+    private let peopleCount = BehaviorRelay<Int>(value: 1)
+    private let quantityMultiplier: Observable<Float>
+
     public init(recipe: Recipe, algorithmParser: AlgorithmParsing = AlgorithmParser()) {
         self.parser = algorithmParser
         let algorithm = parser.parse(string: recipe.rawAlgorithm)
-
-        quantityMultiplier = BehaviorRelay<Float>(value: 1.0)
+        
+        quantityMultiplier = peopleCount
+            .map {  Float($0) / Float(recipe.people) }
+            .debug()
+            
+        titleForSliderCell = peopleCount
+            .map { "\("portions".localized) - \($0)" }            
         
         let ingredients = algorithm.ingredients
             .reduce("") { ingredientsList, ingredient in
@@ -89,7 +91,7 @@ public final class RecipeViewModel: RecipeViewModelProtocol {
         let imageCell = RecipeCellType.imageCell(FullImageCellViewModel(title: nil,
                                                                         imageURL: recipe.imagesURL?.first))
         
-        var portions = Float(recipe.people ?? 1)
+        let portions = Float(recipe.people)
         let sliderCell = RecipeCellType.sliderCell(SliderCellViewModel(minimum: 1,
                                                                        maximum: Float(Constants.general.maxPortions),
                                                                        value: portions))
