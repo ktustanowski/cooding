@@ -13,20 +13,29 @@ import RxRelay
 
 public struct SliderCellViewModel {
     // MARK: Inputs
+    public func setTitle(to title: String?) {
+        titleRelay.accept(title)
+    }
+    
     public func sliderDidSlide(to value: Float) {
         self.value.accept(value)
     }
     
     // MARK: Outputs
+    public let title: Observable<String?>
     public let minimum: Float
     public let maximum: Float
+    
     /// Use sliderDidSlide(to value: Float) to change the value instead of using the relay directly
     public let value: BehaviorRelay<Float>
+    private let titleRelay: BehaviorRelay<String?>
     
-    public init(minimum: Float = 1, maximum: Float = 1, value: Float = 1) {
+    public init(title: String? = nil, minimum: Float = 1, maximum: Float = 1, value: Float = 1) {
         self.minimum = minimum
         self.maximum = maximum
         self.value = BehaviorRelay<Float>(value: value)
+        titleRelay = BehaviorRelay<String?>(value: title)
+        self.title = titleRelay.asObservable()
     }
 }
 
@@ -71,6 +80,10 @@ private extension SliderTableCell {
             })
             .disposed(by: disposeBag)
                 
+        viewModel.title
+            .bind(to: titleLabel.rx.text)
+            .disposed(by: disposeBag)
+        
         titleLabel.rx.observe(String.self, "text")
             .map { $0 == nil || $0?.isEmpty == true }
             .bind(to: titleLabel.rx.isHidden)

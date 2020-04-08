@@ -64,9 +64,11 @@ public final class RecipeViewController: UITableViewController {
                 .disposed(by: cell.disposeBag)
 
             self?.viewModel.output.titleForSliderCell
-                .bind(to: cell.titleLabel.rx.text)
+                .subscribe(onNext: { [weak cell] title in
+                    cell?.viewModel.setTitle(to: title)
+                })
                 .disposed(by: cell.disposeBag)
-            
+
             return cell
         }})
     

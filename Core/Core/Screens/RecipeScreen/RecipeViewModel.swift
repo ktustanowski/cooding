@@ -32,6 +32,7 @@ public protocol RecipeViewModelProtocolOutputs {
     var items: Observable<[SectionModel<String, RecipeCellType>]> { get }
     var didTapStartCooking: Observable<Void> { get }
     var titleForSliderCell: Observable<String> { get }
+    var ingredients: Observable<String> { get }
 }
 
 public final class RecipeViewModel: RecipeViewModelProtocol {
@@ -52,12 +53,11 @@ public final class RecipeViewModel: RecipeViewModelProtocol {
     // MARK: Outputs
     public let items: Observable<[SectionModel<String, RecipeCellType>]>
     
-    public var didTapStartCooking: Observable<Void> {
-        return didTapStartCookingRelay.asObservable()
-    }
+    public let didTapStartCooking: Observable<Void>
     private let didTapStartCookingRelay = PublishRelay<Void>()
 
     public let titleForSliderCell: Observable<String>
+    public let ingredients: Observable<String>
     
     private let peopleCount = BehaviorRelay<Int>(value: 1)
     private let quantityMultiplier: Observable<Float>
@@ -66,17 +66,22 @@ public final class RecipeViewModel: RecipeViewModelProtocol {
         self.parser = algorithmParser
         let algorithm = parser.parse(string: recipe.rawAlgorithm)
         
+        didTapStartCooking = didTapStartCookingRelay.asObservable()
+        
         quantityMultiplier = peopleCount
             .map {  Float($0) / Float(recipe.people) }
             .debug()
             
         titleForSliderCell = peopleCount
             .map { "\("portions".localized) - \($0)" }            
-        
-        let ingredients = algorithm.ingredients
-            .reduce("") { ingredientsList, ingredient in
-                return ingredientsList + "• \(ingredient.formatted)\n"
-            }
+                
+        ingredients = quantityMultiplier
+            .map { multiplier in
+                algorithm.ingredients
+                    .reduce("") { ingredientsList, ingredient in
+                        return ingredientsList + "• \(ingredient.format(multiplier: multiplier))\n"
+                }
+        }
         
         let dependencies = algorithm.dependencies
             .reduce("") { dependenciesList, dependency in
@@ -97,7 +102,7 @@ public final class RecipeViewModel: RecipeViewModelProtocol {
                                                                        value: portions))
         
         let ingredientsCell = RecipeCellType.listCell(ListCellViewModel(title: "\(algorithm.ingredients.count) \("ingredients".localized)",
-                                                                        description: ingredients))
+                                                                        description: nil))
         
         let dependenciesCell = RecipeCellType.listCell(ListCellViewModel(title: "\(algorithm.dependencies.count) \("dependencies".localized)".localized,
                                                                          description: dependencies))

@@ -10,10 +10,10 @@ import UIKit
 
 public struct ListCellViewModel {
     public let title: String
-    public let description: String
+    public let description: String?
     public let shrinksOnTouch: Bool
     
-    public init(title: String, description: String, shrinksOnTouch: Bool = false) {
+    public init(title: String, description: String?, shrinksOnTouch: Bool = false) {
         self.title = title
         self.description = description
         self.shrinksOnTouch = shrinksOnTouch

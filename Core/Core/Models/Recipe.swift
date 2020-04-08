@@ -54,6 +54,10 @@ extension Ingredient {
     var formatted: String {
         return "\(quantity) \(name)"
     }
+    
+    func format(multiplier: Float) -> String {
+        return "\(String(format: "%.2f", quantity * Double(multiplier))) \(name)"
+    }
 }
 
 public struct Step: Equatable, Hashable {
