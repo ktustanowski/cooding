@@ -64,7 +64,7 @@ public struct AlgorithmParser: AlgorithmParsing {
                         self.constants.ingredientEnd,
                         self.constants.dependencyStart,
                         self.constants.dependencyEnd])
-                .trimSpaceInTheEnd()
+                .trimTrailingSpace()
             
             return Step(description: trimmedDescription,
                         dependencies: dependencies.isEmpty ? nil : dependencies.sorted(by: { $0.name < $1.name }),

@@ -19,5 +19,5 @@ struct UIConstants {
 }
 
 struct GeneralConstants {
-    static let maxPortions = 10
+    static let peopleMultiplier = 4
 }

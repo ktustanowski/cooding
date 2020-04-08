@@ -37,6 +37,7 @@ public protocol RecipeViewModelProtocolOutputs {
 
 public final class RecipeViewModel: RecipeViewModelProtocol {
     private let parser: AlgorithmParsing
+    private let disposeBag = DisposeBag()
     
     public var input: RecipeViewModelProtocolInputs { return self }
     public var output: RecipeViewModelProtocolOutputs { return self }
@@ -83,6 +84,13 @@ public final class RecipeViewModel: RecipeViewModelProtocol {
                 }
         }
         
+        let ingredientsCellViewModel = ListCellViewModel(title: "\(algorithm.ingredients.count) \("ingredients".localized)")
+        ingredients
+            .subscribe(onNext: { ingredients in
+                ingredientsCellViewModel.set(description: ingredients)
+            })
+            .disposed(by: disposeBag)
+
         let dependencies = algorithm.dependencies
             .reduce("") { dependenciesList, dependency in
                 return dependenciesList + "• \(dependency.name)\n"
@@ -97,12 +105,12 @@ public final class RecipeViewModel: RecipeViewModelProtocol {
                                                                         imageURL: recipe.imagesURL?.first))
         
         let portions = Float(recipe.people)
+        let maxPeopleCount = portions * Float(Constants.general.peopleMultiplier)
         let sliderCell = RecipeCellType.sliderCell(SliderCellViewModel(minimum: 1,
-                                                                       maximum: Float(Constants.general.maxPortions),
+                                                                       maximum: maxPeopleCount,
                                                                        value: portions))
         
-        let ingredientsCell = RecipeCellType.listCell(ListCellViewModel(title: "\(algorithm.ingredients.count) \("ingredients".localized)",
-                                                                        description: nil))
+        let ingredientsCell = RecipeCellType.listCell(ingredientsCellViewModel)
         
         let dependenciesCell = RecipeCellType.listCell(ListCellViewModel(title: "\(algorithm.dependencies.count) \("dependencies".localized)".localized,
                                                                          description: dependencies))

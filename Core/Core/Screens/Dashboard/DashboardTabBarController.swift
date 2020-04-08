@@ -12,7 +12,7 @@ import RxSwift
 public final class DashboardTabBarController: UITabBarController {
     private var theme: Theme = ThemeFactory.make()
     public var viewModel: DashboardViewModelProtocol!
-    public var disposeBag = DisposeBag()
+    private(set) var disposeBag = DisposeBag()
     
     public init(nibName nibNameOrNil: String? = nil, bundle nibBundleOrNil: Bundle? = nil, viewModel: DashboardViewModelProtocol = DashboardViewModel()) {
         self.viewModel = viewModel

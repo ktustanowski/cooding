@@ -18,7 +18,7 @@ public struct ButtonCellViewModel {
 }
 
 public class ButtonTableCell: UITableViewCell {
-    public var disposeBag = DisposeBag()
+    private(set) var disposeBag = DisposeBag()
     
     @IBOutlet private(set) weak var button: UIButton!
     public var viewModel: ButtonCellViewModel! {

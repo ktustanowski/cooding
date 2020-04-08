@@ -13,7 +13,7 @@ import RxCocoa
 public final class RecipeListContainerViewController: UIViewController {
     private var theme: Theme = ThemeFactory.make()
     public var viewModel: RecipeListContainerViewModelProtocol!
-    public var disposeBag = DisposeBag()
+    private(set) var disposeBag = DisposeBag()
     
     @IBOutlet weak var contentContainer: UIView!
     @IBOutlet weak var bottomBar: UIView!

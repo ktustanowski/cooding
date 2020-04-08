@@ -12,7 +12,7 @@ import RxCocoa
 
 public final class NoDataViewController: UIViewController {
     public var viewModel: NoDataViewModel!
-    var disposeBag = DisposeBag()
+    private(set) var disposeBag = DisposeBag()
     
     @IBOutlet private weak var titleLabel: UILabel!
     @IBOutlet private weak var messageLabel: UILabel!

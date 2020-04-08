@@ -7,24 +7,44 @@
 //
 
 import UIKit
+import RxSwift
+import RxRelay
+import RxCocoa
 
 public struct ListCellViewModel {
-    public let title: String
-    public let description: String?
+    // MARK: - Inputs
+    public func set(title: String?) {
+        titleRelay.accept(title)
+    }
+
+    public func set(description: String?) {
+        descriptionRelay.accept(description)
+    }
+
+    // MARK: - Outputs
+    public let title: Observable<String?>
+    public let description: Observable<String?>
     public let shrinksOnTouch: Bool
-    
-    public init(title: String, description: String?, shrinksOnTouch: Bool = false) {
-        self.title = title
-        self.description = description
+
+    private let titleRelay: BehaviorRelay<String?>
+    private let descriptionRelay: BehaviorRelay<String?>
+
+    public init(title: String? = nil, description: String? = nil, shrinksOnTouch: Bool = false) {
         self.shrinksOnTouch = shrinksOnTouch
+        
+        titleRelay = BehaviorRelay<String?>(value: title)
+        self.title = titleRelay.asObservable()
+        
+        descriptionRelay = BehaviorRelay<String?>(value: description)
+        self.description = descriptionRelay.asObservable()
     }
 }
 
 public class ListTableCell: UITableViewCell {
+    private(set) var disposeBag = DisposeBag()
     public var viewModel: ListCellViewModel! {
         didSet {
-            titleLabel.text = viewModel.title
-            descriptionLabel.text = viewModel.description
+            bindViewModel()
         }
     }
     
@@ -44,11 +64,24 @@ public class ListTableCell: UITableViewCell {
         
         titleLabel.text = nil
         descriptionLabel.text = nil
+        disposeBag = DisposeBag()
     }
         
     public override func setHighlighted(_ highlighted: Bool, animated: Bool) {
         guard viewModel.shrinksOnTouch else { return }
         shrink(down: highlighted)
+    }
+}
+
+private extension ListTableCell {
+    func bindViewModel() {
+        viewModel.title
+            .bind(to: titleLabel.rx.text)
+            .disposed(by: disposeBag)
+        
+        viewModel.description
+            .bind(to: descriptionLabel.rx.text)
+            .disposed(by: disposeBag)
     }
 }
 

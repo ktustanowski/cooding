@@ -26,7 +26,7 @@ public final class RecipeViewController: UITableViewController {
 
             cell.viewModel = viewModel
             cell.apply(theme: strongSelf.theme)
-
+            
             return cell
         case .buttonCell(let viewModel):
             guard let cell = tableView.dequeueReusableCell(withIdentifier: ButtonTableCell.nibName, for: indexPath) as? ButtonTableCell
@@ -65,7 +65,7 @@ public final class RecipeViewController: UITableViewController {
 
             self?.viewModel.output.titleForSliderCell
                 .subscribe(onNext: { [weak cell] title in
-                    cell?.viewModel.setTitle(to: title)
+                    cell?.viewModel.set(title: title)
                 })
                 .disposed(by: cell.disposeBag)
 

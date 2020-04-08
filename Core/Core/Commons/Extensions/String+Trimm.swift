@@ -19,11 +19,19 @@ public extension String {
         return output
     }
     
-    func trimSpaceInTheEnd() -> String {
+    func trimTrailingSpace() -> String {
         return self.last == .space ? String(self.dropLast()) : self
+    }
+    
+    // TODO: Make this smarter - possibly extension to a number would be best
+    func trimTrailingZeros() -> String {
+        return self.replacingOccurrences(of: ".00", with: "")
+            .replacingOccurrences(of: ",00", with: "")
+            .replacingOccurrences(of: ",0", with: "")
+            .replacingOccurrences(of: ".0", with: "")
     }
 }
 
 public extension Character {
-    public static let space = Character(" ")
+    static let space = Character(" ")
 }

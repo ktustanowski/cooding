@@ -57,6 +57,7 @@ extension Ingredient {
     
     func format(multiplier: Float) -> String {
         return "\(String(format: "%.2f", quantity * Double(multiplier))) \(name)"
+            .trimTrailingZeros()
     }
 }
 

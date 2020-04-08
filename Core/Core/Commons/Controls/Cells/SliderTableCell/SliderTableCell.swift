@@ -13,7 +13,7 @@ import RxRelay
 
 public struct SliderCellViewModel {
     // MARK: Inputs
-    public func setTitle(to title: String?) {
+    public func set(title: String?) {
         titleRelay.accept(title)
     }
     
@@ -40,7 +40,7 @@ public struct SliderCellViewModel {
 }
 
 public final class SliderTableCell: UITableViewCell {
-    public var disposeBag = DisposeBag()
+    private(set) var disposeBag = DisposeBag()
     
     public var viewModel: SliderCellViewModel! {
         didSet {
