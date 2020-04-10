@@ -94,20 +94,19 @@ public final class RecipeListContainerViewModel: RecipeListContainerViewModelPro
         self.storage = storage
         let recipeListURLRelay = BehaviorRelay<URL?>(value: recipeListURL)
         self.recipeListURLRelay = recipeListURLRelay
-    
-        let gotURL = recipeListURLRelay.asObservable().filter { $0 != nil }
-        let noURL = recipeListURLRelay.asObservable().filter { $0 == nil }
-                
+                    
         needsRecipesURL = Observable
-            .combineLatest(noURL,
+            .combineLatest(recipeListURLRelay.asObservable(),
                            viewDidAppearRelay.asObservable())
+            .filter { url, _ in url == nil }
             .map { _ in () }
 
         let shouldLoadRecipes = Observable
-            .combineLatest(gotURL,
+            .combineLatest(recipeListURLRelay.asObservable(),
                            viewDidLoadRelay.asObservable(),
                            viewWillAppearRelay.asObservable(),
                            reloadRelay.asObservable())
+            .filter { url, _, _, _ in url != nil }
             .map { _ in () }
 
         recipeListViewModel = shouldLoadRecipes
@@ -125,8 +124,10 @@ public final class RecipeListContainerViewModel: RecipeListContainerViewModelPro
                 storage.recipeListURL = recipeListURLRelay.value
             })
             .startWith(nil)
+            .debug("::Debug load recipes", trimOutput: true)
 
-        isLoading = downloader.isLoading
-            .distinctUntilChanged()
+        isLoading = Observable.combineLatest(downloader.isLoading, recipeListViewModel)
+            .filter { _, viewModel in viewModel == nil }
+            .map { isLoading, _ in isLoading }
     }
 }
