@@ -24,13 +24,13 @@ public struct FullImageCellViewModel {
 }
 
 public class FullImageTableCell: UITableViewCell {
-    public var viewModel: FullImageCellViewModel! {
+    public var viewModel: FullImageCellViewModel? {
         didSet {
-            titleLabel.text = viewModel.title
-            titleContainer.isHidden = viewModel.title == nil
+            titleLabel.text = viewModel?.title
+            titleContainer.isHidden = viewModel?.title == nil
             
             guard !inTests() else { return }
-            fullImageView.kf.setImage(with: viewModel.imageURL,
+            fullImageView.kf.setImage(with: viewModel?.imageURL,
                                       options: [.scaleFactor(UIScreen.main.scale),
                                                 .transition(.fade(1))])
         }
@@ -58,7 +58,7 @@ public class FullImageTableCell: UITableViewCell {
     }
     
     public override func setHighlighted(_ highlighted: Bool, animated: Bool) {
-        guard viewModel.shrinksOnTouch else { return }
+        guard viewModel?.shrinksOnTouch == true else { return }
         shrink(down: highlighted)
     }
 }
