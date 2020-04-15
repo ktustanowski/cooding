@@ -40,6 +40,18 @@ public struct ListCellViewModel {
     }
 }
 
+extension ListCellViewModel: Hashable, Equatable {
+    public func hash(into hasher: inout Hasher) {
+        hasher.combine(titleRelay.value)
+        hasher.combine(descriptionRelay.value)
+    }
+
+    public static func == (lhs: ListCellViewModel, rhs: ListCellViewModel) -> Bool {
+        return lhs.titleRelay.value == rhs.titleRelay.value
+            && lhs.descriptionRelay.value == rhs.descriptionRelay.value
+    }
+}
+
 public class ListTableCell: UITableViewCell {
     private(set) var disposeBag = DisposeBag()
     public var viewModel: ListCellViewModel! {

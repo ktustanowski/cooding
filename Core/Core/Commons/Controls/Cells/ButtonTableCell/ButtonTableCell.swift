@@ -17,6 +17,12 @@ public struct ButtonCellViewModel {
     }
 }
 
+extension ButtonCellViewModel: Hashable, Equatable {
+    public func hash(into hasher: inout Hasher) {
+        hasher.combine(title)
+    }
+}
+
 public class ButtonTableCell: UITableViewCell {
     private(set) var disposeBag = DisposeBag()
     

@@ -11,11 +11,26 @@ import RxSwift
 import RxRelay
 import RxDataSources
 
-public enum RecipeCellType {
+public enum RecipeCellType: IdentifiableType, Equatable {
     case imageCell(FullImageCellViewModel)
     case sliderCell(SliderCellViewModel)
     case listCell(ListCellViewModel)
     case buttonCell(ButtonCellViewModel)
+    
+    // TODO: Some other solution - supported not only with iOS13
+    // TODO: Remove .hashValue - since its deprecated
+    public var identity: some Hashable {
+        switch self {
+        case .imageCell(let viewModel):
+            return viewModel.hashValue
+        case .sliderCell(let viewModel):
+            return viewModel.hashValue
+        case .listCell(let viewModel):
+            return viewModel.hashValue
+        case .buttonCell(let viewModel):
+            return viewModel.hashValue
+        }
+    }
 }
 
 public protocol RecipeViewModelProtocol: RecipeViewModelProtocolInputs, RecipeViewModelProtocolOutputs {
@@ -24,12 +39,13 @@ public protocol RecipeViewModelProtocol: RecipeViewModelProtocolInputs, RecipeVi
 }
 
 public protocol RecipeViewModelProtocolInputs {
-    func selected(peopleCount: Int)
+    func addPortion()
+    func removePortion()
     func startCookingTapped()
 }
 
 public protocol RecipeViewModelProtocolOutputs {
-    var items: Observable<[SectionModel<String, RecipeCellType>]> { get }
+    var items: Observable<[AnimatableSectionModel<String, RecipeCellType>]> { get }
     var didTapStartCooking: Observable<Void> { get }
     var titleForSliderCell: Observable<String> { get }
     var ingredients: Observable<String> { get }
@@ -43,8 +59,13 @@ public final class RecipeViewModel: RecipeViewModelProtocol {
     public var output: RecipeViewModelProtocolOutputs { return self }
         
     // MARK: Inputs
-    public func selected(peopleCount: Int) {
-        self.peopleCount.accept(peopleCount)
+    public func addPortion() {
+        peopleCount.accept(peopleCount.value + 1)
+    }
+    
+    public func removePortion() {
+        guard peopleCount.value > 1 else { return }
+        peopleCount.accept(peopleCount.value - 1)
     }
     
     public func startCookingTapped() {
@@ -52,7 +73,7 @@ public final class RecipeViewModel: RecipeViewModelProtocol {
     }
     
     // MARK: Outputs
-    public let items: Observable<[SectionModel<String, RecipeCellType>]>
+    public let items: Observable<[AnimatableSectionModel<String, RecipeCellType>]>
     
     public let didTapStartCooking: Observable<Void>
     private let didTapStartCookingRelay = PublishRelay<Void>()
@@ -66,12 +87,11 @@ public final class RecipeViewModel: RecipeViewModelProtocol {
     public init(recipe: Recipe, algorithmParser: AlgorithmParsing = AlgorithmParser()) {
         self.parser = algorithmParser
         let algorithm = parser.parse(string: recipe.rawAlgorithm)
+        peopleCount.accept(recipe.people)
         
         didTapStartCooking = didTapStartCookingRelay.asObservable()
-        
         quantityMultiplier = peopleCount
             .map {  Float($0) / Float(recipe.people) }
-            .debug()
             
         titleForSliderCell = peopleCount
             .map { "\("portions".localized) - \($0)" }            
@@ -84,12 +104,12 @@ public final class RecipeViewModel: RecipeViewModelProtocol {
                 }
         }
         
-        let ingredientsCellViewModel = ListCellViewModel(title: "\(algorithm.ingredients.count) \("ingredients".localized)")
-        ingredients
-            .subscribe(onNext: { ingredients in
-                ingredientsCellViewModel.set(description: ingredients)
-            })
-            .disposed(by: disposeBag)
+        let ingredientsCellViewModel = ingredients
+            .distinctUntilChanged()
+            .map { ingredients in
+                ListCellViewModel(title: "\(algorithm.ingredients.count) \("ingredients".localized)",
+                    description: ingredients)
+            }
 
         let dependencies = algorithm.dependencies
             .reduce("") { dependenciesList, dependency in
@@ -104,13 +124,13 @@ public final class RecipeViewModel: RecipeViewModelProtocol {
         let imageCell = RecipeCellType.imageCell(FullImageCellViewModel(title: nil,
                                                                         imageURL: recipe.imagesURL?.first))
         
-        let portions = Float(recipe.people)
-        let maxPeopleCount = portions * Float(Constants.general.peopleMultiplier)
-        let sliderCell = RecipeCellType.sliderCell(SliderCellViewModel(minimum: 1,
-                                                                       maximum: maxPeopleCount,
-                                                                       value: portions))
+//        let portions = Float(recipe.people)
+//        let maxPeopleCount = portions * Float(Constants.general.peopleMultiplier)
+//        let sliderCell = RecipeCellType.sliderCell(SliderCellViewModel(minimum: 1,
+//                                                                       maximum: maxPeopleCount,
+//                                                                       value: portions))
         
-        let ingredientsCell = RecipeCellType.listCell(ingredientsCellViewModel)
+        let ingredientsCell = ingredientsCellViewModel.map { RecipeCellType.listCell($0) }
         
         let dependenciesCell = RecipeCellType.listCell(ListCellViewModel(title: "\(algorithm.dependencies.count) \("dependencies".localized)".localized,
                                                                          description: dependencies))
@@ -121,12 +141,17 @@ public final class RecipeViewModel: RecipeViewModelProtocol {
         let startCookingCell = RecipeCellType.buttonCell(ButtonCellViewModel(title: "recipe.screen.action.button.title".localized))
         
         //TODO: Display only cell which have content.
-        items = .just([SectionModel(model: "MainSection", items: [imageCell,
-                                                                  sliderCell,
-                                                                  ingredientsCell,
-                                                                  dependenciesCell,
-                                                                  stepsCell,
-                                                                  startCookingCell])])
-        
+        items = Observable
+            .merge(ingredientsCell)
+            .map { ingredientsCell in
+                return [AnimatableSectionModel(model: "MainSection",
+                                               items: [imageCell,
+//                                                       sliderCell,
+                                                       ingredientsCell,
+                                                       dependenciesCell,
+                                                       stepsCell,
+                                                       startCookingCell])]
+        }
+        .distinctUntilChanged()
     }
 }

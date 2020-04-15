@@ -123,8 +123,7 @@ public final class RecipeListContainerViewModel: RecipeListContainerViewModelPro
                 guard $0 != nil && recipeListURL == nil && storage.recipeListURL == nil else { return }
                 storage.recipeListURL = recipeListURLRelay.value
             })
-            .startWith(nil)
-            .debug("::Debug load recipes", trimOutput: true)
+            .startWith(nil)            
 
         isLoading = Observable.combineLatest(downloader.isLoading, recipeListViewModel)
             .filter { _, viewModel in viewModel == nil }

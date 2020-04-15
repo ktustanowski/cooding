@@ -39,6 +39,22 @@ public struct SliderCellViewModel {
     }
 }
 
+extension SliderCellViewModel: Hashable, Equatable {
+    public func hash(into hasher: inout Hasher) {
+        hasher.combine(titleRelay.value)
+        hasher.combine(value.value)
+        hasher.combine(maximum)
+        hasher.combine(minimum)
+    }
+
+    public static func == (lhs: SliderCellViewModel, rhs: SliderCellViewModel) -> Bool {
+        return lhs.titleRelay.value == rhs.titleRelay.value
+            && lhs.value.value == rhs.value.value
+            && lhs.maximum == rhs.maximum
+            && lhs.minimum == rhs.minimum
+    }
+}
+
 public final class SliderTableCell: UITableViewCell {
     private(set) var disposeBag = DisposeBag()
     

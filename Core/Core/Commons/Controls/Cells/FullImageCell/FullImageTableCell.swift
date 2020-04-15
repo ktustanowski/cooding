@@ -23,6 +23,14 @@ public struct FullImageCellViewModel {
     }
 }
 
+extension FullImageCellViewModel: Hashable, Equatable {
+    public func hash(into hasher: inout Hasher) {
+        hasher.combine(title)
+        hasher.combine(imageURL)
+        hasher.combine(shrinksOnTouch)
+    }
+}
+
 public class FullImageTableCell: UITableViewCell {
     public var viewModel: FullImageCellViewModel? {
         didSet {

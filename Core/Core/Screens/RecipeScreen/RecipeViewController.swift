@@ -14,9 +14,9 @@ public final class RecipeViewController: UITableViewController {
     private var theme: Theme = ThemeFactory.make()
     public let disposeBag = DisposeBag()
     public var viewModel: RecipeViewModelProtocol!
-
+    
     //swiftlint:disable:next line_length
-    private lazy var dataSource: RxTableViewSectionedReloadDataSource<SectionModel<String, RecipeCellType>> = RxTableViewSectionedReloadDataSource(configureCell: { [weak self] _, tableView, indexPath, cellType in
+    private lazy var dataSource: RxTableViewSectionedAnimatedDataSource<AnimatableSectionModel<String, RecipeCellType>> = RxTableViewSectionedAnimatedDataSource(configureCell: { [weak self] _, tableView, indexPath, cellType in
         guard let strongSelf = self else { fatalError("No theme available!") }
         
         switch cellType {
@@ -57,18 +57,6 @@ public final class RecipeViewController: UITableViewController {
             cell.viewModel = viewModel
             cell.apply(theme: strongSelf.theme)
             
-            cell.viewModel.value
-                .subscribe(onNext: { [weak self] peopleCount in
-                    self?.viewModel.input.selected(peopleCount: Int(peopleCount))
-                })
-                .disposed(by: cell.disposeBag)
-
-            self?.viewModel.output.titleForSliderCell
-                .subscribe(onNext: { [weak cell] title in
-                    cell?.viewModel.set(title: title)
-                })
-                .disposed(by: cell.disposeBag)
-
             return cell
         }})
     
@@ -88,19 +76,16 @@ private extension RecipeViewController {
         
         tableView.separatorStyle = .none
         tableView.delaysContentTouches = false
+        
+        dataSource.animationConfiguration = AnimationConfiguration(insertAnimation: .fade,
+                                                                   reloadAnimation: .fade,
+                                                                   deleteAnimation: .fade)
     }
 
     func bindViewModel() {
         viewModel.output.items.bind(to: tableView
             .rx
             .items(dataSource: dataSource))
-            .disposed(by: disposeBag)
-        
-        tableView.rx.itemSelected
-            .subscribe { event in
-                guard let indexPath = event.element else { return }
-                print(indexPath)
-            }
             .disposed(by: disposeBag)
     }
 }
