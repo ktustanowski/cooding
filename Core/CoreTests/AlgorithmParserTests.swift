@@ -58,19 +58,33 @@ class AlgorithmParserTests: XCTestCase {
     }
 
     func testParsingStep_WithDependencyAndIngredient() {
-        let step = "Do something with [1.0 sausage] and {frying pan}"
+        let step = "Do something with [1.0 g of sausage] and {frying pan}"
         
         let algorithm = sut.parse(string: step)
         
         XCTAssertEqual(algorithm.dependencies, [Dependency(name: "frying pan")])
-        XCTAssertEqual(algorithm.ingredients, [Ingredient(name: "sausage", quantity: 1.0)])
+        XCTAssertEqual(algorithm.ingredients, [Ingredient(name: "g of sausage", quantity: 1.0)])
         XCTAssertEqual(algorithm.steps.count, 1)
-        XCTAssertEqual(algorithm.steps.first, Step(description: "Do something with 1.0 sausage and frying pan",
+        XCTAssertEqual(algorithm.steps.first, Step(description: "Do something with 1.0 g of sausage and frying pan",
                                                    dependencies: [Dependency(name: "frying pan")],
-                                                   ingredients: [Ingredient(name: "sausage", quantity: 1.0)],
+                                                   ingredients: [Ingredient(name: "g of sausage", quantity: 1.0)],
                                                    duration: nil))
     }
 
+//    TODOKT: Deal with polish characters
+    func testParsingStep_ParsesPolishLetters() {
+        let step = "Dodaj [2 ą żźćńółęąśŻŹĆĄŚĘŁÓŃ]"
+
+        let algorithm = sut.parse(string: step)
+        
+        XCTAssertEqual(algorithm.ingredients, [Ingredient(name: "ą żźćńółęąśŻŹĆĄŚĘŁÓŃ", quantity: 2.0)])
+        XCTAssertEqual(algorithm.steps.count, 1)
+        XCTAssertEqual(algorithm.steps.first, Step(description: "Dodaj 2 ą żźćńółęąśŻŹĆĄŚĘŁÓŃ",
+                                                   dependencies: nil,
+                                                   ingredients: [Ingredient(name: "ą żźćńółęąśŻŹĆĄŚĘŁÓŃ", quantity: 2.0)],
+                                                   duration: nil))
+    }
+    
     func testParsingStep_WithDependencyAndIngredient_DontSumTheSameIngredients() {
         let steps = "Do something with [1.0 sausage] and {frying pan}\nDo additional something to this [1.0 sausage] and {frying pan}"
         

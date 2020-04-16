@@ -13,9 +13,9 @@ public protocol AlgorithmParsing {
 }
 
 struct AlgorithmConstants {
-    let ingredientsRegex = #"\[[a-zA-Z0-9.,() ]+\]*"#
-    let dependenciesRegex = #"\{[a-zA-Z0-9., ]+\}*"#
-    let durationRegex = #"\<[0-9.,]+\>*"#
+    let ingredientsRegex = #"\[[\p{L}\p{M}\p{Nd}.,() ]+\]*"#
+    let dependenciesRegex = #"\{[\p{L}\p{M}\p{Nd}., ]+\}*"#
+    let durationRegex = #"\<[\p{Nd}.,]+\>*"#
     let ingredientStart = "["
     let ingredientEnd = "]"
     let dependencyStart = "{"
@@ -46,6 +46,7 @@ public struct AlgorithmParser: AlgorithmParsing {
                 .map { $0.trimm([self.constants.ingredientStart,
                                  self.constants.ingredientEnd]) }
                 .map { ingredientSubstring -> Ingredient? in
+                    // TODO: Current approach doesn't support i.e. 1.25g
                     let quantityString = ingredientSubstring.components(separatedBy: " ").first ?? ""
                     guard let quantity = Double(quantityString) else { return nil }
                     

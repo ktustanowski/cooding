@@ -1,5 +1,6 @@
 //: [Previous](@previous)
 
+import PlaygroundSupport
 import Foundation
 import Core
 //swiftlint:disable line_length
@@ -8,7 +9,7 @@ let pancakes = """
 """
 //swiftlint:enable line_length
 
-let parser: AlgorithmParsable = AlgorithmParser()
+let parser: AlgorithmParsing = AlgorithmParser()
 let algorithm = parser.parse(string: pancakes)
 
 print("Ingredients")
@@ -17,5 +18,25 @@ print("\nDependencies")
 print(algorithm.dependencies)
 print("\nSteps")
 print(algorithm.steps)
+
+func matches(regex: String, in text: String) -> [String] {
+    do {
+        let regex = try NSRegularExpression(pattern: regex)
+        let results = regex.matches(in: text,
+                                    range: NSRange(text.startIndex..., in: text))
+        return results.map {
+            String(text[Range($0.range, in: text)!])
+        }
+    } catch let error {
+        print("invalid regex: \(error.localizedDescription)")
+        return []
+    }
+}
+
+let step = parser.parse(string: "Dodaj [2ą żźćńółęąśŻŹĆĄŚĘŁÓŃ] into {frying pan} <60>\n")
+let ingredient = matches(regex: #"\[[\p{L}\p{M}\p{Nd}.,() ]+\]*"#, in: "Do something with [1.0g of sausage] and {frying pan}")
+let ingredientWithPolishCharacters = matches(regex: #"\[[\p{L}\p{M}\p{Nd}.,() ]+\]*"#, in: "Dodaj [2ą żźćńółęąśŻŹĆĄŚĘŁÓŃ]")
+
+PlaygroundPage.current.needsIndefiniteExecution = true
 
 //: [Next](@next)
