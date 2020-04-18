@@ -12,51 +12,36 @@ import RxRelay
 import RxCocoa
 
 public struct ListCellViewModel {
-    // MARK: - Inputs
-    public func set(title: String?) {
-        titleRelay.accept(title)
-    }
-
-    public func set(description: String?) {
-        descriptionRelay.accept(description)
-    }
-
-    // MARK: - Outputs
-    public let title: Observable<String?>
-    public let description: Observable<String?>
+    public let title: String
+    public let description: String
     public let shrinksOnTouch: Bool
-
-    private let titleRelay: BehaviorRelay<String?>
-    private let descriptionRelay: BehaviorRelay<String?>
-
-    public init(title: String? = nil, description: String? = nil, shrinksOnTouch: Bool = false) {
+    
+    public init(title: String, description: String, shrinksOnTouch: Bool = false) {
+        self.title = title
+        self.description = description
         self.shrinksOnTouch = shrinksOnTouch
-        
-        titleRelay = BehaviorRelay<String?>(value: title)
-        self.title = titleRelay.asObservable()
-        
-        descriptionRelay = BehaviorRelay<String?>(value: description)
-        self.description = descriptionRelay.asObservable()
     }
 }
 
 extension ListCellViewModel: Hashable, Equatable {
     public func hash(into hasher: inout Hasher) {
-        hasher.combine(titleRelay.value)
-        hasher.combine(descriptionRelay.value)
+        hasher.combine(title)
+        hasher.combine(description)
     }
 
     public static func == (lhs: ListCellViewModel, rhs: ListCellViewModel) -> Bool {
-        return lhs.titleRelay.value == rhs.titleRelay.value
-            && lhs.descriptionRelay.value == rhs.descriptionRelay.value
+        return lhs.title == rhs.title
+            && lhs.description == rhs.description
     }
 }
 
 public class ListTableCell: UITableViewCell {
     private(set) var disposeBag = DisposeBag()
+
     public var viewModel: ListCellViewModel! {
         didSet {
-            bindViewModel()
+            titleLabel.text = viewModel.title
+            descriptionLabel.text = viewModel.description
         }
     }
     
@@ -82,18 +67,6 @@ public class ListTableCell: UITableViewCell {
     public override func setHighlighted(_ highlighted: Bool, animated: Bool) {
         guard viewModel.shrinksOnTouch else { return }
         shrink(down: highlighted)
-    }
-}
-
-private extension ListTableCell {
-    func bindViewModel() {
-        viewModel.title
-            .bind(to: titleLabel.rx.text)
-            .disposed(by: disposeBag)
-        
-        viewModel.description
-            .bind(to: descriptionLabel.rx.text)
-            .disposed(by: disposeBag)
     }
 }
 

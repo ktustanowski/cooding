@@ -124,12 +124,6 @@ public final class RecipeViewModel: RecipeViewModelProtocol {
         let imageCell = RecipeCellType.imageCell(FullImageCellViewModel(title: nil,
                                                                         imageURL: recipe.imagesURL?.first))
         
-//        let portions = Float(recipe.people)
-//        let maxPeopleCount = portions * Float(Constants.general.peopleMultiplier)
-//        let sliderCell = RecipeCellType.sliderCell(SliderCellViewModel(minimum: 1,
-//                                                                       maximum: maxPeopleCount,
-//                                                                       value: portions))
-        
         let ingredientsCell = ingredientsCellViewModel.map { RecipeCellType.listCell($0) }
         
         let dependenciesCell = RecipeCellType.listCell(ListCellViewModel(title: "\(algorithm.dependencies.count) \("dependencies".localized)".localized,
@@ -146,7 +140,6 @@ public final class RecipeViewModel: RecipeViewModelProtocol {
             .map { ingredientsCell in
                 return [AnimatableSectionModel(model: "MainSection",
                                                items: [imageCell,
-//                                                       sliderCell,
                                                        ingredientsCell,
                                                        dependenciesCell,
                                                        stepsCell,
