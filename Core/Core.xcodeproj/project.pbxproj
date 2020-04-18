@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7B63B699244ADB4300835C81 /* RecipeDescriptionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B63B698244ADB4300835C81 /* RecipeDescriptionCell.swift */; };
 		9A0985BA22F0A83000A47127 /* Common.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9A0985B922F0A83000A47127 /* Common.storyboard */; };
 		9A0985BC22F0A9F900A47127 /* UIView+RoundCorners.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A0985BB22F0A9F900A47127 /* UIView+RoundCorners.swift */; };
 		9A0985C022F0AFD700A47127 /* NoDataViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A0985BF22F0AFD700A47127 /* NoDataViewController.swift */; };
@@ -89,6 +90,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		7B63B698244ADB4300835C81 /* RecipeDescriptionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeDescriptionCell.swift; sourceTree = "<group>"; };
 		9A0985B922F0A83000A47127 /* Common.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Common.storyboard; sourceTree = "<group>"; };
 		9A0985BB22F0A9F900A47127 /* UIView+RoundCorners.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+RoundCorners.swift"; sourceTree = "<group>"; };
 		9A0985BF22F0AFD700A47127 /* NoDataViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoDataViewController.swift; sourceTree = "<group>"; };
@@ -190,6 +192,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		7B63B697244ADADE00835C81 /* RecipeDescriptionCell */ = {
+			isa = PBXGroup;
+			children = (
+				7B63B698244ADB4300835C81 /* RecipeDescriptionCell.swift */,
+			);
+			path = RecipeDescriptionCell;
+			sourceTree = "<group>";
+		};
 		9A1611B722EA5CFE00FA053F /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
@@ -318,6 +328,7 @@
 		9A976E2B22EC70BE00204894 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
+				7B63B697244ADADE00835C81 /* RecipeDescriptionCell */,
 				9AF32001237613E700E6D946 /* SliderTableCell */,
 				9A488FD222F4E5F800AC308F /* ButtonTableCell */,
 				9AF9970222F2361600E9413C /* FullImageCell */,
@@ -633,6 +644,7 @@
 				9AC269C622EF89790080CA7E /* RecipeListViewController.swift in Sources */,
 				9A0985C222F0B02D00A47127 /* NoDataViewModel.swift in Sources */,
 				9A34484B22F575D200AC7DC1 /* Idle.swift in Sources */,
+				7B63B699244ADB4300835C81 /* RecipeDescriptionCell.swift in Sources */,
 				9AF9591322C8E1C90055B204 /* CookingViewController.swift in Sources */,
 				9A6FCF8B22F6414D009BDCCC /* UIViewControler+Embeddable.swift in Sources */,
 				9AF3509822ED97D500D42922 /* TimeInterval+Convenience.swift in Sources */,

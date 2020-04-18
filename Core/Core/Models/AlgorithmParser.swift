@@ -25,7 +25,6 @@ struct AlgorithmConstants {
     let configurationMark = "::"
 }
 
-// TODO: Refactor & add unit tests
 public struct AlgorithmParser: AlgorithmParsing {
     private let constants = AlgorithmConstants()
     
@@ -104,7 +103,7 @@ private extension AlgorithmParser {
                 String(text[Range($0.range, in: text)!])
             }
         } catch let error {
-            print("invalid regex: \(error.localizedDescription)")
+            assertionFailure("invalid regex: \(error.localizedDescription)")
             return []
         }
     }
