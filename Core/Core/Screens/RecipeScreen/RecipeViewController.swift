@@ -20,6 +20,24 @@ public final class RecipeViewController: UITableViewController {
         guard let strongSelf = self else { fatalError("No theme available!") }
         
         switch cellType {
+        case .descriptionCell(let viewModel):
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: RecipeDescriptionCell.nibName, for: indexPath) as? RecipeDescriptionCell
+                else { fatalError("No suitable cell found!") }
+
+            cell.viewModel = viewModel
+            cell.apply(theme: strongSelf.theme)
+            
+            cell.viewModel.didAddPortion?.subscribe(onNext: { [weak self] in
+                    self?.viewModel.input.addPortion()
+                })
+                .disposed(by: cell.disposeBag)
+
+            cell.viewModel.didRemovePortion?.subscribe(onNext: { [weak self] in
+                    self?.viewModel.input.removePortion()
+                })
+                .disposed(by: cell.disposeBag)
+
+            return cell
         case .listCell(let viewModel):
             guard let cell = tableView.dequeueReusableCell(withIdentifier: ListTableCell.nibName, for: indexPath) as? ListTableCell
                 else { fatalError("No suitable cell found!") }
@@ -73,6 +91,7 @@ private extension RecipeViewController {
         tableView.register(ButtonTableCell.nib, forCellReuseIdentifier: ButtonTableCell.nibName)
         tableView.register(FullImageTableCell.nib, forCellReuseIdentifier: FullImageTableCell.nibName)
         tableView.register(SliderTableCell.nib, forCellReuseIdentifier: SliderTableCell.nibName)
+        tableView.register(RecipeDescriptionCell.nib, forCellReuseIdentifier: RecipeDescriptionCell.nibName)
         
         tableView.separatorStyle = .none
         tableView.delaysContentTouches = false

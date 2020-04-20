@@ -16,6 +16,7 @@ public enum RecipeCellType: IdentifiableType, Equatable {
     case sliderCell(SliderCellViewModel)
     case listCell(ListCellViewModel)
     case buttonCell(ButtonCellViewModel)
+    case descriptionCell(RecipeDescriptionViewModel)
     
     // TODO: Some other solution - supported not only with iOS13
     // TODO: Remove .hashValue - since its deprecated
@@ -28,6 +29,8 @@ public enum RecipeCellType: IdentifiableType, Equatable {
         case .listCell(let viewModel):
             return viewModel.hashValue
         case .buttonCell(let viewModel):
+            return viewModel.hashValue
+        case .descriptionCell(let viewModel):
             return viewModel.hashValue
         }
     }
@@ -47,8 +50,6 @@ public protocol RecipeViewModelProtocolInputs {
 public protocol RecipeViewModelProtocolOutputs {
     var items: Observable<[AnimatableSectionModel<String, RecipeCellType>]> { get }
     var didTapStartCooking: Observable<Void> { get }
-    var titleForSliderCell: Observable<String> { get }
-    var ingredients: Observable<String> { get }
 }
 
 public final class RecipeViewModel: RecipeViewModelProtocol {
@@ -77,9 +78,6 @@ public final class RecipeViewModel: RecipeViewModelProtocol {
     
     public let didTapStartCooking: Observable<Void>
     private let didTapStartCookingRelay = PublishRelay<Void>()
-
-    public let titleForSliderCell: Observable<String>
-    public let ingredients: Observable<String>
     
     private let peopleCount = BehaviorRelay<Int>(value: 1)
     private let quantityMultiplier: Observable<Float>
@@ -93,10 +91,10 @@ public final class RecipeViewModel: RecipeViewModelProtocol {
         quantityMultiplier = peopleCount
             .map {  Float($0) / Float(recipe.people) }
             
-        titleForSliderCell = peopleCount
+        let portionsText = peopleCount
             .map { "\("portions".localized) - \($0)" }            
                 
-        ingredients = quantityMultiplier
+        let ingredients = quantityMultiplier
             .map { multiplier in
                 algorithm.ingredients
                     .reduce("") { ingredientsList, ingredient in
@@ -107,10 +105,15 @@ public final class RecipeViewModel: RecipeViewModelProtocol {
         let ingredientsCellViewModel = ingredients
             .distinctUntilChanged()
             .map { ingredients in
-                ListCellViewModel(title: "\(algorithm.ingredients.count) \("ingredients".localized)",
-                    description: ingredients)
+                ListCellViewModel(title: "\(algorithm.ingredients.count) \("ingredients".localized)", description: ingredients)
             }
 
+        let descriptionCellViewModel = portionsText
+            .distinctUntilChanged()
+            .map { portions in
+                RecipeDescriptionViewModel(title: "Description".localized, portions: portions)
+            }
+        
         let dependencies = algorithm.dependencies
             .reduce("") { dependenciesList, dependency in
                 return dependenciesList + "• \(dependency.name)\n"
@@ -126,6 +129,8 @@ public final class RecipeViewModel: RecipeViewModelProtocol {
         
         let ingredientsCell = ingredientsCellViewModel.map { RecipeCellType.listCell($0) }
         
+        let recipeDescriptionCell = descriptionCellViewModel.map { RecipeCellType.descriptionCell($0) }
+        
         let dependenciesCell = RecipeCellType.listCell(ListCellViewModel(title: "\(algorithm.dependencies.count) \("dependencies".localized)".localized,
                                                                          description: dependencies))
         
@@ -135,12 +140,20 @@ public final class RecipeViewModel: RecipeViewModelProtocol {
         let startCookingCell = RecipeCellType.buttonCell(ButtonCellViewModel(title: "recipe.screen.action.button.title".localized))
         
         //TODO: Display only cell which have content.
-        items = Observable
-            .merge(ingredientsCell)
-            .map { ingredientsCell in
+        items = peopleCount
+            .map { portions in
+                let multiplier = Float(portions) / Float(recipe.people)
+                let ingredients = algorithm.ingredients
+                    .reduce("") { ingredientsList, ingredient in
+                        return ingredientsList + "• \(ingredient.format(multiplier: multiplier))\n"
+                }
+                let ingredientsCellViewModel = ListCellViewModel(title: "\(algorithm.ingredients.count) \("ingredients".localized)", description: ingredients)
+                let recipeDescriptionCellViewModel = RecipeDescriptionViewModel(title: "Description".localized, portions: "\("portions".localized) - \(portions)")
+                
                 return [AnimatableSectionModel(model: "MainSection",
                                                items: [imageCell,
-                                                       ingredientsCell,
+                                                       RecipeCellType.descriptionCell(recipeDescriptionCellViewModel),
+                                                       RecipeCellType.listCell(ingredientsCellViewModel),
                                                        dependenciesCell,
                                                        stepsCell,
                                                        startCookingCell])]

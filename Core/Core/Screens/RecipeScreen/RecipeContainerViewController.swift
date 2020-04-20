@@ -71,8 +71,6 @@ private extension RecipeContainerViewController {
                 guard let strongSelf = self else { return }
                 self?.embedLoadingIndicator(theme: strongSelf.theme,
                                             in: strongSelf.contentContainer)
-                // TODO: Temporary solution
-                self?.navigationItem.setRightBarButtonItems(nil, animated: true)
             }
             .disposed(by: disposeBag)
     }
@@ -89,25 +87,6 @@ private extension RecipeContainerViewController {
             self?.viewModel.input.startCookingTapped()
         }
         .disposed(by: content.disposeBag)
-        
-        // TODO: Temporary solution
-        let plusButton = UIBarButtonItem(title: "+", style: .plain, target: nil, action: nil)
-        let minusButton = UIBarButtonItem(title: "-", style: .plain, target: nil, action: nil)
-        navigationItem.setRightBarButtonItems([plusButton, minusButton], animated: true)
-        
-        plusButton.rx.tap
-            .debounce(RxTimeInterval.milliseconds(200), scheduler: MainScheduler.instance)
-            .subscribe { _ in
-                content.viewModel.input.addPortion()
-            }
-            .disposed(by: disposeBag)
-        
-        minusButton.rx.tap
-            .debounce(RxTimeInterval.milliseconds(200), scheduler: MainScheduler.instance)
-            .subscribe { _ in
-                content.viewModel.input.removePortion()
-            }
-            .disposed(by: disposeBag)
         
         embed(content, in: contentContainer)
     }

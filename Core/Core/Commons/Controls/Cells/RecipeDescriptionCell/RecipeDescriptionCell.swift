@@ -23,6 +23,18 @@ public final class RecipeDescriptionViewModel {
     }
 }
 
+extension RecipeDescriptionViewModel: Hashable, Equatable {
+    public func hash(into hasher: inout Hasher) {
+        hasher.combine(title)
+        hasher.combine(portions)
+    }
+
+    public static func == (lhs: RecipeDescriptionViewModel, rhs: RecipeDescriptionViewModel) -> Bool {
+        return lhs.title == rhs.title
+            && lhs.portions == rhs.portions
+    }
+}
+
 public final class RecipeDescriptionCell: UITableViewCell {
     var disposeBag = DisposeBag()
     public var viewModel: RecipeDescriptionViewModel! {
