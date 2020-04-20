@@ -20,10 +20,9 @@ simpleCell.viewModel = StepCellViewModel(step: Step(description: think))
  Simple Short Duration Cell
  */
 var simpleShortDurationCell = StepTableCell.make()
-simpleShortDurationCell.apply(theme: DarkTheme())
+simpleShortDurationCell.apply(theme: LightTheme())
 simpleShortDurationCell.viewModel = StepCellViewModel(step: Step(description: thinkSomeMore,
                                                       duration: tenSeconds))
-simpleShortDurationCell.frame.origin.y = simpleCell.top + 10
 /*:
  Simple Long Duration Cell
  */
@@ -31,30 +30,23 @@ var simpleLongDurationCell = StepTableCell.make()
 simpleLongDurationCell.apply(theme: DarkTheme())
 simpleLongDurationCell.viewModel = StepCellViewModel(step: Step(description: thinkSomeMore,
                                                              duration: threeHours))
-simpleLongDurationCell.frame.origin.y = simpleShortDurationCell.top + 10
 /*:
  Simple Long Duration Long Text Cell
  */
 var simpleLongDurationAndTextCell = StepTableCell.make()
-simpleLongDurationAndTextCell.apply(theme: DarkTheme())
+simpleLongDurationAndTextCell.apply(theme: LightTheme())
 simpleLongDurationAndTextCell.viewModel = StepCellViewModel(step: Step(description: longThinkSomeMore,
                                                              duration: threeHours))
-simpleLongDurationAndTextCell.frame.origin.y = simpleLongDurationCell.top + 10
 
-let liveView = UIView(frame: .zero)
-liveView.addSubview(simpleCell)
-liveView.addSubview(simpleShortDurationCell)
-liveView.addSubview(simpleLongDurationCell)
-liveView.addSubview(simpleLongDurationAndTextCell)
+let liveView = UIStackView(arrangedSubviews: [simpleCell.contentView,
+                                              simpleShortDurationCell.contentView,
+                                              simpleLongDurationCell.contentView,
+                                              simpleLongDurationAndTextCell.contentView])
+liveView.distribution = .fillEqually
+liveView.axis = .vertical
+liveView.frame = simpleLongDurationAndTextCell.frame
+liveView.frame.size.height = 4 * liveView.frame.height
 
-liveView.frame.size.width = liveView.subviews.first?.frame.size.width ?? 0
-liveView.frame.size.height = liveView.subviews.last!.top
 PlaygroundPage.current.liveView = liveView
-
-extension UIView {
-    var top: CGFloat {
-        return frame.origin.y + frame.size.height
-    }
-}
 
 //: [Next](@next)

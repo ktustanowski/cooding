@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		7B63B699244ADB4300835C81 /* RecipeDescriptionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B63B698244ADB4300835C81 /* RecipeDescriptionCell.swift */; };
+		7BC637E8244E1FF600109A72 /* RecipeDescriptionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7BC637E7244E1FF600109A72 /* RecipeDescriptionCell.xib */; };
 		9A0985BA22F0A83000A47127 /* Common.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9A0985B922F0A83000A47127 /* Common.storyboard */; };
 		9A0985BC22F0A9F900A47127 /* UIView+RoundCorners.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A0985BB22F0A9F900A47127 /* UIView+RoundCorners.swift */; };
 		9A0985C022F0AFD700A47127 /* NoDataViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A0985BF22F0AFD700A47127 /* NoDataViewController.swift */; };
@@ -91,6 +92,7 @@
 
 /* Begin PBXFileReference section */
 		7B63B698244ADB4300835C81 /* RecipeDescriptionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeDescriptionCell.swift; sourceTree = "<group>"; };
+		7BC637E7244E1FF600109A72 /* RecipeDescriptionCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RecipeDescriptionCell.xib; sourceTree = "<group>"; };
 		9A0985B922F0A83000A47127 /* Common.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Common.storyboard; sourceTree = "<group>"; };
 		9A0985BB22F0A9F900A47127 /* UIView+RoundCorners.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+RoundCorners.swift"; sourceTree = "<group>"; };
 		9A0985BF22F0AFD700A47127 /* NoDataViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoDataViewController.swift; sourceTree = "<group>"; };
@@ -196,6 +198,7 @@
 			isa = PBXGroup;
 			children = (
 				7B63B698244ADB4300835C81 /* RecipeDescriptionCell.swift */,
+				7BC637E7244E1FF600109A72 /* RecipeDescriptionCell.xib */,
 			);
 			path = RecipeDescriptionCell;
 			sourceTree = "<group>";
@@ -564,6 +567,7 @@
 				9A0985BA22F0A83000A47127 /* Common.storyboard in Resources */,
 				9AF9970622F2362A00E9413C /* FullImageTableCell.xib in Resources */,
 				9ABF8ABF2306D009005C3C49 /* ListTableCell.xib in Resources */,
+				7BC637E8244E1FF600109A72 /* RecipeDescriptionCell.xib in Resources */,
 				9AC269D622EF8EC60080CA7E /* Dashboard.storyboard in Resources */,
 				9AF320052376140700E6D946 /* SliderTableCell.xib in Resources */,
 			);

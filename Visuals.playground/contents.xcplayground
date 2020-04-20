@@ -14,5 +14,6 @@
         <page name='FullImageTableCell'/>
         <page name='ButtonTableCell'/>
         <page name='SliderTableCell'/>
+        <page name='RecipeDescriptionCell'/>
     </pages>
 </playground>
