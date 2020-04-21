@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		7B63B699244ADB4300835C81 /* RecipeDescriptionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B63B698244ADB4300835C81 /* RecipeDescriptionCell.swift */; };
 		7BC637E8244E1FF600109A72 /* RecipeDescriptionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7BC637E7244E1FF600109A72 /* RecipeDescriptionCell.xib */; };
+		7BE07085244F6A7900DA77D1 /* LocalNotificationDispatcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BE07084244F6A7900DA77D1 /* LocalNotificationDispatcher.swift */; };
 		9A0985BA22F0A83000A47127 /* Common.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9A0985B922F0A83000A47127 /* Common.storyboard */; };
 		9A0985BC22F0A9F900A47127 /* UIView+RoundCorners.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A0985BB22F0A9F900A47127 /* UIView+RoundCorners.swift */; };
 		9A0985C022F0AFD700A47127 /* NoDataViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A0985BF22F0AFD700A47127 /* NoDataViewController.swift */; };
@@ -93,6 +94,7 @@
 /* Begin PBXFileReference section */
 		7B63B698244ADB4300835C81 /* RecipeDescriptionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeDescriptionCell.swift; sourceTree = "<group>"; };
 		7BC637E7244E1FF600109A72 /* RecipeDescriptionCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RecipeDescriptionCell.xib; sourceTree = "<group>"; };
+		7BE07084244F6A7900DA77D1 /* LocalNotificationDispatcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalNotificationDispatcher.swift; sourceTree = "<group>"; };
 		9A0985B922F0A83000A47127 /* Common.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Common.storyboard; sourceTree = "<group>"; };
 		9A0985BB22F0A9F900A47127 /* UIView+RoundCorners.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+RoundCorners.swift"; sourceTree = "<group>"; };
 		9A0985BF22F0AFD700A47127 /* NoDataViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoDataViewController.swift; sourceTree = "<group>"; };
@@ -216,6 +218,7 @@
 				9AD19D5522F636F300DDFA6F /* Constants.swift */,
 				9A6FCF9022F6D0F5009BDCCC /* PlaygroundUtilities.swift */,
 				9A6FCFA422F6EFE6009BDCCC /* InTests.swift */,
+				7BE07084244F6A7900DA77D1 /* LocalNotificationDispatcher.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -683,6 +686,7 @@
 				9AF9970422F2362000E9413C /* FullImageTableCell.swift in Sources */,
 				9A488FD122F4DB6D00AC308F /* ButtonView.swift in Sources */,
 				9AF996CE22F1F6BA00E9413C /* RecipeContainerViewController.swift in Sources */,
+				7BE07085244F6A7900DA77D1 /* LocalNotificationDispatcher.swift in Sources */,
 				9A6FCFA522F6EFE6009BDCCC /* InTests.swift in Sources */,
 				9AC269B922EE54E60080CA7E /* AlgorithmParser.swift in Sources */,
 				9A0985BC22F0A9F900A47127 /* UIView+RoundCorners.swift in Sources */,
