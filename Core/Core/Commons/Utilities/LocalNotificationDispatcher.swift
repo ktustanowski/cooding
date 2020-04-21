@@ -15,7 +15,7 @@ protocol LocalNotificationDispatching {
     func cancelAll()
 }
 
-struct LocalNotificationDispatcher: LocalNotificationDispatching {
+struct NotificationDispatcher: LocalNotificationDispatching {
     private let userNotificationCenter = UNUserNotificationCenter.current()
     
     func askForPermission(completion: ((Bool) -> Void)?) {
