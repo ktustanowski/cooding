@@ -27,6 +27,9 @@ private extension CookingViewController {
         title = "cooking.screen.title".localized
         tableView.register(StepTableCell.nib, forCellReuseIdentifier: StepTableCell.nibName)
         tableView.separatorStyle = .none
+        tableView.delegate = nil
+        tableView.dataSource = nil
+
         setupNavigationBar()
     }
 

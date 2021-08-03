@@ -125,7 +125,7 @@ private extension StepCellViewModel {
     
     func startCountdown() {
         lastDate = Date()
-        timerDisposable = Observable<Int>.timer(0.0, period: 1.0, scheduler: MainScheduler.instance)
+        timerDisposable = Observable<Int>.timer(.seconds(0), period: .seconds(1), scheduler: MainScheduler.instance)
             .subscribe { [weak self] _ in
                 guard let duration = self?.currentDurationRelay?.value,
                     let lastDate = self?.lastDate else { return }

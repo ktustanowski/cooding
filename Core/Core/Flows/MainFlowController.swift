@@ -88,7 +88,7 @@ private extension MainFlowController {
         dashboardScreen.apply(theme: theme)
         
         dashboardScreen.viewModel.didSelectRecipe
-            .observeOn(MainScheduler.instance)
+            .observe(on: MainScheduler.instance)
             .subscribe(onNext: { recipe in
                 didSelectRecipe(recipe)
             })
@@ -103,7 +103,7 @@ private extension MainFlowController {
         recipeScreen.apply(theme: theme)
         
         recipeScreen.viewModel.output.didTapStartCooking
-            .observeOn(MainScheduler.instance)
+            .observe(on: MainScheduler.instance)
             .subscribe(onNext: { algorithm in
                 didTapStartCooking(algorithm)
             })
@@ -132,7 +132,7 @@ private extension MainFlowController {
             .disposed(by: cookingScreen.disposeBag)
 
         cookingScreen.viewModel.output.didFinish
-            .observeOn(MainScheduler.instance)
+            .observe(on: MainScheduler.instance)
             .subscribe { _ in
                 didFinish()
             }
@@ -147,7 +147,8 @@ private extension MainFlowController {
         successScreen.apply(theme: theme)
         
         successScreen.viewModel.output.didDismiss
-            .observeOn(MainScheduler.instance).subscribe { [weak self] _ in
+            .observe(on: MainScheduler.instance)
+            .subscribe { [weak self] _ in
                 _ = self?.presenter.popToRootViewController(animated: true)
             }
             .disposed(by: successScreen.disposeBag)

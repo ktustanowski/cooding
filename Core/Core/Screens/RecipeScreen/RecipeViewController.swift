@@ -96,6 +96,9 @@ private extension RecipeViewController {
         tableView.separatorStyle = .none
         tableView.delaysContentTouches = false
         
+        tableView.delegate = nil
+        tableView.dataSource = nil
+
         dataSource.animationConfiguration = AnimationConfiguration(insertAnimation: .fade,
                                                                    reloadAnimation: .fade,
                                                                    deleteAnimation: .fade)

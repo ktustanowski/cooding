@@ -50,7 +50,7 @@ private extension RecipeContainerViewController {
 
     func bindViewModel() {
         viewModel.output.recipeViewModel
-            .observeOn(MainScheduler.instance)
+            .observe(on: MainScheduler.instance)
             .subscribe(onNext: { [weak self] viewModel in
                 guard let strongSelf = self else { return }
                 if let viewModel = viewModel {
@@ -65,7 +65,7 @@ private extension RecipeContainerViewController {
             .disposed(by: disposeBag)
         
         viewModel.output.isLoading
-            .observeOn(MainScheduler.instance)
+            .observe(on: MainScheduler.instance)
             .filter { $0 == true }
             .subscribe { [weak self] _ in
                 guard let strongSelf = self else { return }

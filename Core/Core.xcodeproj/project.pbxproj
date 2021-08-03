@@ -3,10 +3,18 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7B3B10E026B9AB5A00C66706 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 7B3B10DF26B9AB5A00C66706 /* Kingfisher */; };
+		7B3B10E326B9AC5D00C66706 /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 7B3B10E226B9AC5D00C66706 /* RxSwift */; };
+		7B3B10E526B9AC5D00C66706 /* RxTest in Frameworks */ = {isa = PBXBuildFile; productRef = 7B3B10E426B9AC5D00C66706 /* RxTest */; };
+		7B3B10E726B9AC5D00C66706 /* RxRelay in Frameworks */ = {isa = PBXBuildFile; productRef = 7B3B10E626B9AC5D00C66706 /* RxRelay */; };
+		7B3B10E926B9AC5D00C66706 /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = 7B3B10E826B9AC5D00C66706 /* RxCocoa */; };
+		7B3B10EB26B9AC5D00C66706 /* RxBlocking in Frameworks */ = {isa = PBXBuildFile; productRef = 7B3B10EA26B9AC5D00C66706 /* RxBlocking */; };
+		7B3B10EE26B9AD2500C66706 /* RxDataSources in Frameworks */ = {isa = PBXBuildFile; productRef = 7B3B10ED26B9AD2500C66706 /* RxDataSources */; };
+		7B3B10F026B9AD2500C66706 /* Differentiator in Frameworks */ = {isa = PBXBuildFile; productRef = 7B3B10EF26B9AD2500C66706 /* Differentiator */; };
 		7B63B699244ADB4300835C81 /* RecipeDescriptionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B63B698244ADB4300835C81 /* RecipeDescriptionCell.swift */; };
 		7BC637E8244E1FF600109A72 /* RecipeDescriptionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7BC637E7244E1FF600109A72 /* RecipeDescriptionCell.xib */; };
 		7BE07085244F6A7900DA77D1 /* LocalNotificationDispatcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BE07084244F6A7900DA77D1 /* LocalNotificationDispatcher.swift */; };
@@ -22,7 +30,6 @@
 		9A34484722F4F76400AC7DC1 /* UIViewController+Navigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A34484622F4F76400AC7DC1 /* UIViewController+Navigation.swift */; };
 		9A34484B22F575D200AC7DC1 /* Idle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A34484A22F575D200AC7DC1 /* Idle.swift */; };
 		9A34484D22F57B3A00AC7DC1 /* UIView+Shrink.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A34484C22F57B3A00AC7DC1 /* UIView+Shrink.swift */; };
-		9A34484F22F57F3E00AC7DC1 /* Kingfisher.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A34484E22F57F3E00AC7DC1 /* Kingfisher.framework */; };
 		9A34485522F5887300AC7DC1 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A34485422F5887300AC7DC1 /* Theme.swift */; };
 		9A34485722F5BAA500AC7DC1 /* KeyValueStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A34485622F5BAA500AC7DC1 /* KeyValueStore.swift */; };
 		9A34485A22F5CA2200AC7DC1 /* UIColor+Hex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A34485922F5CA2200AC7DC1 /* UIColor+Hex.swift */; };
@@ -71,12 +78,6 @@
 		9AF9591322C8E1C90055B204 /* CookingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AF9591222C8E1C90055B204 /* CookingViewController.swift */; };
 		9AF996CE22F1F6BA00E9413C /* RecipeContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AF996CD22F1F6BA00E9413C /* RecipeContainerViewController.swift */; };
 		9AF996D222F2006F00E9413C /* RecipeContainerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AF996D122F2006F00E9413C /* RecipeContainerViewModel.swift */; };
-		9AF996F022F2182500E9413C /* RxDataSources.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9AF996EA22F2182500E9413C /* RxDataSources.framework */; };
-		9AF996F122F2182500E9413C /* Differentiator.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9AF996EB22F2182500E9413C /* Differentiator.framework */; };
-		9AF996F222F2182500E9413C /* RxCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9AF996EC22F2182500E9413C /* RxCocoa.framework */; };
-		9AF996F322F2182500E9413C /* RxRelay.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9AF996ED22F2182500E9413C /* RxRelay.framework */; };
-		9AF996F422F2182500E9413C /* RxBlocking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9AF996EE22F2182500E9413C /* RxBlocking.framework */; };
-		9AF996F522F2182500E9413C /* RxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9AF996EF22F2182500E9413C /* RxSwift.framework */; };
 		9AF9970422F2362000E9413C /* FullImageTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AF9970322F2362000E9413C /* FullImageTableCell.swift */; };
 		9AF9970622F2362A00E9413C /* FullImageTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9AF9970522F2362A00E9413C /* FullImageTableCell.xib */; };
 /* End PBXBuildFile section */
@@ -175,13 +176,13 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9A34484F22F57F3E00AC7DC1 /* Kingfisher.framework in Frameworks */,
-				9AF996F022F2182500E9413C /* RxDataSources.framework in Frameworks */,
-				9AF996F122F2182500E9413C /* Differentiator.framework in Frameworks */,
-				9AF996F222F2182500E9413C /* RxCocoa.framework in Frameworks */,
-				9AF996F322F2182500E9413C /* RxRelay.framework in Frameworks */,
-				9AF996F422F2182500E9413C /* RxBlocking.framework in Frameworks */,
-				9AF996F522F2182500E9413C /* RxSwift.framework in Frameworks */,
+				7B3B10E726B9AC5D00C66706 /* RxRelay in Frameworks */,
+				7B3B10E926B9AC5D00C66706 /* RxCocoa in Frameworks */,
+				7B3B10E026B9AB5A00C66706 /* Kingfisher in Frameworks */,
+				7B3B10EE26B9AD2500C66706 /* RxDataSources in Frameworks */,
+				7B3B10EB26B9AC5D00C66706 /* RxBlocking in Frameworks */,
+				7B3B10F026B9AD2500C66706 /* Differentiator in Frameworks */,
+				7B3B10E326B9AC5D00C66706 /* RxSwift in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -189,6 +190,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7B3B10E526B9AC5D00C66706 /* RxTest in Frameworks */,
 				9AF958F622C8E17C0055B204 /* Core.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -492,13 +494,21 @@
 				9AF958E822C8E17C0055B204 /* Sources */,
 				9AF958E922C8E17C0055B204 /* Frameworks */,
 				9AF958EA22C8E17C0055B204 /* Resources */,
-				9A51E67222D3BA8C00A27ACF /* Carthage Copy Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
 			name = Core;
+			packageProductDependencies = (
+				7B3B10DF26B9AB5A00C66706 /* Kingfisher */,
+				7B3B10E226B9AC5D00C66706 /* RxSwift */,
+				7B3B10E626B9AC5D00C66706 /* RxRelay */,
+				7B3B10E826B9AC5D00C66706 /* RxCocoa */,
+				7B3B10EA26B9AC5D00C66706 /* RxBlocking */,
+				7B3B10ED26B9AD2500C66706 /* RxDataSources */,
+				7B3B10EF26B9AD2500C66706 /* Differentiator */,
+			);
 			productName = Core;
 			productReference = 9AF958EC22C8E17C0055B204 /* Core.framework */;
 			productType = "com.apple.product-type.framework";
@@ -518,6 +528,9 @@
 				9AF958F822C8E17C0055B204 /* PBXTargetDependency */,
 			);
 			name = CoreTests;
+			packageProductDependencies = (
+				7B3B10E426B9AC5D00C66706 /* RxTest */,
+			);
 			productName = CoreTests;
 			productReference = 9AF958F522C8E17C0055B204 /* CoreTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
@@ -549,6 +562,11 @@
 				en,
 			);
 			mainGroup = 9AF958E222C8E17C0055B204;
+			packageReferences = (
+				7B3B10DE26B9AB5A00C66706 /* XCRemoteSwiftPackageReference "Kingfisher" */,
+				7B3B10E126B9AC5D00C66706 /* XCRemoteSwiftPackageReference "RxSwift" */,
+				7B3B10EC26B9AD2500C66706 /* XCRemoteSwiftPackageReference "RxDataSources" */,
+			);
 			productRefGroup = 9AF958ED22C8E17C0055B204 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -586,38 +604,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		9A51E67222D3BA8C00A27ACF /* Carthage Copy Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"$(SRCROOT)/Carthage/Build/iOS/RxBlocking.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/RxCocoa.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/RxRelay.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/RxSwift.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/RxDataSources.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/Differentiator.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/Kingfisher.framework",
-			);
-			name = "Carthage Copy Frameworks";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/RxBlocking.framework",
-				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/RxCocoa.framework",
-				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/RxRelay.framework",
-				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/RxSwift.framework",
-				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/RxDataSources.framework",
-				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/Differentiator.framework",
-				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/Kingfisher.framework",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "/usr/local/bin/carthage copy-frameworks\n";
-		};
 		9A51E67422D3BBB000A27ACF /* Carthage Copy Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -978,6 +964,76 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		7B3B10DE26B9AB5A00C66706 /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/onevcat/Kingfisher.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 6.3.1;
+			};
+		};
+		7B3B10E126B9AC5D00C66706 /* XCRemoteSwiftPackageReference "RxSwift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/ReactiveX/RxSwift.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 6.2.0;
+			};
+		};
+		7B3B10EC26B9AD2500C66706 /* XCRemoteSwiftPackageReference "RxDataSources" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/RxSwiftCommunity/RxDataSources.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.1;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		7B3B10DF26B9AB5A00C66706 /* Kingfisher */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 7B3B10DE26B9AB5A00C66706 /* XCRemoteSwiftPackageReference "Kingfisher" */;
+			productName = Kingfisher;
+		};
+		7B3B10E226B9AC5D00C66706 /* RxSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 7B3B10E126B9AC5D00C66706 /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxSwift;
+		};
+		7B3B10E426B9AC5D00C66706 /* RxTest */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 7B3B10E126B9AC5D00C66706 /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxTest;
+		};
+		7B3B10E626B9AC5D00C66706 /* RxRelay */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 7B3B10E126B9AC5D00C66706 /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxRelay;
+		};
+		7B3B10E826B9AC5D00C66706 /* RxCocoa */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 7B3B10E126B9AC5D00C66706 /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxCocoa;
+		};
+		7B3B10EA26B9AC5D00C66706 /* RxBlocking */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 7B3B10E126B9AC5D00C66706 /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxBlocking;
+		};
+		7B3B10ED26B9AD2500C66706 /* RxDataSources */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 7B3B10EC26B9AD2500C66706 /* XCRemoteSwiftPackageReference "RxDataSources" */;
+			productName = RxDataSources;
+		};
+		7B3B10EF26B9AD2500C66706 /* Differentiator */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 7B3B10EC26B9AD2500C66706 /* XCRemoteSwiftPackageReference "RxDataSources" */;
+			productName = Differentiator;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 9AF958E322C8E17C0055B204 /* Project object */;
 }

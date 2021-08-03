@@ -29,6 +29,8 @@ private extension RecipeListViewController {
         tableView.delaysContentTouches = false
         tableView.register(FullImageTableCell.nib, forCellReuseIdentifier: FullImageTableCell.nibName)
         tableView.separatorStyle = .none
+        tableView.delegate = nil
+        tableView.dataSource = nil
     }
     
     func bindViewModel() {

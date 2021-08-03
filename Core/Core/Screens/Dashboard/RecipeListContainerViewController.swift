@@ -41,7 +41,7 @@ public final class RecipeListContainerViewController: UIViewController {
 private extension RecipeListContainerViewController {
     func bindViewModel() {
         viewModel.output.recipeListViewModel
-            .observeOn(MainScheduler.instance)
+            .observe(on: MainScheduler.instance)
             .subscribe(onNext: { [weak self] viewModel in
                 if let viewModel = viewModel {
                     self?.embedContent(viewModel: viewModel)
@@ -53,7 +53,7 @@ private extension RecipeListContainerViewController {
             .disposed(by: disposeBag)
         
         viewModel.output.isLoading
-            .observeOn(MainScheduler.instance)
+            .observe(on: MainScheduler.instance)
             .filter { $0 == true }
             .subscribe { [weak self]_ in
                 guard let strongSelf = self else { return }
@@ -108,7 +108,7 @@ private extension RecipeListContainerViewController {
         content.apply(theme: theme)
         
         content.viewModel.output.didSelectRecipe
-            .observeOn(MainScheduler.instance)
+            .observe(on: MainScheduler.instance)
             .subscribe(onNext: { [weak self] recipe in
                 self?.viewModel.input.selected(recipe: recipe)
             }).disposed(by: content.disposeBag)
